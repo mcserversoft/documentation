@@ -56,7 +56,18 @@
       {
          "name":"Advanced",
          "folder":"20-advanced",
-         "articles":[]
+         "articles":[
+            {
+               "name":"Migrate a Forge server",
+               "url_slug":"migrate-a-forge-server",
+               "file":"00-migrate-a-forge-server.md"
+            },
+            {
+               "name":"Migrate a Vanilla server",
+               "url_slug":"migrate-a-vanilla-server",
+               "file":"01-migrate-a-vanilla-server.md"
+            }
+         ]
       }
    ]
 }
