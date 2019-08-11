@@ -1,0 +1,62 @@
+{
+   "name":"MC Server Soft Documentation",
+   "url":"https://github.com/mcserversoft/documentation",
+   "assets_url":"https://github.com/mcserversoft/documentation/assets",
+   "default_article":{
+      "folder":"00-getting-started",
+      "article":{
+         "name":"Installation",
+         "url_slug":"installation",
+         "file":"00-installation.md"
+      }
+   },
+   "order":[
+      {
+         "name":"Getting Started",
+         "folder":"00-getting-started",
+         "articles":[
+            {
+               "name":"Installation",
+               "url_slug":"installation",
+               "file":"00-installation.md"
+            },
+            {
+               "name":"Creating a server",
+               "url_slug":"creating-a-server",
+               "file":"10-create-server.md"
+            },
+            {
+               "name":"Migrate an existing server",
+               "url_slug":"migrate-an-existing-server",
+               "file":"11-migrate-server.md"
+            },
+            {
+               "name":"Port forwarding",
+               "url_slug":"port-forwarding",
+               "file":"20-port-forwarding.md"
+            }
+         ]
+      },
+      {
+         "name":"The Basics",
+         "folder":"10-the-basics",
+         "articles":[
+            {
+               "name":"Introduction",
+               "url_slug":"introduction",
+               "file":"00-introduction.md"
+            },
+            {
+               "name":"Updating a server",
+               "url_slug":"updating-a-server",
+               "file":"01-update-server.md"
+            }
+         ]
+      },
+      {
+         "name":"Advanced",
+         "folder":"20-advanced",
+         "articles":[]
+      }
+   ]
+}
