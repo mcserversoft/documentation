@@ -4,15 +4,11 @@
 *   [Details and importing the old server](#details-and-importing-the-old-server)
 *   [Wrapping it up](#wrapping-it-up)
 
-<a class="anchor" name="choosing-a-server-type"></a>
-
 ## Choosing a server type
 
 There are a few supported types to choose from. Pick the one that matches your server you wish to import.
 
 ![Part of a screenshot of the create instance window, slightly faded out towards the bottom](../_assets/images/migrate_server_type.png)
-
-<a class="anchor" name="details-and-importing-the-old-server"></a>
 
 ## Details and importing the old server
 
@@ -32,8 +28,6 @@ Next click on the green folder icon in the bottom corner and browse to the locat
 ![Part of a screenshot of the migrate instance window, slightly faded out towards the bottom](../_assets/images/migrate_server_start.png)
 
 Before you click "Migrate" make sure that the other server is offline.
-
-<a class="anchor" name="wrapping-it-up"></a>
 
 ## Wrapping it up
 

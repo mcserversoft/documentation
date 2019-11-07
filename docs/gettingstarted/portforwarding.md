@@ -5,8 +5,6 @@
 *   [Accessing your router/modem's web interface](#accessing-your-router-modem-web-interface)
 *   [Setting up the port forward](#setting-up-the-port-forward)
 
-<a class="anchor" name="introduction"></a>
-
 ## Introduction
 
 I could have just written an A to Z tutorial but at the end of the day you would still have no idea what you actually did. Troubleshooting problems and maintaining your network would be tricky and painfull. So in this guide I'll be focusing on port forwarding and the basic logic arround it.
@@ -21,8 +19,6 @@ In my case, I have a modem with the wireless features turned off and I've hooked
 
 As you can see it becomes a bit confusing, if you don't know how your network is setup.
 
-<a class="anchor" name="different-network-devices"></a>
-
 ## Different network devices
 
 In any network you might find one of these devices:
@@ -35,8 +31,6 @@ Switch | Looks the same as a router but it does less. You would use a switch to 
 Hub | Honestly, throw this thing away. Hubs are very old, they are the switches of the past. All they do is receive signals and forward them to all connected devices. They add unneeded latency and noise on the network. Just want to point out that it would be a good time to upgrade to a switch.
 
 So go ahead and look arround to see how your network is setup.
-
-<a class="anchor" name="accessing-your-router-modem-web-interface"></a>
 
 ## Accessing your router/modem's web interface
 
@@ -59,8 +53,6 @@ This is my result, it will look different but the layout is more or less the sam
 Open a browser and type that into the address bar.
 
 ![Screenshot of the browser Opera with a login screen of the router](../_assets/images/portforward_browser.png)
-
-<a class="anchor" name="setting-up-the-port-forward"></a>
 
 ## Setting up the port forward
 
