@@ -1,0 +1,13 @@
+site_name:  MC Server Soft Documentation
+
+#only edit below this line
+
+nav:
+  - Home: 'index.md'
+  - Getting Started:
+    - Installation: 'gettingstarted/installation.md'
+    - Creating a server: 'gettingstarted/createserver.md'
+    - Migrate an existing server: 'gettingstarted/migrateserver.md'
+    - Port forwarding: 'gettingstarted/portforwading.md'
+  - Basics:
+    - Updating a server: 'basics/updateserver.md'
