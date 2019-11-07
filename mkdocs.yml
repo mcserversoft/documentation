@@ -11,6 +11,8 @@ nav:
     - Installation: 'gettingstarted/installation.md'
     - Creating a server: 'gettingstarted/createserver.md'
     - Migrate an existing server: 'gettingstarted/migrateserver.md'
-    - Port forwarding: 'gettingstarted/portforwading.md'
+    - Port forwarding: 'gettingstarted/portforwarding.md'
   - Basics:
     - Updating a server: 'basics/updateserver.md'
+  - Common Problems:
+    - FAQ - Frequently Asked Questions: 'commonproblems/faq.md'
