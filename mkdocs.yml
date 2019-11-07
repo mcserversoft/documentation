@@ -1,7 +1,7 @@
 site_name:  MC Server Soft Documentation
 
 theme:
-  name: 'rtd-dropdown'
+  name: 'readthedocs'
 
 # only edit below this line
 
