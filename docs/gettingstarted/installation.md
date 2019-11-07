@@ -30,7 +30,7 @@ Head over the download page and download MC Server Soft, run the installer tool.
 
 Choose a directory where you want to extact the files to. An empty folder is required.
 
-![Screenshot of the installation window](/_assets/images/installation_extract.png)
+![Screenshot of the installation window](../_assets/images/installation_extract.png)
 
 If you extracted it to to the wrong location, you can still move the extracted folder to any location desired.  
 Server Soft is fully portable so you can just take the folder with you without having to worry about forgetting some files.
@@ -41,4 +41,4 @@ Advanced users can also run it from a Ram Disk.
 
 All done! Feel free to delete the installer afterwards you've launched MCSS.
 
-![Screenshot of the create installation completed window](/_assets/images/installation_complete.png)
+![Screenshot of the create installation completed window](../_assets/images/installation_complete.png)

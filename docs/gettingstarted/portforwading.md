@@ -13,7 +13,7 @@ I could have just written an A to Z tutorial but at the end of the day you would
 
 Port forwarding or port mapping isn't that difficult, it might look complicated at first but it really isn't. The pupose of port forwarding is to make a specific programs on your computer accessible to other computers on the internet. It is commonly used for hosting game servers, peer-to-peer transfers, voice-over-ip applications and much more.
 
-![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](/_assets/images/portforward_overview.png)
+![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](../_assets/images/portforward_overview.png)
 
 It isn't something you need to configure on your computer but in your modem's and/or router's web interface. In most household networks the modem contains a router with wireless capability and everything is hooked up to that. So in that case you would only need to change the settings in the modem itself.
 
@@ -46,19 +46,19 @@ Now that you have a good sense on which router/modem you are running behind. It'
 
 Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit `Enter`. Or you can search for `Command Prompt` under your apps.
 
-![Partial screenshot of a cmd window](/_assets/images/portforward_cmd.png)
+![Partial screenshot of a cmd window](../_assets/images/portforward_cmd.png)
 
 Type <var>ipconfig</var> and hit <kbd>Enter</kbd>.
 
-![Partial screenshot of a cmd window](/_assets/images/portforward_cmd_ipconfig.png)
+![Partial screenshot of a cmd window](../_assets/images/portforward_cmd_ipconfig.png)
 
 This is my result, it will look different but the layout is more or less the same. What we need it the IP address of the ***Default Gateway***.
 
-![Partial screenshot of a cmd window](/_assets/images/portforward_cmd_result.png)
+![Partial screenshot of a cmd window](../_assets/images/portforward_cmd_result.png)
 
 Open a browser and type that into the address bar.
 
-![Screenshot of the browser Opera with a login screen of the router](/_assets/images/portforward_browser.png)
+![Screenshot of the browser Opera with a login screen of the router](../_assets/images/portforward_browser.png)
 
 <a class="anchor" name="setting-up-the-port-forward"></a>
 

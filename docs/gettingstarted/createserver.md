@@ -13,7 +13,7 @@ There are many types to choose from. If you are setting up your first server or 
 
 Some focus on adding more functionality, others on performance and others bring both.
 
-![Part of a screenshot of the create instance window, slightly faded out towards the bottom](/_assets/images/create_server_type.png)
+![Part of a screenshot of the create instance window, slightly faded out towards the bottom](../_assets/images/create_server_type.png)
 
 All of these listed server types support plugins and are all cross compatible. So you are not tied to a specific type. Going further down the list each one is more customizable and adds more features than the previous one.
 
@@ -38,7 +38,7 @@ Startup Line | The command used to start the server. It is tempting to change th
 Server Ram | The amount of memory that will be dedicated to your server. if you are just starting out, keep it at its default value and increase when needed. <br><br>***Default:*** 1024 MB
 Server Port | This is the port of your computer that wil be used by your Minecraft server to recieve and send data. The default is <var>25565</var>, if your plan on running more than 1 server at the time, you can simply increment it each time.<br><br> ***Default:*** 25565
 
-![Screenshot of the create instance window](/_assets/images/create_server_eula.png)
+![Screenshot of the create instance window](../_assets/images/create_server_eula.png)
 
 Accept the Minecraft EULA to continue.
 
@@ -46,7 +46,7 @@ Accept the Minecraft EULA to continue.
 
 ## Get the server files with the updater
 
-![Screenshot of the create instance window](/_assets/images/create_server_files.png)
+![Screenshot of the create instance window](../_assets/images/create_server_files.png)
 
 Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](../../basics/updateserver/) to get them.
 
@@ -58,4 +58,4 @@ When that's done, click on 'Create Server', this should only take a few seconds 
 
 All done! Wasn't that easy?
 
-![Screenshot of the create instance window](/_assets/images/create_server_finished.png)
+![Screenshot of the create instance window](../_assets/images/create_server_finished.png)
