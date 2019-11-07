@@ -1,15 +1,12 @@
-[Installation](#installation)
+# Installation
 
 *   [Setup Requirements](#setup-requirements)
 *   [Installing MC Server Soft](#installing-mc-server-soft)
 
-<a class="anchor" name="installation"></a>
-
-## Installation
 
 <a class="anchor" name="setup-requirements"></a>
 
-### Setup Requirements
+## Setup Requirements
 
 MC Server Soft has a few system requirements. Chances are that you already meet these requirements but it doesn't hurt to check.
 
@@ -23,13 +20,13 @@ These are bare <u>minimum</u> requirements, these are <u>needed</u> to run and o
 
 <a class="anchor" name="installing-mc-server-soft"></a>
 
-### Installing MC Server Soft
+## Installing MC Server Soft
 
-#### Download Installer
+### Download Installer
 
 Head over the download page and download MC Server Soft, run the installer tool.
 
-#### Extracting Files
+### Extracting Files
 
 Choose a directory where you want to extact the files to. An empty folder is required.
 
@@ -40,7 +37,7 @@ Server Soft is fully portable so you can just take the folder with you without h
 
 Advanced users can also run it from a Ram Disk.
 
-#### Launch MCSS
+### Launch MCSS
 
 All done! Feel free to delete the installer afterwards you've launched MCSS.
 

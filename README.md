@@ -1,4 +1,4 @@
-# MC Server Soft Documentation Source
+# MC Server Soft Documentation
 
 Source files of the official MC Server Soft documentation.
 
