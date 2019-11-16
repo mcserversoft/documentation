@@ -1,0 +1,9 @@
+- ## Getting Started
+    - [Installation](/{{route}}/{{version}}/installation)
+    - [Creating a server](/{{route}}/{{version}}/create-server)
+    - [Migrate an existing server](/{{route}}/{{version}}/migrate-server)
+    - [Port forwarding](/{{route}}/{{version}}/port-forwarding)
+- ## Basics
+    - [Updating a server](/{{route}}/{{version}}/update-server)
+- ## Common Problems
+    - [FAQ](/{{route}}/{{version}}/faq)
