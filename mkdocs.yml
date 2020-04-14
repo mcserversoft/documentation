@@ -1,0 +1,25 @@
+site_name: MC Server Soft Documentation
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  features:
+    - tabs
+  palette:
+    primary: teal
+    accent: teal
+extra_css: [assets/custom.css]
+repo_name: mcserversoft/documentation
+repo_url: https://github.com/mcserversoft/documentation
+markdown_extensions:
+  - codehilite
+  - admonition
+nav:
+ - Getting Started:
+   - Introduction: index.md
+   - Create a server: create-server.md
+   - Migrate an existing server: migrate-server.md
+   - Port Forwarding: port-forwarding.md
+ - Basics:
+   - Update a server: update-server.md

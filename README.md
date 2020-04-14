@@ -1,4 +1,4 @@
-# MC Server Sof Documentation
+# MC Server Soft Documentation
 
 You can find the online version of the MC Server Soft documentation at [https://www.mcserversoft.com/documentation](https://www.mcserversoft.com/documentation)
 
