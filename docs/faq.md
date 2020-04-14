@@ -70,14 +70,6 @@ IPv4: 192.0.2.235
 IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 <br>[More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
  
-<a name="mcsscommunicatormod-older-mc-versions"></a>
-##"Is the MCSSCommunicatorMod also available for older MC versions?"
-
-Yes it is, if you require a version that is not in the list below, please request on the [Discord](https://discord.gg/DEn89PB) server.
-<br>[Forge MC 1.9](https://www.mcserversoft.com/backend/downloads/MCSSCommunicatorMod_1.9.zip)
-<br>[Forge MC 1.10](https://www.mcserversoft.com/backend/downloads/MCSSCommunicatorMod_1.10.zip)
-<br>[Forge MC 1.12](https://www.mcserversoft.com/backend/downloads/MCSSCommunicatorMod_1.12.zip)
- 
 <a name="the-playerlist-of-my-imported-vanilla-server-is-not-working"></a>
 ##"The playerlist of my imported Vanilla server isn't working."<br>"My imported Vanilla server is acting weird."
 
