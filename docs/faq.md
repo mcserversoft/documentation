@@ -12,6 +12,9 @@
 *   [Failed to set performance counters.](#failed-to-set-performance-counters)
 *   [I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?](#weird-ip-address)
 *   [Updating from 10.4.0.0 or older fails.](#updating-from-10400-fails)
+*   [Add (or update) the Java system path.](#add-update-java-path)
+*   [Mcss has crashed and I want to help fix it.](#crashed-help-dev)
+*   [The UTF-8 encoding doesn't work, I *really really* need it to work.](#utf-8)
 
 
 <a name="error-occurred-during-initialization-of-vm"></a>
@@ -110,3 +113,55 @@ Due to backend api changes version 10.4.0.0 (and older) was considered End of Li
 Update from these old builds is no longer possible, they might even break.
 
 You will need to update mcss manually. Download the latest version from the website and rename it to mcss.exe and copy'n replace it with the existing one. (make a backup just in case)
+
+
+<a name="add-update-java-path"></a>
+## "Add (or update) the Java system path."
+
+> The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+
+1. Open an explorer window. Right-click on This PC and choose Properties.
+2.  On the left, click the Advanced system settings link.
+3. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
+4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+5. If you were using a Command prompt window, you will need to reopen that.
+<br>*(The above steps were adapted from <https://www.java.com/en/download/help/path.xml>)*
+
+
+<a name="crashed-help-dev"></a>
+## "Mcss has crashed and I want to help fix it."
+
+To help fix it, you can upload your Windows event logs and mcss logs.
+*(please zip all the files and send them to me by email, SpigotMC or Discord)*
+
+To get the mcss logs:
+> Mcss logs can be found in the mcss folder under /logs
+
+To get the Windows event logs:
+> Go to start and type eventvwr
+You can follow the other steps on screenshot below.
+
+![Screenshot of the event viewer](assets/screenshots/event_viewer.png)
+
+
+
+<a name="utf-8"></a>
+## "The UTF-8 encoding doesn't work, I *really really* need it to work."
+
+The sad reality is that UTF-8 is a second-class citizen in Windows.
+
+As of Windows 10 version 1903, you have the option to set the system locale (language for non-Unicode programs) to UTF-8, but the feature is in beta.
+
+To activate it:
+ * Run `intl.cpl` (which opens the regional settings in Control Panel)
+* Follow the instructions in the screen shot below.
+
+![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf8.png)
+
+In some cases, the server needs to be started with additional parameters. E.g `-Dfile.encoding=UTF-8`, this varies from the server type used. More research is required on your end.
+
+After setting this all up, this still doesn't guarantee that it will work. This just shows how bad the UTF-8 console support in Windows really is.
+
+(sources)
+- <https://stackoverflow.com/a/57134096>,
+- <https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ>
