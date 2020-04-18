@@ -153,7 +153,7 @@ The sad reality is that UTF-8 is a second-class citizen in Windows.
 As of Windows 10 version 1903, you have the option to set the system locale (language for non-Unicode programs) to UTF-8, but the feature is in beta.
 
 To activate it:
- * Run `intl.cpl` (which opens the regional settings in Control Panel)
+* Run `intl.cpl` (which opens the regional settings in Control Panel)
 * Follow the instructions in the screen shot below.
 
 ![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf8.png)
