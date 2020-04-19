@@ -80,7 +80,7 @@ Read the text in the dialog 😉
 
 ![Screenshot of failed to set performance counters dialog](assets/screenshots/dialog_performance_counters.png)
 
-Your performance counters are corrupt. Mcss can automatically do this for you.
+Your performance counters are corrupt. Mcss can automatically do this for you. Click "Yes" to fix it.
 
 In case you want to do this manually:
 
