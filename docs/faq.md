@@ -34,7 +34,7 @@ As the server owner, try connecting with "localhost" (without the "").
 Works? Great! This means there is nothing wrong with the actual server.
 
 However if you want other people to be able to play on your server, you will need to port forward your ip.
-[See section on Port forwarding](../../gettingstarted/portforwarding).
+[See section on Port forwarding](https://mcserversoft.github.io/documentation/port-forwarding).
  
 
 <a name="is-there-a-mac-version"></a>
