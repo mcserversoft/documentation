@@ -153,8 +153,8 @@ The sad reality is that UTF-8 is a second-class citizen in Windows.
 As of Windows 10 version 1903, you have the option to set the system locale (language for non-Unicode programs) to UTF-8, but the feature is in beta.
 
 To activate it:
-* Run `intl.cpl` (which opens the regional settings in Control Panel)
-* Follow the instructions in the screen shot below.
+*   Run `intl.cpl` (which opens the regional settings in Control Panel)
+*   Follow the instructions in the screen shot below.
 
 ![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf8.png)
 
@@ -163,5 +163,5 @@ In some cases, the server needs to be started with additional parameters. E.g `-
 After setting this all up, this still doesn't guarantee that it will work. This just shows how bad the UTF-8 console support in Windows really is.
 
 (sources)
-- <https://stackoverflow.com/a/57134096>,
-- <https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ>
+*   <https://stackoverflow.com/a/57134096>,
+*   <https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ>
