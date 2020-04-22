@@ -9,14 +9,14 @@
 <a name="#choosing-a-server-type"></a>
 ## Choisir un type de serveur
 
-Il y a quelques types de serveurs parmi lesquels choisir. Sélectionnez celui qui correspond eu serveur que vous voulez importer.
+Il y a quelques types de serveurs parmi lesquels choisir. Sélectionnez celui qui correspond au serveur que vous voulez importer.
 
 ![Part of a screenshot of the create instance window, slightly faded out towards the bottom](assets/screenshots/migrate_server_type.png)
 
 <a name="details-and-importing-the-old-server"></a>
 ## Détails et importation de l'ancien serveur
 
-Il est temps de modifier les détails de votre serveur.
+Vous allez maintenant modifier les détails de votre serveur.
 
 Nom du réglage | Description
 --- | ---
