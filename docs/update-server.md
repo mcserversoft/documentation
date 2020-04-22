@@ -2,39 +2,38 @@
 
 ---
 
-*   [Download the server jar file](#download-the-server-jar-file)
-*   [Select the server jar file](#select-the-server-jar-file)
-*   [Start the update](#start-the-update)
-*   [Wrapping it up](#wrapping-it-up)
+*   [Télécharger le jar du serveur](#download-the-server-jar-file)
+*   [Sélectionner le jar du serveur](#select-the-server-jar-file)
+*   [Démarrer la mise à jour](#start-the-update)
+*   [Finaliser](#wrapping-it-up)
 
-***You can also copy and replace the server files, but there is a gui available as shown below.***
+***Vous pouvez également copier et remplacer les fichiers du serveur, mais il y a une interface graphique, montrée ci-dessous.***
 
 <a name="download-the-server-jar-file"></a>
-## Download the server jar file
+## Télécharger le jar du serveur
 
-Visit one of the following site (I recommend Yive's mirror) and download the server jar file that you want to update your server to. Make sure that you update to the correct server type (spigot -> spigot) and not (spigot -> taco).
+Visitez un des sites proposés (recommandé : Yive's mirror) et téléchargez le fichier jar du serveur que vous voulez utiliser. assurez vous d'avoir choisi le bon type de serveur (spigot -> spigot) et non (spigot -> taco).
 
-**Also make sure that you also don't download an api jar!<br>(make sure that it does not has 'api' in its name)**
+**Assurez vous également de ne pas avoir téléchargé un jar d'API !<br>(vérifiez que le fichier ne contient pas 'api' dans son nom)**
 
 ![Screenshot of the Update Instance window](assets/screenshots/update_server_links.png)
 
 <a name="elect-the-server-jar-file"></a>
-## Select the server jar file
+## Sélectionner le jar du serveur
 
-Now it's time to select the server jar file you downloaded in the previous step. You can either drop it onto the form or you can browse for it with the 'Select file' option.
+Il est temps de sélectionner le fichier jar que vous avez téléchargé à l'étape précédente. Vous pouvez soit le glisser-déposer dans la fenêtre soit naviguer vers le fichier avec l'option 'Select file'.
 
 ![Screenshot of the Update Instance window where you can select your server file](assets/screenshots/update_server_files.png)
 
 <a name="start-the-update"></a>
-## Start the update
+## Démarrer la mise à jour
 
-Click 'Update' to start the process. This won't take long.
+Cliquez sur 'Update' pour démarrer le processus. Ça ne devrait pas être long.
 
 ![Screenshot of the Update Instance window with an update button where you can update the selected server file](assets/screenshots/update_server_update.png)
 
 <a name="wrapping-it-up"></a>
-## Wrapping it up
-
-All done! Wasn't that easy?
+## Finaliser
+Cliquez sur 'Finish'. L'installation est terminée !
 
 ![Screenshot of the Update Instance window after successfully updating a server](assets/screenshots/update_server_complete.png)
