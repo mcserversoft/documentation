@@ -1,6 +1,6 @@
 # Bienvenue sur la documentation officielle de MC Server Soft
 
-[MC Server Soft](https://www.mcserversoft.com/) est un gestionnaire de serveurs gratuit pour Windows.
+[MC Server Soft](https://www.mcserversoft.com/) est un gestionnaire de serveurs Minecraft gratuit pour Windows.
 
 ## Configuration requise
 
