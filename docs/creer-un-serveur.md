@@ -47,7 +47,7 @@ Acceptez la license (EULA) pour continuer.
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_files.png)
 
-Cliquez sur 'Open Updater Tool'. Depuis la version 10.0.4.4, les fichiers des serveurs ne sont plus fournis. Vous devrez utiliser  [l'updater tool](../../basics/updateserver/) pour les obtenir.
+Cliquez sur 'Open Updater Tool'. Depuis la version 10.0.4.4, les fichiers des serveurs ne sont plus fournis. Vous devrez utiliser  [l'updater tool](/maj-un-serveur) pour les obtenir.
 
 Une fois cette étape terminée, cliquez sur 'Create Server', cela devrait prendre seulement quelques secondes.
 
