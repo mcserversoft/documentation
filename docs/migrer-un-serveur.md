@@ -7,7 +7,7 @@
 *   [Finaliser](#wrapping-it-up)
 
 <a name="#choosing-a-server-type"></a>
-## Choisirun type de serveur
+## Choisir un type de serveur
 
 Il y a quelques types de serveurs parmi lesquels choisir. Sélectionnez celui qui correspond eu serveur que vous voulez importer.
 
