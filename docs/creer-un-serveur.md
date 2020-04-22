@@ -34,7 +34,7 @@ Nom du réglage | Description
 --- | ---
 Server Name | le nom de votre serveur, visible seulement par vous.
 Folder Path | Un chemin unique pour votre serveur, stocké dans le dossier /servers.
-Startup Line | La ligne de commande pour démarrer le serveur. Il est tentant de changer la variable <var>[RAM]</var>, mais je ne peux que vous décourager de le faire. À la place, utilisez le champs approprié :  <var>Server Ram</var> <br><br> ***Par défaut :*** `java -Xms256M -Xmx[RAM]M -jar {0}.jar --nojline`
+Startup Line | La ligne de commande pour démarrer le serveur. Il est tentant de changer la variable <var>[RAM]</var>, mais il est déconseillé de le faire. À la place, utilisez le champ approprié :  <var>Server Ram</var> <br><br> ***Par défaut :*** `java -Xms256M -Xmx[RAM]M -jar {0}.jar --nojline`
 Server Ram | La quantité de RAM que votre serveur pourra utiliser. Si c'est votre premier serveur, gardez la valeur par défaut et augmentez si nécessaire. <br><br>***Par défaut :*** 1024 Mo
 Server Port | Ceci est le port logiciel de votre ordinateur qui sera utilisé par le serveur pour envoyer et recevoir des données. Le port par défaut est le <var>25565</var>, si vous voulez avoir plusieurs serveurs en même temps, vous pouvez simplement l'augmenter de 1 à chaque fois.<br><br> ***Par défaut :*** 25565
 
