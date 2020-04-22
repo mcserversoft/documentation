@@ -1,4 +1,4 @@
-# Updating a server
+# Mettre à jour un serveur
 
 ---
 
