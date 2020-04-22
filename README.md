@@ -1,7 +1,7 @@
-# MC Server Soft Documentation
+# Documentation de MC Server Soft
 
-You can find the online version of the MC Server Soft documentation at [https://www.mcserversoft.com/documentation](https://www.mcserversoft.com/documentation)
+Vous pouvez trouver la version en ligne de la documentation ici : [https://www.mcserversoft.com/documentation](https://www.mcserversoft.com/documentation)
 
-## Contribution Guidelines
+## Directives de contribution :
 
-If you are submitting documentation please fork and create a pull request for you changes. Thank you!
+Si vous souhaitez modifier la documentation, veuillez créer une branche puis faire une pull request. Merci !
