@@ -12,13 +12,13 @@
 <a name="download-the-server-jar-file"></a>
 ## Télécharger le jar du serveur
 
-Visitez un des sites proposés (recommandé : Yive's mirror) et téléchargez le fichier jar du serveur que vous voulez utiliser. assurez vous d'avoir choisi le bon type de serveur (spigot -> spigot) et non (spigot -> taco).
+Visitez un des sites proposés (recommandé : Yive's mirror) et téléchargez le fichier jar du serveur que vous voulez utiliser. Assurez vous d'avoir choisi le bon type de serveur (spigot -> spigot) et non (spigot -> taco) par exemple.
 
 **Assurez vous également de ne pas avoir téléchargé un jar d'API !<br>(vérifiez que le fichier ne contient pas 'api' dans son nom)**
 
 ![Screenshot of the Update Instance window](assets/screenshots/update_server_links.png)
 
-<a name="elect-the-server-jar-file"></a>
+<a name="select-the-server-jar-file"></a>
 ## Sélectionner le jar du serveur
 
 Il est temps de sélectionner le fichier jar que vous avez téléchargé à l'étape précédente. Vous pouvez soit le glisser-déposer dans la fenêtre soit naviguer vers le fichier avec l'option 'Select file'.
