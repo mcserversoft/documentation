@@ -22,7 +22,7 @@ Nom | Description | Liens utile
 --- | --- | ---
 CraftBukkit | Etend l'expérience Vanilla avec des plugins et d'autres fonctionnalités. Si vous souhaitez un serveur simple pour jouer avec quelques amis, sans avoir besoin de modifier chaque aspect du jeu. | [Projet](https://bukkit.org/pages/about-us/)
 Spigot | Serveur Minecraft le plus utilisé, basé sur CraftBukkit. | [Projet](https://www.spigotmc.org/wiki/about-spigot/)
-PaperSpigot | Fourche hautes performances de Spigot, avec de nombreuses améliorations. | [Projet](https://papermc.io/)
+PaperSpigot | Branche hautes performances de Spigot, avec de nombreuses améliorations. | [Projet](https://papermc.io/)
 TacoSpigot | Encore meilleures performances qu'avec PaperSpigot. Offre quelques fonctionnalités expérimentales. | [Projet](https://tacospigot.github.io/)
 
 <a name="details-and-accepting-the-minecraft-eula"></a>
