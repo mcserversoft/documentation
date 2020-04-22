@@ -3,57 +3,57 @@
 ---
 
 *   [Choisir un type de serveur](#choosing-a-server-type)
-*   [Détails et acceptation de le license de Minecraft](#details-and-accepting-the-minecraft-eula)
+*   [Détails et acceptation de la license de Minecraft](#details-and-accepting-the-minecraft-eula)
 *   [Obtenir les fichiers du serveur avec l'updater](#get-the-server-files-with-the-updater)
 *   [Finaliser](#wrapping-it-up)
 
 <a name="choosing-a-server-type"></a>
-## Choosing a server type
+## Choisir un type de serveur
 
-There are many types to choose from. If you are setting up your first server or if these server types are new to you, it's important to know what each one does and what it brings to the table.
+Il y a de nombreux types disponibles. Si vous créez votre premier serveur ou si ces types de serveurs sont nouveaux pour vous, il est important que vous sachiez ce que chaqun fait et ce qu'il apporte.
 
-Some focus on adding more functionality, others on performance and others bring both.
+Certains se concentrent sur les fonctionnalités, d'autres sur les performances, et quelques uns apportent les deux.
 
 ![Part of a screenshot of the create instance window, slightly faded out towards the bottom](assets/screenshots/create_server_type.png)
 
-All of these listed server types support plugins and are all cross compatible. So you are not tied to a specific type. Going further down the list each one is more customizable and adds more features than the previous one.
+Tous les types de serveurs listés supportent les plugins et sont compatibles entre eux, donc vous n'êtes pas forcés d'en choisir un spécifiquement. Au fur et à mesure que la liste avance, chaque serveur est plus personalisable et ajoute plus de fonctionnalités que les précédents.
 
-Name | Description | Useful links
+Nom | Description | Liens utile
 --- | --- | ---
-CraftBukkit | Extends the Vanilla experience with plugins and other functionality. If you just want a server to play with some friends, without the need to customize every aspect of the gameplay. | [Project](https://bukkit.org/pages/about-us/)
-Spigot | Most used modded Minecraft server software based on CraftBukkit. | [Project](https://www.spigotmc.org/wiki/about-spigot/)
-PaperSpigot | High performance fork of Spigot with many features and performance improvements. | [Project](https://papermc.io/)
-TacoSpigot |Even higher performance fork of PaperSpigot. It offering increased performance and experimental features. | [Project](https://tacospigot.github.io/)
+CraftBukkit | Etends l'expérience Vanilla avec des plugins et d'autres fonctionnalités. Si vous souhaitez un serveur simple pour jouer avec quelques amis, sasn avoir besoin de modifier chaque aspect du jeu. | [Projet](https://bukkit.org/pages/about-us/)
+Spigot | Serveur Minecraft le plus utilisé, basé sur CraftBukkit. | [Projet](https://www.spigotmc.org/wiki/about-spigot/)
+PaperSpigot | Fourche hautes performances de Spigot, avec de nombreuses améliorations. | [Project](https://papermc.io/)
+TacoSpigot | Encore meilleures performances qu'avec PaperSpigot. Offre quelques fonctionnalités expérimentales. | [Projet](https://tacospigot.github.io/)
 
 <a name="details-and-accepting-the-minecraft-eula"></a>
-## Details and accepting the Minecraft EULA
+## Détails et acceptation de la license de Minecraft
 
-It's time to fill in all details about your server.
+C'est le moment de modifier tous les détails de votre serveur.
 
-Setting name | Description
+Nom du réglage | Description
 --- | ---
-Server Name | A name for your server, this is only visible to you.
-Folder Path | A unique location for your server, stored in the /servers directory.
-Startup Line | The command used to start the server. It is tempting to change the <var>[RAM]</var> variable but I can only discourage you from doing so. Instead use the appropriate <var>Server Ram</var> <br><br> ***Default:*** `java -Xms256M -Xmx[RAM]M -jar {0}.jar --nojline`
-Server Ram | The amount of memory that will be dedicated to your server. if you are just starting out, keep it at its default value and increase when needed. <br><br>***Default:*** 1024 MB
-Server Port | This is the port of your computer that wil be used by your Minecraft server to recieve and send data. The default is <var>25565</var>, if your plan on running more than 1 server at the time, you can simply increment it each time.<br><br> ***Default:*** 25565
+Server Name | le nom de votre serveur, visible seulement par vous.
+Folder Path | Un chemin unique pour votre serveur, stocké dans le dossier /servers.
+Startup Line | La ligne de commande pour démarrer le serveur. Il est tentant de changer la variable <var>[RAM]</var>, mais je ne peux que vous décourager de le faire. À la place, utilisez le champs approprié :  <var>Server Ram</var> <br><br> ***Par défaut :*** `java -Xms256M -Xmx[RAM]M -jar {0}.jar --nojline`
+Server Ram | La quantité de RAM que votre serveur pourra utiliser. Si c'est votre premier serveur, gardez la valeur par défaut et augmentez si nécessaire. <br><br>***Par défaut :*** 1024 Mo
+Server Port | Ceci est le port logiciel de votre ordinateur qui sera utilisé par le serveur pour envoyer et recevoir des données. Le port par défaut est le <var>25565</var>, si vous voulez avoir plusieurs serveurs en même temps, vous pouvez simplement l'augmenter de 1 à chaque fois.<br><br> ***Par défaut :*** 25565
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_eula.png)
 
-Accept the Minecraft EULA to continue.
+Acceptez la license (EULA) pour continuer.
 
 <a name="get-the-server-files-with-the-updater"></a>
-## Get the server files with the updater
+## Obtenir les fichiers du serveur avec l'updater
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_files.png)
 
-Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](../../basics/updateserver/) to get them.
+Cliquez sur 'Open Updater Tool'. Depuis la version 10.0.4.4, les fichiers des serveurs ne sont plus fournis. Vous devrez utiliser  [l'updater tool](../../basics/updateserver/) pour les obtenir.
 
-When that's done, click on 'Create Server', this should only take a few seconds or even less.
+Une fois cette étape terminée, cliquez sur 'Create Server', cela devrait prendre seulement quelques secondes.
 
 <a name="#wrapping-it-up"></a>
-## Wrapping it up
+## Finaliser
 
-All done! Wasn't that easy?
+Tout est terminé ! Facile non ?
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_finished.png)
