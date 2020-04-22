@@ -1,11 +1,11 @@
-# Creating a server
+# Créer un serveur
 
 ---
 
-*   [Choosing a server type](#choosing-a-server-type)
-*   [Details and accepting the Minecraft EULA](#details-and-accepting-the-minecraft-eula)
-*   [Get the server files with the updater](#get-the-server-files-with-the-updater)
-*   [Wrapping it up](#wrapping-it-up)
+*   [Choisir un type de serveur](#choosing-a-server-type)
+*   [Détails et acceptation de le license de Minecraft](#details-and-accepting-the-minecraft-eula)
+*   [Obtenir les fichiers du serveur avec l'updater](#get-the-server-files-with-the-updater)
+*   [Finaliser](#wrapping-it-up)
 
 <a name="choosing-a-server-type"></a>
 ## Choosing a server type
