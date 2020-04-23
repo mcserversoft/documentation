@@ -77,7 +77,7 @@ Lisez le texte de la boite de dialogue : <br>
 <br>`Voulez vous changer la méthode de détection pour utiliser 'ConsoleRead' ?`
 <br>`(Ce réglage peut aussi être retrouvé dans Files > Options > Advanced)`
 
-> Il a été reporté par les autres utilisateurs que PowerShell peut être mis à jour sous indows Server 2012, mais pas sous Windows 7. Leur meilleure option est de passer à la méthode "ConsoleRead". 
+> Il a été reporté par les autres utilisateurs que PowerShell peut être mis à jour sous Windows Server 2012, mais pas sous Windows 7. Leur meilleure option est de passer à la méthode "ConsoleRead". 
 
 
 <a name="failed-to-set-performance-counters"></a>
