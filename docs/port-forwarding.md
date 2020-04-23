@@ -4,7 +4,7 @@
 
 *   [Introduction](#introduction)
 *   [Plusieurs types d'équipements réseau](#different-network-devices)
-*   [Acceder à l'interface web de votre routeur/modem](#accessing-your-router-modem-web-interface)
+*   [Accéder à l'interface web de votre routeur/modem](#accessing-your-router-modem-web-interface)
 *   [Mettre en place la redirection de port](#setting-up-the-port-forward)
 
 <a name="introduction"></a>
@@ -29,15 +29,15 @@ Dans un réseau, vous êtes susceptibles de trouver ces appareils :
 
 Appareil | Description
 --- | ---
-Modem | Il est le plus souvent fourni par votre Fournisseur d'Acces à Internet (FAI). En termes simples : il permet de recevoir et d'envoyer les données nécessaires pour votre connexion internet/téléphone/TV.
-Routeur | Il permet de créer un réseau (filaire ou WiFi) entre les appareils de votre maison (ordinateurs, téléphones, imprimante...). La plupart des FAI fournissent un routeur intégré au modem (avec ou sans WiFi)
-Switch |Ressemble à un routeur, mais fait moins. Il est un peu comme une multiprise réseau, *ex. 1 cable rentre, 3 cables en sortent.*
-Hub | Honnêtement, jetez ces truc. Les hubs sont très vieux, ce sont les ancêtres des switch. Tout ce qu'ils font, c'est recevoir des données et les rediriger vers tous les autres appareils. Ils ajoutent de la latence et des interférences sur le réseau pour rien. C'était juste pour signaler qu'il serait temps de passer à un switch.
+Modem | Il est le plus souvent fourni par votre Fournisseur d'accès à Internet (FAI). En termes simples : il permet de recevoir et d'envoyer les données nécessaires pour votre connexion internet/téléphone/TV.
+Routeur | Il permet de créer un réseau (filaire ou Wifi) entre les appareils de votre maison (ordinateurs, téléphones, imprimante...). La plupart des FAI fournissent un routeur intégré au modem (avec ou sans Wifi)
+Switch |Ressemble à un routeur, mais fait moins. Il est un peu comme une multiprise réseau, *ex. 1 câble rentre, 3 câbles en sortent.*
+Hub | Honnêtement, jetez ces trucs. Les hubs sont très vieux, ce sont les ancêtres des switch. Tout ce qu'ils font, c'est recevoir des données et les rediriger vers tous les autres appareils. Ils ajoutent de la latence et des interférences sur le réseau pour rien. C'était juste pour signaler qu'il serait temps de passer à un switch.
 
 Regardez comment est organisé votre réseau, ce sera utile pour la suite.
 
 <a name="accessing-your-router-modem-web-interface"></a>
-## Acceder à l'interface web de votre routeur/modem
+## Accéder à l'interface web de votre routeur/modem
 
 Maintenant que vous avez une idée de ce que fait un routeur ou un modem, il est temps de vous connecter dessus pour les configurer.
 
@@ -62,8 +62,8 @@ Ouvrez un navigateur et entrez cette IP dans la barre d'adresse, vous arriverez 
 <a name="setting-up-the-port-forward"></a>
 ## Mettre en place la redirection de port
 
-Chaque fabricant à sa propre iterface, donc elles sont toutes différentes. Il serait impossible pour moi de couvrir tous les modèles de routeurs, et continuer serait inutile pour tous ceux qui n'ont pas une Freebox.
+Chaque fabricant à sa propre interface, donc elles sont toutes différentes. Il serait impossible pour moi de couvrir tous les modèles de routeurs, et continuer serait inutile pour tous ceux qui n'ont pas une Freebox.
 
 À la place, vous devrez faire une recherche spécifique en fonction de votre modèle de routeur. Vous trouverez [ici](http://pixelboys.fr/regroupement-creer-une-redirection-de-port/) un site qui explique comment ouvrir un port chez les principaux FAI Français.
 
-J'éspère que ce guide aura été un minimum utile, bonne chance !
+J'espère que ce guide aura été un minimum utile, bonne chance !
