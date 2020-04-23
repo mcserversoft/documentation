@@ -73,10 +73,8 @@ Ce changement est requis, cliquez sur 'Oui' pour appliquer le changement.
 Lisez le texte de la boite de dialogue : <br>
 `Depuis MCSS 11.7.0, la manière dont le statut des serveurs est détecté a changée.
 Windows 7 ne supporte pas cette nouvelle méthode via 'PowerShell', à la place MCSS doit utiliser l'ancienne méthode, moins fiable, de détection avec la console.
-
 Les utilisateurs de Windows Server 2012 R2 peuvent ignorer cet avertissement et mettre à jour leur version de PowerShell vers la 5.1.
 Voulez vous changer la méthode de détection pour utiliser 'ConsoleRead' ?
-
 (Ce réglage peut aussi être retrouvé dans Files > Options > Advanced)`
 
 > Il a été reporté par les autres utilisateurs que PowerShell peut être mis à jour sous indows Server 2012, mais pas sous Windows 7. Leur meilleure option est de passer à la méthode "ConsoleRead". 
