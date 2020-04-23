@@ -126,7 +126,7 @@ Vous devrez mettre à jour MCSS manuellement. Téléchargez la dernière version
 
 1. Ouvrez une fenêtre de l'explorateur de fichiers. Faites un clic droit sur "Ce PC" et choisissez "Propriétés".
 2.  Sur la gauche, cliquez sur Paramètres système avancés.
-3. Cliquez sur Variables d'environnement. Dans la section Variable système, trouvez la variable 'environnement PATH et sélectionnez-la. Cliquez sur Modifier. Si la variable PATH n'existe pas, cliquez sur Nouvelle.
+3. Cliquez sur Variables d'environnement. Dans la section Variables système, trouvez la variable d'environnement PATH et sélectionnez-la. Cliquez sur Modifier. Si la variable PATH n'existe pas, cliquez sur Nouvelle.
 4. Dans la fenêtre "Modifier la variable d'environnement", spécifiez la valeur de la variable PATH. Cliquez sur OK. Fermez toutes les fenêtres restantes en cliquant sur OK.
 5. Si vous utilisiez une fenêtre de l'invité de commandes, vous devrez la relancer.
 <br>*(Instructions adaptées de <https://www.java.com/fr/download/help/path.xml>)*
@@ -142,7 +142,7 @@ Pour obtenir les logs de MCSS :
 > Vous pouvez les trouver dans le dossier d'installation du logiciel dans /logs 
 
 Pour obtenir les logs d'évènements Windows :
-> dans le menu démarrer, entrez eventvwr puis entrée.
+> dans le menu démarrer, entrez `eventvwr` puis entrée.
 Suivez ensuite les étapes de la capture d'écran ci-dessous.
 
 ![Screenshot of the event viewer](assets/screenshots/event_viewer.png)
