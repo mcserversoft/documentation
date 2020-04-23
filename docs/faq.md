@@ -30,8 +30,8 @@ Si vous obtenez une erreur, elle n'est pas installée. Vous pouvez télécharger
 <a name="unable-to-connect-to-the-server"></a>
 ## "Unable to connect to the server."
 
-Sur le même PC que celui qui héberge le serveur, connectez vous avec "localhost" (sans les ") 
-Ça fonctionne ? super ! Ça veutdire que le serveur en lui-même fonctionne parfaitement !
+Sur le même PC que celui qui héberge le serveur, connectez-vous avec "localhost" (sans les ") 
+Ça fonctionne ? Super ! Cela veut dire que le serveur en lui-même fonctionne parfaitement !
 
 Cependant, si vous voulez que d'autres personnes puissent rejoindre votre serveur, vous devrez rediriger un port de votre router.
 [Voir la section sur la redirection de port](https://mcserversoft.github.io/documentation/port-forwarding).
@@ -40,7 +40,7 @@ Cependant, si vous voulez que d'autres personnes puissent rejoindre votre serveu
 <a name="is-there-a-mac-version"></a>
 ## Y a-t-il une version pour Mac ou Linux ?
 
-Non, malheureusement il n'y a pas de version pour Mac ou Linux. Mcss ne fonctionne que sous windows.<br>
+Non, malheureusement il n'y a pas de version pour Mac ou Linux. Mcss ne fonctionne que sous Windows.<br>
 **OS supportés**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 et 10
  
 
@@ -54,7 +54,7 @@ Rien à voir avec Aternos par exemple.
 <a name="mcss-crashes-when-starting-it"></a>
 ## MCSS plante quand je le lance.
 
-Avez vous le [Framework .NET 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (ou plus haut) installé ?
+Avez-vous le [Framework .NET 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (ou plus haut) installé ?
  
 
 <a name="process-name-different-format"></a>
@@ -74,7 +74,7 @@ Lisez le texte de la boite de dialogue : <br>
 <br>`Depuis MCSS 11.7.0, la manière dont le statut des serveurs est détecté a changée.`
 <br>`Windows 7 ne supporte pas cette nouvelle méthode via 'PowerShell', à la place MCSS doit utiliser l'ancienne méthode, moins fiable, de détection avec la console.`
 <br>`Les utilisateurs de Windows Server 2012 R2 peuvent ignorer cet avertissement et mettre à jour leur version de PowerShell vers la 5.1.`
-<br>`Voulez vous changer la méthode de détection pour utiliser 'ConsoleRead' ?`
+<br>`Voulez-vous changer la méthode de détection pour utiliser 'ConsoleRead' ?`
 <br>`(Ce réglage peut aussi être retrouvé dans Files > Options > Advanced)`
 
 > Il a été reporté par les autres utilisateurs que PowerShell peut être mis à jour sous Windows Server 2012, mais pas sous Windows 7. Leur meilleure option est de passer à la méthode "ConsoleRead". 
@@ -85,7 +85,7 @@ Lisez le texte de la boite de dialogue : <br>
 
 ![Screenshot of failed to set performance counters dialog](assets/screenshots/dialog_performance_counters.png)
 
-Vos compteurs de performances sont corrompus. MCSS peut eutomatiquement réparer cela pour vous. Cliquez sour "Oui" pour les réstaurer.
+Vos compteurs de performances sont corrompus. MCSS peut automatiquement réparer cela pour vous. Cliquez sur "Oui" pour les restaurer.
 
 Si vous souhaitez le faire manuellement :
 
@@ -100,7 +100,7 @@ Ouvrer l'invité de commande avec des permissions administrateur et exécutez le
 <a name="weird-ip-address"></a>
 ## J'ai cette IP un peu étrange : 2001:0db8:85a3:0000:0000:8a2e:0370:7334, est-ce normal ?
 
-Oui cette adresse est complètement normale, c'est une adresse IPv6. La plupart des gens n'ont pas encore acès à l'IPv6, donc il est sûrement plus intelligent de partager votre IPv4 avec vos amis.
+Oui cette adresse est complètement normale, c'est une adresse IPv6. La plupart des gens n'ont pas encore accès à l'IPv6, donc il est sûrement plus intelligent de partager votre IPv4 avec vos amis.
 
 Il y a deux versions de l'IP :
 <br>IPv4: 192.0.2.235
@@ -113,10 +113,10 @@ Il y a deux versions de l'IP :
 <a name="updating-from-10400-fails"></a>
 ## Mettre à jour depuis la version 10.4.0.0 ou antérieure ne fonctionne pas.
 
-À couse de changements dans l'API, les versions 10.4.0.0 (et antérieures) ont été considérées en fin de vie le 1er Janvier 2020.
+À cause de changements dans l'API, les versions 10.4.0.0 (et antérieures) ont été considérées en fin de vie le 1er janvier 2020.
 Mettre à jour depuis ces versions anciennes n'est plus possible.
 
-Vous devrez mettre à jour MCSS manuelement. Téléchargez la dernière version depuis le site et renommez le fichier "mcss.exe". Copiez et remplacez l'ancien fichier avec celui que vous venez de télécharger. (Faites une sauvegarde juste au cas ou)
+Vous devrez mettre à jour MCSS manuellement. Téléchargez la dernière version depuis le site et renommez le fichier "mcss.exe". Copiez et remplacez l'ancien fichier avec celui que vous venez de télécharger. (Faites une sauvegarde juste au cas où)
 
 
 <a name="add-update-java-path"></a>
@@ -126,22 +126,22 @@ Vous devrez mettre à jour MCSS manuelement. Téléchargez la dernière version 
 
 1. Ouvrez une fenêtre de l'explorateur de fichiers. Faites un clic droit sur "Ce PC" et choisissez "Propriétés".
 2.  Sur la gauche, cliquez sur Paramètres système avancés.
-3. Cliquez sur Variables d'environnement. Dans la section Variables système, trouvez la variable 'environnement PATH et selectionnez la. Cliquez sur Modifier. Si la variable PATH n'existe pas, cliquez sur Nouvelle.
+3. Cliquez sur Variables d'environnement. Dans la section Variable système, trouvez la variable 'environnement PATH et sélectionnez-la. Cliquez sur Modifier. Si la variable PATH n'existe pas, cliquez sur Nouvelle.
 4. Dans la fenêtre "Modifier la variable d'environnement", spécifiez la valeur de la variable PATH. Cliquez sur OK. Fermez toutes les fenêtres restantes en cliquant sur OK.
 5. Si vous utilisiez une fenêtre de l'invité de commandes, vous devrez la relancer.
-<br>*(Instructions adaptés de <https://www.java.com/fr/download/help/path.xml>)*
+<br>*(Instructions adaptées de <https://www.java.com/fr/download/help/path.xml>)*
 
 
 <a name="crashed-help-dev"></a>
 ## MCSS a planté et je voudrais aider à résoudre le bug
 
-Pour aider à résoudre le bug, vous pouvez envoyer vos logs MCSS et vos logs d'évènements Windows.
+Pour aider à résoudre le bogue, vous pouvez envoyer vos logs MCSS et vos logs d'évènements Windows.
 *(Veuillez faire un zip avec tous les fichiers et me l'envoyer pas e-mail, Spigot ou Discord)*
 
 Pour obtenir les logs de MCSS :
 > Vous pouvez les trouver dans le dossier d'installation du logiciel dans /logs 
 
-Pour obtenir les logs d'évènements windows :
+Pour obtenir les logs d'évènements Windows :
 > dans le menu démarrer, entrez eventvwr puis entrée.
 Suivez ensuite les étapes de la capture d'écran ci-dessous.
 
@@ -154,10 +154,10 @@ Suivez ensuite les étapes de la capture d'écran ci-dessous.
 
 La triste réalité est que l'encodage UTF-8 est très marginal sous Windows.
 
-Avec windows 10 1903, Vous avez la possibilité de changer les paramètres régionnaux du système (language pour les programmes non-Unicodes) pour l'UTF-8, mais cette fonctionnalité est en beta.
+Avec Windows 10 1903, Vous avez la possibilité de changer les paramètres régionaux du système (langage pour les programmes non-Unicodes) pour l'UTF-8, mais cette fonctionnalité est en bêta.
 
-Pour chager ce réglage :
-*   Lancez `intl.cpl` avec Windows + R (Qui ouvre les réglages régionnaux du panneau de configuration)
+Pour changer ce réglage :
+*   Lancez `intl.cpl` avec Windows + R (Qui ouvre les réglages régionaux du panneau de configuration)
 *   Suivez les instructions de la capture d'écran ci-dessous.
 
 ![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf8.png)
