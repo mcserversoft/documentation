@@ -16,16 +16,16 @@ La redirection de port, ou ouverture de port, n'est vraiment pas si difficile qu
 
 ![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](assets/screenshots/portforward_overview.png)
 
-Ce n'est pas quelque chose que vous allez mettre en place sur votre PC directement, mais sur l'interface web de votre routeur et/or modem. Dans la plupart des cas (en France), les modems contiennent aussi un routeur intégré, donc il n'y aura qu'un seul appareil à configurer.
+Ce n'est pas quelque chose que vous allez mettre en place sur votre PC directement, mais sur l'interface web de votre routeur et/ou modem. Dans la plupart des cas (en France en tout cas), les modems contiennent aussi un routeur intégré, donc il n'y aura qu'un seul appareil à configurer.
 
-Dans mon cas, j'ai désactivé la fonction routeur de mon modem et j'y ai relié un routeur plus puissant. Je devrais donc ouvrir un port sur les deux appareils (modem et routeur externe).
+Dans mon cas, j'ai désactivé la fonction routeur de mon modem et j'y ai relié un routeur externe plus puissant. Je devrais donc ouvrir un port sur les deux appareils (modem et routeur externe).
 
 Comme vous pouvez le voir, ça peut devenir un peu déroutant si vous ne savez pas comment est organisé votre réseau.
 
 <a name="different-network-devices"></a>
 ## Plusieurs types d'équipements réseau
 
-Dans un réseau, vosu êtes susceptibles de trouver ces appareils :
+Dans un réseau, vous êtes susceptibles de trouver ces appareils :
 
 Appareil | Description
 --- | ---
@@ -34,7 +34,7 @@ Routeur | Il permet de créer un réseau (filaire ou WiFi) entre les appareils d
 Switch |Ressemble à un routeur, mais fait moins. Il est un peu comme une multiprise réseau, *ex. 1 cable rentre, 3 cables en sortent.*
 Hub | Honnêtement, jetez ces truc. Les hubs sont très vieux, ce sont les ancêtres des switch. Tout ce qu'ils font, c'est recevoir des données et les rediriger vers tous les autres appareils. Ils ajoutent de la latence et des interférences sur le réseau. C'était juste pour signaler qu'il serait temps de passer à un switch.
 
-Regardez donc comment est organisé votre réseau, ce sera utile pour la suite.
+Regardez comment est organisé votre réseau, ce sera utile pour la suite.
 
 <a name="accessing-your-router-modem-web-interface"></a>
 ## Acceder à l'interface web de votre routeur/modem
