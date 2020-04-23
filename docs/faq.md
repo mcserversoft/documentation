@@ -70,7 +70,7 @@ Ce changement est requis, cliquez sur 'Oui' pour appliquer le changement.
 
 ![Screenshot of outdated operating system dialog](assets/screenshots/dialog_outdated_os_powershell.png)
 
-Lisez le texte de la boite de dialogue :
+Lisez le texte de la boite de dialogue : <br>
 `Depuis MCSS 11.7.0, la manière dont le statut des serveurs est détecté a changée.
 
 Windows 7 ne supporte pas cette nouvelle méthode via 'PowerShell', à la place MCSS doit utiliser l'ancienne méthode, moins fiable, de détection avec la console.
