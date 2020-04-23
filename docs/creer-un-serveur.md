@@ -3,30 +3,30 @@
 ---
 
 *   [Choisir un type de serveur](#choosing-a-server-type)
-*   [Détails et acceptation de la license de Minecraft](#details-and-accepting-the-minecraft-eula)
+*   [Détails et acceptation de la licence de Minecraft](#details-and-accepting-the-minecraft-eula)
 *   [Ajouter les fichiers du serveur avec l'updater](#get-the-server-files-with-the-updater)
 *   [Finaliser](#wrapping-it-up)
 
 <a name="choosing-a-server-type"></a>
 ## Choisir un type de serveur
 
-Il y a plusieurs types de serveurs disponibles. Si vous créez votre premier serveur ou si ces types de serveurs sont nouveaux pour vous, il est important que vous sachiez ce que chaqun fait et ce qu'il apporte.
+Il y a plusieurs types de serveurs disponibles. Si vous créez votre premier serveur ou si ces types de serveurs sont nouveaux pour vous, il est important que vous sachiez ce que chacun font et ce qu'ils apportent.
 
-Certains se concentrent sur les fonctionnalités, d'autres sur les performances, et quelques uns apportent les deux.
+Certains se concentrent sur les fonctionnalités, les performances, ou les deux.
 
 ![Part of a screenshot of the create instance window, slightly faded out towards the bottom](assets/screenshots/create_server_type.png)
 
-Tous les types de serveurs listés supportent les plugins et sont compatibles entre eux, vous n'êtes donc pas forcés d'en choisir un spécifiquement. Au fur et à mesure que la liste avance, chaque serveur est plus personalisable et ajoute plus de fonctionnalités que les précédents.
+Tous les types de serveurs listés supportent les plugins et sont compatibles entre eux, vous n'êtes donc pas forcés d'en choisir un spécifiquement. Au fur et à mesure que la liste avance, chaque serveur est plus personnalisable et ajoute plus de fonctionnalités que les précédents.
 
 Nom | Description | Liens utile
 --- | --- | ---
-CraftBukkit | Etend l'expérience Vanilla avec des plugins et d'autres fonctionnalités. Si vous souhaitez un serveur simple pour jouer avec quelques amis, sans avoir besoin de modifier chaque aspect du jeu. | [Projet](https://bukkit.org/pages/about-us/)
+CraftBukkit | Étend l'expérience Vanilla avec des plugins et d'autres fonctionnalités. Si vous souhaitez un serveur simple pour jouer avec quelques amis, sans avoir besoin de modifier chaque aspect du jeu. | [Projet](https://bukkit.org/pages/about-us/)
 Spigot | Serveur Minecraft le plus utilisé, basé sur CraftBukkit. | [Projet](https://www.spigotmc.org/wiki/about-spigot/)
-PaperSpigot | Fourche hautes performances de Spigot, avec de nombreuses améliorations. | [Projet](https://papermc.io/)
+PaperSpigot | Branche hautes performances de Spigot, avec de nombreuses améliorations. | [Projet](https://papermc.io/)
 TacoSpigot | Encore meilleures performances qu'avec PaperSpigot. Offre quelques fonctionnalités expérimentales. | [Projet](https://tacospigot.github.io/)
 
 <a name="details-and-accepting-the-minecraft-eula"></a>
-## Détails et acceptation de la license de Minecraft
+## Détails et acceptation de la licence de Minecraft
 
 C'est le moment de modifier tous les détails de votre serveur.
 
@@ -40,7 +40,7 @@ Server Port | Ceci est le port logiciel de votre ordinateur qui sera utilisé pa
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_eula.png)
 
-Acceptez la license (EULA) pour continuer.
+Acceptez la licence (EULA) pour continuer.
 
 <a name="get-the-server-files-with-the-updater"></a>
 ## Ajouter les fichiers du serveur avec l'updater
