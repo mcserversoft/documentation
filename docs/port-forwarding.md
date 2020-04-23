@@ -30,40 +30,40 @@ Dans un réseau, vosu êtes susceptibles de trouver ces appareils :
 Appareil | Description
 --- | ---
 Modem | Il est le plus souvent fourni par votre Fournisseur d'Acces à Internet (FAI). En termes simples : il permet de recevoir et d'envoyer les données nécessaires pour votre connexion internet/téléphone/TV.
-Routeur | A device that creates a network between the computers in your home by wire or wifi. Many internet provider install modems with an built-in router. (with or without wireless capabilities)
-Switch | Looks the same as a router but it does less. You would use a switch to expand your network, *ex. 1 cable goes in, 3 cables go elsewhere.*
-Hub | Honestly, throw this thing away. Hubs are very old, they are the switches of the past. All they do is receive signals and forward them to all connected devices. They add unneeded latency and noise on the network. Just want to point out that it would be a good time to upgrade to a switch.
+Routeur | Il permet de créer un réseau (filaire ou WiFi) entre les appareils de votre maison (ordinateurs, téléphones, imprimante...). La plupart des FAI fournissent un routeur intégré au modem (avec ou sans WiFi)
+Switch |Ressemble à un routeur, mais fait moins. Il est un peu comme une multiprise réseau, *ex. 1 cable rentre, 3 cables en sortent.*
+Hub | Honnêtement, jetez ces truc. Les hubs sont très vieux, ce sont les ancêtres des switch. Tout ce qu'ils font, c'est recevoir des données et les rediriger vers tous les autres appareils. Ils ajoutent de la latence et des interférences sur le réseau. C'était juste pour signaler qu'il serait temps de passer à un switch.
 
-So go ahead and look arround to see how your network is setup.
+Regardez donc comment est organisé votre réseau, ce sera utile pour la suite.
 
 <a name="accessing-your-router-modem-web-interface"></a>
-## Accessing your router/modem's web interface
+## Acceder à l'interface web de votre routeur/modem
 
-Now that you have a good sense on which router/modem you are running behind. It's finally time to connect to the machine that you want to configure.
+Maintenant que vous avez une idée de ce que fait un routeur ou un modem, il est temps de vous connecter dessus pour les configurer.
 
-### Step 1: Find the ip of the modem/device (default gateway)
+### Étape 1 : trouver l'adresse IP du routeur (passerelle par défaut)
 
-Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit `Enter`. Or you can search for `Command Prompt` under your apps.
+Ouvrez l'invité de commande. Pour cela, faites <kbd>touche Windows + R</kbd> puis écrivez `cmd` et appuyez sur <kbd>Entrée</kbd>. Ou vous pouvez rechercher `Invité de commandes` dans la liste de vos applications
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd.png)
 
-Type <var>ipconfig</var> and hit <kbd>Enter</kbd>.
+Tapez `ipconfig` et appuyez sur <kbd>Entrée</kbd>.
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd_ipconfig.png)
 
-This is my result, it will look different but the layout is more or less the same. What we need it the IP address of the ***Default Gateway***.
+Ceci est ce que j'obtiens, ce sera un peu différent pour vous mais le schéma général sera le même. Ce dont nous avons besoin est l'adresse IP de la ***Passerelle par défaut*** (ici 192.168.0.254).
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd_result.png)
 
-Open a browser and type that into the address bar.
+Ouvrez un navigateur et entrez cette IP dans la barre d'adresse, vous arriverez sur l'interface web de votre routeur (dans l'exemple une Freebox).
 
 ![Screenshot of the browser Opera with a login screen of the router](assets/screenshots/portforward_browser.png)
 
 <a name="setting-up-the-port-forward"></a>
-## Setting up the port forward
+## Mettre en place la redirection de port
 
-Every manufacturer has its own interface, so they look all different. It would be impossible for me to cover all of them and continuing would be useless for all the people who don't own a TP-Link router with this model.
+Chaque fabricant à sa propre iterface, donc elles sont toutes différentes. Il serait impossible pour moi de couvrir tous les modèles de routeurs, et continuer serait inutile pour tous ceux qui n'ont pas une Freebox.
 
-Instead I'm going to refer you to [www.portforward.com/router.htm](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model.
+À la place, vous devrez faire une recherche spécifique en fonction de votre modèle de routeur. Vous trouverez [ici](http://pixelboys.fr/regroupement-creer-une-redirection-de-port/) un site qui explique comment ouvrir un port chez les principaux FAI Français.
 
-I hope this guide has been somewhat useful to you, good luck!
+J'éspère que ce guide aura été un minimum utile, bonne chance !
