@@ -14,7 +14,7 @@ J'aurais pu écrire un tutoriel pour ouvrir un port de A à Z, mais à la fin vo
 
 La redirection de port, ou ouverture de port, n'est vraiment pas si difficile qu'il n'y paraît. Le but d'une redirection de port est de rendre accessible un logiciel spécifique de votre ordinateur depuis Internet. Ce procédé est utilisé communément pour des serveurs de jeu, des échanges peer-to-peer ou des applications voix-ip par exemple.
 
-![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](assets/screenshots/portforward_overvie.png)
+![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](assets/screenshots/portforward_overview.png)
 
 Ce n'est pas quelque chose que vous allez mettre en place sur votre PC directement, mais sur l'interface web de votre routeur et/or modem. Dans la plupart des cas (en France), les modems contiennent aussi un routeur intégré, donc il n'y aura qu'un seul appareil à configurer.
 
