@@ -20,7 +20,7 @@ Vous allez maintenant modifier les détails de votre serveur.
 
 Nom du réglage | Description
 --- | ---
-Server Name | Un nom pour votre serveur, visibe seulement par vous.
+Server Name | Un nom pour votre serveur, visible seulement par vous.
 Folder Path | Un chemin unique vers le serveur, stocké dans le dossier /servers.
 Startup Line | La ligne de commande pour démarrer le serveur. Il est tentant de changer la variable ***[RAM]*** mais il est déconseillé de le faire. À la place, utilisez le champ approprié : ***Server Ram***.
 Server Ram | La quantité de RAM que votre serveur pourra utiliser.
@@ -31,11 +31,11 @@ Ensuite, cliquez sur l'icône de dossier verte et naviguez jusqu'à l'emplacemen
 
 ![Part of a screenshot of the migrate instance window, slightly faded out towards the bottom](assets/screenshots/migrate_server_start.png)
 
-Avant de cliquer sur 'Migrate', assurez vous que l'ancien serveur est éteint.
+Avant de cliquer sur 'Migrate', assurez-vous que l'ancien serveur est éteint.
 
 <a name="wrapping-it-up"></a>
 ## Finaliser
 
-Tout est terminé !!
+Tout est terminé !
 
 ![Screenshot of the create instance window](assets/screenshots/migrate_server_finished.png)
