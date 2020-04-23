@@ -163,7 +163,7 @@ Pour chager ce réglage :
 *   Lancez `intl.cpl` avec Windows + R (Qui ouvre les réglages régionnaux du panneau de configuration)
 *   Suivez les instructions de la capture d'écran ci-dessous.
 
-![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf.png)
+![Screenshot of the region settings window as part of the control panel](assets/screenshots/utf8.png)
 
 Dans certains cas, le serveur devra être redémarré avec un argument additionnel. Par exemple `-Dfile.encoding=UTF-8`, mais ceci varie en fonction du type de serveur concerné. Des recherches plus approfondies seront nécessaires de votre côté.
 
