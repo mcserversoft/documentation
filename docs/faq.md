@@ -148,7 +148,7 @@ Pour obtenir les logs d'évènements windows :
 > dans le menu démarrer, entrez eventvwr puis entrée.
 Suivez ensuite les étapes de la capture d'écran ci-dessous.
 
-![Screenshot of the event viewer](assets/screenshots/event_viewer.png)
+![Screenshot of the event viewer](assets/screenshots/event_viewe.png)
 
 
 
