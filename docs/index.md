@@ -10,9 +10,9 @@ Ce sont les exigences <u>minimales</u>, elles sont <u>nécessaires</u> pour exé
 
 *   .NET Framework 4.7.2 ou plus haut
 *   Java 8 ou plus haut
-*   Windows Serveur (2008 R2 SP1/2012/2016), Windows 7, 8 ou 10 comme système d'exploitation, avec 4Go de mémoire
+*   Windows Serveur (2008 R2 SP1/2012/2016), Windows 7, 8 ou 10 comme système d'exploitation, avec 4 Go de mémoire
 *   Une connexion internet stable, filaire hautement conseillé
-*   Un routeur/modem capable de rediriger un port (pour le multijoueurs en ligne))
+*   Un routeur/modem capable de rediriger un port (pour le multijoueurs en ligne)
 
 ## Contribuer à la documentation officielle
 
