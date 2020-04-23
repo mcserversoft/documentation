@@ -10,7 +10,7 @@
 <a name="choosing-a-server-type"></a>
 ## Choisir un type de serveur
 
-Il y a de nombreux types de serveurs disponibles. Si vous créez votre premier serveur ou si ces types de serveurs sont nouveaux pour vous, il est important que vous sachiez ce que chacun font et ce qu'ils apportent.
+Il y a plusieurs types de serveurs disponibles. Si vous créez votre premier serveur ou si ces types de serveurs sont nouveaux pour vous, il est important que vous sachiez ce que chacun font et ce qu'ils apportent.
 
 Certains se concentrent sur les fonctionnalités, les performances, ou les deux.
 
