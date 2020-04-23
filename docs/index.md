@@ -6,7 +6,7 @@
 
 MC Server Soft requiert certains logiciels spécifiques. Il y a de grandes chances qu'ils soient déjà installés sur votre système, mais ça ne coûte rien de vérifier.
 
-Ce sont les exigences <u>minimales</u>, elles sont <u>nécessaires</u> pour executer et gérer des serveurs Minecraft avec MC Server Soft.
+Ce sont les exigences <u>minimales</u>, elles sont <u>nécessaires</u> pour exécuter et gérer des serveurs Minecraft avec MC Server Soft.
 
 *   .NET Framework 4.7.2 ou plus haut
 *   Java 8 ou plus haut
