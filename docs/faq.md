@@ -3,6 +3,7 @@
 ---
 
 *   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.](#error-occurred-during-initialization-of-vm)
+*   [My server keeps saying starting.](#server-keeps-saying-starting)
 *   [Unable to connect to the server.](#unable-to-connect-to-the-server)
 *   [Is there a mac or linux version?](#is-there-a-mac-version)
 *   [Is this 24/7?](#is-this-24-7)
@@ -25,6 +26,16 @@ Want to check if it's installed? Open a command prompt and type:
 `java -d64 -version`
 
 If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp).
+
+
+<a name="server-keeps-saying-starting"></a>
+## My server keeps saying starting.
+
+If your server has actually started but mcss isn't detecting it then you can change the way how mcss detects online servers.
+
+Go to `File > Options > Advanced` and change the default detection method to `ConsoleReading`.
+
+![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
 
 
 <a name="unable-to-connect-to-the-server"></a>
