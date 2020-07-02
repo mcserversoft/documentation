@@ -46,7 +46,8 @@ Works? Great! This means there is nothing wrong with the actual server.
 
 However if you want other people to be able to play on your server, you will need to port forward your ip.
 [See section on Port forwarding](https://mcserversoft.github.io/documentation/port-forwarding).
- 
+
+Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
 <a name="is-there-a-mac-version"></a>
 ## "Is there a mac or linux version?"
@@ -60,7 +61,6 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
- 
 
 <a name="mcss-crashes-when-starting-it"></a>
 ## MCSS crashes when starting it.
