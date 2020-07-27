@@ -35,6 +35,8 @@ Sur le même PC que celui qui héberge le serveur, connectez-vous avec "localhos
 
 Cependant, si vous voulez que d'autres personnes puissent rejoindre votre serveur, vous devrez rediriger un port de votre router.
 [Voir la section sur la redirection de port](https://mcserversoft.github.io/documentation/port-forwarding).
+
+Pensez aussi à vérifier que le port du serveur (25565 par défaut) est autorisé à travers votre pare-feu windows.
  
 
 <a name="is-there-a-mac-version"></a>
