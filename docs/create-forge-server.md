@@ -24,10 +24,10 @@ Choose 'install server" and select an empty folder in which the server wil tempo
 ![L'installateur Forge](assets/screenshots/install_forge.png)
 
 The folder now contains : 
-*   Un sub-folder `libraries`
-*   Un file `<version_minecraft>.json`
-*   Un file `forge-<version_minecraft>-<version_forge>.jar`
-*   Un file `minecraft-server.<version_minecraft>.jar`
+*   A sub-folder `libraries`
+*   A file `<version_minecraft>.json`
+*   A file `forge-<version_minecraft>-<version_forge>.jar`
+*   A file `minecraft-server.<version_minecraft>.jar`
 
 You can now delete the forge installer file.
 
