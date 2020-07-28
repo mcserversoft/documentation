@@ -11,7 +11,7 @@
 
 Go to the [Forge website](https://files.minecraftforge.net) and choose the version that you want to download. Click on "Installer" to download that version's installer.
 
-![Le site de forge](assets/screenshots/download_forge.png)
+![Forge website](assets/screenshots/download_forge.png)
 
 Wait for the end of the ad (6 seconds) and click on "Skip" at the top right of the page. A .jar file will be downloaded.
 
@@ -19,9 +19,9 @@ Wait for the end of the ad (6 seconds) and click on "Skip" at the top right of t
 ## Create the Forge server
 
 Once the download is done, open the file `forge-<version_minecraft>-<version_forge>-installer.jar` to begin the Forge server installation. <br>
-Choose 'install server" and select an empty folder in which the server wil temporarily be installed (it will then be oved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
+Choose 'install server" and select an empty folder in which the server wil temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
 
-![L'installateur Forge](assets/screenshots/install_forge.png)
+![The Forge installer](assets/screenshots/install_forge.png)
 
 The folder now contains : 
 *   A sub-folder `libraries`
@@ -40,7 +40,7 @@ All the server files are copied to the /servers folder of MCSS and your server w
 
 You can also delete the temporary folder where you installed Forge, it is useless since all the files have been copied to the /servers folder of the app.
 
-![La fenêtre de migration de serveur](assets/screenshots/migrate_forge.png)
+![server migration window](assets/screenshots/migrate_forge.png)
 
 You can now start you Forge server by clicking the "Start" button. <br>
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br>
