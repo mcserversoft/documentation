@@ -18,12 +18,13 @@ Wait for the end of the ad (6 seconds) and click on "Skip" at the top right of t
 <a name="create-forge-server"></a>
 ## Create the Forge server
 
-Once the download is done, open the file `forge-<version_minecraft>-<version_forge>-installer.jar` to begin the Forge server installation. <br>
+Once the download is done, open the file `forge-<minecraft_version>-<forge_version>-installer.jar` to begin the Forge server installation. <br>
 Choose "install server" and select an empty folder in which the server wil temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
 
 ![The Forge installer](assets/screenshots/install_forge.png)
 
 The folder now contains : 
+
 *   A sub-folder `libraries`
 *   A file `<minecraft_version>.json`
 *   A file `forge-<minecraft_version>-<forge_version>.jar`
@@ -35,7 +36,7 @@ You can now delete the forge installer file.
 ## Migrate the server to MCSS
 
 Now, open MCSS and go to "File > migrate server". A new windows will open. Inside it, choose a name for you server and a folder name (that will be stored to `mcss/servers/<folder_name>`. Choose the amout of RAM that will be allocated to the server, in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server).<br>
-In "server type" choose Forge. Finally, select the executable jar file of the server : it's the `forge-<version_minecraft>-<version_forge>.jar` file of the server you created in the steps above and click "Migrate". Do not change the Startup Line, or MCSS will break and your server won't work properly.<br>
+In "server type" choose Forge. Finally, select the executable jar file of the server : it's the `forge-<minecraft_version>-<forge_version>.jar` file of the server you created in the steps above and click "Migrate". Do not change the Startup Line, or MCSS will break and your server won't work properly.<br>
 All the server files are copied to the /servers folder of MCSS and your server will appear in the servers list. <br>
 
 You can also delete the temporary folder where you installed Forge, it is now useless since all the files have been copied to the /servers folder of the app.
