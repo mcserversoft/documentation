@@ -35,7 +35,7 @@ Vous pouvez maintenant supprimer l'installateur de forge.
 ## Importer le serveur dans MCSS
 
 Maintenant, ouvrez MCSS et allez dans "File > migrate server". Une nouvelle fenêtre s'ouvre. Dans celle-ci, choisissez un nom pour votre serveur ansi qu'un nom de dossier (qui sera stocké dans `mcss/servers/<nom_dossier>`). Choisissez la quantité de RAM allouée au serveur, en Mo (pour un serveur Forge, il est recommandé d'avoir au moins 4Go, ou 4096Mo). <br>
-Dans "server type" choisissez Forge. Enfin, selectionnez le jar executable du serveur : c'est le fichier `forge-<version_minecraft>-<version_forge>.jar` du serveur que vous avez installé plus tôt et cliquez sur "Migrate". <br>
+Dans "server type" choisissez Forge. Enfin, selectionnez le jar executable du serveur : c'est le fichier `forge-<version_minecraft>-<version_forge>.jar` du serveur que vous avez installé plus tôt et cliquez sur "Migrate". Ne touchez pas à la ligne "Startup Line", sinon MCSS ne fonctionnera pas correctement et votre serveur ne sera pas utilisable.<br>
 Tous les fichiers du serveur vont être copiés dans le dossier /servers de MCSS et votre serveur va apparaître dans la liste des serveurs. <br>
 
 Vous pouvez également supprimer le dossier temporaire dans lequel vous aviez installé forge, il est inutile vu que tous les fichiers ont été copiés dans le dossier /servers de MCSS
