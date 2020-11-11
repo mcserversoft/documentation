@@ -5,6 +5,7 @@
 *   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.](#error-occurred-during-initialization-of-vm)
 *   [My server keeps saying starting.](#server-keeps-saying-starting)
 *   [Unable to connect to the server.](#unable-to-connect-to-the-server)
+*   [Server can't keep up, but it's not using all the ram given](#multicore)
 *   [Is there a mac or linux version?](#is-there-a-mac-version)
 *   [Is this 24/7?](#is-this-24-7)
 *   [MCSS crashes when starting it.](#mcss-crashes-when-starting-it)
@@ -16,6 +17,7 @@
 *   [Add (or update) the Java system path.](#add-update-java-path)
 *   [Mcss has crashed and I want to help fix it.](#crashed-help-dev)
 *   [The UTF-8 encoding doesn't work, I *really really* need it to work.](#utf-8)
+
 
 
 <a name="error-occurred-during-initialization-of-vm"></a>
@@ -48,6 +50,19 @@ However if you want other people to be able to play on your server, you will nee
 [See section on Port forwarding](https://mcserversoft.github.io/documentation/port-forwarding).
 
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
+
+
+<a name="multicore"></a>
+## "Server can't keep up, but it's not using all the ram given"
+
+In some cases, you could find your console flooded with "Can't keep up!" messages, but the server is not using all the ram that you have assigned. 
+
+It's possible to try to fix this issue by enabling manually the use of multiple cores. Please keep in mind, this is not guaranteed to work, and is an experimental java feature.
+
+To enable the use of multiple cores, we need to edit the java startup line. To do this, just open MCSS, go to edit server in the right of the software, and a window should pop up. In there, click on the "Advamnced" tab, and in the startup line replace everything with ```java -Xmx[RAM]M -Xms2G -d64 -server -XX:+AggressiveOpts -XX:ParallelGCThreads=[CORE AMOUNT] -XX:+UseConcMarkSweepGC -XX:+UnlockExperimentalVMOptions -XX:+UseParNewGC -XX:+ExplicitGCInvokesConcurrent -XX:MaxGCPauseMillis=10 -XX:GCPauseIntervalMillis=50 -XX:+UseFastAccessorMethods -XX:+OptimizeStringConcat -XX:NewSize=84m -XX:+UseAdaptiveGCBoundary -XX:NewRatio=3 -Dfml.readTimeout=90 -jar [SERVER FILE]```. Remember to change the CORE AMOUNT to the desired amount of cores. 
+
+Now just restart your server!
+
 
 <a name="is-there-a-mac-version"></a>
 ## "Is there a mac or linux version?"
