@@ -31,6 +31,7 @@ Si vous obtenez une erreur, elle n'est pas installée. Vous pouvez télécharger
 ## Mon serveur reste sur le statut "starting".
 
 Si votre serveur a bien démarré mais mcss ne le détecte pas, vous pouvez changer la manière qu'utilise mcss pour vérifier le statut d'un serveur.
+
 Allez dans `File > Options > Advanced` et changez la méthode de détection par defaut (ServerOnline detection method) pour `ConsoleReading`
 
 ![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
