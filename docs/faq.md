@@ -3,6 +3,7 @@
 ---
 
 *   ["Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap."](#error-occurred-during-initialization-of-vm)
+*   [Mon serveur reste sur le statut "starting".](#server-keeps-saying-starting)
 *   ["Unable to connect to the server."](#unable-to-connect-to-the-server)
 *   [Y a-t-il une version pour Mac ou Linux ?](#is-there-a-mac-version)
 *   [Est-ce 24h/24 7j/7 ?](#is-this-24-7)
@@ -26,6 +27,13 @@ Pour vérifier si elle est déjà installé, ouvrer l'invité de commandes et en
 
 Si vous obtenez une erreur, elle n'est pas installée. Vous pouvez télécharger Java 64bits [ici](https://java.com/fr/download/windows-64bit.jsp).
 
+<a name="server-keeps-saying-starting"></a>
+## Mon serveur reste sur le statut "starting".
+
+Si votre serveur a bien démarré mais mcss ne le détecte pas, vous pouvez changer la manière qu'utilise mcss pour vérifier le statut d'un serveur.
+Allez dans `File > Options > Advanced` et changez la méthode de détection par defaut (ServerOnline detection method) pour `ConsoleReading`
+
+![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
 
 <a name="unable-to-connect-to-the-server"></a>
 ## "Unable to connect to the server."
