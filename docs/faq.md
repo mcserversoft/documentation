@@ -27,7 +27,6 @@ Want to check if it's installed? Open a command prompt and type:
 
 If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp).
 
-
 <a name="server-keeps-saying-starting"></a>
 ## My server keeps saying starting.
 
