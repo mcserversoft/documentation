@@ -54,6 +54,7 @@ Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else i
 
 Try killing all java processes through the Quick Options and starting the server again.
 
+
 ![Screenshot of the Kill all java processes option in the Quick Options menu](assets/screenshots/kill_java_processes.png)
 
 If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
