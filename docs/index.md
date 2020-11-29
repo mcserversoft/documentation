@@ -1,19 +1,19 @@
-# Welcome to the official MC Server Soft Documentation
+# Bienvenue sur la documentation officielle de MC Server Soft
 
-[MC Server Soft](https://www.mcserversoft.com/) is a free Windows server wrapper for Minecraft.
+[MC Server Soft](https://www.mcserversoft.com/) est un gestionnaire de serveurs Minecraft gratuit pour Windows.
 
-## Setup Requirements
+## Configuration requise
 
-MC Server Soft has a few system requirements. Chances are that you already meet these requirements but it doesn't hurt to check.
+MC Server Soft requiert certains logiciels spécifiques. Il y a de grandes chances qu'ils soient déjà installés sur votre système, mais ça ne coûte rien de vérifier.
 
-These are bare <u>minimum</u> requirements, these are <u>needed</u> to run and operate Minecraft servers with MC Server Soft.
+Ce sont les exigences <u>minimales</u>, elles sont <u>nécessaires</u> pour exécuter et gérer des serveurs Minecraft avec MC Server Soft.
 
-*   .NET Framework 4.7.2
-*   Java 8 or higher
-*   Windows Server (2008 R2 SP1/2012/2016), Windows 7, 8 or 10 operating system with 4GB of memory
-*   Stable internet connection, wired is highly preferred
-*   Port forward capable modem/router (for online multiplayer)
+*   .NET Framework 4.7.2 ou plus haut
+*   Java 8 ou plus haut
+*   Windows Serveur (2008 R2 SP1/2012/2016), Windows 7, 8 ou 10 comme système d'exploitation, avec 4 Go de mémoire
+*   Une connexion internet stable, filaire hautement conseillé
+*   Un routeur/modem capable de rediriger un port (pour le multijoueurs en ligne)
 
-## Contribute to official documentation
+## Contribuer à la documentation officielle
 
-You are welcome to click on the “Edit this Page” button (pencil icon) on any page to propose a change in the official documentation whenever you see something that you think can be improved.
+Vous êtes invités à cliquer sur le bouton "Edit this page" (icône de crayon) sur n'importe quelle page pour proposer un changement à la documentation si vous voyez quelque chose que vous pensez pouvoir améliorer.
