@@ -49,6 +49,17 @@ However if you want other people to be able to play on your server, you will nee
 
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
+<a name="failed-to-bind-to-port"></a>
+## Failed To Bind to Port
+
+Try killing all java processes through the Quick Options and starting the server again.
+
+![Screenshot of the Kill all java processes option in the Quick Options menu](assets/screenshots/kill_java_processes.png)
+
+If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
+
+If you're still getting this error restarting your computer will usually fix it.
+
 <a name="is-there-a-mac-version"></a>
 ## "Is there a mac or linux version?"
 
