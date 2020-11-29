@@ -37,7 +37,6 @@ Go to `File > Options > Advanced` and change the default detection method to `Co
 
 ![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
 
-
 <a name="unable-to-connect-to-the-server"></a>
 ## Unable to connect to the server.
 
