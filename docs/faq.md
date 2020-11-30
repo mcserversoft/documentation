@@ -5,6 +5,7 @@
 *   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.](#error-occurred-during-initialization-of-vm)
 *   [My server keeps saying starting.](#server-keeps-saying-starting)
 *   [Unable to connect to the server.](#unable-to-connect-to-the-server)
+*   [Failed to bind to port](#failed-to-bind-to-port)
 *   [Is there a mac or linux version?](#is-there-a-mac-version)
 *   [Is this 24/7?](#is-this-24-7)
 *   [MCSS crashes when starting it.](#mcss-crashes-when-starting-it)
@@ -51,11 +52,11 @@ Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else i
 <a name="failed-to-bind-to-port"></a>
 ## Failed To Bind to Port
 
-Try killing all java processes through the Quick Options and starting the server again.
-
-![Screenshot of the Kill all java processes option in the Quick Options menu](assets/screenshots/kill_java_processes.png)
+Try killing all java processes (refer to [regain-control](#regain-control)) and start your server again.
 
 If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
+
+If you're running multiple servers make sure they're not using the same port.
 
 If you're still getting this error restarting your computer will usually fix it.
 
