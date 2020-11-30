@@ -8,6 +8,7 @@
 *   [Is there a mac or linux version?](#is-there-a-mac-version)
 *   [Is this 24/7?](#is-this-24-7)
 *   [MCSS crashes when starting it.](#mcss-crashes-when-starting-it)
+*   [How do I regain control of my server if mcss crashes?](#regain-control)
 *   [Since v11.5.0 the process name requires a different format.](#process-name-different-format)
 *   [Important information about your operating system.](#important-information-os)
 *   [Failed to set performance counters.](#failed-to-set-performance-counters)
@@ -75,7 +76,20 @@ Nothing like Aternos.
 ## MCSS crashes when starting it.
 
 Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (or higher) installed?
- 
+
+<a name="regain-control"></a>
+## How do I regain control of my server if mcss crashes?
+
+To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes" 
+
+![Screenshot of the Kill all java processes option](assets/screenshots/mcss_kill_java.png)
+
+<span style="color:red">WARNING: This will kill ALL Java processes, not only mcss hosted Minecraft servers.
+This includes: 
+
+* Minecraft instances
+* Any other program running Java or relying on Java to function
+</span>
 
 <a name="process-name-different-format"></a>
 ## Since v11.5.0 the process name requires a different format.
