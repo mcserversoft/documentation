@@ -58,7 +58,7 @@ If you added an ip to the 'server-ip' field in the server.properties file make s
 
 If you're running multiple servers make sure they're not using the same port.
 
-If you're still getting this error restarting your computer will usually fix it.
+If you're still getting this error restarting your computer will usually resolve it.
 
 <a name="is-there-a-mac-version"></a>
 ## "Is there a mac or linux version?"
