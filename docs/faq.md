@@ -14,7 +14,7 @@
 *   [Failed to set performance counters.](#failed-to-set-performance-counters)
 *   [I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?](#weird-ip-address)
 *   [Updating from 10.4.0.0 or older fails.](#updating-from-10400-fails)
-*   [Add (or update) the Java system path.](#add-update-java-path)
+*   [When I click on start, the console remains empty and the server does nothing/Java is not installed.](#add-update-java-path)
 *   [Mcss has crashed and I want to help fix it.](#crashed-help-dev)
 *   [The UTF-8 encoding doesn't work, I *really really* need it to work.](#utf-8)
 
@@ -51,14 +51,14 @@ However if you want other people to be able to play on your server, you will nee
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
 <a name="is-there-a-mac-version"></a>
-## "Is there a mac or linux version?"
+## Is there a mac or linux version?
 
 No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 **Supported OSs**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 and 10
  
 
 <a name="is-this-24-7"></a>
-## "Is this 24/7?"
+## Is this 24/7?
 
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
@@ -119,7 +119,7 @@ Open a command prompt with administrator rights and execute the following comman
  
 
 <a name="weird-ip-address"></a>
-## "I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?"
+## I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?
 
 Yes that is completely normal, that is called an IPv6 address. Most people don't have access to IPv6 yet so it's smart to share your IPv4 address instead.
 
@@ -141,20 +141,22 @@ You will need to update mcss manually. Download the latest version from the webs
 
 
 <a name="add-update-java-path"></a>
-## "Add (or update) the Java system path."
+## When I click on start, the console remains empty and the server does nothing/Java is not installed.
+This is because you don't have Java installed, or it is not in the PATH variable
 
 > The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
 
+First, make sure to install Java from [here](https://java.com/en/download/windows-64bit.jsp). I you know you already have it, try the following steps to add it to the PATH :
 1. Open an explorer window. Right-click on This PC and choose Properties.
 2.  On the left, click the Advanced system settings link.
 3. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable by adding the absolute path to you Java installation (in most cases, `C:\Program files\Java\jre<version>\bin`). Click OK. Close all remaining windows by clicking OK.
 5. If you were using a Command prompt window, you will need to reopen that.
 <br>*(The above steps were adapted from <https://www.java.com/en/download/help/path.xml>)*
 
 
 <a name="crashed-help-dev"></a>
-## "Mcss has crashed and I want to help fix it."
+## Mcss has crashed and I want to help fix it.
 
 To help fix it, you can upload your Windows event logs and mcss logs.
 *(please zip all the files and send them to me by email, SpigotMC or Discord)*
@@ -171,7 +173,7 @@ You can follow the other steps on screenshot below.
 
 
 <a name="utf-8"></a>
-## "The UTF-8 encoding doesn't work, I *really really* need it to work."
+## The UTF-8 encoding doesn't work, I *really really* need it to work.
 
 The sad reality is that UTF-8 is a second-class citizen in Windows.
 
