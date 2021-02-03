@@ -10,6 +10,10 @@ These are bare <u>minimum</u> requirements, these are <u>needed</u> to run and o
 
 *   .NET Framework 4.7.2
 *   Java 8 or higher
+
+!!! warning "Java 15"
+    Please do not use Java 15. It will cause issues with your server and will not show correct system usage in the app. We recommend using Java 11.
+
 *   Windows Server (2008 R2 SP1/2012/2016), Windows 7, 8 or 10 operating system with 4GB of memory
 *   Stable internet connection, wired is highly preferred
 *   Port forward capable modem/router (for online multiplayer)
