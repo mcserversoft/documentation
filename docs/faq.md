@@ -2,7 +2,7 @@
 
 ---
 
-*   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.](#error-occurred-during-initialization-of-vm)
+*   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (also The specified size exceeds the maximum representable size or Invalid maximum heap size).](#error-occurred-during-initialization-of-vm)
 *   [My server keeps saying starting.](#server-keeps-saying-starting)
 *   [Unable to connect to the server.](#unable-to-connect-to-the-server)
 *   [Is there a mac or linux version?](#is-there-a-mac-version)
@@ -20,14 +20,15 @@
 
 
 <a name="error-occurred-during-initialization-of-vm"></a>
-## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.
+## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).
 
 You are likely missing the 64bit version of Java. It's either not installed or needs reinstalling.
 Want to check if it's installed? Open a command prompt and type:
 `java -d64 -version`
 
-If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp).
+If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp) (Java 8) or [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
+Paper 1.17 or above requires Java 11 ([info here](https://papermc.io/forums/t/java-11-mc-1-17-and-paper/5615)).
 
 <a name="server-keeps-saying-starting"></a>
 ## My server keeps saying starting.
