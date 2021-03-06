@@ -2,16 +2,10 @@
 
 ---
 
-*   [How do I setup a Forge server?](#setup-forge)
-*   [How do I add mods/plugins/datapacks to my server?](#add-modifications)
-
-
-<a name="setup-forge"></a>
 ## How do I setup a Forge server?
 
 > WIP
 
-<a name="add-modifications"></a>
 ## How to add Modifications to your server
 
 * ### Mods
