@@ -14,7 +14,7 @@ Paper 1.17 or above requires Java 11 ([info here](https://papermc.io/forums/t/ja
 
 ## Unable to connect to the server.
 
-As the server owner, try connecting with "localhost" (without the ""). 
+As the server owner, try connecting with "localhost" (without the ""). **This will only work if you are hosting the server on the same computer.**
 Works? Great! This means there is nothing wrong with the actual server.
 
 However if you want other people to be able to play on your server, you will need to port forward your ip.
