@@ -4,7 +4,7 @@
 
 ## Choosing a server type
 
-> **Moved to [Server Types](https://mcserversoft.github.io/documentation/server-types)
+> **Moved to [Server Types](https://mcserversoft.github.io/documentation/server-types)**
 
 ## Details and accepting the Minecraft EULA
 
