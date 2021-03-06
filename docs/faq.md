@@ -12,15 +12,6 @@ If it gives you an error, you don't have it installed. You can download it [here
 
 Paper 1.17 or above requires Java 11 ([info here](https://papermc.io/forums/t/java-11-mc-1-17-and-paper/5615)).
 
-## My server keeps saying starting.
-
-If your server has actually started but mcss isn't detecting it then you can change the way how mcss detects online servers.
-
-Go to `File > Options > Advanced` and change the default detection method to `ConsoleReading`.
-
-![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
-
-
 ## Unable to connect to the server.
 
 As the server owner, try connecting with "localhost" (without the ""). 
@@ -64,14 +55,6 @@ This includes:
 ![Screenshot of the process name requires different format dialog](assets/screenshots/dialog_regedit_process_name.png)
 
 This change is required, click 'Yes' to apply the change.
-
-## Important information about your operating system.
-
-![Screenshot of outdated operating system dialog](assets/screenshots/dialog_outdated_os_powershell.png)
-
-Read the text in the dialog 😉
-
-> It has been reported by other users that PowerShell can be upgraded on Windows Server 2012 R2 but Windows 7 users can not. Their best option is to switch to the 'Console Read' method. 
 
 ## Failed to set performance counters.
 
