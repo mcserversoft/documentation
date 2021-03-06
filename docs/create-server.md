@@ -2,12 +2,6 @@
 
 ---
 
-*   [Choosing a server type](#choosing-a-server-type)
-*   [Details and accepting the Minecraft EULA](#details-and-accepting-the-minecraft-eula)
-*   [Get the server files with the updater](#get-the-server-files-with-the-updater)
-*   [Wrapping it up](#wrapping-it-up)
-
-<a name="choosing-a-server-type"></a>
 ## Choosing a server type
 
 There are many types to choose from. If you are setting up your first server or if these server types are new to you, it's important to know what each one does and what it brings to the table.
@@ -25,7 +19,6 @@ Spigot | Most used modded Minecraft server software based on CraftBukkit. | [Pro
 PaperSpigot | High performance fork of Spigot with many features and performance improvements. | [Project](https://papermc.io/)
 TacoSpigot |Even higher performance fork of PaperSpigot. It offering increased performance and experimental features. | [Project](https://tacospigot.github.io/)
 
-<a name="details-and-accepting-the-minecraft-eula"></a>
 ## Details and accepting the Minecraft EULA
 
 It's time to fill in all details about your server.
@@ -42,7 +35,6 @@ Server Port | This is the port of your computer that wil be used by your Minecra
 
 Accept the Minecraft EULA to continue.
 
-<a name="get-the-server-files-with-the-updater"></a>
 ## Get the server files with the updater
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_files.png)
@@ -51,7 +43,6 @@ Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer 
 
 When that's done, click on 'Create Server', this should only take a few seconds or even less.
 
-<a name="#wrapping-it-up"></a>
 ## Wrapping it up
 
 All done! Wasn't that easy?
