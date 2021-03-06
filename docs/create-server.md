@@ -4,7 +4,7 @@
 
 ## Choosing a server type
 
-> **Moved to [Server Types](https://mcserversoft.github.io/documentation/server-types)**
+> **Moved to [Server Types](/server-types)**
 
 ## Details and accepting the Minecraft EULA
 
@@ -26,7 +26,7 @@ Accept the Minecraft EULA to continue.
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_files.png)
 
-Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](../../basics/updateserver/) to get them.
+Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](/update-server) to get them.
 
 When that's done, click on 'Create Server', this should only take a few seconds or even less.
 
