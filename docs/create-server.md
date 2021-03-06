@@ -4,20 +4,7 @@
 
 ## Choosing a server type
 
-There are many types to choose from. If you are setting up your first server or if these server types are new to you, it's important to know what each one does and what it brings to the table.
-
-Some focus on adding more functionality, others on performance and others bring both.
-
-![Part of a screenshot of the create instance window, slightly faded out towards the bottom](assets/screenshots/create_server_type.png)
-
-All of these listed server types support plugins and are all cross compatible. So you are not tied to a specific type. Going further down the list each one is more customizable and adds more features than the previous one.
-
-Name | Description | Useful links
---- | --- | ---
-CraftBukkit | Extends the Vanilla experience with plugins and other functionality. If you just want a server to play with some friends, without the need to customize every aspect of the gameplay. | [Project](https://bukkit.org/pages/about-us/)
-Spigot | Most used modded Minecraft server software based on CraftBukkit. | [Project](https://www.spigotmc.org/wiki/about-spigot/)
-PaperSpigot | High performance fork of Spigot with many features and performance improvements. | [Project](https://papermc.io/)
-TacoSpigot |Even higher performance fork of PaperSpigot. It offering increased performance and experimental features. | [Project](https://tacospigot.github.io/)
+> **Moved to [Server Types](https://mcserversoft.github.io/documentation/server-types)
 
 ## Details and accepting the Minecraft EULA
 
