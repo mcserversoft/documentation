@@ -43,12 +43,11 @@ To regain control of your servers you need to kill all Java processes,to do this
 
 ![Screenshot of the Kill all java processes option](assets/screenshots/mcss_kill_java.png)
 
-<span style="color:red">WARNING: This will kill ALL Java processes, not only mcss hosted Minecraft servers.
-This includes: 
-
-* Minecraft instances
-* Any other program running Java or relying on Java to function
-</span>
+!!! warning 
+    This will kill ALL Java processes, not only mcss hosted Minecraft servers.
+    This includes: 
+    * Minecraft instances
+    * Any other program running Java or relying on Java to function
 
 ## Since v11.5.0 the process name requires a different format.
 
