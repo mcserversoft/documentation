@@ -91,6 +91,14 @@ This includes:
 This change is required, click 'Yes' to apply the change.
 
 
+<a name="forge-server"></a>
+## How can I make a forge server?
+
+Please check the documentation page for forge servers.
+
+[You can find it here](https://mcserversoft.github.io/documentation/create-forge-server/).
+
+
 <a name="important-information-os"></a>
 ## Important information about your operating system.
 
