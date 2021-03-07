@@ -23,6 +23,7 @@ nav:
    - Migrate an existing server: migrate-server.md
    - Port Forwarding: port-forwarding.md
  - Basics:
+   - Add plugins or mods: plugins-mods.md
    - Update a server: update-server.md
  - Advanced:
    - Create a Forge server: create-forge-server.md

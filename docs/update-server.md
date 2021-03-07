@@ -20,8 +20,8 @@ Visit the corresponding site for your server type (as displayed in the table bel
 | TacoSpigot | **(JENKINS CI DOWN)** [https://github.com/TacoSpigot/TacoSpigot/releases/tag/v1.9.4-R0.1](https://github.com/TacoSpigot/TacoSpigot/releases/tag/v1.9.4-R0.1)| |
 
 
-
-**Also make sure that you also don't download an api jar!<br>(make sure that it does not has 'api' in its name)**
+!!! warning "No API jars"
+    Make sure that you don't download an api jar! They can be identified by the '-api' tag in their name.
 
 ![Screenshot of the Update Instance window](assets/screenshots/update_server_links.png)
 
