@@ -6,7 +6,7 @@
 
 MC Server Soft has a few system requirements. Chances are that you already meet these requirements but it doesn't hurt to check.
 
-These are bare <u>minimum</u> requirements, these are <u>needed</u> to run and operate Minecraft servers with MC Server Soft.
+These are the <u>minimum</u> requirements to run and operate Minecraft servers with MC Server Soft.
 
 *   .NET Framework 4.7.2
 *   Java 8 or higher
