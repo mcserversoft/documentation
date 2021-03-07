@@ -8,7 +8,7 @@ There are many types to choose from. If you are setting up your first server or 
 
 Some focus on adding more functionality, others on performance and others bring both.
 
-> More info can be found on the [Server Types](/server-types) page.
+> More info can be found on the [Server Types](https://mcserversoft.github.io/documentation/server-types) page.
 
 ![Part of a screenshot of the create instance window, slightly faded out towards the bottom](assets/screenshots/create_server_type.png)
 
@@ -32,7 +32,7 @@ EULA | Accept the [Minecraft EULA](https://account.mojang.com/documents/minecraf
 
 ![Screenshot of the create instance window](assets/screenshots/create_server_files.png)
 
-Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](/update-server) to get them.
+Click on 'Open Updater Tool'. Since version 10.0.4.4 server files are no longer provided. You will need to use the [updater tool](https://mcserversoft.github.io/documentation/update-server) to get them.
 
 When that's done, click on 'Create Server', this should only take a few seconds or even less.
 
