@@ -67,13 +67,13 @@ If it was never changed, it might be the name/serial number of your router. Try 
 ## Step 4: setting up the port forward
 
 Fisrt, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
-   *   turn on the advanced mode if there is one
-   *   find the settings and open the local network category
-   *   find the "port mapping" or "port management" page
-   *   create a new forwarding rule
-   *   enter the local ip of your PC (it can be found with the method as Step 2, just look for `IPv4 address` instead of default gateway)
-   *   choose the TCP protocol, and set both the public/remote and private/local port to 25565 (or another port if you changed it in your server's settings)
-   *   apply all the changes
+- turn on the advanced mode if there is one
+- find the settings and open the local network category
+- find the "port mapping" or "port management" page
+- create a new forwarding rule
+- enter the local ip of your PC (it can be found with the same method as Step 2, just look for `IPv4 address` instead of default gateway)
+- choose the TCP protocol, and set both the public/remote and private/local port to 25565 (or another port if you changed it in your server's settings)
+- apply all the changes
 
 Once you have set the forwarding rule, you can check if it works. Make sure your Minecraft server is running and go to [https://canyouseeme.org/](https://canyouseeme.org/). Enter you public ip address and the port of your server, click the <kbd>check port</kbd> button. If your rule was properly setup, it should indicate that the port is open.
 
