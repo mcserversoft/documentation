@@ -55,7 +55,7 @@ This is my result, it will look different but the layout is more or less the sam
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd_result.png)
 
-## Step 3 : access the router interface
+### Step 3 : access the router interface
 
 Open a browser and type the address you got from the command prompte into the address bar.
 
@@ -64,7 +64,7 @@ Open a browser and type the address you got from the command prompte into the ad
 At this point, you will need to know the admin password of you router. 
 If it was never changed, it might be the name/serial number of your router. Try the different numbers you can find written on your router, often on the back. If none works, you can search for the default passwords that exists by googling the model number of your router.
 
-## Step 4: setting up the port forward
+### Step 4: setting up the port forward
 
 Fisrt, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
 

@@ -8,7 +8,7 @@ Go to the [Forge website](https://files.minecraftforge.net) and choose the versi
 
 ![Forge website](assets/screenshots/download_forge.png)
 
-Wait for the end of the ad (6 seconds) and click on "Skip" at the top right of the page. A .jar file will be downloaded.
+Wait for the end of the ad and click on "Skip" at the top right of the page. A .jar file will be downloaded, you might need to confirm the download on some browsers.
 
 ## Create the Forge server
 

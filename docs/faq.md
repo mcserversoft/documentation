@@ -1,6 +1,5 @@
 # FAQ
 
----
 
 ## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).
 
@@ -48,6 +47,16 @@ To regain control of your servers you need to kill all Java processes,to do this
     This includes: 
     * Minecraft instances
     * Any other program running Java or relying on Java to function
+
+## When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM
+This is because you have Java 11 or higher.
+To fix it, you have to specify the direct path to your java binaries in mcss.
+1. open the `file > options` menu
+2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
+3. restart MCSS and try to start a server again, the graphs should display the correct information.
+
+You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
+There, you will be able to set a local Java path, under the Advanced tab.
 
 ## Since v11.5.0 the process name requires a different format.
 

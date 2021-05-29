@@ -1,24 +1,12 @@
 # Updating a server
 
----
-
 ***You can also copy and replace the server files, but there is a gui available as shown below.***
 
 ## Download the server jar file
 
 Visit the corresponding site for your server type (as displayed in the table below) and download the server jar file that you want to update your server to. Make sure that you update to the correct server type (spigot -> spigot) and not (spigot -> taco).
 
-| Name | Project Download | Easy Download |
-|------|------------------|---------------|
-| CraftBukkit | [https://bukkit.gamepedia.com/FAQ#Where_can_I_get_it.3F](https://bukkit.gamepedia.com/FAQ#Where_can_I_get_it.3F) | [https://getbukkit.org/download/craftbukkit](https://getbukkit.org/download/craftbukkit) |
-| Spigot | [https://hub.spigotmc.org/jenkins/job/BuildTools/](https://hub.spigotmc.org/jenkins/job/BuildTools/) | [https://getbukkit.org/download/spigot](https://getbukkit.org/download/spigot) |
-| Paper | [https://papermc.io/downloads](https://papermc.io/downloads) | |
-| BungeeCord | [https://ci.md-5.net/job/BungeeCord/](https://ci.md-5.net/job/BungeeCord/) | [https://ci.md-5.net/job/BungeeCord/lastStableBuild/artifact/bootstrap/target/BungeeCord.jar](https://ci.md-5.net/job/BungeeCord/lastStableBuild/artifact/bootstrap/target/BungeeCord.jar) |
-| Waterfall | [https://papermc.io/downloads#Waterfall](https://papermc.io/downloads#Waterfall) | |
-| Vanilla | [https://www.minecraft.net/en-us/download/server](https://www.minecraft.net/en-us/download/server) | [https://getbukkit.org/download/vanilla](https://getbukkit.org/download/vanilla) |
-| Forge | [https://files.minecraftforge.net](https://files.minecraftforge.net) | |
-| TacoSpigot | **(JENKINS CI DOWN)** [https://github.com/TacoSpigot/TacoSpigot/releases/tag/v1.9.4-R0.1](https://github.com/TacoSpigot/TacoSpigot/releases/tag/v1.9.4-R0.1)| |
-
+You can find a list of downloads for common server types [here](./server-types.md).
 
 !!! warning "No API jars"
     Make sure that you don't download an api jar! They can be identified by the '-api' tag in their name.
