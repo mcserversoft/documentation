@@ -37,7 +37,7 @@ Every manufacturer has its own interface, so they all look different. Unfortunat
 
 ### Step 1 : make sure that you have a compatible router
 
-To have access to port forwarding, your internet connection must be wired (xDSL or fiber). This means that if you have a 4G/cellular router, it will be impossible for you to open a port of your network.
+To have access to port forwarding, your internet connection must be wired (xDSL or fiber). This means that if you have a 4G/cellular router, it will be impossible for you to open a port of your network. However, there are some options to allow outside connections even if you can't portforward, like ngrok. See on [their website](https://ngrok.com/) for more infos and detailed instructions.
 
 If you have a wired internet, it is very likely that your router will support port forwarding, but it might be possible that your ISP has blocked this feature.
 
