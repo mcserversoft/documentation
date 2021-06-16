@@ -10,7 +10,7 @@ These are the <u>minimum</u> requirements to run and operate Minecraft servers w
 
 *   .NET Framework 4.7.2
 *   Java 8 or higher **Minecraft 1.17 requires Java 16 to run. See [the faq](./faq.md) for a correct path setup and a fix for the graphs in mcss**
-*   Windows Server (2008 R2 SP1/2012/2016), Windows 7, 8 or 10 operating system with 4GB of memory
+*   Windows Server (2008 R2 SP1/2012/2016), Windows 7, 8 or 10 operating system with 4GB (or higher) of memory
 *   Stable internet connection, wired is highly preferred
 *   Port forward capable modem/router (for online multiplayer)
 
