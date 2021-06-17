@@ -1,15 +1,21 @@
 # FAQ
 
 
+## My 1.17 server won't start !
+
+The latest release of Minecraft requires Java 16 to even start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
+
+Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
+
+
 ## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).
 
-You are likely missing the 64bit version of Java. It's either not installed or needs reinstalling.
-Want to check if it's installed? Open a command prompt and type:
-`java -d64 -version`
+You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
+To check which version you are currenlty using, open a command prompt and type `java -version`
 
-If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp) (Java 8) or [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
+If you see 32-bit or an error, you need a new version of Java. You can download it [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
-Paper 1.17 or above requires Java 11 ([info here](https://papermc.io/forums/t/java-11-mc-1-17-and-paper/5615)).
+Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
 
 ## Unable to connect to the server.
 
