@@ -1,25 +1,26 @@
 # FAQ
 
 
-## My 1.17 server won't start !
+## **My 1.17 server won't start !**
 
 The latest release of Minecraft requires Java 16 to even start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
 
 Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
 
 
-## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).
+## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).**
 
 You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
+
 To check which version you are currenlty using, open a command prompt and type `java -version`
 
 If you see 32-bit or an error, you need a new version of Java. You can download it [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
 Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
 
-## Unable to connect to the server.
+## **Unable to connect to the server.**
 
-As the server owner, try connecting with "localhost" (without the ""). **This will only work if you are hosting the server on the same computer.**
+As the server owner, try connecting with `localhost`. **This will only work if you are hosting the server on the same computer.**
 Works? Great! This means there is nothing wrong with the actual server.
 
 However if you want other people to be able to play on your server, you will need to port forward your ip.
@@ -27,22 +28,22 @@ However if you want other people to be able to play on your server, you will nee
 
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
-## Is there a mac or linux version?
+## **Is there a mac or linux version?**
 
 No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 **Supported OSs**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 and 10
  
 
-## Is this 24/7?
+## **Is this 24/7?**
 
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
 
-## MCSS crashes when starting it.
+## **MCSS crashes when starting it.**
 
 Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (or higher) installed?
 
-## How do I regain control of my server if mcss crashes?
+## **How do I regain control of my server if mcss crashes?**
 
 To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes" 
 
@@ -54,7 +55,7 @@ To regain control of your servers you need to kill all Java processes,to do this
     * Minecraft instances
     * Any other program running Java or relying on Java to function
 
-## When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM
+## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
 This is because you have Java 11 or higher.
 To fix it, you have to specify the direct path to your java binaries in mcss.
 1. open the `file > options` menu
@@ -64,13 +65,13 @@ To fix it, you have to specify the direct path to your java binaries in mcss.
 You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
 There, you will be able to set a local Java path, under the Advanced tab.
 
-## Since v11.5.0 the process name requires a different format.
+## **Since v11.5.0 the process name requires a different format.**
 
 ![Screenshot of the process name requires different format dialog](assets/screenshots/dialog_regedit_process_name.png)
 
 This change is required, click 'Yes' to apply the change.
 
-## Failed to set performance counters.
+## **Failed to set performance counters.**
 
 ![Screenshot of failed to set performance counters dialog](assets/screenshots/dialog_performance_counters.png)
 
@@ -86,7 +87,7 @@ Open a command prompt with administrator rights and execute the following comman
 > More info: [Microsoft Support | How to manually rebuild Performance Counter Library values
 ](https://support.microsoft.com/en-us/help/300956/how-to-manually-rebuild-performance-counter-library-values)
 
-## I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?
+## **I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?**
 
 Yes that is completely normal, that is called an IPv6 address. Most people don't have access to IPv6 yet so it's smart to share your IPv4 address instead.
 
@@ -97,14 +98,14 @@ There are 2 versions of the IP protocol.
  
 > FUN FACT: IPv6 doesn't have port forwarding, there are no internal and external IPs. Every computer has it's own public IP.
 > 
-## Updating from 10.4.0.0 or older fails.
+## **Updating from 10.4.0.0 or older fails.**
 
 Due to backend api changes version 10.4.0.0 (and older) was considered End of Life (EOL) as of January 1st 2020.
 Update from these old builds is no longer possible, they might even break.
 
 You will need to update mcss manually. Download the latest version from the website and rename it to mcss.exe and copy'n replace it with the existing one. (make a backup just in case)
 
-## When I click on start, the console remains empty and the server does nothing/Java is not installed.
+## **When I click on start, the console remains empty and the server does nothing/Java is not installed.**
 This is because you don't have Java installed, or it is not in the PATH variable
 
 > The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
@@ -117,7 +118,7 @@ First, make sure to install Java from [here](https://java.com/en/download/window
 5. If you were using a Command prompt window, you will need to reopen that.
 <br>*(The above steps were adapted from <https://www.java.com/en/download/help/path.xml>)*
 
-## Mcss has crashed and I want to help fix it.
+## **Mcss has crashed and I want to help fix it.**
 
 To help fix it, you can upload your Windows event logs and mcss logs.
 *(please zip all the files and send them to me by email, SpigotMC or Discord)*
@@ -131,7 +132,7 @@ You can follow the other steps on screenshot below.
 
 ![Screenshot of the event viewer](assets/screenshots/event_viewer.png)
 
-## The UTF-8 encoding doesn't work, I *really really* need it to work.
+## **The UTF-8 encoding doesn't work, I *really really* need it to work.**
 
 The sad reality is that UTF-8 is a second-class citizen in Windows.
 
