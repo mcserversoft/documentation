@@ -2,12 +2,6 @@
 
 ---
 
-*   [Introduction](#introduction)
-*   [Different network devices](#different-network-devices)
-*   [Accessing your router/modem's web interface](#accessing-your-router-modem-web-interface)
-*   [Setting up the port forward](#setting-up-the-port-forward)
-
-<a name="introduction"></a>
 ## Introduction
 
 I could have just written an A to Z tutorial but at the end of the day you would still have no idea what you actually did. Troubleshooting problems and maintaining your network would be tricky and painfull. So in this guide I'll be focusing on port forwarding and the basic logic arround it.
@@ -22,7 +16,6 @@ In my case, I have a modem with the wireless features turned off and I've hooked
 
 As you can see it becomes a bit confusing, if you don't know how your network is setup.
 
-<a name="different-network-devices"></a>
 ## Different network devices
 
 In any network you might find one of these devices:
@@ -36,14 +29,21 @@ Hub | Honestly, throw this thing away. Hubs are very old, they are the switches 
 
 So go ahead and look arround to see how your network is setup.
 
-<a name="accessing-your-router-modem-web-interface"></a>
-## Accessing your router/modem's web interface
+## Setting-up the port forwarding rule
 
 Now that you have a good sense on which router/modem you are running behind. It's finally time to connect to the machine that you want to configure.
 
-### Step 1: Find the ip of the modem/device (default gateway)
+Every manufacturer has its own interface, so they all look different. Unfortunately it would be impossible for us to make a detailed tutorial on how to set up a redirect for everyone, but here is a general guide on how to port forward for a Minecraft server.
 
-Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit `Enter`. Or you can search for `Command Prompt` under your apps.
+### Step 1 : make sure that you have a compatible router
+
+To have access to port forwarding, your internet connection must be wired (xDSL or fiber). This means that if you have a 4G/cellular router, it will be impossible for you to open a port of your network. However, there are some options to allow outside connections even if you can't portforward, like ngrok. See on [their website](https://ngrok.com/) for more infos and detailed instructions.
+
+If you have a wired internet, it is very likely that your router will support port forwarding, but it might be possible that your ISP has blocked this feature.
+
+### Step 2: Find the ip of the modem/device (default gateway)
+
+Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit <kbd>Enter</kbd>. Or you can search for `Command Prompt` under your apps.
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd.png)
 
@@ -55,15 +55,35 @@ This is my result, it will look different but the layout is more or less the sam
 
 ![Partial screenshot of a cmd window](assets/screenshots/portforward_cmd_result.png)
 
-Open a browser and type that into the address bar.
+### Step 3 : access the router interface
+
+Open a browser and type the address you got from the command prompte into the address bar.
 
 ![Screenshot of the browser Opera with a login screen of the router](assets/screenshots/portforward_browser.png)
 
-<a name="setting-up-the-port-forward"></a>
-## Setting up the port forward
+At this point, you will need to know the admin password of you router. 
+If it was never changed, it might be the name/serial number of your router. Try the different numbers you can find written on your router, often on the back. If none works, you can search for the default passwords that exists by googling the model number of your router.
 
-Every manufacturer has its own interface, so they look all different. It would be impossible for me to cover all of them and continuing would be useless for all the people who don't own a TP-Link router with this model.
+### Step 4: setting up the port forward
 
-Instead I'm going to refer you to [www.portforward.com/router.htm](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model.
+Fisrt, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
+
+- turn on the advanced mode if there is one
+
+- find the settings and open the local network category
+
+- find the "port mapping" or "port management" page
+
+- create a new forwarding rule
+
+- enter the local ip of your PC (it can be found with the same method as Step 2, just look for `IPv4 address` instead of default gateway)
+
+- choose the TCP protocol, and set both the public/remote and private/local port to 25565 (or another port if you changed it in your server's settings)
+
+- apply all the changes
+
+Once you have set the forwarding rule, you can check if it works. Make sure your Minecraft server is running and go to [https://canyouseeme.org/](https://canyouseeme.org/). Enter you public ip address and the port of your server, click the <kbd>check port</kbd> button. If your rule was properly setup, it should indicate that the port is open.
+
+You can now share your public ip to your friends and ask them to connect to your server with it.
 
 I hope this guide has been somewhat useful to you, good luck!
