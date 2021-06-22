@@ -11,17 +11,14 @@ Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 a
 ## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).**
 
 You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
-To check which version you are currenlty using, open a command prompt and type `java -version`
 
+To check which version you are currently using, open a command prompt and type `java -version`
 If you see 32-bit or an error, you need a new version of Java. You can download it [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
 Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
 
+
 ## **Unable to connect to the server.**
-
-
-<a name="unable-to-connect-to-the-server"></a>
-## Unable to connect to the server.
 
 As the server owner, try connecting with `localhost`. **This will only work if you are hosting the server on the same computer.**
 Works? Great! This means there is nothing wrong with the actual server.
@@ -32,8 +29,7 @@ However if you want other people to be able to play on your server, you will nee
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
 
-<a name="failed-to-bind-to-port"></a>
-## Failed To Bind to Port
+## **Failed To Bind to Port**
 
 Try killing all java processes (refer to [regain-control](#regain-control)) and start your server again.
 
@@ -42,8 +38,7 @@ If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
 
-<a name="is-there-a-mac-version"></a>
-## "Is there a mac or linux version?"
+## **"Is there a mac or linux version?"**
 
 No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 **Supported OSs**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 and 10
@@ -87,15 +82,14 @@ There, you will be able to set a local Java path, under the Advanced tab.
 This change is required, click 'Yes' to apply the change.
 
 <a name="forge-server"></a>
-## How can I make a forge server?
+## **How can I make a forge server?**
 
 Please check the documentation page for forge servers.
 
 [You can find it here](https://mcserversoft.github.io/documentation/create-forge-server/).
 
 
-<a name="important-information-os"></a>
-## Important information about your operating system.
+## **Important information about your operating system.**
 
 ![Screenshot of outdated operating system dialog](assets/screenshots/dialog_outdated_os_powershell.png)
 
@@ -104,8 +98,7 @@ Read the text in the dialog 😉
 > It has been reported by other users that PowerShell can be upgraded on Windows Server 2012 R2 but Windows 7 users can not. Their best option is to switch to the 'Console Read' method. 
 
 
-<a name="failed-to-set-performance-counters"></a>
-## Failed to set performance counters.
+## **Failed to set performance counters.**
 
 ![Screenshot of failed to set performance counters dialog](assets/screenshots/dialog_performance_counters.png)
 
