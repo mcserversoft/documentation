@@ -49,6 +49,18 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
 
+
+## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
+This is because you have Java 11 or higher.
+To fix it, you have to specify the direct path to your java binaries in mcss.
+1. open the `file > options` menu
+2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
+3. restart MCSS and try to start a server again, the graphs should display the correct information.
+
+You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
+There, you will be able to set a local Java path, under the Advanced tab.
+
+
 ## **MCSS crashes when starting it.**
 
 Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (or higher) installed?
@@ -65,15 +77,6 @@ To regain control of your servers you need to kill all Java processes,to do this
     * Minecraft instances
     * Any other program running Java or relying on Java to function
 
-## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
-This is because you have Java 11 or higher.
-To fix it, you have to specify the direct path to your java binaries in mcss.
-1. open the `file > options` menu
-2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
-3. restart MCSS and try to start a server again, the graphs should display the correct information.
-
-You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
-There, you will be able to set a local Java path, under the Advanced tab.
 
 ## **Since v11.5.0 the process name requires a different format.**
 
@@ -87,15 +90,6 @@ This change is required, click 'Yes' to apply the change.
 Please check the documentation page for forge servers.
 
 [You can find it here](https://mcserversoft.github.io/documentation/create-forge-server/).
-
-
-## **Important information about your operating system.**
-
-![Screenshot of outdated operating system dialog](assets/screenshots/dialog_outdated_os_powershell.png)
-
-Read the text in the dialog 😉
-
-> It has been reported by other users that PowerShell can be upgraded on Windows Server 2012 R2 but Windows 7 users can not. Their best option is to switch to the 'Console Read' method. 
 
 
 ## **Failed to set performance counters.**
