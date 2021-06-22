@@ -1,49 +1,26 @@
 # FAQ
 
----
 
-*   [Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (also The specified size exceeds the maximum representable size or Invalid maximum heap size).](#error-occurred-during-initialization-of-vm)
-*   [My server keeps saying starting.](#server-keeps-saying-starting)
-*   [Unable to connect to the server.](#unable-to-connect-to-the-server)
-*   [Is there a mac or linux version?](#is-there-a-mac-version)
-*   [Is this 24/7?](#is-this-24-7)
-*   [MCSS crashes when starting it.](#mcss-crashes-when-starting-it)
-*   [How do I regain control of my server if mcss crashes?](#regain-control)
-*   [Since v11.5.0 the process name requires a different format.](#process-name-different-format)
-*   [Important information about your operating system.](#important-information-os)
-*   [Failed to set performance counters.](#failed-to-set-performance-counters)
-*   [I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?](#weird-ip-address)
-*   [Updating from 10.4.0.0 or older fails.](#updating-from-10400-fails)
-*   [When I click on start, the console remains empty and the server does nothing/Java is not installed.](#add-update-java-path)
-*   [Mcss has crashed and I want to help fix it.](#crashed-help-dev)
-*   [The UTF-8 encoding doesn't work, I *really really* need it to work.](#utf-8)
+## **My 1.17 server won't start !**
+
+The latest release of Minecraft requires Java 16 to even start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
+
+Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
 
 
-<a name="error-occurred-during-initialization-of-vm"></a>
-## Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).
+## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).**
 
-You are likely missing the 64bit version of Java. It's either not installed or needs reinstalling.
-Want to check if it's installed? Open a command prompt and type:
-`java -d64 -version`
+You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
 
-If it gives you an error, you don't have it installed. You can download it [here](https://java.com/en/download/windows-64bit.jsp) (Java 8) or [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
+To check which version you are currenlty using, open a command prompt and type `java -version`
 
-Paper 1.17 or above requires Java 11 ([info here](https://papermc.io/forums/t/java-11-mc-1-17-and-paper/5615)).
+If you see 32-bit or an error, you need a new version of Java. You can download it [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
-<a name="server-keeps-saying-starting"></a>
-## My server keeps saying starting.
+Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
 
-If your server has actually started but mcss isn't detecting it then you can change the way how mcss detects online servers.
+## **Unable to connect to the server.**
 
-Go to `File > Options > Advanced` and change the default detection method to `ConsoleReading`.
-
-![Screenshot of the process name requires different format dialog](assets/screenshots/online_detection.png)
-
-
-<a name="unable-to-connect-to-the-server"></a>
-## Unable to connect to the server.
-
-As the server owner, try connecting with "localhost" (without the ""). 
+As the server owner, try connecting with `localhost`. **This will only work if you are hosting the server on the same computer.**
 Works? Great! This means there is nothing wrong with the actual server.
 
 However if you want other people to be able to play on your server, you will need to port forward your ip.
@@ -51,45 +28,48 @@ However if you want other people to be able to play on your server, you will nee
 
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
-<a name="is-there-a-mac-version"></a>
-## Is there a mac or linux version?
+## **Is there a mac or linux version?**
 
 No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 **Supported OSs**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 and 10
  
 
-<a name="is-this-24-7"></a>
-## Is this 24/7?
+## **Is this 24/7?**
 
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
 
-<a name="mcss-crashes-when-starting-it"></a>
-## MCSS crashes when starting it.
+## **MCSS crashes when starting it.**
 
 Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (or higher) installed?
 
-<a name="regain-control"></a>
-## How do I regain control of my server if mcss crashes?
+## **How do I regain control of my server if mcss crashes?**
 
 To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes" 
 
 ![Screenshot of the Kill all java processes option](assets/screenshots/mcss_kill_java.png)
 
-<span style="color:red">WARNING: This will kill ALL Java processes, not only mcss hosted Minecraft servers.
-This includes: 
+!!! warning 
+    This will kill ALL Java processes, not only mcss hosted Minecraft servers.
+    This includes: 
+    * Minecraft instances
+    * Any other program running Java or relying on Java to function
 
-* Minecraft instances
-* Any other program running Java or relying on Java to function
-</span>
+## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
+This is because you have Java 11 or higher.
+To fix it, you have to specify the direct path to your java binaries in mcss.
+1. open the `file > options` menu
+2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
+3. restart MCSS and try to start a server again, the graphs should display the correct information.
 
-<a name="process-name-different-format"></a>
-## Since v11.5.0 the process name requires a different format.
+You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
+There, you will be able to set a local Java path, under the Advanced tab.
+
+## **Since v11.5.0 the process name requires a different format.**
 
 ![Screenshot of the process name requires different format dialog](assets/screenshots/dialog_regedit_process_name.png)
 
 This change is required, click 'Yes' to apply the change.
-
 
 <a name="forge-server"></a>
 ## How can I make a forge server?
@@ -125,10 +105,8 @@ Open a command prompt with administrator rights and execute the following comman
 
 > More info: [Microsoft Support | How to manually rebuild Performance Counter Library values
 ](https://support.microsoft.com/en-us/help/300956/how-to-manually-rebuild-performance-counter-library-values)
- 
 
-<a name="weird-ip-address"></a>
-## I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?
+## **I have this weird IP address: 2001:0db8:85a3:0000:0000:8a2e:0370:7334, is this normal?**
 
 Yes that is completely normal, that is called an IPv6 address. Most people don't have access to IPv6 yet so it's smart to share your IPv4 address instead.
 
@@ -138,19 +116,15 @@ There are 2 versions of the IP protocol.
 <br>[More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
  
 > FUN FACT: IPv6 doesn't have port forwarding, there are no internal and external IPs. Every computer has it's own public IP.
-
-
-<a name="updating-from-10400-fails"></a>
-## Updating from 10.4.0.0 or older fails.
+> 
+## **Updating from 10.4.0.0 or older fails.**
 
 Due to backend api changes version 10.4.0.0 (and older) was considered End of Life (EOL) as of January 1st 2020.
 Update from these old builds is no longer possible, they might even break.
 
 You will need to update mcss manually. Download the latest version from the website and rename it to mcss.exe and copy'n replace it with the existing one. (make a backup just in case)
 
-
-<a name="add-update-java-path"></a>
-## When I click on start, the console remains empty and the server does nothing/Java is not installed.
+## **When I click on start, the console remains empty and the server does nothing/Java is not installed.**
 This is because you don't have Java installed, or it is not in the PATH variable
 
 > The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
@@ -163,9 +137,7 @@ First, make sure to install Java from [here](https://java.com/en/download/window
 5. If you were using a Command prompt window, you will need to reopen that.
 <br>*(The above steps were adapted from <https://www.java.com/en/download/help/path.xml>)*
 
-
-<a name="crashed-help-dev"></a>
-## Mcss has crashed and I want to help fix it.
+## **Mcss has crashed and I want to help fix it.**
 
 To help fix it, you can upload your Windows event logs and mcss logs.
 *(please zip all the files and send them to me by email, SpigotMC or Discord)*
@@ -179,10 +151,7 @@ You can follow the other steps on screenshot below.
 
 ![Screenshot of the event viewer](assets/screenshots/event_viewer.png)
 
-
-
-<a name="utf-8"></a>
-## The UTF-8 encoding doesn't work, I *really really* need it to work.
+## **The UTF-8 encoding doesn't work, I *really really* need it to work.**
 
 The sad reality is that UTF-8 is a second-class citizen in Windows.
 
