@@ -71,7 +71,26 @@ There, you will be able to set a local Java path, under the Advanced tab.
 
 This change is required, click 'Yes' to apply the change.
 
-## **Failed to set performance counters.**
+<a name="forge-server"></a>
+## How can I make a forge server?
+
+Please check the documentation page for forge servers.
+
+[You can find it here](https://mcserversoft.github.io/documentation/create-forge-server/).
+
+
+<a name="important-information-os"></a>
+## Important information about your operating system.
+
+![Screenshot of outdated operating system dialog](assets/screenshots/dialog_outdated_os_powershell.png)
+
+Read the text in the dialog 😉
+
+> It has been reported by other users that PowerShell can be upgraded on Windows Server 2012 R2 but Windows 7 users can not. Their best option is to switch to the 'Console Read' method. 
+
+
+<a name="failed-to-set-performance-counters"></a>
+## Failed to set performance counters.
 
 ![Screenshot of failed to set performance counters dialog](assets/screenshots/dialog_performance_counters.png)
 
