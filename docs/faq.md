@@ -49,6 +49,10 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
 
+## **Is there a way to remote control MCSS ?**
+
+For now there is a web API in early dev stage. Look [here](https://documenter.getpostman.com/view/7749159/TzJsexSC) for more info, the dev builds are available on [Discord](https://discord.com/invite/DEn89PB)
+A remote control panel is currently being made, but nothing public yet. Updates will be posted on Discord when progress is made.
 
 ## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
 This is because you have Java 11 or higher.
