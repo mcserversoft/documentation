@@ -5,7 +5,7 @@
 
 The latest release of Minecraft requires Java 16 to even start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
 
-Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
+Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\<java version>\bin\java.exe`.
 
 
 ## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap (Same error is The specified size exceeds the maximum representable size and Invalid maximum heap size).**
