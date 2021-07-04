@@ -4,10 +4,10 @@
 
 The latest release of Minecraft requires Java 16 to  start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
 
-Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
+Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\<java version>\bin\java.exe`.
 
 
-## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.**
+## **Error occurred during initialization of VM Could not reserve enough space**
 
 You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
 
@@ -17,7 +17,7 @@ If you see 32-bit or an error, you need a new version of Java. You can download 
 Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
 
 
-## **Unable to connect to the server.**
+## **Unable to connect to the server**
 
 As the server owner, try connecting with `localhost`. **This will only work if you are hosting the server on the same computer.**
 Works? Great! This means there is nothing wrong with the actual server.
@@ -47,6 +47,10 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
 
+## **Is there a way to remote control MCSS ?**
+
+For now there is a web API in early dev stage. Look [here](https://documenter.getpostman.com/view/7749159/TzJsexSC) for more info, the dev builds are available on [Discord](https://discord.com/invite/DEn89PB)
+A remote control panel is currently being made, but nothing public yet. Updates will be posted on Discord when progress is made.
 
 ## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
 
