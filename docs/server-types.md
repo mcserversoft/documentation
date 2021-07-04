@@ -16,7 +16,7 @@ There are many server types available. Here is a quick rundown of all of them.
 |------|-------------|------------|------------------|------------------|---------------|
 | BungeeCord | Allows only proxy plugins to be uploaded. | Actively developed by the authors of Spigot. | [https://www.spigotmc.org/wiki/about-bungeecord/](https://www.spigotmc.org/wiki/about-bungeecord/) | [https://ci.md-5.net/job/BungeeCord/](https://ci.md-5.net/job/BungeeCord/) | [https://ci.md-5.net/job/BungeeCord/lastStableBuild/artifact/bootstrap/target/BungeeCord.jar](https://ci.md-5.net/job/BungeeCord/lastStableBuild/artifact/bootstrap/target/BungeeCord.jar) |
 | Waterfall | Allows only proxy plugins to be uploaded. Fork of BungeeCord with extra performance and features. | Recommended, actively developed by the authors of Paper. | [https://github.com/PaperMC/Waterfall/blob/master/README.md#waterfall](https://github.com/PaperMC/Waterfall/blob/master/README.md#waterfall) | [https://papermc.io/downloads#Waterfall](https://papermc.io/downloads#Waterfall) | |
-
+| Velocity | Allows only proxy plugins to be uploaded. The modern, next-generation Minecraft server proxy. | Actively developed by the authors of Velocity. | [https://velocitypowered.com/wiki](https://velocitypowered.com/wiki) | [https://velocitypowered.com/downloads](https://velocitypowered.com/downloads) | [https://versions.velocitypowered.com/download/latest.jar](https://versions.velocitypowered.com/download/latest.jar) |
 ## Other
 
 | Name | Description | Extra Info | Project Homepage | Project Download | Easy Download |
