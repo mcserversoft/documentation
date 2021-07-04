@@ -1,6 +1,5 @@
 # FAQ
 
-
 ## **My 1.17 server won't start !**
 
 The latest release of Minecraft requires Java 16 to  start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
@@ -8,13 +7,11 @@ The latest release of Minecraft requires Java 16 to  start. You can download it 
 Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\jdk-11.0.1\bin\java.exe`.
 
 
-
 ## **Error occurred during initialization of VM Could not reserve enough space for 2097152KB object heap.**
 
 You are likely not using the 64bit version of Java. It's either not installed or needs reinstalling.
 
-To check which version you are currenlty using, open a command prompt and type `java -version`
-
+To check which version you are currently using, open a command prompt and type `java -version`
 If you see 32-bit or an error, you need a new version of Java. You can download it [here](https://www.oracle.com/it/java/technologies/javase-jdk11-downloads.html) (Java 11).
 
 Minecraft 1.17 and above need Java 16 to work, which you can download [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
@@ -31,8 +28,16 @@ However if you want other people to be able to play on your server, you will nee
 Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else it will Refuse the connection.
 
 
-## **Is there a mac or linux version?**
+## **Failed To Bind to Port**
 
+Try killing all java processes (refer to [regain-control](#regain-control)) and start your server again.
+
+If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
+If you're running multiple servers make sure they're not using the same port.
+If you're still getting this error restarting your computer will usually resolve it.
+
+
+## **Is there a mac or linux version?**
 No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 **Supported OSs**: Windows Server (2008R2 SP1/2012/2016), Windows 7, 8 and 10
  
@@ -41,6 +46,18 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 
 No, it's software that runs on your computer.<br>
 Nothing like Aternos.
+
+
+## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
+
+This is because you have Java 11 or higher.
+To fix it, you have to specify the direct path to your java binaries in mcss.
+1. open the `file > options` menu
+2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
+3. restart MCSS and try to start a server again, the graphs should display the correct information.
+
+You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
+There, you will be able to set a local Java path, under the Advanced tab.
 
 
 ## **MCSS crashes when starting it.**
@@ -59,17 +76,6 @@ To regain control of your servers you need to kill all Java processes,to do this
     This includes: 
     * The game itself
     * Any other program running Java or relying on Java to function
-
-
-## **When I start the server, it works but the performance graphs are stuck to 0% CPU and 1MB of RAM**
-This is because you have Java 11 or higher.
-To fix it, you have to specify the direct path to your java binaries in mcss.
-1. open the `file > options` menu
-2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
-3. restart MCSS and try to start a server again, the graphs should display the correct information.
-
-You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
-There, you will be able to set a local Java path, under the Advanced tab.
 
 
 ## **Since v11.5.0 the process name requires a different format.**
