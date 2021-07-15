@@ -13,7 +13,7 @@ Wait for the end of the ad and click on "Skip" at the top right of the page. A .
 ## Create the Forge server
 
 Once the download is done, open the file `forge-<minecraft_version>-<forge_version>-installer.jar` to begin the Forge server installation. <br>
-Choose "install server" and select an empty folder in which the server wil temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
+Choose "install server" and select an empty folder in which the server will temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
 
 ![The Forge installer](assets/screenshots/install_forge.png)
 
