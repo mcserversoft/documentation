@@ -37,4 +37,8 @@ You can also delete the temporary folder where you installed Fabric, it is now u
 
 You can now start you Fabric server by clicking the "Start" button. <br>
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br>
-this time, it will fully start and you will be able to connect from you Minecraft client.
+this time, it will fully start and you will be able to connect from you Minecraft client. <br>
+<br>
+<br>
+Much thanks to Kennas for addind this wonderful video on how to install Fabric on MCSS:<br>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/yHd5OAl8L9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
