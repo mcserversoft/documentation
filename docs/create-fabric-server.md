@@ -40,6 +40,5 @@ At the first server start, the console will show an error asking you to accept t
 this time, it will fully start and you will be able to connect from you Minecraft client. <br>
 <br>
 <br>
-Much thanks to Kennas for making this wonderful video on how to install Fabric on MCSS:<br>
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/yHd5OAl8L9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Much thanks to Kennas for making this wonderful video on how to install Fabric on MCSS (Click on the picture to get to it):<br>
 <a href="https://www.youtube.com/embed/yHd5OAl8L9c" title="How to install Fabric on MC Server Soft [Windows 2021]"><img src="https://i.ytimg.com/vi/yHd5OAl8L9c/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBXl8AeOqQs7LAWHSpgdI1VlmOZYQ" alt="How to install Fabric on MC Server Soft [Windows 2021]" /></a>
