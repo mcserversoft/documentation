@@ -12,7 +12,7 @@ A .exe file will be downloaded, you might need to confirm the download on some b
 
 ## Create the Fabric server
 
-Once the download is done, open the file `fabric-installer-<fabric-version>.jar` to begin the Forge server installation. <br>
+Once the download is done, open the file `fabric-installer-<fabric-version>.jar` to begin the Fabric server installation. <br>
 Choose "install server" and select an empty folder in which the server will temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder. It'll ask for the official Minecraft Server jar to be downloaded, this can be done pressing the prompted window
 
 ![The Fabric installer](assets/screenshots/install_fabric.png)
