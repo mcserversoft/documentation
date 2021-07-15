@@ -27,4 +27,5 @@ nav:
    - Update a server: update-server.md
  - Advanced:
    - Create a Forge server: create-forge-server.md
+   - Create a Fabric server: create-fabric-server.md
  - FAQ: faq.md
