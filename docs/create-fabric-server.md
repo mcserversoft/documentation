@@ -40,5 +40,5 @@ At the first server start, the console will show an error asking you to accept t
 this time, it will fully start and you will be able to connect from you Minecraft client. <br>
 <br>
 <br>
-Much thanks to Kennas for addind this wonderful video on how to install Fabric on MCSS:<br>
+Much thanks to Kennas for making this wonderful video on how to install Fabric on MCSS:<br>
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/yHd5OAl8L9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
