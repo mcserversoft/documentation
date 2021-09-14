@@ -4,7 +4,7 @@ There are many server types available. Here is a quick rundown of all of them.
 
 !!! warning "About plugin servers and forge/fabric servers"
     Please keep in mind that the plugins servers listed here (CraftBukkit, Spigot and Paper) don't allow forge or fabric mods to be installed on them. The same applies the other way around.
-    If you need both plugins and mods, you need to use other server software, like Mohist or Magma. They usually follow the forge installation guide that you can find [here](./create-forge-server)
+    If you need both plugins and mods, you need to use other server software, like Mohist or Magma. They usually follow the forge installation guide that you can find [here](./create-forge-server.md)
     
     
 ## Plugin Servers
