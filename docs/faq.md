@@ -44,8 +44,7 @@ No unfortunately there isn't a version for mac. Mcss is Windows only.<br>
 
 ## **Is this 24/7?**
 
-No, it's software that runs on your computer.<br>
-Nothing like Aternos.
+MCSS runs on your computer. As long as it is online, the server is. SO yes, if your computer in ON 24/7, the server can be too
 
 ## **Is there a way to remote control MCSS ?**
 
