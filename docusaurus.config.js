@@ -17,13 +17,13 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/mcss.svg',
   organizationName: 'MCSS Community', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr','it','es',],
+    locales: ['en', 'fr','it','es','el'],
   },
 
   plugins: [
@@ -102,15 +102,19 @@ const config = {
         items: [
           {
             type: 'localeDropdown',
-            position: 'left',
+            position: 'right',
           },
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: '/blog',
+            label: 'Known Issues',
+            position: 'left'
+          },
           {
             href: 'https://github.com/mcss-community/documentation',
             label: 'GitHub',
