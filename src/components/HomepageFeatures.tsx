@@ -20,31 +20,29 @@ const FeatureList: FeatureItem[] = [
     image: '/img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        MCSS was designed to make Minecraft servers easy. The intuitive UI allows you to quickly get a server up and running
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Powerful',
     image: '/img/undraw_docusaurus_tree.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        MCSS can run nearly any type of server, and offers a lot of option and extra features, along with an API to control your servers remotely
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Actively developed',
     image: '/img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        MCSS was created 11 years ago and is still regularly updated to fix bugs and add new features !
       </>
     ),
   },
+  
 ];
 
 function Feature({title, image, description}: FeatureItem) {

@@ -6,10 +6,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 
-
-
-
-
 const config = {
   title: 'MCSS',
   tagline: 'Community maintained documentation',
@@ -18,12 +14,12 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/mcss.svg',
-  organizationName: 'MCSS Community', // Usually your GitHub org/user name.
+  organizationName: 'MC Serversoft', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr','it','es','el'],
+    locales: ['en', 'fr', 'es', 'it','el'],
   },
 
   plugins: [
@@ -49,7 +45,7 @@ const config = {
           {
             tagName: 'meta',
             name: 'theme-color',
-            content: 'rgb(37, 194, 160)',
+            content: 'rgb(151, 200, 0)',
           },
         ],
       },
@@ -65,13 +61,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/mcserversoft/documentation/edit/docusaurus/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/mcserversoft/documentation/edit/docusaurus/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -84,25 +80,59 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
 
+      gtag: {
+        trackingID: 'G-EBQC5FX51Y',
+        anonymizeIP: true,
+      },
+      
+      metadata: [{name: 'keywords', content: 'documentation, mcss, mcserversoft, minecraft, server, software, manager, wrapper'}],
+
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+        switchConfig: {
+          darkIcon: '🌙',
+          lightIcon: '☀️',
+        },
+      },
+
+      // announcementBar: {
+      //   id: 'announcement',
+      //   content:
+      //     `This is a test, don't mind me`,
+      //   backgroundColor: '#2C3638',
+      //   textColor: '#97C800',
+      //   isCloseable: true,
+      // },
+
+      image: 'img/mcss.svg',
+
       algolia: {
       // If Algolia did not provide you any appId, use 'BH4D9OD16A'
-      appId: 'YOUR_APP_ID',
+      appId: '5BRSJ21UOD',
 
       // Public API key: it is safe to commit it
-      apiKey: 'YOUR_SEARCH_API_KEY',
+      apiKey: '0acf1d2784dae016e02b01053a823e17',
 
-      indexName: 'YOUR_INDEX_NAME',
+      indexName: 'documentation',
     },
       navbar: {
         title: 'MCSS',
         logo: {
           alt: 'MCSS',
-          src: 'img/logo.svg',
+          src: 'img/mcss.svg',
         },
         items: [
           {
             type: 'localeDropdown',
             position: 'right',
+            // dropdownItemsAfter: [
+            //   {
+            //     to: 'https://my-site.com/help-us-translate',
+            //     label: 'Help us translate',
+            //   },
+            // ],
           },
           {
             type: 'doc',
@@ -112,11 +142,11 @@ const config = {
           },
           {
             to: '/blog',
-            label: 'Known Issues',
+            label: 'Informations',
             position: 'left'
           },
           {
-            href: 'https://github.com/mcss-community/documentation',
+            href: 'https://github.com/mcserversoft/documentation',
             label: 'GitHub',
             position: 'right',
           },
@@ -138,16 +168,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discordapp.com/invite/DEn89PB',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/fiahblade',
               },
             ],
           },
@@ -155,17 +181,17 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
+                label: 'informations',
                 to: '/blog',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/mcss-community/documentation',
+                href: 'https://github.com/mcserversoft/documentation',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} MCSS Community Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} MCSS Community`,
       },
       prism: {
         theme: lightCodeTheme,

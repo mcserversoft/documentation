@@ -1,11 +1,10 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 2](https://docusaurus.io/).
 
 ### Contributing
 
-Before you push any changes to GitHub, please run  `npm run clear` to remove temporary files and build files.
-
+<!-- TODO: Write a guide -->
 ### Installation
 
 ```
