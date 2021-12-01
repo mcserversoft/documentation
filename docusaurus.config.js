@@ -11,8 +11,8 @@ const config = {
   tagline: 'Community maintained documentation',
   url: 'https://mcserversoft.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/mcss.svg',
   organizationName: 'MC Serversoft', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
