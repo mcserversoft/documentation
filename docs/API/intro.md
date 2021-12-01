@@ -3,22 +3,26 @@ sidebar_position: 1
 title: Introduction
 ---
 
-
 Since version 12, MCSS supports an API that allows you to interact with your servers remotely.
 
 It is currently in it's first iteration, but is a work in progress.
 
 If you have any feature requests for the API, feel free to send them over on [Discord](https://discord.gg/DEn89PB).
 
+
+:::info This is a first release
+The API is still in development. It is **not** perfect and will be imporved in the future.
+:::
+
 ## What does it do
 
-The API allows you to control MCSS remotely. As of right now the API can : 
+The API allows you to control MCSS remotely. As of right now you can : 
 
 * Run power actions - Start, Stop, Restart or Kill your servers
 
 * Send commands - run minecraft commands in the console
 
-* Return server information like the icon and status
+* Return server information like the icon, status and description
 
 
 ## Enabling it
