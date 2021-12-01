@@ -27,7 +27,7 @@ Before you download MCSS, make sure your computer meets these requirements:
 
 *   Windows 10 or Windows Server (2008 R2 SP1/2012/2016)
 *   [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) or later installed
-*   A release of Java - Refer to our [java versions guide](./guides/java-version) for more information
+*   A release of Java - Refer to our [java versions guide](guides/java-version) for more information
 
 :::caution Windows 7/8 users
 While MCSS will work on Windows 8 and below, those versions are not officially supported. We advise you upgrade for the best experience
