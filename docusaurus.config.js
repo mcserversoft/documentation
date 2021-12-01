@@ -9,13 +9,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'MCSS',
   tagline: 'Community maintained documentation',
-  url: 'https://mcss.app',
+  url: 'https://mcserversoft.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/mcss.svg',
   organizationName: 'MC Serversoft', // Usually your GitHub org/user name.
   projectName: 'Documentation', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash : true,
 
   i18n: {
     defaultLocale: 'en',
