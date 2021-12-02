@@ -10,7 +10,7 @@ I could have just written an A to Z tutorial but at the end of the day you would
 
 Port forwarding or port mapping isn't that difficult, it might look complicated at first but it really isn't. The pupose of port forwarding is to make a specific programs on your computer accessible to other computers on the internet. It is commonly used for hosting game servers, peer-to-peer transfers, voice-over-ip applications and much more.
 
-![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](https://images.unsplash.com/photo-1615789591457-74a63395c990?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)
+![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](/img/guides/port-forward/portforward_overview.png)
 
 It isn't something you need to configure on your computer but in your modem's and/or router's web interface. In most household networks the modem contains a router with wireless capability and everything is hooked up to that. So in that case you would only need to change the settings in the modem itself.
 
@@ -46,21 +46,21 @@ If you have a wired internet, it is very likely that your router will support po
 
 Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit <kbd>Enter</kbd>. Or you can search for `Command Prompt` under your apps.
 
-![Partial screenshot of a cmd window](https://images.unsplash.com/photo-1615789591457-74a63395c990?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)
+![Partial screenshot of a cmd window](/img/guides/port-forward/portforward_cmd.png)
 
 Type <var>ipconfig</var> and hit <kbd>Enter</kbd>.
 
-![Partial screenshot of a cmd window](https://images.unsplash.com/photo-1615789591457-74a63395c990?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)
+![Partial screenshot of a cmd window](/img/guides/port-forward/portforward_cmd_ipconfig.png)
 
 This is my result, it will look different but the layout is more or less the same. What we need it the IP address of the ***Default Gateway***.
 
-![Partial screenshot of a cmd window](https://images.unsplash.com/photo-1615789591457-74a63395c990?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)
+![Partial screenshot of a cmd window](/img/guides/port-forward/portforward_cmd_result.png)
 
 ### Step 3 : access the router interface {#-step-3--access-the-router-interface}
 
 Open a browser and type the address you got from the command prompte into the address bar.
 
-![Screenshot of the browser Opera with a login screen of the router](https://images.unsplash.com/photo-1615789591457-74a63395c990?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9tZXN0aWMlMjBjYXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80)
+![Screenshot of the browser Opera with a login screen of the router](/img/guides/port-forward/portforward_browser.png)
 
 At this point, you will need to know the admin password of you router. 
 If it was never changed, it might be the name/serial number of your router. Try the different numbers you can find written on your router, often on the back. If none works, you can search for the default passwords that exists by googling the model number of your router.
