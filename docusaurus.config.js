@@ -10,13 +10,13 @@ const config = {
   title: 'MCSS',
   tagline: 'Community maintained documentation',
   url: 'https://mcserversoft.github.io',
-  baseUrl: '/',
+  baseUrl: '/documentation/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/mcss.svg',
-  organizationName: 'MC Serversoft', // Usually your GitHub org/user name.
-  projectName: 'Documentation', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
+  organizationName: 'mcserversoft', // Usually your GitHub org/user name.
+  projectName: 'documentation', // Usually your repo name.
+  deploymentBranch: 'gh-pages-dev',
   trailingSlash : true,
 
   i18n: {
