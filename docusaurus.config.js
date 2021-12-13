@@ -144,7 +144,7 @@ const config = {
           },
           {
             to: '/blog',
-            label: 'Informations',
+            label: 'Updates',
             position: 'left'
           },
           {
