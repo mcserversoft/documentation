@@ -24,7 +24,7 @@ In any network you might find one of these devices:
 
 | Device 	| Description                                                                                                                                                                                	|
 |--------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| Modem  	| This is usually provided by your internet service provider, ISP for short. Simply put: it provides a way to recieve and send data needed for your telephone, TV and internet connection.   	|
+| Modem  	| This is usually provided by your internet service provider, ISP for short. Simply put: it provides a way to receive and send data needed for your telephone, TV and internet connection.   	|
 | Router 	| A device that creates a network between the computers in your home by wire or wifi. Many internet provider install modems with an built-in router. (with or without wireless capabilities) 	|
 | Switch 	| Looks the same as a router but it does less. You would use a switch to expand your network, *ex. 1 cable goes in, 3 cables go elsewhere.*                                                  	|
 

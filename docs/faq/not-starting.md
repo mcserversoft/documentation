@@ -5,7 +5,7 @@ title: My server won't start
 
 ## Nothing appears in the console {#-nothing-appears-in-the-console}
 
-If you click on 'start server' and nothing happens, you most likely don't have java installed. Refer tou our [Java guide](../guides/java-version.md) to see which verision you need, and get a download link
+If you click on 'start server' and nothing happens, you most likely don't have java installed. Refer tou our [Java guide](../guides/java-version.md) to see which version you need, and get a download link
 
 ## The console does something, but the server fails to start {#-the-console-does-something-but-the-server-fails-to-start}
 

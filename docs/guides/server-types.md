@@ -48,7 +48,7 @@ To use any of these version with MCSS, please follow their respective installati
 
 | Name       	| Description                                                     	| Download             	|
 |------------	|-----------------------------------------------------------------	|----------------------	|
-| BungeeCord 	| Developped by Spigot's team, it supports plugins                	| [BungeeCord downloads](https://ci.md-5.net/job/BungeeCord/) 	|
-| Waterfall  	| Developped by Paper's team, it's a faster version of BungeeCord 	| [Waterfall downloads](https://papermc.io/downloads#Waterfall)  	|
+| BungeeCord 	| Developed by Spigot's team, it supports plugins                	| [BungeeCord downloads](https://ci.md-5.net/job/BungeeCord/) 	|
+| Waterfall  	| Developed by Paper's team, it's a faster version of BungeeCord 	| [Waterfall downloads](https://papermc.io/downloads#Waterfall)  	|
 | Geyser     	| Allows Java and PE players to play on the same server           	| [Geyser downloads](https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/)    	|
 
