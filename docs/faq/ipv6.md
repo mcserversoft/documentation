@@ -1,6 +1,6 @@
 ---
 title: I have something weird as my IP
-sidebar-postion: 11
+sidebar-position: 11
 ---
 
 That's completely normal, it's an IPv6. 

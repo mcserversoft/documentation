@@ -6,15 +6,15 @@ description: To allow your friends to play with you !
 
 ## Introduction {#-introduction}
 
-I could have just written an A to Z tutorial but at the end of the day you would still have no idea what you actually did. Troubleshooting problems and maintaining your network would be tricky and painfull. So in this guide I'll be focusing on port forwarding and the basic logic arround it.
+I could have just written an A to Z tutorial but at the end of the day you would still have no idea what you actually did. Troubleshooting problems and maintaining your network would be tricky and painful. So in this guide I'll be focusing on port forwarding and the basic logic around it.
 
-Port forwarding or port mapping isn't that difficult, it might look complicated at first but it really isn't. The pupose of port forwarding is to make a specific programs on your computer accessible to other computers on the internet. It is commonly used for hosting game servers, peer-to-peer transfers, voice-over-ip applications and much more.
+Port forwarding or port mapping isn't that difficult, it might look complicated at first but it really isn't. The purpose of port forwarding is to make a specific programs on your computer accessible to other computers on the internet. It is commonly used for hosting game servers, peer-to-peer transfers, voice-over-ip applications and much more.
 
 ![Overview of two networks. In the first one, port forwarding isn't setup correctly and fails, in the seconds everything works great](/img/guides/port-forward/portforward_overview.png)
 
 It isn't something you need to configure on your computer but in your modem's and/or router's web interface. In most household networks the modem contains a router with wireless capability and everything is hooked up to that. So in that case you would only need to change the settings in the modem itself.
 
-In my case, I have a modem with the wireless features turned off and I've hooked up a more powerful router to the modem. So I will need to portforward the modem and the external router.
+In my case, I have a modem with the wireless features turned off and I've hooked up a more powerful router to the modem. So I will need to port forward the modem and the external router.
 
 As you can see it becomes a bit confusing, if you don't know how your network is setup.
 
@@ -28,7 +28,7 @@ In any network you might find one of these devices:
 | Router 	| A device that creates a network between the computers in your home by wire or wifi. Many internet provider install modems with an built-in router. (with or without wireless capabilities) 	|
 | Switch 	| Looks the same as a router but it does less. You would use a switch to expand your network, *ex. 1 cable goes in, 3 cables go elsewhere.*                                                  	|
 
-So go ahead and look arround to see how your network is setup.
+So go ahead and look around to see how your network is setup.
 
 ## Setting-up the port forwarding rule {#-setting-up-the-port-forwarding-rule}
 
@@ -58,7 +58,7 @@ This is my result, it will look different but the layout is more or less the sam
 
 ### Step 3 : access the router interface {#-step-3--access-the-router-interface}
 
-Open a browser and type the address you got from the command prompte into the address bar.
+Open a browser and type the address you got from the command prompt into the address bar.
 
 ![Screenshot of the browser Opera with a login screen of the router](/img/guides/port-forward/portforward_browser.png)
 
@@ -67,7 +67,7 @@ If it was never changed, it might be the name/serial number of your router. Try 
 
 ### Step 4: setting up the port forward {#-step-4-setting-up-the-port-forward}
 
-Fisrt, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
+First, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
 
 - turn on the advanced mode if there is one
 

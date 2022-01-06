@@ -9,11 +9,11 @@ With MCSS you can use different versions of java for each of your servers, or se
 
 ## Finding the path to the Java executable {#-java-path}
 
-Once you have installed the java version you need (refer to the [java version guide](/docs/guides/java-version) for more information), you need to locate the Java executable.
+Once you have installed the Java version you need (refer to the [java version guide](/docs/guides/java-version) for more information), you need to locate the Java executable.
 
 To find the version you need, go to `C:\Program Files\Java` and look for the folder that contains the version you need. Open that folder then the `bin` folder. 
 
-Copy the path to this folder as shown below (in this case we're using java 11.0.10)
+Copy the path to this folder as shown below (in this case, we're using java 11.0.10)
 
 ![explorer path](/img/guides/java-path/explorer.png)
 
@@ -38,7 +38,7 @@ The path you entered will be used for all servers and should look something like
 
 
 ## Per server {#-per-server}
-If you have multiple servers that require different versions of java, you can override the global Java setting. To do so open the server settings by clicking the ⚙️ and navigate to the advanced tab. 
+If you have multiple servers that require different versions of Java, you can override the global Java setting. To do so, open the server settings by clicking the ⚙️ then navigate to the advanced tab. 
 
 You will see a text box labeled "Local Java Path override". Paste the path to the folder containing the Java executable you just found.
 

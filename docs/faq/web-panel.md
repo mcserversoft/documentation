@@ -1,6 +1,6 @@
 ---
 title: Can I control MCSS remotely
-sidebar-postion: 3
+sidebar-position: 3
 ---
 
 ## Not yet {#-not-yet}

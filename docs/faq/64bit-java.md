@@ -1,6 +1,6 @@
 ---
 title: Could not reserve enough space
-sidebar-postion: 2
+sidebar-position: 2
 ---
 
 If you get an error saying `Could not reserve enough space for 2048000kb object heap`, this means you have a 32bit version of Java.

@@ -1,6 +1,6 @@
 ---
 title: I need UTF8 encoding
-sidebar-postion: 13
+sidebar-position: 13
 ---
 
 The sad reality is that UTF-8 is a second-class citizen in Windows.

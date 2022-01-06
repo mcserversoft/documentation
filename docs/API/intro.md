@@ -11,7 +11,7 @@ If you have any feature requests for the API, feel free to send them over on [Di
 
 
 :::info This is a first release
-The API is still in development. It is **not** perfect and will be imporved in the future.
+The API is still in development. It is **not** perfect and will be improved in the future.
 :::
 
 ## What does it do

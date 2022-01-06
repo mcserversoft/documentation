@@ -1,6 +1,6 @@
 ---
 title: MCSS crashed
-sidebar-postion: 9
+sidebar-position: 9
 ---
 
 ## MCSS has crashed {#-mcss-has-crashed}

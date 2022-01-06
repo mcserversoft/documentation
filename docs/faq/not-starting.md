@@ -1,5 +1,5 @@
 ---
-sidebar-postion: 4
+sidebar-position: 4
 title: My server won't start
 ---
 

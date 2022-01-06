@@ -1,6 +1,6 @@
 ---
 title: Can't connect to the server
-sidebar-postion: 6
+sidebar-position: 6
 ---
 
 ## MCSS and Minecraft are on the same computer {#-mcss-and-minecraft-are-on-the-same-computer}
