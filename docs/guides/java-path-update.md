@@ -4,10 +4,10 @@ title: Changing the version of Java
 slug: path-update
 ---
 
-MCSS lets you use [different Java versions for each server](#per-server--per-server) or [a common Java version for all servers](#common-java-version).
+MCSS lets you use [different Java versions for each server](#per-server--per-server) or [a common Java version for all servers](#globally--globally).
 
-<!-- TODO: Explain how to get the path -->
-<!-- TODO: Explain how to set the path -->
+<!-- TODO: Explain how to **get** the path -->
+<!-- TODO: Explain how to **set** the path -->
 
 ## Finding the path to the Java executable {#-java-path}
 
@@ -21,10 +21,26 @@ Copy the path to this folder as shown below (in this case we're using java 11.0.
 
 ## Globally {#-globally}
 
+If you only have one server or if your servers all use the same version of Java, you can set the path globally.
+To do so open MCSS then at the tip click on `file > options`.
+
+Scroll down and you will see a text box labeled "Global Java Path override". Paste the path to the folder containing the Java executable you just found.
+
+The path you entered will be used for all servers and should look something like this (in this case we're using java 11.0.10):
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/guides/java-path/java-path-override.png" alt="Global Path override"/>
+</div>
 
 
 ## Per server {#-per-server}
-If you have multiple servers that require different versions of java, you can override the global Java setting for each server. To do so open the server settings and navigate to the advanced tab.  
+If you have multiple servers that require different versions of java, you can override the global Java setting. To do so open the server settings by clicking the ⚙️ and navigate to the advanced tab. 
 
+You will see a text box labeled "Local Java Path override". Paste the path to the folder containing the Java executable you just found.
 
+The path you entered will be used for this server and should look something like this (in this case we're using java 11.0.10):
+
+<div style={{textAlign: 'center'}}>
+  <img src="/img/guides/java-path/local-path-override.png" alt="Local Path override"/>
+</div>
 
