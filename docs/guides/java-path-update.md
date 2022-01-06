@@ -26,7 +26,7 @@ Adoptium 16: `C:\Program Files\Eclipse Foundation` <br></br>
 ## Globally {#-globally}
 
 If you only have one server or if your servers all use the same version of Java, you can set the path globally.
-To do so open MCSS then at the tip click on `file > options`.
+To do so, open MCSS then at the top click on `file > options`.
 
 Scroll down and you will see a text box labeled "Global Java Path override". Paste the path to the folder containing the Java executable you just found.
 
