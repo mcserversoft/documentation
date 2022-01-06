@@ -4,10 +4,8 @@ title: Changing the version of Java
 slug: path-update
 ---
 
-MCSS lets you use [different Java versions for each server](#per-server--per-server) or [a common Java version for all servers](#globally--globally).
+With MCSS you can use different versions of java for each of your servers, or set a global override for the version of java that is used by all servers.
 
-<!-- TODO: Explain how to **get** the path -->
-<!-- TODO: Explain how to **set** the path -->
 
 ## Finding the path to the Java executable {#-java-path}
 
