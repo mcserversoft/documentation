@@ -18,8 +18,9 @@ Copy the path to this folder as shown below (in this case we're using java 11.0.
 ![explorer path](/img/guides/java-path/explorer.png)
 
 :::caution Alternative Folders
-Some providers of Java builds may place the Java executable in a different folder. Here is a list of known alternative folers: <br></br>
-AdoptopenJDK: `C:\Program Files\Eclipse Foundation`
+Some providers of Java builds may place the Java executable in a different folder. Here is a list of known alternative folders: <br></br>
+Adoptium 17: `C:\Program Files\Eclipse Adoptium` <br></br>
+Adoptium 16: `C:\Program Files\Eclipse Foundation` <br></br>
 
 :::
 ## Globally {#-globally}
