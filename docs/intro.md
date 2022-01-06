@@ -42,4 +42,4 @@ If you need help using the software, join our [Discord server](https://discord.g
 
 If you see a mistake or want to help improve the documentation, you can help us ! 
 
-Click on "edit this page" and make your changes, we'll rewiew and hopefully add them 
+Click on "edit this page" and make your changes, we'll review and hopefully add them 
