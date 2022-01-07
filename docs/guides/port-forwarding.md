@@ -36,13 +36,13 @@ Now that you have a good sense on which router/modem you are running behind. It'
 
 Every manufacturer has its own interface, so they all look different. Unfortunately it would be impossible for us to make a detailed tutorial on how to set up a redirect for everyone, but here is a general guide on how to port forward for a Minecraft server.
 
-### Step 1 : make sure that you have a compatible router {#-step-1--make-sure-that-you-have-a-compatible-router}
+### Step 1 : make sure that you have a compatible router {#-step-1}
 
-To have access to port forwarding, your internet connection must be wired (xDSL or fiber). This means that if you have a 4G/cellular router, it will be impossible for you to open a port of your network. However, there are some options to allow outside connections even if you can't portforward, like ngrok. See on [their website](https://ngrok.com/) for more infos and detailed instructions.
+To have access to port forwarding, your internet connection must be wired (xDSL or fiber). This means that if you have a 4G/cellular router, it will be impossible for you to open a port of your network. However, there are some options to allow outside connections even if you can't port forward, like ngrok. See on [their website](https://ngrok.com/) for more infos and detailed instructions.
 
 If you have a wired internet, it is very likely that your router will support port forwarding, but it might be possible that your ISP has blocked this feature.
 
-### Step 2: Find the ip of the modem/device (default gateway) {#-step-2-find-the-ip-of-the-modemdevice-default-gateway}
+### Step 2: Find the ip of the modem/device (default gateway) {#-step-2}
 
 Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit <kbd>Enter</kbd>. Or you can search for `Command Prompt` under your apps.
 
@@ -56,7 +56,7 @@ This is my result, it will look different but the layout is more or less the sam
 
 ![Partial screenshot of a cmd window](/img/guides/port-forward/portforward_cmd_result.png)
 
-### Step 3 : access the router interface {#-step-3--access-the-router-interface}
+### Step 3 : access the router interface {#-step-3}
 
 Open a browser and type the address you got from the command prompt into the address bar.
 
@@ -65,7 +65,7 @@ Open a browser and type the address you got from the command prompt into the add
 At this point, you will need to know the admin password of you router. 
 If it was never changed, it might be the name/serial number of your router. Try the different numbers you can find written on your router, often on the back. If none works, you can search for the default passwords that exists by googling the model number of your router.
 
-### Step 4: setting up the port forward {#-step-4-setting-up-the-port-forward}
+### Step 4: setting up the port forward {#-step-4}
 
 First, check [this website](https://portforward.com/router.htm), they have over hundreds of tutorials for almost every brand and model. If yours isn't listed and you can't find any similar model, here are the general steps to follow :
 

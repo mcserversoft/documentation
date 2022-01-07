@@ -11,6 +11,6 @@ To activate it: * Run intl.cpl (which opens the regional settings in Control Pan
 
 ![test](https://mcss.b-cdn.net/docs/faq/utf8.png)
 
-In some cases, the server needs to be started with additional parameters. E.g -Dfile.encoding=UTF-8, this varies from the server type used. More research is required on your end.
+In some cases, the server needs to be started with additional parameters. E.g `-Dfile.encoding=UTF-8`, this varies from the server type used. More research is required on your end.
 
 After setting this all up, you have no guarantee it will work. Goes to show how bad UTF-8 console support in Windows really is.

@@ -160,7 +160,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Documentation',
                 to: '/docs/intro',
               },
             ],
@@ -172,17 +172,13 @@ const config = {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/DEn89PB',
               },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/fiahblade',
-              },
             ],
           },
           {
             title: 'More',
             items: [
               {
-                label: 'informations',
+                label: 'Information',
                 to: '/blog',
               },
               {

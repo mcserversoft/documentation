@@ -1,29 +1,30 @@
-# Website
+# MCSS Documentation
 
-This website is built using [Docusaurus 2](https://docusaurus.io/).
+This is a community maintained documentation for MCSS. If you see any errors or want to add something, please follow the contribution guide below.
 
-### Contributing
+If you have any questions that are not answered here, feel free to join the [MCSS Discord](https://discord.gg/DEn89PB) and ask them there! 
 
-<!-- TODO: Write a guide -->
-### Installation
+## Contributing
 
+Anyone can add to the documentation. If you want to edit a page, you can do so by clicking `Edit this page` at the bottom of each page.
+This will take you to GitHub, and from there you will be able to make your changes and create a pull request.
+
+If you want to add a new page, fork the repository and make your changes in the "doc" folder. Then, create a pull request.
+To run the development server locally, follow the steps below
+
+## Local Development
+
+To run a local development server, you first need to install the dependencies:
 ```
-$ npm i
+$ npm install
 ```
 
-### Local Development
-
+Then you can run the server:
 ```
 $ npm run start
 ```
+This command will open a browser window that reloads each time you save, so you can see the changes in real time.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
 
-```
-$ npm run build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
+This documentation was built with [Docusaurus 2](https://docusaurus.io/).

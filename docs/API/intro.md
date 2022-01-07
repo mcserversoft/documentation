@@ -3,6 +3,10 @@ sidebar_position: 1
 title: Introduction
 ---
 
+:::caution Work In Progress
+This section of the documentation is a work in progress. It is not complete and may change at any time.
+:::
+
 Since version 12, MCSS supports an API that allows you to interact with your servers remotely.
 
 It is currently in it's first iteration, but is a work in progress.
