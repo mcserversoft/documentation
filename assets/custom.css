@@ -1,0 +1,12 @@
+.md-header {
+  background: -webkit-linear-gradient(to right, #134e5e, #71b280);
+  background-image: linear-gradient(to right, #134e5e, #71b280);
+}
+.md-tabs {
+  background: -webkit-linear-gradient(to right, #285E6C, #97C7A2);
+  background-image: linear-gradient(to right, #285E6C, #97C7A2);;
+}
+.md-header-nav__title {
+  padding:inherit;
+  margin-left:-0.5rem;
+}
