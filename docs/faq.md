@@ -2,9 +2,9 @@
 
 ## **My 1.17 server won't start !**
 
-The latest release of Minecraft requires Java 16 to  start. You can download it [here](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html). 
+Minecraft version 1.17 requires [Java 16](https://www.oracle.com/java/technologies/javase/jdk16-archive-downloads.html) to work, and MC 1.18 needs [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
 
-Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\<java version>\bin\java.exe`.
+Please note that 1.16 and below **cannot** run using Java 16. To run both 1.17 (or higher) and 1.16 (or below) servers on the same machine, you will need to specify the path to the corresponding `java.exe` for each server under `edit server > advanced > Local Java path override`. The path should look something like this : `C:\Program Files\Java\<java version>\bin\java.exe`.
 
 
 ## **Error occurred during initialization of VM Could not reserve enough space**
@@ -30,7 +30,7 @@ Make sure port 25565 (both TCP & UDP) is allowed through your firewall or else i
 
 ## **Failed To Bind to Port**
 
-Try killing all java processes (refer to [regain-control](#regain-control)) and start your server again.
+Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
 
 If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
 If you're running multiple servers make sure they're not using the same port.
