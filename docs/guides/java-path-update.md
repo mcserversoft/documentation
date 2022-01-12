@@ -9,7 +9,7 @@ With MCSS you can use different versions of java for each of your servers, or se
 
 ## Finding the path to the Java executable {#-java-path}
 
-Once you have installed the Java version you need (refer to the [java version guide](/docs/guides/java-version) for more information), you need to locate the Java executable.
+Once you have installed the Java version you need (refer to the [java version guide](java-version) for more information), you need to locate the Java executable.
 
 To find the version you need, go to `C:\Program Files\Java` and look for the folder that contains the version you need. Open that folder then the `bin` folder. 
 
