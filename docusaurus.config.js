@@ -63,7 +63,7 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/mcserversoft/documentation/edit/docusaurus/',
+          editUrl: 'https://github.com/mcserversoft/documentation/edit/main/',
         },
         blog: false,
         theme: {
