@@ -7,20 +7,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 
 const config = {
-  title: 'MCSS',
-  tagline: 'Community maintained documentation',
-  url: 'https://mcserversoft.github.io',
+  title: 'MC Server Soft Documentation',
+  tagline: 'Official Docs for MC Server Soft',
+  url: 'https://mcserversoft.com\documentation',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '/img/mcss.svg',
-  organizationName: 'mcserversoft', // Usually your GitHub org/user name.
-  projectName: 'documentation', // Usually your repo name.
+  favicon: '/favicon.ico',
+  organizationName: 'mcserversoft',
+  projectName: 'documentation',
   trailingSlash : false,
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr', 'es', 'it', 'el'],
+    locales: ['en'],
   },
 
   plugins: [
@@ -36,7 +36,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/docusaurus.png',
+            href: '/favicon.ico',
           },
           {
             tagName: 'link',
@@ -46,7 +46,7 @@ const config = {
           {
             tagName: 'meta',
             name: 'theme-color',
-            content: 'rgb(151, 200, 0)',
+            content: '#abd037',
           },
         ],
       },
@@ -60,16 +60,12 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/mcserversoft/documentation/edit/docusaurus/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/mcserversoft/documentation/edit/docusaurus/blog/',
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -78,73 +74,35 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-
-      gtag: {
-        trackingID: 'G-EBQC5FX51Y',
-        anonymizeIP: true,
-      },
-      
-      metadata: [{name: 'keywords', content: 'documentation, mcss, mcserversoft, minecraft, server, software, manager, wrapper'}],
-
+      metadata: [{name: 'keywords', content: 'mcserversoft, documentation, mcss, docs, minecraft, server, server ui, software, manager, wrapper'}],
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
         switchConfig: {
           darkIcon: '🌙',
           lightIcon: '☀️',
         },
       },
-
-      // announcementBar: {
-      //   id: 'announcement',
-      //   content:
-      //     `This is a test, don't mind me`,
-      //   backgroundColor: '#2C3638',
-      //   textColor: '#97C800',
-      //   isCloseable: true,
-      // },
-
-      image: 'img/mcss.svg',
-
+      image: 'img/logo.svg',
       algolia: {
-      // If Algolia did not provide you any appId, use 'BH4D9OD16A'
       appId: '5BRSJ21UOD',
-
       // Public API key: it is safe to commit it
       apiKey: '0acf1d2784dae016e02b01053a823e17',
 
       indexName: 'documentation',
     },
       navbar: {
-        title: 'MCSS',
+        title: 'MC Server Soft Documentation',
         logo: {
-          alt: 'MCSS',
-          src: '/img/mcss.svg',
+          alt: 'Logo of MC Server Soft',
+          src: '/img/logo.svg',
         },
         items: [
           {
             type: 'localeDropdown',
             position: 'right',
-            // dropdownItemsAfter: [
-            //   {
-            //     to: 'https://my-site.com/help-us-translate',
-            //     label: 'Help us translate',
-            //   },
-            // ],
-          },
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {
-            to: '/blog',
-            label: 'Updates',
-            position: 'left'
           },
           {
             href: 'https://github.com/mcserversoft/documentation',
@@ -157,38 +115,88 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Getting started',
             items: [
+              {
+                label: 'Introduction',
+                to: '/',
+              },
+              {
+                label: 'Port forwarding',
+                to: '/networking/port-forwarding',
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Terms of Use',
+                href: 'https://www.mcserversoft.com/terms',
+              },
+              {
+                label: 'Privacy Policy',
+                href: 'https://www.mcserversoft.com/privacy',
+              },
+            ],
+          },
+          {
+            title: 'Contribute',
+            items: [
+              {
+                label: 'Donate',
+                href: 'https://www.mcserversoft.com/donate',
+              },
               {
                 label: 'Documentation',
-                to: '/docs/intro',
+                href: 'https://github.com/mcserversoft/documentation',
+              }
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'Changelogs',
+                href: 'https://www.mcserversoft.com/changelogs',
+              },
+              {
+                label: 'Documentation',
+                to: '/',
+              },
+              {
+                label: 'Developer API',
+                to: '/api/about',
+              },
+              {
+                label: 'Screenshots',
+                href: 'https://www.mcserversoft.com/screenshots',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Social',
             items: [
+              {
+                label: 'About',
+                href: 'https://www.mcserversoft.com/about',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/fiahblade',
+              },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/DEn89PB',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Information',
-                to: '/blog',
+                href: 'https://www.mcserversoft.com/discord',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/mcserversoft/documentation',
+                label: 'SpigotMC',
+                href: 'https://www.spigotmc.org/resources/mc-server-soft-server-manager-for-windows.19261/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} MCSS Community`,
+        copyright: `Copyright © ${new Date().getFullYear()} MC Server Soft and contributors.`,
       },
       prism: {
         theme: lightCodeTheme,
