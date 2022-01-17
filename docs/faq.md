@@ -6,7 +6,6 @@ title: FAQ
 # FAQ - Frequently Asked Questions
 
 ## My 1.17 server won't start {#-faq-1-17-wont-start}
-
 Since Minecraft version 1.17, both client and server need Java 16 or above to run.  
 
 :::info Change Java Version
@@ -43,7 +42,6 @@ See the [Port forwarding Guide](https://mcserversoft.github.io/documentation/por
 :::
 
 ## Failed To Bind to Port {#-faq-failed-bind-port}
-
 Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
 
 If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
