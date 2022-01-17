@@ -16,7 +16,6 @@ const config = {
   favicon: '/favicon.ico',
   organizationName: 'mcserversoft',
   projectName: 'documentation',
-  deploymentBranch : 'main',
   trailingSlash : false,
 
   i18n: {
