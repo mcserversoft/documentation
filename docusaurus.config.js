@@ -15,7 +15,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: '/favicon.ico',
   organizationName: 'mcserversoft',
-  projectName: 'mcserversoft.github.io',
+  projectName: 'documentation',
   deploymentBranch : 'main',
   trailingSlash : false,
 
