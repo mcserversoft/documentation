@@ -9,13 +9,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'MC Server Soft Documentation',
   tagline: 'Official Docs for MC Server Soft',
-  url: 'https://mcserversoft.com\documentation',
+  url: 'https://mcserversoft.github.io/documentation',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: '/favicon.ico',
   organizationName: 'mcserversoft',
-  projectName: 'documentation',
+  projectName: 'mcserversoft.github.io/documentation',
   trailingSlash : false,
 
   i18n: {
