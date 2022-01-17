@@ -7,7 +7,7 @@ title: Creating a Fabric server
 Go to [Fabric's website](https://fabricmc.net/) and choose the version that you want to download. Click on "Installer" to download that version's installer.
 A .exe file will be downloaded, you might need to confirm the download on some browsers.
 
-![Download forge](/img/docs/create-fabric/Download_fabric.png)
+![Download forge](/img/docs/create-fabric/download_fabric.png)
 
 ## Create the Fabric server {#-create-the-fabric-server}
 
