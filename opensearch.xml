@@ -4,8 +4,8 @@
   <ShortName>MC Server Soft Documentation</ShortName>
   <Description>Search MC Server Soft Documentation</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://mcserversoft.github.io/documentation/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://mcserversoft.github.io/documentation/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://mcserversoft.github.io/documentation/opensearch.xml" />
-  <moz:SearchForm>https://mcserversoft.github.io/documentation/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://mcserversoft.github.io/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://mcserversoft.github.io/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://mcserversoft.github.io/opensearch.xml" />
+  <moz:SearchForm>https://mcserversoft.github.io/</moz:SearchForm>
 </OpenSearchDescription>
