@@ -10,7 +10,7 @@ const config = {
   title: 'MC Server Soft Documentation',
   tagline: 'Official Docs for MC Server Soft',
   url: 'https://mcserversoft.github.io',
-  baseUrl: '/',
+  baseUrl: '/documentation/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: '/favicon.ico',
