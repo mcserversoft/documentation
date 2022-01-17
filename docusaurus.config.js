@@ -53,7 +53,6 @@ const config = {
     ],
   ],
 
-
   presets: [
     [
       '@docusaurus/preset-classic',
