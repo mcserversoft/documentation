@@ -14,7 +14,7 @@ To find the version you need, go to `C:\Program Files\Java` and look for the fol
 
 Copy the path to this folder as shown below (in this case, we're using java 11.0.10)
 
-![explorer path](/img/\docs/java-path/explorer.png)
+![explorer path](/img/docs/java-path/explorer.png)
 
 :::caution Alternative Folders
 Some providers of Java builds may place the Java executable in a different folder. Here is a list of known alternative folders: <br/>
