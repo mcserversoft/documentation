@@ -3,10 +3,7 @@ sidebar_position: 2
 title: Supported server types
 ---
 
-# Supported server types
-
 There are many server types available. Here is a quick rundown of all of them.
-
 
 ## Vanilla Minecraft {#-vanilla-minecraft}
 
@@ -15,8 +12,6 @@ Vanilla is the name give to the version of the server software released by Mojan
 Even if you don't want any plugins, we recommend you use [paper](#plugin-support) as your server software as it adds some much needed performance upgrades and bug fixes
 :::
     
-
-
 ## Plugin support {#-plugin-support}
 
 Plugins are third party add-ons you can add to your server. They can do a lot of different things, from fixing bugs to adding minigames or RPG-like gameplay. 

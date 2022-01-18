@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 title: Creating a Fabric server
 ---
 ## Download Fabric {#-download-fabric}

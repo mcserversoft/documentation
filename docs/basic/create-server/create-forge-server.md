@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: Creating a Forge server
 description: How to create a Forge with MCSS
 keywords:
