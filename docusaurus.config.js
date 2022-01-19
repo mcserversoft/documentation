@@ -177,8 +177,8 @@ const config = {
             title: 'Social',
             items: [
               {
-                label: 'About',
-                href: 'https://www.mcserversoft.com/about',
+                label: 'Website',
+                href: 'https://www.mcserversoft.com',
               },
               {
                 label: 'Twitter',
