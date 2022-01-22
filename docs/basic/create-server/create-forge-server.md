@@ -41,6 +41,12 @@ You can also delete the temporary folder where you installed Forge, it is now us
 
 ![Migrate forge](/img/docs/create-forge/migrate_forge.png)
 
+
+:::note Forge 1.18
+Forge 1.18 has a diffrent file structure. You can run 1.18 servers with MCSS but you'll lose the ability to modify the RAM allocated to the server.
+To use forge 1.18, follow this guide then replace the startup line with the following : <br></br> ```java @user_jvm_args.txt @libraries/net/minecraftforge/forge/forge version/win_args.txt  %*``` <br></br>
+(replace `forge version` with the version you downloaded - e.g. 1.18-38.0.17)
+:::
 You can now start you Forge server by clicking the "Start" button. <br/>
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br/>
 this time, it will fully start and you will be able to connect from you Minecraft client.
