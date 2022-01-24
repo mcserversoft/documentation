@@ -17,7 +17,7 @@ It was launched in 2011 and is maintained by [Fireblade](https://github.com/fiah
 
 Before you download MCSS, make sure your computer meets these requirements:
 * Windows 10 or Windows Server (2008 R2 SP1/2012/2016)
-* [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) or later installed
+* [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) installed
 * A release of Java - Refer to our [java versions guide](/advanced/java-version) for more information
 * Stable internet connection, wired is highly preferred
 * Port forward capable modem/router (for online multiplayer)
