@@ -42,7 +42,7 @@ See the [Port forwarding Guide](/networking/port-forwarding).
 :::
 
 ## Failed To Bind to Port {#-faq-failed-bind-port}
-Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
+Try killing all java processes (refer to [regain-control](#-faq-crash)) and start your server again.
 
 If you added an IP to the 'server-ip' field in the server.properties file make sure to remove it.
 If you're running multiple servers make sure they're not using the same port.
@@ -118,7 +118,8 @@ Yes that is completely normal, that is called an IPv6 address. Most people don't
 There are 2 versions of the IP protocol.
 - IPv4: 192.x.x.x
 - IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-<br/>[More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
+<br/>
+[More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
  
 :::info IPv6 doesn't need port forwarding
 IPv6 doesn't require port forwarding. With IPv4 you have a private and public IP. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
