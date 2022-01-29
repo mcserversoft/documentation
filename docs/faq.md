@@ -37,20 +37,20 @@ ipconfig | findstr IPv4
 ```
 
 :::info Port Forwarding
-However if you want other people to be able to play on your server, you will need to port forward your ip.
-See the [Port forwarding Guide](https://mcserversoft.github.io/documentation/port-forwarding).
+However if you want other people to be able to play on your server, you will need to port forward your IP.
+See the [Port forwarding Guide](/networking/port-forwarding).
 :::
 
 ## Failed To Bind to Port {#-faq-failed-bind-port}
 Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
 
-If you added an ip to the 'server-ip' field in the server.properties file make sure to remove it.
+If you added an IP to the 'server-ip' field in the server.properties file make sure to remove it.
 If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
 
-## Is there a mac or linux version? {#-faq-mac-linux-support}
-No unfortunately there isn't a version for mac. Mcss is Windows only.
+## Is there a mac or Linux version? {#-faq-mac-linux-support}
+No unfortunately there isn't a version for mac. MCSS is Windows only.
 
 
 ## Is this 24/7? {#-faq-24-7}
@@ -65,7 +65,7 @@ A remote control panel is currently being made, but nothing public yet. Updates 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 This issue happens with the latest version of Java. It can easily be fixed by defining the path to your version of java.
 
-To fix it, you have to specify the direct path to your java binaries in mcss.
+To fix it, you have to specify the direct path to your java binaries in MCSS.
 1. open the `file > options` menu
 2. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
 3. restart MCSS and try to start a server again, the graphs should display the correct information.
@@ -75,16 +75,16 @@ There, you will be able to set a local Java path, under the Advanced tab.
 
 
 ## MCSS crashes when starting it. {#-faq-crash-start}
-Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) (or higher) installed?
+Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net48) (or higher) installed?
 
 
-## How do I regain control of my server if mcss crashes? {#-faq-crash}
+## How do I regain control of my server if MCSS crashes? {#-faq-crash}
 To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes" 
 
 ![Screenshot of the Kill all java processes option](/img/docs/faq/mcss_kill_java.png)
 
 :::warning warning
-  This will kill ALL Java processes, not only mcss hosted Minecraft servers.<br/>
+  This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
      This includes: 
     - The game itself
     - Any other program running Java or relying on Java to function
@@ -99,7 +99,7 @@ This change is required, click 'Yes' to apply the change.
 ## Failed to set performance counters. {#-faq-failed-performance-counters}
 ![Screenshot of failed to set performance counters dialog](/img/docs/faq/dialog_performance_counters.png)
 
-Your performance counters are corrupt. Mcss can automatically do this for you. Click "Yes" to fix it.
+Your performance counters are corrupt. MCSS can automatically do this for you. Click "Yes" to fix it.
 
 In case you want to do this manually:
 
@@ -121,42 +121,38 @@ There are 2 versions of the IP protocol.
 <br/>[More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
  
 :::info IPv6 doesn't need port forwarding
-IPv6 doesn't require port forwarding. With IPv4 you have a private and public ip. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
+IPv6 doesn't require port forwarding. With IPv4 you have a private and public IP. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
 :::
 
 
 ## Updating from 10.4.0.0 or older fails. {#-faq-update-10-failed}
-Due to backend api changes version 10.4.0.0 (and older) was considered End of Life (EOL) as of January 1st 2020.
+Due to backend API changes version 10.4.0.0 (and older) was considered End of Life (EOL) as of January 1st 2020.
 Update from these old builds is no longer possible, they might even break.
 
-You will need to update mcss manually. Download the latest version from the website and rename it to mcss.exe and copy'n replace it with the existing one. (make a backup just in case)
+You will need to update MCSS manually. Download the latest version from the website and rename it to MCSS.exe and copy and replace it with the existing one. (make a backup just in case)
 
 ## Trouble starting a server {#-faq-trouble-starting-server}
 
 ### The console remains empty and the server does nothing {#-faq-console-empty}
-This is because you don't have Java installed, or it is not in the PATH variable
 
-> The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+You either don't have Java installed or MCSS doesn't know where it is. 
 
-First, make sure to install Java from [here](https://java.com/en/download/windows-64bit.jsp). I you know you already have it, try the following steps to add it to the PATH :
-1. Open an explorer window. Right-click on This PC and choose Properties.
-2.  On the left, click the Advanced system settings link.
-3. Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable by adding the absolute path to you Java installation (in most cases, `C:\Program files\Java\jre<version>\bin`). Click OK. Close all remaining windows by clicking OK.
-5. If you were using a Command prompt window, you will need to reopen that.
+Make sure you have installed the correct version y following [this guide](/docs/advanced/java-version)
+
+If you know you have the correct version already installed, follow [this guide](/docs/advanced/java-path-update) to tell MCSS where to look.
 
 > *The above steps were adapted from https://www.java.com/en/download/help/path.xml*
 
 ### The console does something, but the server fails to start {#-faq-server-error}
-Read the error. More often than not, minecraft throws easy to read errors that tell you exactly what went wrong. The answer to your issue could be even be in this FAQ !
+Read the error. More often than not, Minecraft throws easy to read errors that tell you exactly what went wrong. The answer to your issue could be even be in this FAQ !
 
 
-## Mcss has crashed and I want to help fix it. {#-faq-mcss-crashed-help-out}
-To help fix it, you can upload your Windows event logs and mcss logs.
+## MCSS has crashed and I want to help fix it. {#-faq-mcss-crashed-help-out}
+To help fix it, you can upload your Windows event logs and MCSS logs.
 *(please zip all the files and send them to me by email, SpigotMC or Discord)*
 
-To get the mcss logs:
-- Mcss logs can be found in the mcss folder under /logs
+To get the MCSS logs:
+- MCSS logs can be found in the MCSS folder under /logs
 
 To get the Windows event logs:
 - Go to start and type eventvwr
