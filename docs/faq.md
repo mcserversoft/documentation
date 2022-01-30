@@ -138,9 +138,9 @@ You will need to update MCSS manually. Download the latest version from the webs
 
 You either don't have Java installed or MCSS doesn't know where it is. 
 
-Make sure you have installed the correct version y following [this guide](/docs/advanced/java-version)
+Make sure you have installed the correct version by following [this guide](/advanced/java-version)
 
-If you know you have the correct version already installed, follow [this guide](/docs/advanced/java-path-update) to tell MCSS where to look.
+If you know you have the correct version already installed, follow [this guide](/advanced/java-path-update) to tell MCSS where to look.
 
 > *The above steps were adapted from https://www.java.com/en/download/help/path.xml*
 
