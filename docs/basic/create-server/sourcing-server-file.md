@@ -5,6 +5,7 @@ description: Where to find and download server files
 ---
 
 ## Getting a server file
+
 When creating or updating a server you need to select a server jar.
 
 ![Upload file dialog on create server window](/img/docs/create-server/crreate_select_file_dialog.png)
@@ -34,11 +35,9 @@ How to use the **build tools** is not covered in this guide.
 | BungeeCord          	    |      ✔️           | [https://ci.md-5.net/job/BungeeCord/](https://ci.md-5.net/job/BungeeCord/)
 | Waterfall          	    |      ✔️           | [https://papermc.io/downloads#Waterfall](https://papermc.io/downloads#Waterfall)
 
-
 ### Installer Guides
 
 | Name   	                | Official Source   | Installation guide
 |----------                 |:----------:  	    |----------
 | Forge                     |      ✔️           | [Forge Guide](create-forge-server)
 | Fabric 	                |      ✔️          	| [Fabric guide](create-fabric-server)
-

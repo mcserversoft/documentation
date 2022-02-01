@@ -6,6 +6,7 @@ description: Welcome to the MCSS documentation
 ---
 
 # Getting started with MCSS
+
 ## Introduction {#-introduction}
 
 MC Server Soft (aka MCSS) is a free server wrapper designed to help you run Minecraft servers on your computer.<br/>
@@ -17,6 +18,7 @@ It was launched in 2011 and is maintained by [Fireblade](https://github.com/fiah
 ## Pre-requisites {#-pre-requisites}
 
 Before you download MCSS, make sure your computer meets these requirements:
+
 * Windows 10 or Windows Server (2008 R2 SP1/2012/2016)
 * [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) installed
 * A release of Java - Refer to our [java versions guide](/advanced/java-version) for more information

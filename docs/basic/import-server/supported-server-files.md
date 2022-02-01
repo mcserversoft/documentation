@@ -5,6 +5,7 @@ description: How to import an existing server into MCSS
 ---
 
 ## Selecting a file to import
+
 When importing a server mcss asks for a valid server file that is located in the base folder.
 
 ![Upload file dialog on import server window](/img/docs/import-server/import_supported_file_dialog.png)

@@ -23,8 +23,6 @@ Plugins are third party add-ons you can add to your server. They can do a lot of
 |    Spigot   	| Evolution of Bukkit, with more features and support for more plugins 	|      ➖      	| [Spigot downloads](https://getbukkit.org/download/spigot) 	|
 |    Paper    	| Evolution of Spigot, much faster with support for more plugins       	|      ✔️      	| [Paper downloads](https://papermc.io/downloads) 	|
 
-
-
 ## Modded servers {#-modded-servers}
 
 There are two types of modded servers, which are not compatible. They each have their own mods you can download and their respective clients.
@@ -38,8 +36,6 @@ To use any of these version with MCSS, please follow their respective installati
 | Forge  	| Most widely used server type, with over 84 000 mods available                          	| [Forge Guide](create-forge-server)      	|
 | Fabric 	| More recent than Forge, with an emphasis on performance and about 3 000 mods available 	| [Fabric guide](create-fabric-server)     	|
 
-
-
 ## Proxy / Network {#-proxy--network}
 
 | Name       	| Description                                                     	| Download             	|
@@ -47,4 +43,3 @@ To use any of these version with MCSS, please follow their respective installati
 | BungeeCord 	| Developed by Spigot's team, it supports plugins                	| [BungeeCord downloads](https://ci.md-5.net/job/BungeeCord/) 	|
 | Waterfall  	| Developed by Paper's team, it's a faster version of BungeeCord 	| [Waterfall downloads](https://papermc.io/downloads#Waterfall)  	|
 | Geyser     	| Allows Java and PE players to play on the same server           	| [Geyser downloads](https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/)    	|
-

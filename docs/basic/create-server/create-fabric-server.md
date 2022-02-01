@@ -4,6 +4,7 @@ title: Creating a Fabric server
 description: Steps to create a new Fabric server, along with a video.
 keywords: [fabric, server, create, tutorial, MCSS]
 ---
+
 ## Download Fabric {#-download-fabric}
 
 Go to [Fabric's website](https://fabricmc.net/) and choose the version that you want to download. Click on "Installer" to download that version's installer.
@@ -18,11 +19,11 @@ Choose "install server" and select an empty folder in which the server will temp
 
 ![Install forge](/img/docs/create-fabric/install_fabric.png)
 
-The folder now contains : 
+The folder now contains :
 
-*   A sub-folder `.fabric-installer`
-*   A file `fabric-server-launch.jar`
-*   A file `server.jar`
+* A sub-folder `.fabric-installer`
+* A file `fabric-server-launch.jar`
+* A file `server.jar`
 
 You can now delete the fabric installer file.
 
@@ -45,6 +46,6 @@ Many thanks to Kennas for making this wonderful video on how to install Fabric o
 
 
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/yHd5OAl8L9c" 
-frameborder="0" 
+src="https://www.youtube.com/embed/yHd5OAl8L9c"
+frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" ></iframe>

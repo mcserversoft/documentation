@@ -62,7 +62,7 @@ Open a browser and type the address you got from the command prompt into the add
 
 ![Screenshot of the browser Opera with a login screen of the router](/img/docs/port-forward/router_login.png)
 
-At this point, you will need to know the admin password of you router. 
+At this point, you will need to know the admin password of you router.
 If it was never changed, it might be the name/serial number of your router. Try the different numbers you can find written on your router, often on the back. If none works, you can search for the default passwords that exists by googling the model number of your router.
 
 ### Step 4: setting up the port forward {#-step-4}

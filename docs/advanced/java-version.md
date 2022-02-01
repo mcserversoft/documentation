@@ -5,9 +5,7 @@ description: A guide to help you get the java version you need
 ---
 
 
-Minecraft servers need specific versions of java to run properly. Here is our list of recommended Java releases: 
-
-
+Minecraft servers need specific versions of java to run properly. Here is our list of recommended Java releases:
 
 | Server version                                                                    | Java version | Download link                                                          |
 |-----------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------|
