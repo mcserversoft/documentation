@@ -2,6 +2,7 @@
 sidebar_position: 100
 title: FAQ
 description: Frequently asked questions and their answers
+keywords: [faq, mcss]
 ---
 
 # FAQ - Frequently Asked Questions

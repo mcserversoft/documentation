@@ -2,7 +2,7 @@
 sidebar_position: 2
 title: Creating a Forge server
 description: Steps to create a new Forge server
-keywords: forge, create, server, create-forge-server, MCSS
+keywords: [forge, create, server, create-forge-server, MCSS]
 ---
 
 ## Download Forge {#-download-forge}
