@@ -1,11 +1,9 @@
 ---
 sidebar_position: 2
 title: Creating a Forge server
-description: How to create a Forge with MCSS
-keywords:
-  - MCSS
-  - Forge
---- 
+description: Steps to create a new Forge server
+keywords: forge, create, server, create-forge-server, MCSS
+---
 
 ## Download Forge {#-download-forge}
 
@@ -22,7 +20,7 @@ Choose "install server" and select an empty folder in which the server will temp
 
 ![Install forge](/img/docs/create-forge/install_forge.png)
 
-The folder now contains : 
+The folder now contains :
 
 *   A sub-folder `libraries`
 *   A file `<minecraft_version>.json`

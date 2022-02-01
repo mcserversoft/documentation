@@ -1,17 +1,18 @@
 ---
 sidebar_position: 100
 title: FAQ
+description: Frequently asked questions and their answers
 ---
 
 # FAQ - Frequently Asked Questions
 
 ## My 1.17 server won't start {#-faq-1-17-wont-start}
-Since Minecraft version 1.17, both client and server need Java 16 or above to run.  
+Since Minecraft version 1.17, both client and server need Java 16 or above to run.
 
 :::info Change Java Version
 You will need to specify the path to the corresponding `java.exe` for each server. Please follow this [Java Guide](/advanced/java-version) to configure it.
 :::
-    
+
 ## Error occurred during initialization of VM Could not reserve enough space {#-faq-error-initialization-vm}
 
 You are likely using the 32bit version of Java. You need the 64bit version. It's either not installed or needs reinstalling.
@@ -30,7 +31,7 @@ Refer to our [Java Guide](/advanced/java-version) to see which version you need.
 Try connecting to your server using `localhost` instead of your IP. If that works it means your server is online, great! Now you just need to port forward or configure your firewall.
 
 ### MCSS and Minecraft are on separate computer inside my house {#-mcss-and-minecraft-are-on-separate-computer-inside-my-house}
-Try connecting using your server's local IP. 
+Try connecting using your server's local IP.
 Finding it is pretty easy, open a command prompt by typing `cmd` in Windows' search bar, then type
 ```cmd
 ipconfig | findstr IPv4
@@ -85,7 +86,7 @@ To regain control of your servers you need to kill all Java processes,to do this
 
 :::warning warning
   This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
-     This includes: 
+     This includes:
     - The game itself
     - Any other program running Java or relying on Java to function
 :::
@@ -120,7 +121,7 @@ There are 2 versions of the IP protocol.
 - IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 <br/>
 [More info about IPv6](https://www.networkworld.com/article/3254575/what-is-ipv6-and-why-aren-t-we-there-yet.html)
- 
+
 :::info IPv6 doesn't need port forwarding
 IPv6 doesn't require port forwarding. With IPv4 you have a private and public IP. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
 :::
@@ -136,7 +137,7 @@ You will need to update MCSS manually. Download the latest version from the webs
 
 ### The console remains empty and the server does nothing {#-faq-console-empty}
 
-You either don't have Java installed or MCSS doesn't know where it is. 
+You either don't have Java installed or MCSS doesn't know where it is.
 
 Make sure you have installed the correct version by following [this guide](/advanced/java-version)
 

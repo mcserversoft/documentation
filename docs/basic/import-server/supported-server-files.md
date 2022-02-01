@@ -1,7 +1,8 @@
 ---
 sidebar_position: 1
 title: Supported server files
---- 
+description: How to import an existing server into MCSS
+---
 
 ## Selecting a file to import
 When importing a server mcss asks for a valid server file that is located in the base folder.

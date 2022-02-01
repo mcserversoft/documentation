@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 title: Port forwarding
-description: To allow your friends to play with you !
+description: Opening your server to the internet to allow your friends to join
 ---
 
 ## Introduction {#-introduction}

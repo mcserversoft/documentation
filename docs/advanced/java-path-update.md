@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: Changing the version of Java
-description: Change the global Java path, or per-server
+description: Change the path to the java executable, globally or per server
 ---
 
 With MCSS you can use different versions of java for each of your servers, or set a global override for the version of java that is used by all servers.

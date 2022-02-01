@@ -1,7 +1,8 @@
 ---
 sidebar_position: 1
 title: Sourcing a server file
---- 
+description: Where to find and download server files
+---
 
 ## Getting a server file
 When creating or updating a server you need to select a server jar.

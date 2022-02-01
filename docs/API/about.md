@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: About the API
+description: Some information about the API
 ---
 
 :::caution Work In Progress

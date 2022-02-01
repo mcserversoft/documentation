@@ -2,6 +2,7 @@
 slug: /
 sidebar_position: 1
 title: Introduction
+description: Welcome to the MCSS documentation
 ---
 
 # Getting started with MCSS

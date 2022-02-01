@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 title: Creating a Fabric server
+description: Steps to create a new Fabric server, along with a video.
+keywords: [fabric, server, create, tutorial, MCSS]
 ---
 ## Download Fabric {#-download-fabric}
 
