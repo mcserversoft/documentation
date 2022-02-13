@@ -3,6 +3,7 @@ slug: /
 sidebar_position: 1
 title: Introduction
 description: Welcome to the MCSS documentation
+keywords: [mcss, documentation, introduction, doc, mcserversoft]
 ---
 
 # Getting started with MCSS

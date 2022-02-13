@@ -2,6 +2,7 @@
 sidebar_position: 1
 title: Sourcing a server file
 description: Where to find and download server files
+keywords: [server, file, download, source, download, url]
 ---
 
 ## Getting a server file

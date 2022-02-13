@@ -2,6 +2,7 @@
 sidebar_position: 1
 title: Custom ZIP file format
 description: Provide a custom format for backup ZIP files
+keywords: [backup, zip, custom, format]
 ---
 
 Provide a custom format for backup ZIP files. If the format is invalid the default will be used.<br/>

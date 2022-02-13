@@ -2,6 +2,7 @@
 sidebar_position: 1
 title: Supported server files
 description: How to import an existing server into MCSS
+keywords: [import, server, files, existing]
 ---
 
 ## Selecting a file to import

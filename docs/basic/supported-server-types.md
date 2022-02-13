@@ -2,6 +2,7 @@
 sidebar_position: 2
 title: Supported server types
 description: The types of servers that are supported by MCSS and their uses.
+keywords: [server, types, supported]
 ---
 
 There are many server types available. Here is a quick rundown of all of them.

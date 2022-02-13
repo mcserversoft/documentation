@@ -2,6 +2,7 @@
 sidebar_position: 1
 title: Java versions
 description: A guide to help you get the java version you need
+keywords: [java, version, server, required, recommended]
 ---
 
 

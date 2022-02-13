@@ -2,6 +2,7 @@
 sidebar_position: 6
 title: Port forwarding
 description: Opening your server to the internet to allow your friends to join
+keywords: [port, forward, forwarding, port-forward; port-forwarding, network, friends, join, internet]
 ---
 
 ## Introduction {#-introduction}
