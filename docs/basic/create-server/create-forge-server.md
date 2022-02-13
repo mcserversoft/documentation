@@ -29,10 +29,10 @@ The folder now contains :
 
 You can now delete the forge installer file.
 
-## Migrate the server to MCSS {#-migrate-the-server-to-mcss}
+## Import the server in MCSS {#-migrate-the-server-to-mcss}
 
-Now, open MCSS and go to "File > migrate server". A new windows will open. Inside it, choose a name for you server and a folder name (that will be stored to `mcss/servers/<folder_name>`. Choose the amount of RAM that will be allocated to the server, in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server).<br/>
-In "server type" choose Forge. Finally, select the executable jar file of the server : it's the `forge-<minecraft_version>-<forge_version>.jar` file of the server you created in the steps above and click "Migrate". Do not change the Startup Line, or MCSS will break and your server won't work properly.<br/>
+Now, open MCSS and go to "File > Import server". A new window will open, select Forge server. Then in the left pane, drop your server's jar, for Forge it's `forge-<version>.jar`
+Then, choose a name for you server and a folder name (the server will be stored in `mcss/servers/<folder_name>`). Choose the amount of RAM that will be allocated to the server in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server), and click on Import Server.<br/>
 All the server files are copied to the /servers folder of MCSS and your server will appear in the servers list. <br/>
 
 You can also delete the temporary folder where you installed Forge, it is now useless since all the files have been copied to the /servers folder of the app.
@@ -40,8 +40,8 @@ You can also delete the temporary folder where you installed Forge, it is now us
 ![Migrate forge](/img/docs/create-forge/migrate_forge.png)
 
 
-:::note Forge 1.18
-To use forge 1.18, follow this guide then replace the startup line with the following: <br></br> ```java -Xms[RAM]M @user_jvm_args.txt @libraries/net/minecraftforge/forge/<forge version>/win_args.txt  %*``` <br></br>
+:::note Forge 1.17 and above
+To use forge 1.17 or above, follow this guide then replace the startup line with the following: <br></br> ```java -Xms[RAM]M @user_jvm_args.txt @libraries/net/minecraftforge/forge/<forge version>/win_args.txt  %*``` <br></br>
 (replace `forge version` with the version you downloaded - e.g. 1.18-38.0.17)
 :::
 
