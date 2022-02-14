@@ -5,6 +5,11 @@ description: Steps to create a new Forge server
 keywords: [forge, create, server, create-forge-server, MCSS, mods, modded]
 ---
 
+
+:::tip 1.16 and below only
+The current release of MCSS includes an installer that works for Forge 1.17 and above. These versions can be installed from the server creation page directly. Forge 1.16 and below installs should still be done using this method.
+:::
+
 ## Download Forge {#-download-forge}
 
 Go to [Forge's website](https://files.minecraftforge.net) and choose the version that you want to download. Click on "Installer" to download that version's installer.
@@ -22,10 +27,10 @@ Choose "install server" and select an empty folder in which the server will temp
 
 The folder now contains :
 
-*   A sub-folder `libraries`
-*   A file `<minecraft_version>.json`
-*   A file `forge-<minecraft_version>-<forge_version>.jar`
-*   A file `minecraft-server.<minecraft_version>.jar`
+* A sub-folder `libraries`
+* A file `<minecraft_version>.json`
+* A file `forge-<minecraft_version>-<forge_version>.jar`
+* A file `minecraft-server.<minecraft_version>.jar`
 
 You can now delete the forge installer file.
 
@@ -39,7 +44,6 @@ You can also delete the temporary folder where you installed Forge, it is now us
 
 ![Migrate forge](/img/docs/create-forge/migrate_forge.png)
 
-
 :::note Forge 1.17 and above
 To use forge 1.17 or above, follow this guide then replace the startup line with the following: <br></br> ```java -Xms[RAM]M @user_jvm_args.txt @libraries/net/minecraftforge/forge/<forge version>/win_args.txt  %*``` <br></br>
 (replace `forge version` with the version you downloaded - e.g. 1.18-38.0.17)
@@ -48,4 +52,3 @@ To use forge 1.17 or above, follow this guide then replace the startup line with
 You can now start you Forge server by clicking the "Start" button. <br/>
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br/>
 this time, it will fully start and you will be able to connect from you Minecraft client.
-

@@ -5,7 +5,7 @@ description: Where to find and download server files
 keywords: [server, file, download, source, download, url]
 ---
 
-## Getting a server file
+## Getting a server file {#-getting-a-server-file}
 
 When creating or updating a server you need to select a server jar.
 
@@ -23,7 +23,7 @@ Third party website uses these **installer files** or **build tools** to create 
 
 How to use the **build tools** is not covered in this guide.
 
-### Downloads
+### Downloads{#-downloads}
 
 |     Name              	| Official Source   | Download
 |----------                 |:----------:       |----------

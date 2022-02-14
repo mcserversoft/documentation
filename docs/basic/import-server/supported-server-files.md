@@ -5,7 +5,7 @@ description: How to import an existing server into MCSS
 keywords: [import, server, files, existing]
 ---
 
-## Selecting a file to import
+## Selecting a file to import {#-selecting-file}
 
 When importing a server mcss asks for a valid server file that is located in the base folder.
 
