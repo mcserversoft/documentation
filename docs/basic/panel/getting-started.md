@@ -50,6 +50,8 @@ If you enable remote access, it is highly recommended that you also enable SSL. 
 :::
 
 However, doing so will cause warnings like this one to appear in browsers :
-[certificate warning](lien-image-a-faire)
+[certificate warning](/img/docs/panel/ssl-warning.png)
 
-This is 
+This is normal and expected as MCSS uses a self-signed certificate. Using a verified one isn't possible here since certificates are only valid for domain names and not IPs, and a given certificate can only be used on one server at a time.
+
+Your panel should now be accessible by going to `https://<your public ip>:<API port>` and dissmissing the warning.
