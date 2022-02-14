@@ -4,7 +4,6 @@ title: FAQ
 description: Frequently asked questions and their answers
 keywords: [faq, mcss, frequently, asked, questions, answers, issues, bugs]
 ---
-
 # FAQ - Frequently Asked Questions
 
 ## My 1.17 server won't start {#-faq-1-17-wont-start}
@@ -55,13 +54,13 @@ If you added an IP to the 'server-ip' field in the server.properties file make s
 If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
-## Is there a mac or Linux version? {#-faq-mac-linux-support}
+## Is there a Mac or Linux version? {#-faq-mac-linux-support}
 
-No unfortunately there isn't a version for mac. MCSS is Windows only.
+MCSS is currently only available on Windows.
 
 ## Is this 24/7? {#-faq-24-7}
 
-MCSS runs on your computer. As long as it is online, the server is. SO yes, if your computer in ON 24/7, the server can be too
+MCSS runs on your computer. As long as it is online, the server is. So yes, if your computer in ON 24/7, the server can be too
 
 ## Is there a way to remote control MCSS ? {#-faq-remote-control}
 
@@ -87,15 +86,15 @@ Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-
 
 ## How do I regain control of my server if MCSS crashes? {#-faq-crash}
 
-To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes" 
+To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes"
 
 ![Screenshot of the Kill all java processes option](/img/docs/faq/mcss_kill_java.png)
 
 :::warning warning
-  This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
-     This includes:
-    - The game itself
-    - Any other program running Java or relying on Java to function
+This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
+This includes:
+- The game itself
+- Any other program running Java or relying on Java to function
 :::
 
 ## Since v11.5.0 the process name requires a different format. {#-faq-process-name-format}
@@ -196,5 +195,5 @@ After setting this all up, this still doesn't guarantee that it will work. This 
 
 (sources)
 
-- <https://stackoverflow.com/a/57134096>
-- <https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ>
+- [https://stackoverflow.com/a/57134096](https://stackoverflow.com/a/57134096)
+- [https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ](https://books.google.be/books?id=tkFPDwAAQBAJ&pg=PA436&lpg=PA436&dq=UTF-8+is+a+second-class+citizen+in+Windows&source=bl&ots=E9LdoNrGie&sig=ACfU3U0CaOrY_k5aj-tZ8xri76hgEAZ5Vw&hl=en&sa=X&ved=2ahUKEwja_vj00-DoAhVFDuwKHdBjAiwQ6AEwAHoECAsQKQ)
