@@ -6,8 +6,13 @@ keywords: [forge, create, server, create-forge-server, MCSS, mods, modded]
 ---
 
 
-:::tip 1.16 and below only
-The current release of MCSS includes an installer that works for Forge 1.17 and above. These versions can be installed from the server creation page directly. Forge 1.16 and below installs should still be done using this method.
+:::info 1.17 and up
+Due to a change in the Forge server file structure in versions 1.17 and above, servers are now harder to use with wrappers like MCSS. While it can be done, the process is complicated, so it's easier for now to wait for better support to come and use the standalone server by following the instructions provided by Forge.
+:::
+
+:::tip MCSS Installer
+MCSS now has an integrated Forge installer ! When creating a new server, just use the forge installer as your server jar, MCSS will take care of the extraction process.<br/>
+The installer is still in developpement, so if it fails you can use the steps bellow to create a server manually.
 :::
 
 ## Download Forge {#-download-forge}
