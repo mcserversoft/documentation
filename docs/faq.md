@@ -28,23 +28,7 @@ Refer to our [Java Guide](/advanced/java-version) to see which version you need.
 
 ## Unable to connect to the server {#-faq-unable-to-connect}
 
-### MCSS and Minecraft are on the same computer {#-mcss-and-minecraft-are-on-the-same-computer}
-
-Try connecting to your server using `localhost` instead of your IP. If that works it means your server is online, great! Now you just need to port forward or configure your firewall.
-
-### MCSS and Minecraft are on separate computer inside my house {#-mcss-and-minecraft-are-on-separate-computer-inside-my-house}
-
-Try connecting using your server's local IP.
-Finding it is pretty easy, open a command prompt by typing `cmd` in Windows' search bar, then type
-
-```cmd
-ipconfig | findstr IPv4
-```
-
-:::info Port Forwarding
-However if you want other people to be able to play on your server, you will need to port forward your IP.
-See the [Port forwarding Guide](/networking/port-forwarding).
-:::
+See following [troubleshooting guide](/networking/troubleshooting).
 
 ## Failed To Bind to Port {#-faq-failed-bind-port}
 
