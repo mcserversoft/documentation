@@ -5,6 +5,11 @@ description: How to get started with the integrated remote panel
 keywords: [remote, panel, api, mcss, web, control, internet, enable]
 ---
 
+:::note Login stuck
+Due to a bug in the current panel, you can get stuck on the login screen even after providing your username and password.<br/>
+To resolve this, either go to ./index.html instead of the root url, or clear you cookies for this page.
+:::
+
 :::info Your connection is not private
 When you first connect to the panel, you will get a message saying "your connection is not private". This is due to the way MCSS handles the connection. Feel safe to click on "Advanced" and "connect anyways".
 :::
@@ -37,16 +42,14 @@ You can now access your servers from any other PC **on your local network** by o
 
 You can also enable fully remote access to allow anyone with credentials to control your MCSS instance.
 
-To do this, first [enable remote access in mcss](#LAN-access).
+To do this, first [enable remote access in mcss](#-LAN-access).
 
-You will have to port forward the API through your router in order for other people to be able to use it. We have a complete guide on that [here](/networking/port-forwarding)
+You will have to port forward the API through your router in order for other people to be able to use it. We have a complete guide on that [here](/networking/port-forwarding).
 
-You can now access the panel from anywhere by going to `http://<your public ip>:<API port>`
+You can now access the panel from anywhere by going to `http://<public ip>:<API port>`.
 
-:::caution Security
-
+:::danger Security
 If you enable remote access, it is highly recommended that you also enable SSL. This will allow your connection to the panel to be encrypted, protecting your password and servers. Do this by checking "Enable SSl" in the API settings.
-
 :::
 
 However, doing so will cause warnings like this one to appear in browsers :
