@@ -86,9 +86,9 @@ const config = {
       },
       image: 'img/logo.svg',
       algolia: {
-      appId: 'FMJZW77F3I',
+      appId: '5BRSJ21UOD',
       // Public API key: it is safe to commit it
-      apiKey: '0fb3ba3f1bab8e242c1c8ead8a6372f7',
+      apiKey: '0acf1d2784dae016e02b01053a823e17',
 
       indexName: 'documentation',
     },
