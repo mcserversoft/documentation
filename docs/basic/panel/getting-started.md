@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
-title: Getting started
+title: Getting started with the panel
 description: How to get started with the integrated remote panel
 keywords: [remote, panel, api, mcss, web, control, internet, enable]
+slug: getting-started
 ---
 
 :::note Login stuck
