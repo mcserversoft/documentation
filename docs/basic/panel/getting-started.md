@@ -8,7 +8,7 @@ slug: getting-started
 
 :::note Login stuck
 Due to a bug in the current panel, you can get stuck on the login screen even after providing your username and password.<br/>
-To resolve this, either go to ./index.html instead of the root url, or clear you cookies for this page.
+To resolve this, either go to ./index.html instead of the root url, or if it doesn't work clear you cookies for this page.
 :::
 
 :::info Your connection is not private
