@@ -11,7 +11,7 @@ There are many server types available. Here is a quick rundown of all of them.
 
 Vanilla is the name give to the version of the server software released by Mojang. It is the most basic version you can get, with no support for plugins or mods.
 :::tip Use paper
-Even if you don't want any plugins, we recommend you use [paper](#plugin-support) as your server software as it adds some much needed performance upgrades and bug fixes
+Even if you don't want any plugins, we recommend you use [paper](#-plugin-support) as your server software as it adds some much needed performance upgrades and bug fixes
 :::
 
 ## Plugin support {#-plugin-support}
