@@ -15,6 +15,10 @@ To resolve this, either go to ./index.html instead of the root url, or if it doe
 When you first connect to the panel, you will get a message saying "your connection is not private". This is due to the way MCSS handles the connection. Feel safe to click on "Advanced" and "connect anyways".
 :::
 
+:::warn Capitalized usernames
+The current version of the panel and API do not support capitalized usernames. Please use lowercase usernames for now
+:::
+
 ## Enabling the remote panel {#-enable-panel}
 
 To enable the remote panel, navigate to `file > options` then  scroll down to the "Remote Access / Developer API" section.
