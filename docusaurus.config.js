@@ -23,35 +23,35 @@ const config = {
     locales: ['en'],
   },
 
-  plugins: [
-    ['@docusaurus/plugin-pwa',
-      {
-        debug: true,
-        offlineModeActivationStrategies: [
-          'appInstalled',
-          'standalone',
-          'queryString',
-        ],
-        pwaHead: [
-          {
-            tagName: 'link',
-            rel: 'icon',
-            href: '/favicon.ico',
-          },
-          {
-            tagName: 'link',
-            rel: 'manifest',
-            href: 'manifest.json',
-          },
-          {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: '#abd037',
-          },
-        ],
-      },
-    ],
-  ],
+  // plugins: [
+  //   ['@docusaurus/plugin-pwa',
+  //     {
+  //       debug: true,
+  //       offlineModeActivationStrategies: [
+  //         'appInstalled',
+  //         'standalone',
+  //         'queryString',
+  //       ],
+  //       pwaHead: [
+  //         {
+  //           tagName: 'link',
+  //           rel: 'icon',
+  //           href: '/favicon.ico',
+  //         },
+  //         {
+  //           tagName: 'link',
+  //           rel: 'manifest',
+  //           href: 'manifest.json',
+  //         },
+  //         {
+  //           tagName: 'meta',
+  //           name: 'theme-color',
+  //           content: '#abd037',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // ],
 
   presets: [
     [
