@@ -16,6 +16,8 @@ It is not a hosting company like Aternos - the servers run on your computer.
 MCSS is the oldest maintained Minecraft server wrapper for Windows.<br/>
 It was launched in 2011 and is maintained by [Fireblade](https://github.com/fiahblade).
 
+MC Server Soft is pronounced as "M C Server Soft".
+
 ## Pre-requisites {#-pre-requisites}
 
 Before you download MCSS, make sure your computer meets these requirements:
