@@ -1,19 +1,15 @@
 ---
 sidebar_position: 2
-title: Creating a Forge server
+title: Manually creating a Forge server 
 description: Steps to create a new Forge server
 keywords: [forge, create, server, create-forge-server, MCSS, mods, modded]
 ---
 
+There are 2 options on how to add a forge server to mcss.
+* [Use the integrated Forge installer](/basic/create-server/Forge/create-forge-server)
+* Manually create & import Forge server
 
-:::info 1.17 and up
-Due to a change in the Forge server file structure in versions 1.17 and above, servers are now harder to use with wrappers like MCSS. While it can be done, the process is complicated, so it's easier for now to wait for better support to come and use the standalone server by following the instructions provided by Forge.
-:::
-
-:::tip MCSS Installer
-MCSS now has an integrated Forge installer ! When creating a new server, just use the forge installer as your server jar, MCSS will take care of the extraction process.<br/>
-The installer is still in developpement, so if it fails you can use the steps bellow to create a server manually.
-:::
+This guide will show you how to manually create and an import a forge server.
 
 ## Download Forge {#-download-forge}
 
@@ -49,11 +45,41 @@ You can also delete the temporary folder where you installed Forge, it is now us
 
 ![Migrate forge](/img/docs/create-forge/migrate_forge.png)
 
-:::note Forge 1.17 and above
-To use forge 1.17 or above, follow this guide then replace the startup line with the following: <br></br> ```java -Xms[RAM]M @user_jvm_args.txt @libraries/net/minecraftforge/forge/<forge version>/win_args.txt  %*``` <br></br>
-(replace `forge version` with the version you downloaded - e.g. 1.18-38.0.17)
-:::
+## Tweaking the server start settings
 
-You can now start you Forge server by clicking the "Start" button. <br/>
+> This section only applies if you are creating a 1.17 (or higher) forge server.
+
+Open the mcss server settings and open the 'Advanced' tab:
+
+![Install forge](/img/docs/create-forge/forge_incorrect_server_settings.png)
+
+Select the 'Use Bat file' option and select the available file. Next click on the ✏️ pencil icon:
+
+![Install forge](/img/docs/create-forge/forge_edit_bat_file.png)
+
+You might see something like this:
+
+```batch
+REM Forge requires a configured set of both JVM and program arguments.
+REM Add custom JVM arguments to the user_jvm_args.txt
+REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
+REM  pass them to this script directly
+java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt %*
+pause
+```
+You must remove the *pause* statement at the bottom and add the *nogui* parameter:
+
+```batch
+REM Forge requires a configured set of both JVM and program arguments.
+REM Add custom JVM arguments to the user_jvm_args.txt
+REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
+REM  pass them to this script directly
+java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt nogui %*
+```
+
+## Set the EULA file
+
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br/>
-this time, it will fully start and you will be able to connect from you Minecraft client.
+This time, it will fully start and you will be able to connect from you Minecraft client.
+
+That's it, now you have a fully functioning forge server in mcss.

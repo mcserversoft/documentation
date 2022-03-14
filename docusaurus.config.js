@@ -200,6 +200,8 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        //https://prismjs.com/#supported-languages
+        additionalLanguages: ['batch'],
       },
     }),
 };

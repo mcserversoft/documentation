@@ -1,9 +1,13 @@
 ---
 sidebar_position: 3
-title: Creating a Fabric server
+title: Manually creating a Fabric server
 description: Steps to create a new Fabric server, along with a video.
 keywords: [fabric, server, create, tutorial, MCSS, mods, modded]
 ---
+
+:::warning Outdated
+The guide is slightly outdated. Feel free to help update it.
+:::
 
 ## Download Fabric {#-download-fabric}
 

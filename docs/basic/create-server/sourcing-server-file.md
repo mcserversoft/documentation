@@ -35,6 +35,8 @@ How to use the **build tools** is not covered in this guide.
 | Bedrock (latest) 	        |      ✔️           | [https://www.minecraft.net/download/server/bedrock](https://www.minecraft.net/download/server/bedrock)
 | BungeeCord          	    |      ✔️           | [https://ci.md-5.net/job/BungeeCord/](https://ci.md-5.net/job/BungeeCord/)
 | Waterfall          	    |      ✔️           | [https://papermc.io/downloads#Waterfall](https://papermc.io/downloads#Waterfall)
+| Forge Installer  	        |      ✔️           | [https://files.minecraftforge.net/net/minecraftforge/forge/](https://files.minecraftforge.net/net/minecraftforge/forge/)
+| Fabric Installer          |      ✔️           | [https://fabricmc.net/use/server/](https://fabricmc.net/use/server/)
 
 ### Installer Guides
 
