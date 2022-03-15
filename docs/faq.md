@@ -58,7 +58,7 @@ This issue happens with the latest version of Java. It can easily be fixed by de
 To fix it, you have to specify the direct path to your java binaries in MCSS.
 
 1. open the `file > options` menu
-1. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Programm Files\Java\jdk-<version>\bin\java.exe`)
+1. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Program Files\Java\jdk-<version>\bin\java.exe`)
 1. restart MCSS and try to start a server again, the graphs should display the correct information.
 
 You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
