@@ -6,6 +6,7 @@ keywords: [forge, create, server, create-forge-server, MCSS, mods, modded]
 ---
 
 There are 2 options on how to add a forge server to mcss.
+
 * [Use the integrated Forge installer](/basic/create-server/Forge/create-forge-server)
 * Manually create & import Forge server
 

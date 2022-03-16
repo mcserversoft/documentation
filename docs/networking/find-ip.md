@@ -5,7 +5,7 @@ description: Find the correct IP address to connect to your Minecraft server
 keywords: [ip, address, external, internal, localhost, join, internet]
 ---
 
-## External IP (Internet)
+## External IP (Internet) 
 
 This is the IP address that others on the internet can connect to.
 

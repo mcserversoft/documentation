@@ -38,7 +38,7 @@ How to use the **build tools** is not covered in this guide.
 | Forge Installer  	        |      ✔️           | [https://files.minecraftforge.net/net/minecraftforge/forge/](https://files.minecraftforge.net/net/minecraftforge/forge/)
 | Fabric Installer          |      ✔️           | [https://fabricmc.net/use/server/](https://fabricmc.net/use/server/)
 
-### Installer Guides
+### Installer Guides {#-installer-guides}
 
 | Name   	                | Official Source   | Installation guide
 |----------                 |:----------:  	    |----------
