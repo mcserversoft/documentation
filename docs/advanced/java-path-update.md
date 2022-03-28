@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 title: Changing the version of Java
 description: Change the path to the java executable, globally or per server
 keywords: [java, version, java-version, java-path, update, path]
