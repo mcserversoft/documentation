@@ -42,5 +42,5 @@ How to use the **build tools** is not covered in this guide.
 
 | Name   	                | Official Source   | Installation guide
 |----------                 |:----------:  	    |----------
-| Forge                     |      ✔️           | [Forge Guide](create-forge-server)
-| Fabric 	                |      ✔️          	| [Fabric guide](create-fabric-server)
+| Forge                     |      ✔️           | [Forge Guide](Forge/create-forge-server)
+| Fabric 	                |      ✔️          	| [Fabric guide](Fabric/create-fabric-server-manually)
