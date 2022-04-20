@@ -10,19 +10,19 @@ In mcss you can use the 'Java Path Picker' to easily change the java version of 
 ![explorer path](/img/docs/java-path/java-path-picker.png)
 
 These are the default search locations:
-```json
-"C:\\Program Files (x86)\\Java",
-"C:\\Program Files\\Java",
-"C:\\Program Files (x86)\\Eclipse Adoptium",
-"C:\\Program Files\\Eclipse Adoptium",
-"C:\\Program Files (x86)\\Eclipse Foundation",
-"C:\\Program Files\\Eclipse Foundation"
+```
+C:\Program Files (x86)\Java
+C:\Program Files\Java
+C:\Program Files (x86)\Eclipse Adoptium
+C:\Program Files\Eclipse Adoptium
+C:\Program Files (x86)\Eclipse Foundation
+C:\Program Files\Eclipse Foundation
 ```
 
 ## Adding more locations to search {#-edit-locations}
 
 If you have installed Java in another locations you can manually add these to the mcss config file (`resources\mcss_config.json`).
-Mcss must be fully closed before you make these changes. The settings is called `potentialInstalledJavaLocations`.
+Mcss must be fully closed before you make these changes. The setting is called `potentialInstalledJavaLocations`.
 
 Example:
 ```json
@@ -30,7 +30,7 @@ Example:
 "potentialInstalledJavaLocations": [
     ...
     "C:\\Program Files (x86)\\Eclipse Foundation",
-    "C:\\Program Files\\Eclipse Foundation"
+    "C:\\Program Files\\Eclipse Foundation",
     "D:\\Program Files\\Eclipse Foundation"
 ]
 ...
