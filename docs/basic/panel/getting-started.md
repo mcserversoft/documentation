@@ -7,7 +7,8 @@ slug: getting-started
 ---
 
 :::info Your connection is not private
-When you first connect to the panel, you will get a message saying "your connection is not private". This is due to the way MCSS handles the connection. Feel safe to click on "Advanced" and "connect anyways".
+When you first connect to the panel, you will get a message saying "your connection is not private". This is due to the way MCSS handles the connection. Feel safe to click on "Advanced" and "connect anyways".<br/>
+To avoid seeing this warning, you can get a mcss.app subdomain by supporting the project. Learn more [here](https://mcss.app)
 :::
 
 

@@ -5,17 +5,19 @@ description: Steps to create a new Fabric server, along with a video.
 keywords: [fabric, server, create, tutorial, MCSS, mods, modded]
 ---
 
-:::warning Outdated
-The guide is slightly outdated. Feel free to help update it.
-:::
-
 ## Download Fabric {#-download-fabric}
 
-Go to [Fabric's website](https://fabricmc.net/) and choose the version that you want to download. Click on "Installer" to download that version's installer.
-A .exe file will be downloaded, you might need to confirm the download on some browsers.
+Go to [Fabric's server download page](https://fabricmc.net/use/server/) and choose the version that you want to download. Click on "Executable server (.jar)" to download that version's server launcher.
 
-![Download forge](/img/docs/create-fabric/download_fabric.png)
+![Download fabric](/img/docs/create-fabric/download_fabric.png)
 
+You can now use the downloaded jar as the source file for a new server by clicking File > New Server in MCSS.
+<br/>
+<br/>
+
+:::note Using an installer
+If you have a Fabric installer instead of a single launcher jar, you can follow this procedure to create a server, though it's recommended to use the standalone file method as presented above.
+:::
 ## Create the Fabric server {#-create-the-fabric-server}
 
 Once the download is done, open the file `fabric-installer-<fabric-version>.jar` to begin the Fabric server installation. <br/>
@@ -34,12 +36,14 @@ You can now delete the fabric installer file.
 ## Import the server in MCSS {#-migrate-the-server-to-mcss}
 
 Now, open MCSS and go to "File > Import server". A new window will open, select Fabric server. Then in the left pane, drop your server's jar, for fabric it's `fabric-server-launch.jar`.
-Then, choose a name for you server and a folder name (the server will be stored in `mcss/servers/<folder_name>`). Choose the amount of RAM that will be allocated to the server in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server), and click on Import Server.<br/>
+Then, choose a name for you server and a folder name (the server will be stored in `mcss/servers/<folder_name>`). Choose the amount of RAM that will be allocated to the server in MB (it's recommended to have at least 4GB, or 4096MB, for a Fabric server), and click on Import Server.<br/>
 All the server files are copied to the /servers folder of MCSS and your server will appear in the servers list. <br/>
 
 You can also delete the temporary folder where you installed Forge, it is now useless since all the files have been copied to the /servers folder of the app.
 
 ![Migrate fabric](/img/docs/create-fabric/migrate_fabric.png)
+
+Finally, you have to rename your server's jar to `fabric.jar` or it will not be detected by MCSS.
 
 You can now start you Fabric server by clicking the "Start" button. <br/>
 At the first server start, the console will show an error asking you to accept the EULA. To do so, click on "servers > show in file explorer" and open the "eula.txt" file. Change the line `eula=false` to `eula=true` and start the server again. <br/>

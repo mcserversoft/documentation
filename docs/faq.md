@@ -53,6 +53,11 @@ A remote control panel is currently being made, but nothing public yet. Updates 
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 
+:::note Using a .bat
+Since MCSS 12, you can use a bat file to start the server (needed for recent versions of Forge and Fabric).<br/>
+When doing this, MCSS doesn't access the Java process itself, so performance graphs will not work in that case.
+:::
+
 This issue happens with the latest version of Java. It can easily be fixed by defining the path to your version of java.
 
 To fix it, you have to specify the direct path to your java binaries in MCSS.

@@ -38,7 +38,7 @@ You can now delete the forge installer file.
 
 ## Import the server in MCSS {#-migrate-the-server-to-mcss}
 
-Now, open MCSS and go to "File > Import server". A new window will open, select Forge server. Then in the left pane, drop your server's jar, for Forge it's `forge-<version>.jar`
+Now, open MCSS and go to "File > Import server". A new window will open, select Forge server. Then in the left pane, drop any file from your server's folder.<br/>
 Then, choose a name for you server and a folder name (the server will be stored in `mcss/servers/<folder_name>`). Choose the amount of RAM that will be allocated to the server in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server), and click on Import Server.<br/>
 All the server files are copied to the /servers folder of MCSS and your server will appear in the servers list. <br/>
 
@@ -48,13 +48,18 @@ You can also delete the temporary folder where you installed Forge, it is now us
 
 ## Tweaking the server start settings
 
-> This section only applies if you are creating a 1.17 (or higher) forge server.
+A warning will appear asking you to set the launch options.
+Open it, and select your server's launcher :
 
-Open the mcss server settings and open the 'Advanced' tab:
+* For Forge version 1.16 and prior, select the `forge-<version>.jar` in the jar selector. Finish the install process, and you're done !
+* For Forge 1.17 or newer, check the "use a .bat file" and select the `run.bat` created by the installer, then follow the next steps.
 
-![Install forge](/img/docs/create-forge/forge_incorrect_server_settings.png)
+![Launch options config](/img/docs/create-forge/set_launch_options.png)
 
-Select the 'Use Bat file' option and select the available file. Next click on the ✏️ pencil icon:
+You must now edit the .bat file for it to work with MCSS.<br/>
+Open the mcss server settings and open the 'Advanced' tab.
+
+Click on the ✏️ pencil icon next to the "Use Bat file" option :
 
 ![Install forge](/img/docs/create-forge/forge_edit_bat_file.png)
 
