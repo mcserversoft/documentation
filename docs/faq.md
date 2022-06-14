@@ -53,21 +53,28 @@ A remote control panel is currently being made, but nothing public yet. Updates 
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 
-:::note Using a .bat
-Since MCSS 12, you can use a bat file to start the server (needed for recent versions of Forge and Fabric).<br/>
-When doing this, MCSS doesn't access the Java process itself, so performance graphs will not work in that case.
-:::
+### On "normal" servers {#-faq-stats-normal}
 
-This issue happens with the latest version of Java. It can easily be fixed by defining the path to your version of java.
+This issue happens with the latest versions of Java. It can easily be fixed by defining the path to your version of java.
 
 To fix it, you have to specify the direct path to your java binaries in MCSS.
 
 1. open the `file > options` menu
-1. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Program Files\Java\jdk-<version>\bin\java.exe`)
+1. in the `Global Java path override` line, add the path to your java.exe (most often in `C:\Program Files\Java\jdk-<version>\bin\java.exe`), or use the Path Picker
 1. restart MCSS and try to start a server again, the graphs should display the correct information.
 
 You can also add a different Java path for some server if only one requires Java 11 or higher. To do this, stop the server, go to the servers tab and click view settings on the three dots.
 There, you will be able to set a local Java path, under the Advanced tab.
+
+### On a server using a .bat file {#-faq-stats-bat}
+
+If you're using a bat file to start your server (like on Forge 1.17+ servers), the process is different :<br/>
+Open the server's settings, and click on the advanced tab, then click the pencil icon next to the bat file selector :
+
+![Edit bat](/img/docs/create-forge/forge_edit_bat_file.png)
+
+In you bat file, replace `java` by your full path to java.exe, in quotes (you can use the path picker to find it).
+
 
 ## MCSS crashes when starting it. {#-faq-crash-start}
 

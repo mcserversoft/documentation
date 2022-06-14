@@ -73,14 +73,15 @@ REM  pass them to this script directly
 java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt %*
 pause
 ```
-You must remove the *pause* statement at the bottom and add the *nogui* parameter:
+You must remove the *pause* statement at the bottom and add the *nogui* parameter, as well as replace `java` with your full path to java.exe.<br/>
+You can use the Path Picker (in the server's settings) to find it, make sure to use [the right version](/advanced/java-version.md) depending on your server.
 
 ```batch
 REM Forge requires a configured set of both JVM and program arguments.
 REM Add custom JVM arguments to the user_jvm_args.txt
 REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
 REM  pass them to this script directly
-java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt nogui %*
+"C:\Program Files\Java\jdk-17.0.2\bin\java.exe" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt nogui %*
 ```
 
 ## Set the EULA file
