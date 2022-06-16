@@ -75,15 +75,11 @@ const config = {
   themeConfig:
     ({
       metadata: [{name: 'keywords', content: 'mcserversoft, documentation, mcss, docs, minecraft, server, server ui, software, manager, wrapper'}],
-      colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: false,
-        respectPrefersColorScheme: false,
-        switchConfig: {
-          darkIcon: '🌙',
-          lightIcon: '☀️',
-        },
-      },
+       colorMode: {
+         defaultMode: 'dark',
+         disableSwitch: false,
+         respectPrefersColorScheme: false,
+       },
       image: 'img/logo.svg',
       algolia: {
       appId: '5BRSJ21UOD',
