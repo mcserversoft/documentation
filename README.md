@@ -2,7 +2,7 @@
 
 This is a community maintained documentation for MCSS. If you see any errors or want to add something, please follow the contribution guide below.
 
-If you have any questions that are not answered here, feel free to join the [MCSS Discord](https://discord.gg/DEn89PB) and ask them there! 
+If you have any questions that are not answered here, feel free to join the [MCSS Discord](https://mcserversoft.com/discord) and ask them there! 
 
 ## Local Development
 

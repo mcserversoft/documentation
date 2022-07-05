@@ -44,9 +44,9 @@ To enable it, open the settings `file > options` and scroll all the way down. Ti
 On the `Web Panel` page you will see a button labeled `Manage Users & API Keys`.<br/>
 From this window you will be able to create an API key.
 
-![alt](/img/docs/api/remote-access-manager-create-key.png)
+![Screenshot of the Remote Access Manager window, ready to create an API key](/img/docs/api/remote-access-manager-create-key.png)
 
-![alt](/img/docs/api/remote-access-manager-key-created.png)
+![Screenshot of the Remote Access Manager window, where an API key has been created](/img/docs/api/remote-access-manager-key-created.png)
 
 If you lose your key, you must delete & create a new key. Keep your key private & secure!
 
