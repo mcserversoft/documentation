@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Tweaking the Java Path Detection (v12.6)
+title: Tweaking the Java Path Detection
 description: Adding more locations to the Java Path Detection
 keywords: [java, path, detection]
 ---
