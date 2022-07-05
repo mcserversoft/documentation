@@ -155,6 +155,15 @@ If you know you have the correct version already installed, follow [this guide](
 
 Read the error. More often than not, Minecraft throws easy to read errors that tell you exactly what went wrong. The answer to your issue could be even be in this FAQ !
 
+## error: unable to access jarfile
+
+**If this issue happens on a newly create server**, the it usually means the name of your server's JAR doesn't match with that in the startup flags.
+
+Try to re-create the server. If the issue persists, join our discord server and we'll guide you trhough the steps to solve your issue. Alternatively if you know what you're doing you can edit the startup flags and the JAR's name to mnake them match
+
+**If this issue occurs on an existing, working server**, it means the JAR is being used somewhere else. The first fix would be to kill all java processes (through MCSS or task manager). If that doesn't work, restart your computer.
+
+
 ## MCSS has crashed and I want to help fix it. {#-faq-mcss-crashed-help-out}
 
 To help fix it, you can upload your Windows event logs and MCSS logs.
