@@ -6,6 +6,35 @@ keywords: [faq, mcss, frequently, asked, questions, answers, issues, bugs]
 ---
 # FAQ - Frequently Asked Questions
 
+## MCSS crashes when opening console or player manager (v13 and above). {#-faq-dll-crash}
+
+You get this error when opening the console, player manager or other text editor:
+
+```
+Exception Message: Could not load the Scintilla module at the path 'C:\Users\Desktop\AppData\Local\Temp\Scintilla.NET\5.1.5\x86\Scintilla.dll'.
+Exception TargetSite: System.Windows.Forms.CreateParams get_CreateParams()
+Exception StackTrace: 
+   at ScintillaNET.Scintilla.get_CreateParams()
+   at System.Windows.Forms.Control..ctor(Boolean autoInstallSyncContext)
+   at System.Windows.Forms.Control..ctor()
+   at ScintillaNET.Scintilla..ctor()
+   at McssMain.Controls.ScintillaEditor.ScintillaControl..ctor()
+   at McssMain.Controls.ScintillaEditor.BasicTextEditor..ctor()
+```
+
+This is because you are missing 2 dependencies.
+- Microsoft Visual C++ 2015-2019 Redistributable (x64)
+- Microsoft Visual C++ 2015-2019 Redistributable (x86)
+
+| Architecture  | Link | Notes |
+|---|---|---|
+| X86 | https://aka.ms/vs/17/release/vc_redist.x86.exe | Permalink for latest supported x86 version |
+| X64 | https://aka.ms/vs/17/release/vc_redist.x64.exe | Permalink for latest supported x64 & ARM64 version |
+
+Or if you rather download it from the Microsoft website: [https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist)
+
+> While mcss is currently built against x86 it might change in the future. So it's recommended to install both. A lot of applications require this, at some point your computer will have this installed anyway.
+
 ## My 1.17 server won't start {#-faq-1-17-wont-start}
 
 Since Minecraft version 1.17, both client and server need Java 16 or above to run.
@@ -75,8 +104,7 @@ Open the server's settings, and click on the advanced tab, then click the pencil
 
 In you bat file, replace `java` by your full path to java.exe, in quotes (you can use the path picker to find it).
 
-
-## MCSS crashes when starting it. {#-faq-crash-start}
+## MCSS crashes when starting it (v12 and below). {#-faq-crash-start}
 
 Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net48) (or higher) installed?
 
