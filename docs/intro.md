@@ -29,6 +29,7 @@ Before you download MCSS, make sure your computer meets these requirements liste
 
 ### Mcss v13 {#-pre-requisites-v13}
 
+You need both:
 * [Microsoft Visual C++ 2015-2019 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe)
 * [Microsoft Visual C++ 2015-2019 Redistributable (x86)](https://aka.ms/vs/17/release/vc_redist.x86.exe)
 
