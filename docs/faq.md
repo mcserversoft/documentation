@@ -43,7 +43,7 @@ Since Minecraft version 1.17, both client and server need Java 16 or above to ru
 You will need to specify the path to the corresponding `java.exe` for each server. Please follow this [Java Guide](/advanced/java-version) to configure it.
 :::
 
-## Error occurred during initialization of VM Could not reserve enough space {#-faq-error-initialization-vm}
+## Error occurred during initialization of VM : Could not reserve enough space {#-faq-error-initialization-vm}
 
 You are likely using the 32bit version of Java. You need the 64bit version. It's either not installed or needs reinstalling.
 
@@ -67,6 +67,11 @@ If you added an IP to the 'server-ip' field in the server.properties file make s
 If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
+## The process cannot acces the file because another process has locked a portion of the file {#-faq-file-locked}
+
+This error happens when the server is already started in the background, but not visible in mcss.
+You have to stop the server, then start it again in mcss. To do that, follow [these steps](#-faq-crash), then start the server again in mcss.
+
 ## Is there a Mac or Linux version? {#-faq-mac-linux-support}
 
 MCSS is currently only available on Windows.
@@ -77,8 +82,8 @@ MCSS runs on your computer. As long as it is online, the server is. So yes, if y
 
 ## Is there a way to remote control MCSS ? {#-faq-remote-control}
 
-For now there is a web API in early dev stage. Look [here](https://documenter.getpostman.com/view/7749159/TzJsexSC) for more info, the dev builds are available on [Discord](https://discord.com/invite/DEn89PB)
-A remote control panel is currently being made, but nothing public yet. Updates will be posted on Discord when progress is made.
+A web panel is available, though it's still quite basic and under development. You can find more info about it [here](/basic/panel/getting-started)
+There is also a REST API available for developers, you can learn more about it [here](/api/about)
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 
@@ -104,13 +109,11 @@ Open the server's settings, and click on the advanced tab, then click the pencil
 
 In you bat file, replace `java` by your full path to java.exe, in quotes (you can use the path picker to find it).
 
-## MCSS crashes when starting it (v12 and below). {#-faq-crash-start}
-
-Do you have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net48) (or higher) installed?
-
 ## How do I regain control of my server if MCSS crashes? {#-faq-crash}
 
-To regain control of your servers you need to kill all Java processes,to do this you go to "Quick Options" > "Kill all Java processes"
+To regain control of your servers you need to stop the servers.
+The easiest and safest way to do this is to join the servers as an operator and type `/stop`.<br/>
+If you can't, you have to kill all Java processes, to do this you go to "Quick Options" > "Kill all Java processes" in the app.
 
 ![Screenshot of the Kill all java processes option](/img/docs/faq/mcss_kill_java.png)
 
@@ -119,6 +122,9 @@ This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
 This includes:
 - The game itself
 - Any other program running Java or relying on Java to function
+
+Also, you might experience loss of recent activity if the map wasn't saved recently.<br/>
+Always prefer a proper stop to killing the server when possible!
 :::
 
 ## Since v11.5.0 the process name requires a different format. {#-faq-process-name-format}
@@ -159,13 +165,6 @@ There are 2 versions of the IP protocol.
 :::info IPv6 doesn't need port forwarding
 IPv6 doesn't require port forwarding. With IPv4 you have a private and public IP. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
 :::
-
-## Updating from 10.4.0.0 or older fails. {#-faq-update-10-failed}
-
-Due to backend API changes version 10.4.0.0 (and older) was considered End of Life (EOL) as of January 1st 2020.
-Update from these old builds is no longer possible, they might even break.
-
-You will need to update MCSS manually. Download the latest version from the website and rename it to MCSS.exe and copy and replace it with the existing one. (make a backup just in case)
 
 ## Trouble starting a server {#-faq-trouble-starting-server}
 
