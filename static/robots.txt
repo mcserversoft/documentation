@@ -10,4 +10,4 @@ Allow: /
 User-Agent: Googlebot-Image
 Allow: /
 
-Sitemap: https://docs.mcserversoft.com/sitemap.xmlsitemap.xml
+Sitemap: https://docs.mcserversoft.com/sitemap.xml
