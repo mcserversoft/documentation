@@ -25,23 +25,20 @@ Before you download MCSS, make sure your computer meets these requirements liste
 * A release of Java - Refer to our [java versions guide](/advanced/java-version) for more information
 * Stable internet connection, wired is highly preferred
 * Port forward capable modem/router (for online multiplayer)
-* ***Also look at the v13 or v12 pre-requisites!***
-
-### Mcss v13 {#-pre-requisites-v13}
-
-You need both:
-* [Microsoft Visual C++ 2015-2019 Redistributable (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe)
-* [Microsoft Visual C++ 2015-2019 Redistributable (x86)](https://aka.ms/vs/17/release/vc_redist.x86.exe)
-
-> While mcss is currently built against x86 it might change in the future. So it's recommended to install both. A lot of applications require this, at some point your computer will have this installed anyway.
-
-### Mcss v12 {#-pre-requisites-v12}
-
-* [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) installed
 
 :::caution Windows 7/8 users
 While MCSS will work on Windows 8 and below, those versions are not officially supported. We advise you upgrade to W10 and later for the best experience.
 :::
+
+## Pre-requisites for older versions  {#-pre-requisites-older-versions}
+
+### Mcss v13 - 13.2.0 {#-pre-requisites-v13}
+
+* [Microsoft Visual C++ 2015-2019 Redistributable (x86)](https://aka.ms/vs/17/release/vc_redist.x86.exe)
+
+### Mcss v12 {#-pre-requisites-v12}
+
+* [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) installed
 
 ## Contributing to the docs {#-contribute}
 
