@@ -1,15 +1,15 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Adding Users
 description: How to authorize new users on your API
 ---
 
 
-To add a new user to MCSS, open the software, click on `file > options` then scroll all the way down to the API section. 
-Below the API's URL you will find a button labeled "Manage users". Click on this button to open the user management page.
+On the `Web Panel` page you will see a button labeled `Manage Users & API Keys`.<br/>
+From this window you will be able to manage panel users.
 
-Add a username and password then click "Add user" and your new user is configured.
+![Screenshot of the Remote Access Manager window, creating a user names John](/img/docs/panel/remote-access-manager-create-user.png)
 
-:::caution No permission support
-The API itself doesn't support permissions, so every user will have full access - That includes power actions, but more importantly console commands.
-:::
+Server access can be restricted to a sub set of servers:
+
+![Partial screenshot of the Remote Access Manager window, example of a custom set server access policy](/img/docs/panel/remote-access-manager-server-access.png)
