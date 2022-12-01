@@ -82,7 +82,7 @@ MCSS runs on your computer. As long as it is online, the server is. So yes, if y
 
 ## Is there a way to remote control MCSS ? {#-faq-remote-control}
 
-A web panel is available, though it's still quite basic and under development. You can find more info about it [here](/basic/panel/getting-started)
+A web panel is available, though it's still quite basic and under development. You can find more info about it [here](/webpanel/getting-started)
 There is also a REST API available for developers, you can learn more about it [here](/api/about)
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
