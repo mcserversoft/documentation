@@ -7,10 +7,6 @@ description: An introduction to the MCSS API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::danger V13 Preview
-This is a preview of the available API routes in MCSS v13.<br/>
-:::
-
 :::caution Work In Progress
 This section of the documentation is a work in progress. It is not complete and may change at any time.<br/>
 The API is still in development. It is **NOT** perfect and will be improved in the future.
