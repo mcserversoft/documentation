@@ -1,4 +1,5 @@
 # MCSS Documentation
+![MCSS scraper](https://cronitor.io/badges/z8NCLd/production/fhKp-SKfl_KLr1Bo0Th3xza36Zo.svg)
 
 This is a community maintained documentation for MCSS. If you see any errors or want to add something, please follow the contribution guide below.
 
