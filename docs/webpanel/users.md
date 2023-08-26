@@ -4,6 +4,9 @@ title: Adding Users
 description: How to authorize new users on your API
 ---
 
+:::caution At least one server is required to add users
+You need to have one server created or imported in MCSS to make this panel appear.  
+:::
 
 On the `Web Panel` page you will see a button labeled `Manage Users & API Keys`.<br/>
 From this window you will be able to manage panel users.
