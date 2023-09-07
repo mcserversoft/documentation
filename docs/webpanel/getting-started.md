@@ -11,7 +11,6 @@ When you first connect to the panel, you will get a message saying "your connect
 To avoid seeing this warning, you can get a mcss.app subdomain by supporting the project. Learn more [here](https://mcss.app)
 :::
 
-
 ## Enabling the remote panel {#-enable-panel}
 
 To enable the remote panel, navigate to `file > options` then  scroll down to the "Remote Access / Developer API" section.
