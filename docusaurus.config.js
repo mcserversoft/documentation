@@ -1,8 +1,11 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// @ts-ignore
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+// @ts-ignore
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+// see //https://github.com/facebook/docusaurus/issues/8940#issuecomment-1532573496
 
 /** @type {import('@docusaurus/types').Config} */
 
@@ -16,7 +19,7 @@ const config = {
   favicon: '/favicon.ico',
   organizationName: 'mcserversoft',
   projectName: 'documentation',
-  trailingSlash : false,
+  trailingSlash: false,
 
   i18n: {
     defaultLocale: 'en',
@@ -74,20 +77,20 @@ const config = {
 
   themeConfig:
     ({
-      metadata: [{name: 'keywords', content: 'mcserversoft, documentation, mcss, docs, minecraft, server, server ui, software, manager, wrapper'}],
-       colorMode: {
-         defaultMode: 'dark',
-         disableSwitch: false,
-         respectPrefersColorScheme: false,
-       },
+      metadata: [{ name: 'keywords', content: 'mcserversoft, documentation, mcss, docs, minecraft, server, server ui, software, manager, wrapper' }],
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
+      },
       image: 'img/logo.svg',
       algolia: {
-      appId: '5BRSJ21UOD',
-      // Public API key: it is safe to commit it
-      apiKey: '0acf1d2784dae016e02b01053a823e17',
+        appId: '5BRSJ21UOD',
+        // Public API key: it is safe to commit it
+        apiKey: '0acf1d2784dae016e02b01053a823e17',
 
-      indexName: 'documentation',
-    },
+        indexName: 'documentation',
+      },
       navbar: {
         title: 'MC Server Soft Documentation',
         logo: {
