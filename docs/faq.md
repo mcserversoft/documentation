@@ -30,8 +30,8 @@ This is because you are missing 2 dependencies.
 
 | Architecture  | Link | Notes |
 |---|---|---|
-| X86 | <https://aka.ms/vs/17/release/vc_redist.x86.exe> | Permalink for latest supported x86 version |
-| X64 | <https://aka.ms/vs/17/release/vc_redist.x64.exe> | Permalink for latest supported x64 & ARM64 version |
+| X86 | https://aka.ms/vs/17/release/vc_redist.x86.exe | Permalink for latest supported x86 version |
+| X64 | https://aka.ms/vs/17/release/vc_redist.x64.exe | Permalink for latest supported x64 & ARM64 version |
 
 Or if you rather download it from the Microsoft website: [https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist)
 
