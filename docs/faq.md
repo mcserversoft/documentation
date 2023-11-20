@@ -117,7 +117,7 @@ If you can't, you have to kill all Java processes, to do this you go to "Quick O
 
 ![Screenshot of the Kill all java processes option](/img/docs/faq/mcss_kill_java.png)
 
-:::warning warning
+:::danger danger
 This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
 This includes:
 - The game itself
