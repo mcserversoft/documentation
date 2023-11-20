@@ -179,7 +179,7 @@ Make sure you have installed the correct version by following [this guide](/adva
 
 If you know you have the correct version already installed, follow [this guide](/advanced/java-path-update) to tell MCSS where to look.
 
-> *The above steps were adapted from <https://www.java.com/en/download/help/path.xml>*
+> *The above steps were adapted from https://www.java.com/en/download/help/path.xml*
 
 ### The console does something, but the server fails to start {#-faq-server-error}
 
