@@ -30,8 +30,8 @@ This is because you are missing 2 dependencies.
 
 | Architecture  | Link | Notes |
 |---|---|---|
-| X86 | <https://aka.ms/vs/17/release/vc_redist.x86.exe> | Permalink for latest supported x86 version |
-| X64 | <https://aka.ms/vs/17/release/vc_redist.x64.exe> | Permalink for latest supported x64 & ARM64 version |
+| X86 | https://aka.ms/vs/17/release/vc_redist.x86.exe | Permalink for latest supported x86 version |
+| X64 | https://aka.ms/vs/17/release/vc_redist.x64.exe | Permalink for latest supported x64 & ARM64 version |
 
 Or if you rather download it from the Microsoft website: [https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist)
 
@@ -119,7 +119,7 @@ If you can't, you have to kill all Java processes, to do this you go to "Quick O
 
 ![Screenshot of the Kill all java processes option](/img/docs/faq/mcss_kill_java.png)
 
-:::warning warning
+:::danger danger
 This will kill ALL Java processes, not only MCSS hosted Minecraft servers.<br/>
 This includes:
 
@@ -179,7 +179,7 @@ Make sure you have installed the correct version by following [this guide](/adva
 
 If you know you have the correct version already installed, follow [this guide](/advanced/java-path-update) to tell MCSS where to look.
 
-> *The above steps were adapted from <https://www.java.com/en/download/help/path.xml>*
+> *The above steps were adapted from https://www.java.com/en/download/help/path.xml*
 
 ### The console does something, but the server fails to start {#-faq-server-error}
 
