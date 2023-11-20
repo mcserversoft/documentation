@@ -5,7 +5,7 @@ description: Find the correct IP address to connect to your Minecraft server
 keywords: [ip, address, external, internal, localhost, join, internet]
 ---
 
-## External IP (Internet) 
+## External IP (Internet)
 
 This is the IP address that others on the internet can connect to.
 
@@ -22,6 +22,7 @@ ipconfig | findstr IPv4
 ```
 
 You'll see something like the example below. In this case there are multiple addresses.
+
 ```cmd
 C:\Users\Username>ipconfig | findstr IPv4
    IPv4 Address. . . . . . . . . . . : 192.168.1.102
@@ -62,13 +63,12 @@ Ethernet adapter Bluetooth-networkconnection 2:
 
 This is a local shortcut to access the server when it's been played from the same computer.
 
-```
+``` cmd
 localhost
 ```
 
-
 If you have a custom port number e.g. 25566, use:
 
-```
+``` cmd
 localhost:25566
 ```
