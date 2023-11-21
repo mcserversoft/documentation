@@ -21,4 +21,4 @@ These routes require admin rights:
 | DELETE | /api/v2/users/:userId | Delete an existing user |
 | POST | /api/v2/users/wipe/sessions | Wipe all active sessions |
 
-For more info about these routes visit the [API Documentation](https://apidocs.mcserversoft.com).
+For more info about these routes visit the [Users API Documentation](/apis/v2#tag/Users).
