@@ -1,0 +1,1431 @@
+openapi: 3.0.0
+info:
+  title: MCSS API v13
+  description: >-
+    Documentation for the official MC Server Soft API.
+
+
+    This for MCSS v13 and higher.  
+
+    The API used in V12 can be found at
+    [https://documenter.getpostman.com/view/7749159/TzJsexSC](https://documenter.getpostman.com/view/7749159/TzJsexSC)
+
+
+    `Enabling SSL is recommended even when the certificate is self signed!`
+  version: API_1.2.1
+servers:
+  - url: https://localhost:25560
+    description: Your local MCSS API server
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: http
+      scheme: apikey
+security:
+  - apikeyAuth: []
+tags:
+  - name: General
+    description: General API calls that interact with mcss directly.
+  - name: Servers
+    description: API calls that involve multiple servers.
+  - name: Server
+    description: API calls that involve a single server.
+  - name: Console
+    description: API calls that involve the console from a single server.
+  - name: Scheduler
+    description: API calls that involve the scheduler from a single server.
+  - name: Backups
+    description: API calls that involve backup from a single server.
+paths:
+  /api/v1:
+    get:
+      tags:
+        - General
+      summary: Get API version
+      description: Get version info about mcss.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                isDevBuild: false
+                mcssVersion: 13.0.0
+                mcssApiVersion: 1.0.0
+                uniqueIdentifier: 3664ac4e-23a5-4877-ab75-8412884acdb7
+                youAreAwesome: true
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers:
+    get:
+      tags:
+        - Servers
+      summary: Get list of servers
+      description: |-
+        Return info of all servers.
+
+        **filter (optional) : enum**  
+        0 = None  
+        1 = Minimal  
+        2 = Status
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+          example: None
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - guid: 69361e31-2ac8-43b5-9377-0cb5e40e75ac
+                  status: 0
+                  name: Server Pool
+                  description: Your Minecraft, your way
+                  pathToFolder: P:\path\to\mcss\servers\Purpur\
+                  folderName: Purpur
+                  type: Purpur
+                  creationDate: '2022-07-05T15:56:21.0991114+02:00'
+                  isSetToAutoStart: false
+                  forceSaveOnStop: false
+                  keepOnline: 0
+                  javaAllocatedMemory: 1024
+                  javaStartupLine: java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar
+                - guid: bd03d993-e052-4196-bf04-bdc3754efc3d
+                  status: 0
+                  name: My Bungee Network
+                  description: Jump jump
+                  pathToFolder: P:\path\to\mcss\servers\bungee\
+                  folderName: bungee
+                  type: BungeeCord
+                  creationDate: '2021-11-19T20:24:02.3105235+01:00'
+                  isSetToAutoStart: false
+                  forceSaveOnStop: false
+                  keepOnline: 0
+                  javaAllocatedMemory: 2048
+                  javaStartupLine: java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - guid: 69361e31-2ac8-43b5-9377-0cb5e40e75ac
+                  status: 0
+                  name: Server Pool
+                  description: Your Minecraft, your way
+                  pathToFolder: P:\path\to\mcss\servers\Purpur\
+                  folderName: Purpur
+                  creationDate: '2022-07-05T15:56:21.0991114+02:00'
+                  isSetToAutoStart: false
+                  keepOnline: 0
+                  javaAllocatedMemory: 1024
+                  javaStartupLine: java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar
+                - guid: bd03d993-e052-4196-bf04-bdc3754efc3d
+                  status: 0
+                  name: My Bungee Network
+                  description: Jump jump
+                  pathToFolder: P:\path\to\mcss\servers\bungee\
+                  folderName: bungee
+                  creationDate: '2021-11-19T20:24:02.3105235+01:00'
+                  isSetToAutoStart: false
+                  keepOnline: 0
+                  javaAllocatedMemory: 2048
+                  javaStartupLine: java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar
+  /api/v1/servers/count:
+    get:
+      tags:
+        - Servers
+      summary: Get server count
+      description: |-
+        Get the total amount of servers.
+
+        **filter (optional) : enum**  
+        0 = None  
+        1 = Online  
+        2 = Offline  
+        3 = ByServerType
+
+        **serverTypeId (required when using ByServerType) : guid**  
+        Guid of the server type.
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+          example: Online
+        - name: serverTypeId
+          in: query
+          schema:
+            type: string
+          example: f738fb40-223e-4010-bd07-af4caabdf3dd
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                count: 5
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a:
+    get:
+      tags:
+        - Server
+      summary: Get server details
+      description: |-
+        Return info of a specific server.
+
+        **filter (optional) : enum**  
+        0 = None  
+        1 = Minimal  
+        2 = Status
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+          example: Minimal
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                guid: e0ae4902-10ed-481f-aed0-fa1170ec779a
+                status: 0
+                name: Server Pool
+                description: Pvp & Minigames
+                pathToFolder: P:\path\to\mcss\servers\Purpur\
+                folderName: Purpur
+                type: Purpur
+                creationDate: '2021-12-12T12:09:02.820296+01:00'
+                isSetToAutoStart: false
+                forceSaveOnStop: false
+                keepOnline: 0
+                javaAllocatedMemory: 1025
+                javaStartupLine: >-
+                  java -Xms1G -Xmx1G -XX:+UseG1GC -XX:+ParallelRefProcEnabled
+                  -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions
+                  -XX:+DisableExplicitGC -XX:+AlwaysPreTouch
+                  -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4
+                  -XX:G1MixedGCLiveThresholdPercent=90
+                  -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32
+                  -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1
+                  -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40
+                  -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20
+                  -XX:InitiatingHeapOccupancyPercent=15
+                  -Dusing.aikars.flags=https://mcflags.emc.gs
+                  -Daikars.new.flags=true -jar paper.jar nogui
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/69361e31-2ac8-43b5-9377-0cb5e40e75ac:
+    put:
+      tags:
+        - Server
+      summary: Edit Server
+      description: |-
+        Update a specific server.
+
+        **server (required)**  
+        \- name (optional) : string  
+        \- description (optional) : string  
+        \- isSetToAutoStart (optional) : boolean  
+        \- forceSaveOnStop (optional) : boolean  
+        \- javaAllocatedMemory (optional) : int  
+        \- keepOnline (optional) : object
+
+        ### KeepOnline Object
+
+        \- 0 none (default)  
+        \- 1 elevated  
+        \- 2 aggressive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                KeepOnline: Elevated
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/stats:
+    get:
+      tags:
+        - Server
+      summary: Get server stats
+      description: Return stats of a specific server.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                latest:
+                  cpu: 0
+                  memoryUsed: 0
+                  memoryLimit: 1025
+                  playersOnline: 0
+                  playerLimit: 21
+                  startDate: 0
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/icon:
+    get:
+      tags:
+        - Server
+      summary: Get server icon
+      description: Return the server-icon.png of a specific server.
+      responses:
+        '200':
+          description: OK
+          content:
+            image/png:
+              schema:
+                type: object
+              example: {}
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/action:
+    post:
+      tags:
+        - Server
+      summary: Execute server action
+      description: |-
+        Change the status of a specific server.
+
+        **action : enum**  
+        0 = InvalidOrEmpty  
+        1 = Stop  
+        2 = Start  
+        3 = Kill  
+        4 = Restart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                action: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/command:
+    post:
+      tags:
+        - Server
+      summary: Execute server command
+      description: |-
+        Run a server command on a specific server.
+
+        **command (required) : string**  
+        Server console command that should be executed.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                command: say My name’s not Kirk..It’s Skywalker. Luke Skywalker.
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/commands:
+    post:
+      tags:
+        - Server
+      summary: Execute server commands
+      description: |-
+        Run multiple server commands on a specific server.
+
+        **commands (required) : string\[\]**  
+        List of server console commands that should be executed.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commands:
+                  - say Je suis mcss
+                  - say Qui
+                  - say C'est moi
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/console:
+    get:
+      tags:
+        - Console
+      summary: Get server console
+      description: |-
+        Return the console of a specific server.
+
+        **amountOfLines (required) : integer**  
+        Amount of lines you want to fetch, -1 to fetch everything.
+
+        **takeFromBeginning (optional) : boolean**  
+        Specify if you want to start fetching from the oldest lines first.
+
+        **reversed (optional) : boolean**  
+        Option to flip the line order.
+      parameters:
+        - name: AmountOfLines
+          in: query
+          schema:
+            type: integer
+          example: '5'
+        - name: Reversed
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+        - name: takeFromBeginning
+          in: query
+          schema:
+            type: boolean
+          example: 'true'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - >-
+                  [21:24:12] [Server thread/INFO]: [CraftBook] CraftBook 3.10.6
+                  (1.18.1-1.18.2) is the latest version available, and the
+                  updatability of it is: FAIL_NOVERSION. You currently have
+                  version CraftBook 3.10.6 (1.18.1-1.18.2) installed.
+                - >-
+                  [21:24:12] [Thread-17/WARN]: [CraftBook] Please notify the
+                  author of this error.
+                - >-
+                  [21:24:12] [Thread-17/WARN]: [CraftBook] File versions should
+                  follow the format 'PluginName vVERSION'
+                - >-
+                  [21:24:12] [Thread-17/WARN]: [CraftBook] The author of this
+                  plugin has misconfigured their Auto Update system
+                - >-
+                  [21:24:12] [Server thread/INFO]: [CraftBook] 1875 chunk(s) for
+                  3 world(s) processed (109ms elapsed)
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/console/outdated:
+    get:
+      tags:
+        - Console
+      summary: Check if console is outdated
+      description: >-
+        Check if your version of the console is outdated. This by sending the
+        last 2 last lines for comparison.
+
+
+        **secondLastLine (required)**  
+
+        Second last line you want to check.
+
+
+        **lastLine (required)**  
+
+        Last line you want to check.
+      parameters:
+        - name: secondLastLine
+          in: query
+          schema:
+            type: string
+          example: '[19:25:31] [Server thread/INFO]: Closing Thread Pool'
+        - name: lastLine
+          in: query
+          schema:
+            type: string
+          example: '[19:25:31] [Server thread/INFO]: Closing Server'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                isOutdated: false
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler:
+    get:
+      tags:
+        - Scheduler
+      summary: Get scheduler details
+      description: Return basic info about the scheduler of a specific server.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                tasks: 8
+                interval: 4
+                fixedTime: 3
+                timeless: 1
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks:
+    get:
+      tags:
+        - Scheduler
+      summary: Get list of tasks
+      description: |-
+        Return all tasks from a specific server.
+
+        **filter (optional) : enum**  
+        0 = None  
+        1 = FixedTime  
+        2 = Interval  
+        3 = Timeless
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+          example: None
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - taskId: a3e0fc6b-1965-4745-a527-090c83b22079
+                  guidOfServer: e0ae4902-10ed-481f-aed0-fa1170ec779a
+                  name: 1min restart announcement
+                  enabled: false
+                  playerRequirement: 0
+                  timing:
+                    timeSpan: '18:59:00'
+                    repeat: true
+                  job:
+                    commands:
+                      - say Restarting in 1min.
+                - taskId: 8fcab652-cb96-4c57-b12b-f1d0db694a2b
+                  guidOfServer: e0ae4902-10ed-481f-aed0-fa1170ec779a
+                  name: Timeless
+                  enabled: true
+                  playerRequirement: 0
+                  timing: {}
+                  job:
+                    action: 1
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    post:
+      tags:
+        - Scheduler
+      summary: Create task
+      description: |-
+        Create a new task.
+
+        **task (required)**  
+        \- name (required) : string  
+        \- enabled (optional) : boolean  
+        \- playerRequirement (optional) : object  
+        \- timing (required) : object  
+        \- job (required): object
+
+        ### PlayerRequirement **Object**
+
+        \- 0 none (default)  
+        \- 1 empty  
+        \- 2 atLeastOne
+
+        ### **Timing Object**
+
+        **fixedTime**  
+        \- repeat: boolean  
+        \- timeSpan: TimeSpan
+
+        **interval**  
+        \- repeat: boolean  
+        \- interval: integer
+
+        **timeless**  
+        // no parameters
+
+        ### **Job Object**
+
+        **ServerAction**  
+        \- action : ServerAction  
+        // 0 or Stop  
+        // 1 or Start  
+        // 2 or Kill  
+        // 3 or Restart
+
+        **RunCommands**  
+        \- commands: string\[\]
+
+        **StartBackup**  
+        \- backupIdentifier: guid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Made with the api s
+                enabled: true
+                playerRequirement: 0
+                timing:
+                  repeat: true
+                  interval: 150
+                job:
+                  commands:
+                    - /say hello from the api
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Invalid Task Details
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/4a582b48-5f37-4586-88f9-a37af96db08a:
+    get:
+      tags:
+        - Scheduler
+      summary: Get task
+      description: Return a specific task from a specific server.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                taskId: 4a582b48-5f37-4586-88f9-a37af96db08a
+                guidOfServer: e0ae4902-10ed-481f-aed0-fa1170ec779a
+                name: Made with the api2
+                enabled: false
+                playerRequirement: 0
+                timing:
+                  repeat: false
+                  interval: 151
+                job:
+                  commands:
+                    - /say hello from the api2
+                    - /say hello from the api3
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/26d30ef2-4e17-4c66-941b-07858601a100:
+    put:
+      tags:
+        - Scheduler
+      summary: Edit task
+      description: |-
+        Update a specific server task.
+
+        > You can not change the timing or job object, only its values!
+
+        **task (required)**  
+        \- name (optional) : string  
+        \- enabled (optional) : boolean  
+        \- playerRequirement (optional) : object  
+        \- timing (optional) : object  
+        \- job (optional): object
+
+        ### PlayerRequirement **Object**
+
+        \- 0 none (default)  
+        \- 1 empty  
+        \- 2 atLeastOne
+
+        ### **Timing Object**
+
+        **fixedTime**  
+        \- repeat: boolean  
+        \- timeSpan: TimeSpan
+
+        **interval**  
+        \- repeat: boolean  
+        \- interval: integer
+
+        **timeless**  
+        // no parameters
+
+        ### **Job Object**
+
+        **ServerAction**  
+        \- action : ServerAction  
+        // 0 or Stop  
+        // 1 or Start  
+        // 2 or Kill  
+        // 3 or Restart
+
+        **RunCommands**  
+        \- commands: string\[\]
+
+        **StartBackup**  
+        \- backupIdentifier: guid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Start
+                enabled: false
+                playerRequirement: 1
+                timing:
+                  repeat: false
+                  interval: 151
+                job:
+                  commands:
+                    - /say hello from the api2
+                    - /say hello from the api3
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid/Task
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '409':
+          description: Timming type can not be changed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/e9aa8fb2-303c-41ec-b3a0-cd9252a2e19f:
+    delete:
+      tags:
+        - Scheduler
+      summary: Delete task
+      description: Delete a specific server task.
+      responses:
+        '200':
+          description: Deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Task
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/8fcab652-cb96-4c57-b12b-f1d0db694a2b:
+    post:
+      tags:
+        - Scheduler
+      summary: Run task
+      description: Run a specific server task.
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid/Task
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups:
+    get:
+      tags:
+        - Backups
+      summary: Get list of backups
+      description: Return all backups from a specific server
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - backupId: eccd9909-8ec4-4bb5-9eda-6e7b4236c8b6
+                  name: Backup test
+                  destination: C:\Users\User\Desktop\mcss\backups
+                  suspend: false
+                  deleteOldBackups: true
+                  compression: 0
+                  lastStatus: 0
+                  completedAt: '0001-01-01T00:00:00'
+                  fileBlacklist:
+                    - myfile.json
+                    - eula.txt
+                    - start.sh
+                  folderBlacklist:
+                    - crash-reports
+                    - logs
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    post:
+      tags:
+        - Backups
+      summary: Create Backup
+      description: |-
+        Create a new backup.
+
+        **backup (required)**  
+        \- name (required) : string  
+        \- destination (required) : string  
+        \- suspend(optional) : boolean  
+        \- deleteOldBackups (optional) : boolean  
+        \- compression (optional) : object  
+        \- runBackupAfterCreation (optional): boolean  
+        \- fileBlacklist (optional) : string\[\]  
+        \- folderBlacklist (optional) : string\[\]
+
+        ### **C**ompression **Object**
+
+        \- high (default)  
+        \- low  
+        \- none
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Test Backup
+                destination: P:\projects\MC Server Soft\dev\_debug\backups\TestApiBackup
+                suspend: true
+                deleteOldBackups: true
+                compression: 1
+                runBackupAfterCreation: true
+                fileBlacklist: []
+                folderBlacklist: []
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Invalid Backup
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/449911ca-ff50-4052-8cf3-336b067cd482:
+    get:
+      tags:
+        - Backups
+      summary: Get backup details
+      description: |-
+        Return a specific backup from a specific server.
+
+        ### Compression **Object**
+
+        \- 0 high (default)  
+        \- 1 low  
+        \- 2 none
+
+        ### LastStatus **Object**
+
+        \- 0 neverRun (default)  
+        \- 1 inProgress,  
+        \- 2 completed,  
+        \- 3 failed,  
+        \- 4 canceled
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                backupId: fd96b615-6158-4313-85e0-d488f2616ed2
+                name: 1/220
+                destination: H:\backups
+                suspend: false
+                deleteOldBackups: false
+                compression: 1
+                lastStatus: 0
+                completedAt: '0001-01-01T00:00:00'
+                fileBlacklist: []
+                folderBlacklist: []
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    put:
+      tags:
+        - Backups
+      summary: Edit backup
+      description: |-
+        Update a specific server backup.
+
+        **backup (required)**  
+        \- name (optional) : string  
+        \- destination (optional) : string  
+        \- suspend (optional) : boolean  
+        \- deleteOldBackups (optional) : boolean  
+        \- compression (optional) : object  
+        \- runBackupAfterCreation (optional): boolean  
+        \- fileBlacklist (optional) : string\[\]  
+        \- folderBlacklist (optional) : string\[\]
+
+        ### **C**ompression **Object**
+
+        \- high (default)  
+        \- low  
+        \- none
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Test Edited backup
+                compression: 1
+                destination: Hi
+                suspend: true
+                folderBlacklist:
+                  - world
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid/Backup
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    delete:
+      tags:
+        - Backups
+      summary: Delete backup
+      description: Delete a specific server backup.
+      responses:
+        '200':
+          description: Deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Backup
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    post:
+      tags:
+        - Backups
+      summary: Run backup
+      description: Run a specific server backup.
+      requestBody:
+        content: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown Guid/Backup
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
