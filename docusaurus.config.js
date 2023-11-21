@@ -73,6 +73,41 @@ const config = {
         },
       }),
     ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            spec: 'apis/v2.yml',
+            route: '/apis/v2',
+          },
+          {
+            spec: 'apis/v1.yml',
+            route: '/apis/v1',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          primaryColor: '#abd037',
+          options: {
+            disableSearch: true,
+            hideDownloadButton: true,
+            scrollYOffset: 60,
+            hideLoading: true,
+          },
+          theme: {
+            rightPanel: {
+              backgroundColor: '#121212',
+            },
+            fab: {
+              backgroundColor: '#abd037',
+              color: '#ffffff'
+            }
+          },
+        },
+      },
+    ],
   ],
 
   themeConfig:
@@ -98,6 +133,26 @@ const config = {
           src: '/img/logo.svg',
         },
         items: [
+          {
+            label: 'Docs',
+            position: 'left',
+            to: '/',
+            activeBasePath: 'to',
+          },
+          {
+            label: 'API Docs',
+            position: 'left',
+            items: [
+              {
+                label: 'v2 - latest',
+                to: '/apis/v2',
+              },
+              {
+                label: 'v1 - legacy',
+                to: '/apis/v1',
+              },
+            ],
+          },
           {
             type: 'localeDropdown',
             position: 'right',
