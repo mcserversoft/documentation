@@ -38,7 +38,7 @@ info:
     <pre>
     GET /api/v2 HTTP/1.1
     Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT
-    mcssApiKey: YOUR_API_KEY
+    ApiKey: YOUR_API_KEY
     </pre>
 
     > If your key is compromised or lost, it's crucial to act swiftly. In case of exposure, regenerate the key immediately. If lost, delete the old one and generate a new key. Always keep your keys confidential and secure.
