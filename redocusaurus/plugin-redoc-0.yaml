@@ -63,7 +63,7 @@ info:
 
     Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT
 
-    mcssApiKey: YOUR_API_KEY
+    ApiKey: YOUR_API_KEY
 
     </pre>
 
