@@ -112,6 +112,16 @@ info:
 
     - triggerBackup
 
+    - viewSchedulerTasks
+
+    - createSchedulerTasks
+
+    - editSchedulerTask
+
+    - deleteSchedulerTasks
+
+    - triggerSchedulerTask
+
 
     These permissions are overwritten when the user or API key has the [Admin
     Permission](/api/admin).
@@ -1958,6 +1968,11 @@ paths:
                       editBackup: false
                       deleteBackups: false
                       triggerBackup: false
+                      viewSchedulerTasks: false
+                      createSchedulerTasks: false
+                      editSchedulerTask: false
+                      deleteSchedulerTasks: false
+                      triggerSchedulerTask: false
                     ea43121b-2fde-4ede-a6f5-17c46c26af1c:
                       viewStats: true
                       viewConsole: true
@@ -1969,6 +1984,11 @@ paths:
                       editBackup: false
                       deleteBackups: false
                       triggerBackup: false
+                      viewSchedulerTasks: false
+                      createSchedulerTasks: false
+                      editSchedulerTask: false
+                      deleteSchedulerTasks: false
+                      triggerSchedulerTask: false
                     e0ae4902-10ed-481f-aed0-fa1170ec779a:
                       viewStats: true
                       viewConsole: true
@@ -1980,6 +2000,11 @@ paths:
                       editBackup: false
                       deleteBackups: false
                       triggerBackup: false
+                      viewSchedulerTasks: false
+                      createSchedulerTasks: false
+                      editSchedulerTask: false
+                      deleteSchedulerTasks: false
+                      triggerSchedulerTask: false
                     3054aac3-dbf5-4e10-94d2-f4b83577d9b4:
                       viewStats: true
                       viewConsole: true
@@ -1991,6 +2016,11 @@ paths:
                       editBackup: false
                       deleteBackups: false
                       triggerBackup: false
+                      viewSchedulerTasks: false
+                      createSchedulerTasks: false
+                      editSchedulerTask: false
+                      deleteSchedulerTasks: false
+                      triggerSchedulerTask: false
                   createdAt: '2023-01-05T20:47:51.83954Z'
                   lastModifiedAt: '2023-01-05T20:48:10.4188293Z'
         '401':
@@ -2048,9 +2078,11 @@ paths:
         useServerActions (required) : boolean,   editServer(required) :
         boolean,   viewBackups(required) : boolean,   createBackup(required) :
         boolean,   editBackup(required) : boolean,   deleteBackups(required) :
-        boolean,   triggerBackup(required) : boolean  
-
-        }
+        boolean,   triggerBackup(required) : boolean,
+        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
+        : boolean, editSchedulerTask(required) : boolean,
+        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
+        : boolean }
 
 
         **example**
@@ -2137,6 +2169,11 @@ paths:
                     editBackup: false
                     deleteBackups: false
                     triggerBackup: false
+                    viewSchedulerTasks: false
+                    createSchedulerTasks: false
+                    editSchedulerTask: false
+                    deleteSchedulerTasks: false
+                    triggerSchedulerTask: false
                   dc14869d-8494-4b10-96e0-df3264198999:
                     viewStats: false
                     viewConsole: true
@@ -2148,6 +2185,11 @@ paths:
                     editBackup: false
                     deleteBackups: false
                     triggerBackup: false
+                    viewSchedulerTasks: false
+                    createSchedulerTasks: false
+                    editSchedulerTask: false
+                    deleteSchedulerTasks: false
+                    triggerSchedulerTask: false
                 createdAt: '2022-08-01T13:07:13.0167083Z'
                 lastModifiedAt: '2023-01-26T13:01:33.6984964Z'
         '401':
@@ -2193,7 +2235,11 @@ paths:
         useServerActions (required) : boolean,   editServer(required) :
         boolean,   viewBackups(required) : boolean,   createBackup(required) :
         boolean,   editBackup(required) : boolean,   deleteBackups(required) :
-        boolean,   triggerBackup(required) : boolean   }
+        boolean,   triggerBackup(required) : boolean,
+        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
+        : boolean, editSchedulerTask(required) : boolean,
+        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
+        : boolean }
 
 
         **example**
