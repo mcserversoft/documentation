@@ -34,11 +34,11 @@ info:
     ## Authentication
     * * * * *
 
-    All API calls require an API key.<br/> This is a header called: `mcssApiKey`
+    All API calls require an API key.<br/> This is a header called: `apiKey`
     <pre>
     GET /api/v2 HTTP/1.1
     Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT
-    ApiKey: YOUR_API_KEY
+    apiKey: YOUR_API_KEY
     </pre>
 
     > If your key is compromised or lost, it's crucial to act swiftly. In case of exposure, regenerate the key immediately. If lost, delete the old one and generate a new key. Always keep your keys confidential and secure.
@@ -84,14 +84,14 @@ servers:
     description: Your local MCSS API server
 components:
   securitySchemes:
-    mcssApiKey:
+    apiKey:
       description: >
-        For this sample, you can use the api key `mcssApiKey` to access this endpoint.
+        For this sample, you can use the api key `apiKey` to access this endpoint.
       type: apiKey
-      name: mcssApiKey
+      name: apiKey
       in: header
 security:
-  - mcssApiKey: []
+  - apiKey: []
 tags:
   - name: General
     description: General API calls that interact with mcss directly.
