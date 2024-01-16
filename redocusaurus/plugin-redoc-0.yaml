@@ -55,7 +55,7 @@ info:
     * * * * *
 
 
-    All API calls require an API key.<br/> This is a header called: `mcssApiKey`
+    All API calls require an API key.<br/> This is a header called: `apiKey`
 
     <pre>
 
@@ -63,7 +63,7 @@ info:
 
     Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT
 
-    ApiKey: YOUR_API_KEY
+    apiKey: YOUR_API_KEY
 
     </pre>
 
@@ -146,15 +146,15 @@ servers:
     description: Your local MCSS API server
 components:
   securitySchemes:
-    mcssApiKey:
+    apiKey:
       description: >
-        For this sample, you can use the api key `mcssApiKey` to access this
+        For this sample, you can use the api key `apiKey` to access this
         endpoint.
       type: apiKey
-      name: mcssApiKey
+      name: apiKey
       in: header
 security:
-  - mcssApiKey: []
+  - apiKey: []
 tags:
   - name: General
     description: General API calls that interact with mcss directly.
