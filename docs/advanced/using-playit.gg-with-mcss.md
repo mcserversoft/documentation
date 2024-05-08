@@ -12,6 +12,12 @@ If you're having trouble with port forwarding or you are under something called 
 
 The core functionality of [playit.gg](https://playit.gg/) is free, but additional features are behind a paywall (such as using a custom domain).
 
+:::info
+MC Server Soft is not affiliated with Playit.gg. At the time of writing, it is one of the few options available to users.  
+Other options may be [ngrok](https://ngrok.io), [zrok](https://zrok.io) or [Cloudflare Tunnels](https://cloudflare.com/).  
+Every platform has their advantages and disadvantages. As such, we invite you to look to the different feature sets to determine whichever is the best for you.
+:::
+
 ## Creating an account and configuring the tunnel(s)
 
 This procedure can be a little bit daunting, but the playit.gg developers tried to make it as straightforward as possible.  
