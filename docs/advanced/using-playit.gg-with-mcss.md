@@ -7,7 +7,7 @@ keywords: [port, forward, forwarding, port-forward; port-forwarding, network, fr
 
 ## Introduction {#-introduction}
 
-If you're having troubles with port forwarding or you are under something called [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT), you may not be able to port forward at all.
+If you're having trouble with port forwarding or you are under something called [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT), you may not be able to port forward at all.
 [playit.gg](https://playit.gg/) helps to bypass the requirement to port forward, creating a "tunnel" from your PC to their servers.  
 
 The core functionality of [playit.gg](https://playit.gg/) is free, but additional features are behind a paywall (such as using a custom domain).
@@ -24,7 +24,7 @@ You can go to the website [of playit](https://playit.gg), and click on the "Logi
 There, you can click on "Create an Account" to go to the creation page. 
 
 After creating the account, you'll be met with an "onboarding" process.  
-This is really simple, but we'll go over it anyways.
+This is really simple, but we'll go over it anyway.
 
 ### Step 2 : The playit onboarding process {#-step-2}
 
@@ -45,7 +45,7 @@ Click on "Create Tunnel" to proceed.
 
 From this point on, your setup may vary a little, depending on which port your server is using. In our case, we'll use the default 25565 port, but you may use a different one by changing it when necessary.  
 
-In this page, you can choose the type of tunnel you need (You should choose between Minecraft JAVA and BEDROCK in most cases, but TCP is also an option [should you need to use playit.gg for the web panel](#-using-playit-for-the-panel))
+On this page, you can choose the type of tunnel you need (You should choose between Minecraft JAVA and BEDROCK in most cases, but TCP is also an option [should you need to use playit.gg for the web panel](#-using-playit-for-the-panel))
 
 ![Image of the playit tunnel configuration, in the "shared IP" tab, using the free region option and Minecraft JAVA option. Tunnel is enabled.](/img/docs/playitgg/playittunnelconf.png)
 
@@ -56,13 +56,13 @@ You should keep the IP field the same (the IP `127.0.0.1` means localhost, aka t
 
 ### Step 3 : Using the playit tunnel {#-step-3}
 
-In the tunnel page you'll find a lot of information about the tunnel you created. What is interesting to us is the "Allocation" or "Shared IP".  
+On the tunnel page, you'll find a lot of information about the tunnel you created. What is interesting to us is the "Allocation" or "Shared IP".  
 It should look something like this:  
 
 ![Image containing the playit tunnel information](/img/docs/playitgg/playittunnelinfo.png)
 
 :::info
-In this image the full IP and port has been censored, you won't see the green or red rectangles. In place of the X's you should see numbers.  
+In this image the full IP and port have been censored, you won't see the green or red rectangles. In place of the X's you should see numbers.  
 We'll use the X's in the example below, but be sure to replace the IP and PORT with what YOU see on the website.
 :::
 
@@ -73,7 +73,7 @@ The result would be `XX.ip.gl.ply.gg:47XXX`. It is important to use the port, as
 ## Using playit.gg for the web panel {#-using-playit-for-the-panel}
 
 To use playit.gg for the web panel, first enable the panel following our [documentation page](/webpanel/getting-started).  
-After that's done, you can go in the playit.gg user area, in the tunnels section. Here you'll see all the tunnels you created. You want to click on the "add tunnel" button.
+After that's done, you can go into the playit.gg user area, in the tunnels section. Here you'll see all the tunnels you created. You want to click on the "add tunnel" button.
 
 ![Image of the tunnel list, containing a total of two tunnels. An arrow points to the "add tunnel" button.](/img/docs/playitgg/playittunneladdtunnel.png)
 :::info
@@ -92,7 +92,7 @@ This tunnel has additional settings, but all we care about is the port. You shou
 After the tunnel is created, we follow the same process that we used to connect to the minecraft server above.
 
 :::info 
-Due to the structure of the tunnel, you **have** to specify `https://` before the IP if you set SSL on in the panel settings. Just like above, we need the port added to the end of the IP.
+Due to the structure of the tunnel, you **have** to specify `https://` before the IP if you set SSL to true in the panel settings. Just like above, we need the port added to the end of the IP.
 
 It is normal to see the "Website not secure" warning when loading the panel.
 :::
