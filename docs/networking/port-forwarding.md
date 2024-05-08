@@ -43,6 +43,8 @@ To have access to port forwarding, your internet connection must be wired (xDSL 
 
 If you have a wired internet, it is very likely that your router will support port forwarding, but it might be possible that your ISP has blocked this feature.
 
+If you have determined that you cannot port forward, you may have better luck following our guide on how to use [playit.gg](/advanced/using-playit.gg-with-mcss).
+
 ### Step 2: Find the ip of the modem/device (default gateway) {#-step-2}
 
 Open up a command line prompt, you can do this by pressing `Windows Key + R` and type `cmd` and hit <kbd>Enter</kbd>. Or you can search for `Command Prompt` under your apps.
