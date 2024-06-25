@@ -55,8 +55,8 @@ Read the error. More often than not, Minecraft throws easy to read errors that t
 
 ## The server works but when sending commands to the console nothing happens/The stop button doesn't work {#-faq-console-commands-fail}
 
-Open your server's settings (cogwheel icon on the dashboard) and open the advanced tab. At the end of the Java startup line, append `-Djline.terminal=jline.UnsupportedTerminal`.<br/>
-If this doesn't fix it, or if the server gives you an error like "unknow java argument", use `--nojline` instead.
+Open your server's settings (cogwheel icon on the dashboard) and open the advanced tab. At the end of the Java startup line, append `--nojline`.<br/>
+If this doesn't fix it, or if the server gives you an error like "unknow java argument", use `-Djline.terminal=jline.UnsupportedTerminal` instead.
 
 
 ## error: unable to access jarfile
