@@ -1,11 +1,9 @@
 ---
 sidebar_position: 100
-title: FAQ
+title: FAQ - Frequently Asked Questions
 description: Frequently asked questions and their answers
 keywords: [faq, mcss, frequently, asked, questions, answers, issues, bugs]
 ---
-
-## FAQ - Frequently Asked Questions
 
 ## Unable to connect to the server {#-faq-unable-to-connect}
 
