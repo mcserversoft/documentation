@@ -53,10 +53,13 @@ If you know you have the correct version already installed, follow [this guide](
 Read the error. More often than not, Minecraft throws easy to read errors that tell you exactly what went wrong. The answer to your issue could be even be in this FAQ !
 
 
-## The server works but when sending commands to the console nothing happens/The stop button doesn't work {#-faq-console-commands-fail}
+## The server works but when sending commands to the console nothing happens/The dashboard buttons don't work {#-faq-console-commands-fail}
 
-Open your server's settings (cogwheel icon on the dashboard) and open the advanced tab. At the end of the Java startup line, append `--nojline`.<br/>
-If this doesn't fix it, or if the server gives you an error like "unknow java argument", use `-Djline.terminal=jline.UnsupportedTerminal` instead.
+Open your server's settings (cogwheel icon on the dashboard) and open the advanced tab. Depending on your server type, append the following paramater to the end of the Java Startup Line :<br/>
+- For a bukkit-based server (Bukkit/Spigot/Paper on any other fork) use ` --nojline`.<br/>
+- For Bungeecord and its forks (Waterfall) use ` -Djline.terminal=jline.UnsupportedTerminal` instead.
+
+Make sure to have a space between the end of the line and the argument.
 
 
 ## error: unable to access jarfile
