@@ -39,10 +39,10 @@ Every manufacturer has its own interface, so they all look different. Unfortunat
 
 ### Step 1 : make sure that you have a compatible router {#-step-1}
 
-To have access to port forwarding, your internet connection must be wired (xDSL, cable or fiber). This means that if you have a 4G/5G router, it will be impossible for you to open a port of your network.
+To have access to port forwarding, your internet connection must be wired (xDSL, cable or fiber). This means that if you have a 4G/5G or satellite router, it will be impossible for you to open a port of your network.
 
 You might also be behind a CGNAT, where your router actually sits in a large private network managed by you ISP instead of being connected directly to the internet, meaning that your router cannot be accessed from the outside.<br/>
-To check if this is the case, open you router's web UI (see steps [2](#-step-2) and [3](#-step-3)) and find a section like "status" and look for the WAN/Internet/public IP.
+To check if this is the case, open you router's web UI (see steps [2](#-step-2) and [3](#-step-3)) and find a section like "status" or "infos" and look for the WAN/Internet/public IP.
 If the address you see there is in one of the following ranges, it means you ISP uses CGNAT : `10.0.0.0-10.255.255.255; 172.16.0.0-172.31.255.255; 100.64.0.0-100.127.255.255`
 
 If you have a wired internet connection and are not behind a CGNAT, it is likely that your router will support port forwarding, but it might be possible that your ISP has blocked this feature.
