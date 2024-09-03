@@ -1078,7 +1078,7 @@ paths:
                   enabled: false
                   playerRequirement: 0
                   timing:
-                    timeSpan: "18:59:00"
+                    time: "18:59:00"
                     repeat: true
                   job:
                     commands:
@@ -1176,7 +1176,7 @@ paths:
                 jobs:
                   - order: 0
                     commands:
-                    - /say hello from the api
+                      - /say hello from the api
       responses:
         "201":
           description: Created
@@ -1324,8 +1324,8 @@ paths:
                 jobs:
                   - order: 0
                     commands:
-                    - /say hello from the api2
-                    - /say hello from the api3
+                      - /say hello from the api2
+                      - /say hello from the api3
       responses:
         "200":
           description: OK
