@@ -11,13 +11,15 @@ info:
 
     Other versions:
 
-    - [v1 (legacy)](/apis/v1) - API used in v13 - v13.4
-      >  Note that v1 is still included in the latest version of mcss, but it's recommended that you use or migrate to v2.
+    - The API used in v13 - v13.4 can be found at
+
+    [v1 (legacy)](/apis/v1)  
+        Note that since v13.9.0 this version is no longer accessible/distributed with mcss.
         
     - The API used in V12 can be found at
 
     [https://documenter.getpostman.com/view/7749159/TzJsexSC](https://documenter.getpostman.com/view/7749159/TzJsexSC)
-        
+
     ## Introduction
 
     * * * * *
@@ -140,7 +142,7 @@ info:
     much time creating a PR, as most of the changes will probably get
     overwritten. Create a suggestion based PR instead, so that we can change the
     source directly and prevent you wasting a lot of time.
-  version: API_2.3.0
+  version: API_2.4.0
 servers:
   - url: https://localhost:25560
     description: Your local MCSS API server
@@ -168,10 +170,14 @@ tags:
     description: API calls that involve the scheduler from a single server.
   - name: Backups
     description: API calls that involve backup from a single server.
+  - name: Webhooks
+    description: (API Key must have admin rights)
   - name: Users
     description: |-
       API calls that involve the web panel users.  
       (API Key must have admin rights)
+  - name: ApiKeys
+    description: (API Key must have admin rights)
   - name: Mcss
 paths:
   /api/v2:
@@ -190,7 +196,7 @@ paths:
               example:
                 isDevBuild: false
                 mcssVersion: 13.0.0
-                mcssApiVersion: 1.0.0
+                mcssApiVersion: 2.0.0
                 uniqueIdentifier: 3664ac4e-23a5-4877-ab75-8412884acdb7
                 youAreAwesome: true
         '401':
@@ -1137,7 +1143,7 @@ paths:
                   enabled: false
                   playerRequirement: 0
                   timing:
-                    timeSpan: '18:59:00'
+                    time: '18:59:00'
                     repeat: true
                   job:
                     commands:
@@ -1224,15 +1230,18 @@ paths:
             schema:
               type: object
               example:
+                serverId: 0d16b818-2b8a-4653-9885-3ccb0d75a6d6
+                taskId: 96861789-173c-4388-8084-9c46ed7ed7c1
                 name: Made with the api s
                 enabled: true
                 playerRequirement: 0
                 timing:
                   repeat: true
                   interval: 150
-                job:
-                  commands:
-                    - /say hello from the api
+                jobs:
+                  - order: 0
+                    commands:
+                      - /say hello from the api
       responses:
         '201':
           description: Created
@@ -1371,16 +1380,17 @@ paths:
             schema:
               type: object
               example:
-                name: Start
-                enabled: false
+                name: Test
+                enabled: true
                 playerRequirement: 1
                 timing:
                   repeat: false
                   interval: 151
-                job:
-                  commands:
-                    - /say hello from the api2
-                    - /say hello from the api3
+                jobs:
+                  - order: 0
+                    commands:
+                      - /say hello from the api2
+                      - /say hello from the api3
       responses:
         '200':
           description: OK
@@ -1927,6 +1937,306 @@ paths:
               schema:
                 type: string
               example: null
+  /api/v2/webhooks:
+    post:
+      tags:
+        - Webhooks
+      summary: Create webhook
+      description: |-
+        Create a new webhook.  
+        (API Key must have admin rights)
+
+        \- name (required) : string  
+        \- url(required) : string  
+        \- enabled (optional) : boolean  
+        \- messageFormat (optional) : integer  
+        \- webhookTriggers (optional) : string\[\]  
+        \- optionalHeaders (optional) : object\[\]
+
+        ### MessageFormat
+
+        \- 0 General  
+        \- 1 Discord
+
+        ### WebhookTrigger Enum
+
+        \- All  
+        \- ServerCreated  
+        \- ServerEdited  
+        \- ServerDeleted  
+        \- ServerStatusChanged
+
+        ### OptionalHeaders **Object**
+
+        \- name: string  
+        \- value: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Test Backup
+                url: https://www.youtube.com/watch?v=2DfmZfgYvRM
+                isEnabled: true
+                messageFormat: 0
+                webhookTriggers: []
+                optionalHeaders:
+                  Version: v1
+      responses:
+        '201':
+          description: Created
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Invalid Webhook
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    get:
+      tags:
+        - Webhooks
+      summary: Get list of Webhooks
+      description: |-
+        Return all webhooks.  
+        (API Key must have admin rights)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - webhookId: 3a1261b8-bbbc-48a2-9edc-590a5d6de2dc
+                  name: Global status watcher
+                  url: https://webhook.site/3b97f2c8-4570-4666-9f10-e4a0f6ab20c6
+                  enabled: false
+                  messageFormat: 0
+                  webhookTriggers:
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                  optionalHeaders:
+                    User-Agent: Mcss Api
+                  createdAt: '2024-08-19T17:51:52.0500375Z'
+                  lastModifiedAt: '2024-08-19T17:51:52.0500386Z'
+                - webhookId: 4d26e531-7110-4fc5-9693-ffcc97ccbf92
+                  name: Server status reporter (Discord)
+                  url: https://discord.com/api/webhooks/example_url
+                  enabled: false
+                  messageFormat: 1
+                  webhookTriggers:
+                    - 2
+                    - 3
+                    - 4
+                    - 5
+                  optionalHeaders: {}
+                  createdAt: '2024-08-19T17:51:48.3341931Z'
+                  lastModifiedAt: '2024-08-19T17:51:48.334194Z'
+        '400':
+          description: Invalid Webhook
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: No Server Access
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v2/webhooks/3a1261b8-bbbc-48a2-9edc-590a5d6de2dc:
+    get:
+      tags:
+        - Webhooks
+      summary: Get webhook details
+      description: |-
+        Return a specific webhook.  
+        (API Key must have admin rights)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                webhookId: 3a1261b8-bbbc-48a2-9edc-590a5d6de2dc
+                name: Global status watcher
+                url: https://webhook.site/3b97f2c8-4570-4666-9f10-e4a0f6ab20c6
+                enabled: false
+                messageFormat: 0
+                webhookTriggers:
+                  - 2
+                  - 3
+                  - 4
+                  - 5
+                optionalHeaders:
+                  User-Agent: Mcss Api
+                createdAt: '2024-08-19T17:51:52.0500375Z'
+                lastModifiedAt: '2024-08-19T17:51:52.0500386Z'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown User
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    put:
+      tags:
+        - Webhooks
+      summary: Edit webhook
+      description: |-
+        Update a specific webhook.  
+        (API Key must have admin rights)
+
+        \- name (required) : string  
+        \- url(required) : string  
+        \- enabled (optional) : boolean  
+        \- messageFormat (optional) : integer  
+        \- webhookTriggers (optional) : string\[\]  
+        \- optionalHeaders (optional) : object\[\]
+
+        ### MessageFormat (possible values)
+
+        \- 0 -> General  
+        \- 1 -> Discord
+
+        ### WebhookTrigger (possible values)
+
+        \- All  
+        \- ServerCreated  
+        \- ServerEdited  
+        \- ServerDeleted  
+        \- ServerStatusChanged
+
+        ### OptionalHeaders **Object**
+
+        \- name: string  
+        \- value: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                isEnabled: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+        '400':
+          description: Invalid User
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown User
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    delete:
+      tags:
+        - Webhooks
+      summary: Delete webhook
+      description: |-
+        Delete a specific webhook.  
+        (API Key must have admin rights)
+      responses:
+        '200':
+          description: Deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown User
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
   /api/v2/users:
     get:
       tags:
@@ -2075,14 +2385,27 @@ paths:
 
         useConsole (required) : boolean,  
 
-        useServerActions (required) : boolean,   editServer(required) :
-        boolean,   viewBackups(required) : boolean,   createBackup(required) :
-        boolean,   editBackup(required) : boolean,   deleteBackups(required) :
-        boolean,   triggerBackup(required) : boolean,
-        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
-        : boolean, editSchedulerTask(required) : boolean,
-        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
-        : boolean }
+        useServerActions (required) : boolean,  
+
+        editServer(required) : boolean,  
+
+        viewBackups(required) : boolean,  
+
+        createBackup(required) : boolean,  
+
+        editBackup(required) : boolean,  
+
+        deleteBackups(required) : boolean,  
+
+        triggerBackup(required) : boolean,  
+
+        viewSchedulerTasks:(required) : boolean,       
+        createSchedulerTasks(required) : boolean,       
+        editSchedulerTask(required) : boolean,       
+        deleteSchedulerTasks(required) : boolean,       
+        triggerSchedulerTask(required) : boolean  
+
+        }
 
 
         **example**
@@ -2223,23 +2546,54 @@ paths:
 
         (API Key must have admin rights)
 
-        **user (required)**   \- password (optional) : string   \-
-        passwordRepeat (optional) : string   \- enabled (optional) : boolean  
-        \- isAdmin (optional) : boolean   \- hasAccessToAllServers (optional):
-        boolean   \- customServerPermissions (optional) : object\[\]
+
+        **user (required)**  
+
+        \- password (optional) : string  
+
+        \- passwordRepeat (optional) : string  
+
+        \- enabled (optional) : boolean  
+
+        \- isAdmin (optional) : boolean  
+
+        \- hasAccessToAllServers (optional): boolean  
+
+        \- customServerPermissions (optional) : object\[\]
+
 
         ### CustomServerPermissions Object
 
-        serverId (required) : string {   viewStats (required) : boolean,  
-        viewConsole (required) : boolean,   useConsole (required) : boolean,  
-        useServerActions (required) : boolean,   editServer(required) :
-        boolean,   viewBackups(required) : boolean,   createBackup(required) :
-        boolean,   editBackup(required) : boolean,   deleteBackups(required) :
-        boolean,   triggerBackup(required) : boolean,
-        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
-        : boolean, editSchedulerTask(required) : boolean,
-        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
-        : boolean }
+
+        serverId (required) : string {  
+
+        viewStats (required) : boolean,  
+
+        viewConsole (required) : boolean,  
+
+        useConsole (required) : boolean,  
+
+        useServerActions (required) : boolean,  
+
+        editServer(required) : boolean,  
+
+        viewBackups(required) : boolean,  
+
+        createBackup(required) : boolean,  
+
+        editBackup(required) : boolean,  
+
+        deleteBackups(required) : boolean,  
+
+        triggerBackup(required) : boolean,  
+
+        viewSchedulerTasks:(required) : boolean,       
+        createSchedulerTasks(required) : boolean,       
+        editSchedulerTask(required) : boolean,       
+        deleteSchedulerTasks(required) : boolean,       
+        triggerSchedulerTask(required) : boolean  
+
+        }
 
 
         **example**
@@ -2364,6 +2718,247 @@ paths:
               example: null
         '500':
           description: Failed to wipe sessions
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v2/keys:
+    get:
+      tags:
+        - ApiKeys
+      summary: Get list of ApiKeys
+      description: |-
+        Return info about all keys.  
+        (API Key must have admin rights)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - apiKeyId: 02ba473b-bfe1-4a39-9a96-ddb2ca094ecb
+                  name: my test key
+                  isAdmin: false
+                  hasAccessToAllServers: true
+                  customServerPermissions: {}
+                  createdAt: '2022-07-04T18:20:19.9167696Z'
+                - apiKeyId: 49496a8b-99cf-4574-a3de-cafd8e7613b9
+                  name: postman
+                  isAdmin: true
+                  hasAccessToAllServers: true
+                  customServerPermissions: {}
+                  createdAt: '2022-07-04T19:27:01.8222366Z'
+                - apiKeyId: bf09f7e3-8051-42c7-9ead-f8527c58b042
+                  name: postman custom server access
+                  isAdmin: false
+                  hasAccessToAllServers: false
+                  customServerPermissions:
+                    3054aac3-dbf5-4e10-94d2-f4b83577d9b4:
+                      viewStats: true
+                      viewConsole: false
+                      useConsole: true
+                      useServerActions: true
+                      editServer: false
+                      viewBackups: true
+                      createBackup: true
+                      editBackup: true
+                      deleteBackups: true
+                      triggerBackup: true
+                      viewSchedulerTasks: true
+                      createSchedulerTask: true
+                      editSchedulerTask: true
+                      deleteSchedulerTasks: true
+                      triggerSchedulerTask: true
+                    67b325f4-1ed6-41cf-9129-f6494d5eef20:
+                      viewStats: true
+                      viewConsole: true
+                      useConsole: true
+                      useServerActions: true
+                      editServer: false
+                      viewBackups: true
+                      createBackup: true
+                      editBackup: true
+                      deleteBackups: true
+                      triggerBackup: true
+                      viewSchedulerTasks: true
+                      createSchedulerTask: true
+                      editSchedulerTask: true
+                      deleteSchedulerTasks: true
+                      triggerSchedulerTask: true
+                    e0ae4902-10ed-481f-aed0-fa1170ec779a:
+                      viewStats: true
+                      viewConsole: true
+                      useConsole: true
+                      useServerActions: true
+                      editServer: false
+                      viewBackups: true
+                      createBackup: true
+                      editBackup: true
+                      deleteBackups: true
+                      triggerBackup: true
+                      viewSchedulerTasks: true
+                      createSchedulerTask: true
+                      editSchedulerTask: true
+                      deleteSchedulerTasks: true
+                      triggerSchedulerTask: true
+                  createdAt: '2022-10-08T18:17:55.4446751Z'
+                - apiKeyId: 60769c98-6a4c-4635-a7fd-571b9f14cb9f
+                  name: '20'
+                  isAdmin: true
+                  hasAccessToAllServers: true
+                  customServerPermissions: {}
+                  createdAt: '2024-01-16T22:43:24.5413127Z'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+    post:
+      tags:
+        - ApiKeys
+      summary: Create ApiKey
+      description: >-
+        Create a new key.  
+
+        (API Key must have admin rights)
+
+
+        \- name (required) : string  
+
+        \- isAdmin (optional) : boolean  
+
+        \- hasAccessToAllServers (optional): boolean  
+
+        \- customServerPermissions (optional) : object\[\]
+
+
+        ### CustomServerPermissions Object
+
+
+        serverId (required) : string {  
+
+        viewStats (required) : boolean,  
+
+        viewConsole (required) : boolean,  
+
+        useConsole (required) : boolean,  
+
+        useServerActions (required) : boolean,  
+
+        editServer(required) : boolean,  
+
+        viewBackups(required) : boolean,  
+
+        createBackup(required) : boolean,  
+
+        editBackup(required) : boolean,  
+
+        deleteBackups(required) : boolean,  
+
+        triggerBackup(required) : boolean,  
+
+        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
+        : boolean, editSchedulerTask(required) : boolean,
+        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
+        : boolean  
+
+        }
+
+
+        **example**
+
+
+        _"3054aac3-dbf5-4e10-94d2-f4b83577d9b4": {__**"viewStats":
+        true,**__"viewConsole": true,__**"useConsole":
+        true,**__"useServerActions": true__}_
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test with postman 0001
+                isAdmin: false
+                hasAccessToAllServers: false
+                customServerPermissions: null
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                apiKeyId: 357e4fe2-bf15-4d7b-9418-9133e2810e79
+                name: test with postman 0001
+                apiKey: >-
+                  lHFzONXeOL5GTIKnIWJp4V9Em22Cxk0.1ZD6v5McXh185sYUT72BiPLwdWrbbFJYRCOpySc5Oj4mj2lqbjE39KPlj3iTtmh0kJTqPCZTt5y7ZMj-RXGrG4n2
+                createdAt: '2024-01-19T20:18:21.6498381Z'
+        '400':
+          description: Invalid API Key
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/v2/keys/357e4fe2-bf15-4d7b-9418-9133e2810e79:
+    delete:
+      tags:
+        - ApiKeys
+      summary: Delete ApiKey
+      description: |-
+        Delete a specific key.  
+        (API Key must have admin rights)
+      responses:
+        '200':
+          description: Deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '403':
+          description: Forbidden
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '404':
+          description: Unknown API Key
           content:
             text/plain:
               schema:
