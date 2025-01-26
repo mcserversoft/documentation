@@ -37,7 +37,7 @@ If your bat file(s) do not look like that, you can search the file for the real 
 java %ARGS% -jar server.jar %MC_ARGS%
 ```
 We need to find the `%ARGS%` and `%MC_ARGS` variables, once you do, copy them over in a new, different file, replacing where they should be in the startup line.  
-:::caution Run the default .bat file at least once!
+:::caution Run the default .bat file at least once!  
 We still suggest running the default .bat file atleast once, as in some cases it will install or download necessary mods or libraries.  
 It will also serve as an auto updater in most cases.  
 :::
@@ -52,7 +52,7 @@ Create a new `.bat` file, containing
 java {JAVA_ARGS} -jar server.jar {ADDITIONAL_ARGS}
 ```
 Replace the arguments with those you copied, without quotes and brackets.  
-:::caution Run the default .bat file at least once!
+:::caution Run the default .bat file at least once!  
 ServerPackCreator downloads and installs many requirements automatically. It is necessary to run it once.  
 We suggest disabling the "java check" in the variables.txt, to avoid installing JABBA, which is not needed if you use MCSS.
 :::
