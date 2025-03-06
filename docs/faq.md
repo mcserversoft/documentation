@@ -32,7 +32,7 @@ If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
 
-## The process cannot acces the file because another process has locked a portion of the file {#-faq-file-locked}
+## The process cannot access the file because another process has locked a portion of the file {#-faq-file-locked}
 
 This error happens when the server is already started in the background, but not visible in mcss.
 You have to stop the server, then start it again in mcss. To do that, follow [these steps](#-faq-crash), then start the server again in mcss.
@@ -62,13 +62,18 @@ Open your server's settings (cogwheel icon on the dashboard) and open the advanc
 Make sure to have a space between the end of the line and the argument.
 
 
-## error: unable to access jarfile
+## Error: unable to access jarfile
 
-**If this issue happens on a newly created server**, the it usually means the name of your server's JAR doesn't match with that in the startup flags.
+**If this issue happens on a newly created server**, it usually means the name of your server's JAR doesn't match with that in the startup flags.
 
 Try to re-create the server. If the issue persists, join our discord server and we'll guide you through the steps to solve your issue. Alternatively if you know what you're doing you can edit the startup flags and the JAR's name to make them match
 
 **If this issue occurs on an existing, working server**, it means the JAR is being used somewhere else. The first fix would be to kill all java processes (through MCSS or task manager). If that doesn't work, restart your computer.
+
+## Can I create a Neoforge/Quilt/any other "unsupported" server ? {#-faq-unsupported-servers}
+
+Yes, in fact MCSS can run almost any server type, the differences between server types in the app are mostly visual.<br/>
+As long as your server is a jar, you should be able to run it with MCSS, just select the "closest" server type (Use Forge for Neoforge for example).
 
 
 ## How do I regain control of my server if MCSS crashes? {#-faq-crash}
