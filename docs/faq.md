@@ -9,7 +9,6 @@ keywords: [faq, mcss, frequently, asked, questions, answers, issues, bugs]
 
 See the following [troubleshooting guide](/networking/troubleshooting).
 
-
 ## Error occurred during initialization of VM : Could not reserve enough space {#-faq-error-initialization-vm}
 
 You are likely using the 32bit version of Java. You need the 64bit version. It's either not installed or needs reinstalling.
@@ -22,7 +21,6 @@ Depending on what server type / version you need a specific java version.
 Refer to our [Java Guide](/advanced/java-version) to see which version you need. Download links are also listed.
 :::
 
-
 ## Failed To Bind to Port {#-faq-failed-bind-port}
 
 Try killing all java processes (refer to [regain-control](#-faq-crash)) and start your server again.
@@ -31,12 +29,10 @@ If you added an IP to the 'server-ip' field in the server.properties file make s
 If you're running multiple servers make sure they're not using the same port.
 If you're still getting this error restarting your computer will usually resolve it.
 
-
 ## The process cannot access the file because another process has locked a portion of the file {#-faq-file-locked}
 
 This error happens when the server is already started in the background, but not visible in mcss.
 You have to stop the server, then start it again in mcss. To do that, follow [these steps](#-faq-crash), then start the server again in mcss.
-
 
 ## Trouble starting a server {#-faq-trouble-starting-server}
 
@@ -52,15 +48,14 @@ If you know you have the correct version already installed, follow [this guide](
 
 Read the error. More often than not, Minecraft throws easy to read errors that tell you exactly what went wrong. The answer to your issue could be even be in this FAQ !
 
-
 ## The server works but when sending commands to the console nothing happens/The dashboard buttons don't work {#-faq-console-commands-fail}
 
 Open your server's settings (cogwheel icon on the dashboard) and open the advanced tab. Depending on your server type, append the following paramater to the end of the Java Startup Line :<br/>
-- For a bukkit-based server (Bukkit/Spigot/Paper on any other fork) use ` --nojline`.<br/>
-- For Bungeecord and its forks (Waterfall) use ` -Djline.terminal=jline.UnsupportedTerminal` instead.
+
+- For a bukkit-based server (Bukkit/Spigot/Paper on any other fork) use `--nojline`.<br/>
+- For Bungeecord and its forks (Waterfall) use `-Djline.terminal=jline.UnsupportedTerminal` instead.
 
 Make sure to have a space between the end of the line and the argument.
-
 
 ## Error: unable to access jarfile
 
@@ -74,7 +69,6 @@ Try to re-create the server. If the issue persists, join our discord server and 
 
 Yes, in fact MCSS can run almost any server type, the differences between server types in the app are mostly visual.<br/>
 As long as your server is a jar, you should be able to run it with MCSS, just select the "closest" server type (Use Forge for Neoforge for example).
-
 
 ## How do I regain control of my server if MCSS crashes? {#-faq-crash}
 
@@ -95,23 +89,19 @@ Also, you might experience loss of recent activity if the map wasn't saved recen
 Always prefer a proper stop to killing the server when possible!
 :::
 
-
 ## Is there a Mac or Linux version? {#-faq-mac-linux-support}
 
 MCSS is currently only available on Windows.
 
-
 ## Is this 24/7? {#-faq-24-7}
 
 MCSS runs on your computer. As long as it is online, the server is. So yes, if your computer in ON 24/7, the server can be too
-
 
 ## Is there a way to remote control MCSS ? {#-faq-remote-control}
 
 MCSS comes with a web panel to manage your servers remotely. You can find more info about it [here](/webpanel/getting-started).
 Please note that the panel is still under development so not all features from the app are included.
 There is also a REST API available for developers, you can learn more about it [here](/api/about).
-
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 
@@ -137,7 +127,6 @@ Open the server's settings, and click on the advanced tab, then click the pencil
 
 In you bat file, replace `java` by your full path to java.exe, in quotes (you can use the path picker to find it).
 
-
 ## MCSS crashes when opening console or player manager (v13 and above). {#-faq-dll-crash}
 
 You get this error when opening the console, player manager or other text editor:
@@ -161,20 +150,18 @@ This is because you are missing 2 dependencies.
 
 | Architecture  | Link | Notes |
 |---|---|---|
-| X86 | https://aka.ms/vs/17/release/vc_redist.x86.exe | Permalink for latest supported x86 version |
-| X64 | https://aka.ms/vs/17/release/vc_redist.x64.exe | Permalink for latest supported x64 & ARM64 version |
+| X86 | <https://aka.ms/vs/17/release/vc_redist.x86.exe> | Permalink for latest supported x86 version |
+| X64 | <https://aka.ms/vs/17/release/vc_redist.x64.exe> | Permalink for latest supported x64 & ARM64 version |
 
 Or if you rather download it from the Microsoft website: [https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist)
 
 > While mcss is currently built against x86 it might change in the future. So it's recommended to install both. A lot of applications require this, at some point your computer will have this installed anyway.
-
 
 ## Since v11.5.0 the process name requires a different format. {#-faq-process-name-format}
 
 ![Screenshot of the process name requires different format dialog](/img/docs/faq/dialog_regedit_process_name.png)
 
 This change is required, click 'Yes' to apply the change.
-
 
 ## Failed to set performance counters. {#-faq-failed-performance-counters}
 
@@ -194,7 +181,6 @@ lodctr /R`
 
 > More info: [Microsoft Support | How to manually rebuild Performance Counter Library values](https://support.microsoft.com/en-us/help/300956/how-to-manually-rebuild-performance-counter-library-values)
 
-
 ## I have this weird long IP address, is this normal? {#-faq-ipv6}
 
 Yes that is completely normal, that is called an IPv6 address. Most people don't have access to IPv6 yet so it's smart to share your IPv4 address instead.
@@ -209,8 +195,6 @@ There are 2 versions of the IP protocol.
 :::info IPv6 doesn't need port forwarding
 IPv6 doesn't require port forwarding. With IPv4 you have a private and public IP. This is not the case with IPv6, because there are plenty of addresses to hand out. So each computer gets its own public address.
 :::
-
-
 
 ## MCSS has crashed and I want to help fix it. {#-faq-mcss-crashed-help-out}
 
@@ -228,7 +212,6 @@ To get the Windows event logs:
 You can follow the other steps on screenshot below.
 
 ![Screenshot of the event viewer](/img/docs/faq/event_viewer.png)
-
 
 ## The UTF-8 encoding doesn't work, I *really really* need it to work. {#-faq-utf8}
 

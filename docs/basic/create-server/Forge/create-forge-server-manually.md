@@ -77,6 +77,7 @@ REM  pass them to this script directly
 java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt %*
 pause
 ```
+
 You must remove the *pause* statement at the bottom and add the *nogui* parameter, as well as replace `java` with your full path to java.exe.<br/>
 You can use the Path Picker (in the server's settings) to find it, make sure to use [the right version](/advanced/java-version.md) depending on your server.
 

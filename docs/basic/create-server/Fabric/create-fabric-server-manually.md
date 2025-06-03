@@ -18,6 +18,7 @@ You can now use the downloaded jar as the source file for a new server by clicki
 :::note Using an installer
 If you have a Fabric installer instead of a single launcher jar, you can follow this procedure to create a server, though it's recommended to use the standalone file method as presented above.
 :::
+
 ## Create the Fabric server {#-create-the-fabric-server}
 
 Once the download is done, open the file `fabric-installer-<fabric-version>.jar` to begin the Fabric server installation. <br/>
