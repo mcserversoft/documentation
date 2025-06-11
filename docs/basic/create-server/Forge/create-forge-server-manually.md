@@ -13,10 +13,10 @@ There are 2 options on how to add a forge server to mcss.
 This guide will show you how to manually create and an import a forge server.
 
 :::tip Looking for the modpack setup?
-You can find the appropriate guide for forge modpacks [here](/basic/create-server/forge/create-a-server-with-a-modpack)
+You can find the appropriate guide for forge modpacks [on this page](/basic/create-server/Forge/create-a-server-with-a-modpack)
 :::
 
-## Download Forge {#-download-forge}
+## Download Forge {#download-forge}
 
 Go to [Forge's website](https://files.minecraftforge.net) and choose the version that you want to download. Click on "Installer" to download that version's installer.
 
@@ -24,7 +24,7 @@ Go to [Forge's website](https://files.minecraftforge.net) and choose the version
 
 Wait for the end of the ad and click on "Skip" at the top right of the page. A .jar file will be downloaded, you might need to confirm the download on some browsers.
 
-## Create the Forge server {#-create-the-forge-server}
+## Create the Forge server {#create-the-forge-server}
 
 Once the download is done, open the file `forge-<minecraft_version>-<forge_version>-installer.jar` to begin the Forge server installation. <br/>
 Choose "install server" and select an empty folder in which the server will temporarily be installed (it will then be moved to the MCSS folder) and click OK. All the required files will be downloaded and placed in the selected folder.
@@ -40,7 +40,7 @@ The folder now contains :
 
 You can now delete the forge installer file.
 
-## Import the server in MCSS {#-migrate-the-server-to-mcss}
+## Import the server in MCSS {#migrate-the-server-to-mcss}
 
 Now, open MCSS and go to "File > Import server". A new window will open, select Forge server. Then in the left pane, drop any file from your server's folder.<br/>
 Then, choose a name for you server and a folder name (the server will be stored in `mcss/servers/<folder_name>`). Choose the amount of RAM that will be allocated to the server in MB (it's recommended to have at least 4GB, or 4096MB, for a Forge server), and click on Import Server.<br/>

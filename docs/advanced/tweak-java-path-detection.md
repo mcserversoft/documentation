@@ -20,7 +20,7 @@ C:\Program Files (x86)\Eclipse Foundation
 C:\Program Files\Eclipse Foundation
 ```
 
-## Adding more locations to search {#-edit-locations}
+## Adding more locations to search {#edit-locations}
 
 If you have installed Java in another locations you can manually add these to the mcss config file (`resources\mcss_config.json`).
 Mcss must be fully closed before you make these changes. The setting is called `potentialInstalledJavaLocations`.

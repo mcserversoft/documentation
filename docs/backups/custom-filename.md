@@ -14,13 +14,13 @@ If the same backup destination is used by multiple servers, backups might not be
 Example: `test [date].zip`, only produces 1 unique filename per day.
 :::
 
-## Example {#-example}
+## Example {#example}
 
 ![ZIP File Format setting in mcss](/img/docs/backups/mcss_backup_file_setting.jpg)
 
 Results in `Backup of 5555_New backup 1644602572.zip`
 
-## Parameters {#-parameters}
+## Parameters {#parameters}
 
 | Parameter         | Example                   | Description |
 |-------------------|---------------------------|-------------|

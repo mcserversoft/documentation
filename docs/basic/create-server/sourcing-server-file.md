@@ -5,7 +5,7 @@ description: Where to find and download server files
 keywords: [server, file, download, source, download, url]
 ---
 
-## Getting a server file {#-getting-a-server-file}
+## Getting a server file {#getting-a-server-file}
 
 When creating or updating a server you need to select a server jar.
 
@@ -23,7 +23,7 @@ Third party website uses these **installer files** or **build tools** to create 
 
 How to use the **build tools** is not covered in this guide.
 
-### Downloads{#-downloads}
+### Downloads{#downloads}
 
 |     Name               | Official Source   | Download
 |----------                 |:----------:       |----------
@@ -38,7 +38,7 @@ How to use the **build tools** is not covered in this guide.
 | Forge Installer           |      ✔️           | [https://files.minecraftforge.net/net/minecraftforge/forge/](https://files.minecraftforge.net/net/minecraftforge/forge/)
 | Fabric Launcher          |      ✔️           | [https://fabricmc.net/use/server/](https://fabricmc.net/use/server/)
 
-### Installer Guides {#-installer-guides}
+### Installer Guides {#installer-guides}
 
 | Name                    | Official Source   | Installation guide
 |----------                 |:----------:       |----------

@@ -5,7 +5,7 @@ description: Using playit.gg to avoid port forwarding and other issues
 keywords: [port, forward, forwarding, port-forward; port-forwarding, network, friends, join, internet, playit.gg, playit, ngrok, tunnel]
 ---
 
-## Introduction {#-introduction}
+## Introduction {#introduction}
 
 If you're having trouble with port forwarding or you are under something called [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT), you may not be able to port forward at all.
 [playit.gg](https://playit.gg/) helps to bypass the requirement to port forward, creating a "tunnel" from your PC to their servers.  
@@ -23,7 +23,7 @@ Every platform has their advantages and disadvantages. As such, we invite you to
 This procedure can be a little bit daunting, but the playit.gg developers tried to make it as straightforward as possible.  
 If you're having issues following this guide, there are plenty of video tutorials online about using playit.gg for a minecraft server.
 
-### Step 1 : Create an account on playit.gg {#-step-1}
+### Step 1 : Create an account on playit.gg {#step-1}
 
 Creating an account on playit is extremely simple.  
 You can go to the website [of playit](https://playit.gg), and click on the "Login" button in the top right corner of the page.  
@@ -32,7 +32,7 @@ There, you can click on "Create an Account" to go to the creation page.
 After creating the account, you'll be met with an "onboarding" process.  
 This is really simple, but we'll go over it anyway.
 
-### Step 2 : The playit onboarding process {#-step-2}
+### Step 2 : The playit onboarding process {#step-2}
 
 The website will ask for you to download the playit program. Download it and install it. After it's done, make sure that it is running before clicking "Yes, it's running".  
 
@@ -49,7 +49,7 @@ Click on "Create Tunnel" to proceed.
 
 From this point on, your setup may vary a little, depending on which port your server is using. In our case, we'll use the default 25565 port, but you may use a different one by changing it when necessary.  
 
-On this page, you can choose the type of tunnel you need (You should choose between Minecraft JAVA and BEDROCK in most cases, but TCP is also an option [should you need to use playit.gg for the web panel](#-using-playit-for-the-panel))
+On this page, you can choose the type of tunnel you need (You should choose between Minecraft JAVA and BEDROCK in most cases, but TCP is also an option [should you need to use playit.gg for the web panel](#using-playit-for-the-panel))
 
 ![Image of the playit tunnel configuration, in the "shared IP" tab, using the free region option and Minecraft JAVA option. Tunnel is enabled.](/img/docs/playitgg/playittunnelconf.png)
 
@@ -58,7 +58,7 @@ You should keep the IP field the same (the IP `127.0.0.1` means localhost, aka t
 
 **After this, the tunnel should be up and running correctly.**  
 
-### Step 3 : Using the playit tunnel {#-step-3}
+### Step 3 : Using the playit tunnel {#step-3}
 
 On the tunnel page, you'll find a lot of information about the tunnel you created. What is interesting to us is the "Allocation" or "Shared IP".  
 It should look something like this:  
@@ -73,7 +73,7 @@ We'll use the X's in the example below, but be sure to replace the IP and PORT w
 To connect to the server, we just take the IP (in this case `XX.ip.gl.ply.gg`) and we add the port (in this case `47XXX`) after a colon.  
 The result would be `XX.ip.gl.ply.gg:47XXX`. It is important to use the port, as without it the tunnel won't work.
 
-## Using playit.gg for the web panel {#-using-playit-for-the-panel}
+## Using playit.gg for the web panel {#using-playit-for-the-panel}
 
 To use playit.gg for the web panel, first enable the panel following our [documentation page](/webpanel/getting-started).  
 After that's done, you can go into the playit.gg user area, in the tunnels section. Here you'll see all the tunnels you created. You want to click on the "add tunnel" button.

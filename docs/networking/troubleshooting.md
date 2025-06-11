@@ -7,7 +7,7 @@ keywords: [troubleshooting, can't connect, failed, network, friends, join, inter
 
 # Troubleshooting connection issues
 
-## First-time hosting
+## First-time hosting {#first-time-hosting}
 
 There could be multiple reasons why you can't connect to the server. These steps should help your troubleshoot the issue(s).
 
@@ -25,7 +25,7 @@ There could be multiple reasons why you can't connect to the server. These steps
   * Check your firewall and anti-virus.
   * Check that you are using the [correct IP](/networking/find-ip) and port number.
 
-### Others can connect but not me
+### Others can connect but not me {#others-can-connect-not-me}
 
 Your internet provider (ISP) is blocking [loopback](https://en.wikipedia.org/wiki/Loopback) traffic.
 
@@ -34,9 +34,9 @@ In other words they block internal connections that just loopback to the same ne
 
 Solution is not to use the external IP. You must use `localhost` or your [internal IP](/networking/find-ip) e.g. `192.168.1.102`.
 
-## Connection fails randomly
+## Connection fails randomly {#connection-fails-randomly}
 
-### Recheck port forwarding
+### Recheck port forwarding {#recheck-port-forwarding}
 
 It's possible that you need to recheck your [port forwarding](/networking/port-forwarding). Your [internal IP](/networking/find-ip) could have changed.
 
@@ -46,6 +46,6 @@ Some good tutorials:
 * [https://www.howtogeek.com/howto/19249/how-to-assign-a-static-ip-address-in-xp-vista-or-windows-7/](https://www.howtogeek.com/howto/19249/how-to-assign-a-static-ip-address-in-xp-vista-or-windows-7/)
 * [https://www.online-tech-tips.com/computer-tips/how-to-assign-a-static-ip-address-to-a-windows-11-10-pc/](https://www.online-tech-tips.com/computer-tips/how-to-assign-a-static-ip-address-to-a-windows-11-10-pc/)
 
-### Check Firewall / Anti-Virus
+### Check Firewall / Anti-Virus {#check-firewall-anti-virus}
 
 While not uncommon, it's possible that your anti-virus has decided to block the connection.

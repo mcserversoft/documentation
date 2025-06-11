@@ -1,0 +1,5 @@
+{
+    "MD025": false, // Multiple top-level headers in the same document
+    "MD013": false, // Line length
+    "MD033": false
+}

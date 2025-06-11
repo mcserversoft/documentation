@@ -8,7 +8,7 @@ Admin is a very powerful permissions to grant. While it respects individual serv
 
 Introduced in `v13.5`, it grants access to user management tools like user creation, deletion and updating. The amount of functionality is limited, this will be expanded in the near future.
 
-## Protected API Routes
+## Protected API Routes {#protected-api-routes}
 
 These routes require admin rights:
 
@@ -21,4 +21,4 @@ These routes require admin rights:
 | DELETE | /api/v2/users/:userId | Delete an existing user |
 | POST | /api/v2/users/wipe/sessions | Wipe all active sessions |
 
-For more info about these routes visit the [Users API Documentation](/apis/v2#tag/Users).
+<!-- For more info about these routes visit the [Users API Documentation](/apis/v2#tag/Users). -->

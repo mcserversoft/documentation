@@ -5,13 +5,13 @@ description: Find the correct IP address to connect to your Minecraft server
 keywords: [ip, address, external, internal, localhost, join, internet]
 ---
 
-## External IP (Internet)
+## External IP (Internet) {#external-ip}
 
 This is the IP address that others on the internet can connect to.
 
 You can use the following website to find your IPv4 IP address: [whatismyipaddress.com](https://whatismyipaddress.com)
 
-## Internal IP
+## Internal IP {#internal-ip}
 
 This is the IP address that others in your own home/business network can connect to.
 
@@ -59,7 +59,7 @@ Ethernet adapter Bluetooth-networkconnection 2:
    Connection-specific DNS Suffix  . :
 ```
 
-## Local
+## Local {#local-ip}
 
 This is a local shortcut to access the server when it's been played from the same computer.
 

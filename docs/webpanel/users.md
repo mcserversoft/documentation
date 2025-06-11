@@ -2,9 +2,10 @@
 sidebar_position: 2
 title: Adding Users
 description: How to authorize new users on your API
+keywords: [users, remote, panel, api, mcss, web, control, internet, enable]
 ---
 
-:::caution At least one server is required to add users
+:::warning At least one server is required to add users
 You need to have one server created or imported in MCSS to make this panel appear.  
 :::
 

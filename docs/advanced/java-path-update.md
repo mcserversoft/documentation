@@ -7,12 +7,12 @@ keywords: [java, version, java-version, java-path, update, path]
 
 With MCSS you can use different versions of java for each of your servers, or set a global override for the version of java that is used by all servers.
 
-## Finding the path to the Java executable {#-java-path}
+## Finding the path to the Java executable {#java-path}
 
 :::tip
 MCSS now (versions 12.6 and above) includes a Java path picker !<br/>
 The different installed versions are automatically detected and you can easily switch between them, so you can skip this section.<br/>
-Search folders can be modified [here](tweak-java-path-detection) if needed.
+Search folders can be modified [on this page](tweak-java-path-detection) if needed.
 :::
 
 Once you have installed the Java version you need (refer to the [java version guide](java-version) for more information), you need to locate the Java executable.
@@ -23,13 +23,13 @@ Copy the path to this folder as shown below (in this case, we're using java 11.0
 
 ![explorer path](/img/docs/java-path/explorer.png)
 
-:::caution Alternative Folders
+:::warning Alternative Folders
 Some providers of Java builds may place the Java executable in a different folder. Here is a list of known alternative folders: <br/>
 Adoptium 17: `C:\Program Files\Eclipse Adoptium` <br/>
 Adoptium 16: `C:\Program Files\Eclipse Foundation` <br/>
 :::
 
-## Globally {#-globally}
+## Globally {#globally}
 
 If you only have one server or if your servers all use the same version of Java, you can set the path globally.
 To do so, open MCSS then at the top click on `file > options`.
@@ -40,7 +40,7 @@ The path you entered will be used for all servers and should look something like
 
 ![explorer path](/img/docs/java-path/java-path-override.png)
 
-## Per server {#-per-server}
+## Per server {#per-server}
 
 If you have multiple servers that require different versions of Java, you can override the global Java setting. To do so, open the server settings by clicking the ⚙️ then navigate to the advanced tab.
 

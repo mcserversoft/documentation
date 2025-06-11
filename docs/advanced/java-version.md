@@ -20,5 +20,5 @@ For use with MCSS, choose the Windows x64 JRE .msi release of the version you ne
 The Java 16 JRE isn't available anymore so use the Windows x64 JDK installer release instead.
 
 :::info Running different versions
-If you run multiple servers that require different java versions, follow [this guide](/advanced/java-path-update#-per-server) to assign each server their correct java install
+If you run multiple servers that require different java versions, follow [this guide](/advanced/java-path-update#per-server) to assign each server their correct java install
 :::
