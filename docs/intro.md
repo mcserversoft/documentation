@@ -21,6 +21,7 @@ MC Server Soft is pronounced as "M C Server Soft".
 ## Pre-requisites {#-pre-requisites}
 
 Before you download MCSS, make sure your computer meets these requirements listed below:
+
 * Windows 10/11 or Windows Server (2008 R2 SP1/2012/2016)
 * A release of Java - Refer to our [java versions guide](/advanced/java-version) for more information
 * Stable internet connection, wired is highly preferred

@@ -8,6 +8,7 @@ keywords: [java, version, java-version, java-path, update, path]
 With MCSS you can use different versions of java for each of your servers, or set a global override for the version of java that is used by all servers.
 
 ## Finding the path to the Java executable {#-java-path}
+
 :::tip
 MCSS now (versions 12.6 and above) includes a Java path picker !<br/>
 The different installed versions are automatically detected and you can easily switch between them, so you can skip this section.<br/>

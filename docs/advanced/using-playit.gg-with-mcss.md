@@ -27,7 +27,7 @@ If you're having issues following this guide, there are plenty of video tutorial
 
 Creating an account on playit is extremely simple.  
 You can go to the website [of playit](https://playit.gg), and click on the "Login" button in the top right corner of the page.  
-There, you can click on "Create an Account" to go to the creation page. 
+There, you can click on "Create an Account" to go to the creation page.
 
 After creating the account, you'll be met with an "onboarding" process.  
 This is really simple, but we'll go over it anyway.
@@ -43,8 +43,6 @@ The third step on the website is to just wait for the app to connect to the play
 At this point, your website should look something like this:  
 
 ![Full screen screenshot with the playit.gg onboarding process](/img/docs/playitgg/playitonboarding.png)
-
-
 
 After that's done, you'll have to define the rules for the first tunnel.  
 Click on "Create Tunnel" to proceed.  
@@ -75,7 +73,6 @@ We'll use the X's in the example below, but be sure to replace the IP and PORT w
 To connect to the server, we just take the IP (in this case `XX.ip.gl.ply.gg`) and we add the port (in this case `47XXX`) after a colon.  
 The result would be `XX.ip.gl.ply.gg:47XXX`. It is important to use the port, as without it the tunnel won't work.
 
-
 ## Using playit.gg for the web panel {#-using-playit-for-the-panel}
 
 To use playit.gg for the web panel, first enable the panel following our [documentation page](/webpanel/getting-started).  
@@ -97,9 +94,8 @@ This tunnel has additional settings, but all we care about is the port. You shou
 
 After the tunnel is created, we follow the same process that we used to connect to the minecraft server above.
 
-:::info 
+:::info
 Due to the structure of the tunnel, you **have** to specify `https://` before the IP if you set SSL to true in the panel settings. Just like above, we need the port added to the end of the IP.
 
 It is normal to see the "Website not secure" warning when loading the panel.
 :::
-

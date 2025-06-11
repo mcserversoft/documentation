@@ -18,11 +18,11 @@ Even if you don't want any plugins, we recommend you use [paper](#-plugin-suppor
 
 Plugins are third party add-ons you can add to your server. They can do a lot of different things, from fixing bugs to adding minigames or RPG-like gameplay.
 
-|     Name    	| Description                                                          	| Recommended 	| Download        	|
-|:-----------:	|----------------------------------------------------------------------	|:-----------:	|-----------------	|
-| CraftBukkit 	| Most basic version, only supports Bukkit plugins                     	|      ❌      	| [Bukkit downloads](https://getbukkit.org/download/craftbukkit) 	|
-|    Spigot   	| Evolution of Bukkit, with more features and support for more plugins 	|      ➖      	| [Spigot downloads](https://getbukkit.org/download/spigot) 	|
-|    Paper    	| Evolution of Spigot, much faster with support for more plugins       	|      ✔️      	| [Paper downloads](https://papermc.io/downloads) 	|
+|     Name     | Description                                                           | Recommended  | Download         |
+|:-----------: |---------------------------------------------------------------------- |:-----------: |----------------- |
+| CraftBukkit  | Most basic version, only supports Bukkit plugins                      |      ❌       | [Bukkit downloads](https://getbukkit.org/download/craftbukkit)  |
+|    Spigot    | Evolution of Bukkit, with more features and support for more plugins  |      ➖       | [Spigot downloads](https://getbukkit.org/download/spigot)  |
+|    Paper     | Evolution of Spigot, much faster with support for more plugins        |      ✔️       | [Paper downloads](https://papermc.io/downloads)  |
 
 ## Modded servers {#-modded-servers}
 
@@ -32,10 +32,10 @@ There are two types of modded servers, which are not compatible. They each have 
 To use any of these version with MCSS, please follow their respective installation guide
 :::
 
-| Name   	| Description                                                                            	| Installation guide 	|
-|--------	|----------------------------------------------------------------------------------------	|--------------------	|
-| Forge  	| Most widely used server type, with over 84 000 mods available                          	| [Forge Guide](/basic/create-server/Forge/create-forge-server)      	|
-| Fabric 	| More recent than Forge, with an emphasis on performance and about 3 000 mods available 	| [Fabric guide](/basic/create-server/Fabric/create-fabric-server-manually)     	|
+| Name    | Description                                                                             | Installation guide  |
+|-------- |---------------------------------------------------------------------------------------- |-------------------- |
+| Forge   | Most widely used server type, with over 84 000 mods available                           | [Forge Guide](/basic/create-server/Forge/create-forge-server)       |
+| Fabric  | More recent than Forge, with an emphasis on performance and about 3 000 mods available  | [Fabric guide](/basic/create-server/Fabric/create-fabric-server-manually)      |
 
 ## Proxy / Network {#-proxy--network}
 

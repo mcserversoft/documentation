@@ -10,7 +10,8 @@ In mcss you can use the 'Java Path Picker' to easily change the java version of 
 ![explorer path](/img/docs/java-path/java-path-picker.png)
 
 These are the default search locations:
-```
+
+``` powershell
 C:\Program Files (x86)\Java
 C:\Program Files\Java
 C:\Program Files (x86)\Eclipse Adoptium
@@ -25,6 +26,7 @@ If you have installed Java in another locations you can manually add these to th
 Mcss must be fully closed before you make these changes. The setting is called `potentialInstalledJavaLocations`.
 
 Example:
+
 ```json
 ...
 "potentialInstalledJavaLocations": [
