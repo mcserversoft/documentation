@@ -39,8 +39,9 @@ To use any of these version with MCSS, please follow their respective installati
 
 ## Proxy / Network {#-proxy--network}
 
-| Name        | Description                                                      | Download              |
-|------------ |----------------------------------------------------------------- |---------------------- |
-| BungeeCord  | Developed by Spigot's team, it supports plugins                 | [BungeeCord downloads](https://ci.md-5.net/job/BungeeCord/)  |
-| Waterfall   | Developed by Paper's team, it's a faster version of BungeeCord  | [Waterfall downloads](https://papermc.io/downloads#Waterfall)   |
-| Geyser      | Allows Java and PE players to play on the same server            | [Geyser downloads](https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/)     |
+| Name       	| Description                                                     	| Download             	|
+|------------	|-----------------------------------------------------------------	|----------------------	|
+| BungeeCord 	| Developed by Spigot's team, it supports plugins                	| [BungeeCord downloads](https://ci.md-5.net/job/BungeeCord/) 	|
+| Waterfall  	| Developed by Paper's team, it's a faster version of BungeeCord 	| [Waterfall downloads](https://papermc.io/downloads#Waterfall)  	|
+| Geyser     	| Allows Java and PE players to play on the same server           | [Geyser downloads](https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/)    	|
+| Velocity    | Velocity is a lot faster and more stable than BungeeCord.       | [Velocity downloads](https://papermc.io/downloads/velocity)    	|
