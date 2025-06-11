@@ -23,7 +23,11 @@ Refer to our [Java Guide](/advanced/java-version) to see which version you need.
 
 ## Failed To Bind to Port {#-faq-failed-bind-port}
 
-Try killing all java processes (refer to [regain-control](#-faq-crash)) and start your server again.
+A process on your computer is already using the port your server is trying to use.
+
+Start by ensuring you do not already have a server running on this port. If that's the case
+
+Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
 
 If you added an IP to the 'server-ip' field in the server.properties file make sure to remove it.
 If you're running multiple servers make sure they're not using the same port.
@@ -120,7 +124,6 @@ There, you will be able to set a local Java path, under the Advanced tab.
 
 ### On a server using a .bat file {#-faq-stats-bat}
 
-If you're using a bat file to start your server (like on Forge 1.17+ servers), the process is different :<br/>
 Open the server's settings, and click on the advanced tab, then click the pencil icon next to the bat file selector :
 
 ![Edit bat](/img/docs/create-forge/forge_edit_bat_file.png)
