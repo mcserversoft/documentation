@@ -130,7 +130,7 @@ Open the server's settings, and click on the advanced tab, then click the pencil
 
 In you bat file, replace `java` by your full path to java.exe, in quotes (you can use the path picker to find it).
 
-## MCSS crashes when opening console or player manager (v13 and above). {#-faq-dll-crash}
+<!-- ## MCSS crashes when opening console or player manager (v13 and above). {#-faq-dll-crash}
 
 You get this error when opening the console, player manager or other text editor:
 
@@ -158,7 +158,7 @@ This is because you are missing 2 dependencies.
 
 Or if you rather download it from the Microsoft website: [https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist](https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist)
 
-> While mcss is currently built against x86 it might change in the future. So it's recommended to install both. A lot of applications require this, at some point your computer will have this installed anyway.
+> While mcss is currently built against x86 it might change in the future. So it's recommended to install both. A lot of applications require this, at some point your computer will have this installed anyway. -->
 
 ## Since v11.5.0 the process name requires a different format. {#-faq-process-name-format}
 
