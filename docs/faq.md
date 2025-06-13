@@ -3,6 +3,10 @@ title: FAQ
 description: Frequently asked questions and their answers
 ---
 
+# Frequently Asked Questions (FAQ)
+
+This page contains answers to frequently asked questions and issues encountered when using MCSS.
+
 ## Unable to connect to the server {#faq-unable-to-connect}
 
 See the following [troubleshooting guide](/networking/troubleshooting).

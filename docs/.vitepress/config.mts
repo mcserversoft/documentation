@@ -16,17 +16,16 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       // { text: 'Create a Server', link: '/create/paper' },
       { text: 'FAQ', link: '/faq' },
-      { text: 'API', link: '/api/about' }
+      { text: 'API', link: '/api/api-v2' }
     ],
     sidebar: [
       {
         items: [
-          { text: 'Introduction', link: '/intro' },
+          { text: 'Introduction', link: '/' },
         ]
       },
       {
         text: 'Basics',
-        // collapsed: false,
         items: [
           { text: 'Prerequisites', link: '/basic/prerequisites' },
           { text: 'Java', link: '/basic/java' },
@@ -34,9 +33,8 @@ export default defineConfig({
       },
       {
         text: 'Create a Server',
-        // collapsed: false,
         items: [
-          { text: 'Server types', link: '/server/types' },
+          { text: 'Quick start guide', link: '/server/' },
           { text: 'Paper', link: '/server/paper' },
           { text: 'Fabric', link: '/server/fabric' },
           { text: 'Forge', link: '/server/forge' },
@@ -47,41 +45,41 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Server IP', link: '/networking/server-ip' },
-          { text: 'Port Forwarding', link: '/networking/port-forwarding' },
-          { text: 'Troubleshooting', link: '/networking/troubleshooting' },
+          { text: 'Port Forwarding', link: '/networking/port-forward' },
+          { text: 'Troubleshooting', link: '/networking/troubleshoot' },
         ]
       },
       {
         text: 'Backups',
         collapsed: true,
         items: [
-          { text: 'Creating Backups', link: '/backups/creating-backups' },
-          { text: 'Restoring Backups', link: '/backups/restoring-backups' },
-          { text: 'Backup Settings', link: '/backups/backup-settings' },
+          { text: 'Creating Backups', link: '/backups/create' },
+          { text: 'Restoring Backups', link: '/backups/restore' },
+          { text: 'Backup Settings', link: '/backups/settings' },
         ]
       },
       {
         text: 'Scheduler',
         collapsed: true,
         items: [
-          { text: 'Introduction', link: '/scheduler/introduction' },
-          { text: 'Creating Tasks', link: '/scheduler/creating-tasks' },
+          { text: 'Introduction', link: '/scheduler/' },
+          { text: 'Creating Tasks', link: '/scheduler/create' },
         ]
       },
       {
         text: 'Advanced',
         collapsed: true,
         items: [
-          { text: 'Java versions', link: '/advanced/java-versions' },
+          { text: 'Java versions', link: '/advanced/java-version' },
           { text: 'Java path detection', link: '/advanced/java-path-detection' },
-          { text: 'Using playit.gg', link: '/advanced/playit' },
+          { text: 'Using playit.gg', link: '/advanced/playitgg' },
         ]
       },
       {
         text: 'Web Panel',
         collapsed: true,
         items: [
-          { text: 'Introduction', link: '/web-panel/introduction' },
+          { text: 'Introduction', link: '/web-panel/' },
           { text: 'Configuration', link: '/web-panel/configuration' },
           { text: 'Usage', link: '/web-panel/usage' },
           { text: 'User Management', link: '/web-panel/user-management' },
@@ -91,7 +89,7 @@ export default defineConfig({
         text: 'Troubleshooting',
         collapsed: true,
         items: [
-          { text: 'Common Issues', link: '/troubleshooting/common-issues' },
+          { text: 'Known Issues', link: '/troubleshooting/known-issues' },
           { text: 'Logs', link: '/troubleshooting/logs' },
         ]
       }
