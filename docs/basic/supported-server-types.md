@@ -35,7 +35,7 @@ To use any of these version with MCSS, please follow their respective installati
 | Name    | Description                                                                             | Installation guide  |
 |-------- |---------------------------------------------------------------------------------------- |-------------------- |
 | Forge   | Most widely used server type, with over 84 000 mods available                           | [Forge Guide](/basic/create-server/Forge/create-forge-server)       |
-| Fabric  | More recent than Forge, with an emphasis on performance and about 3 000 mods available  | [Fabric guide](/basic/create-server/Fabric/create-fabric-server-manually)      |
+| Fabric  | More recent than Forge, with an emphasis on performance and about 30 000 mods available  | [Fabric guide](/basic/create-server/Fabric/create-fabric-server-manually)      |
 
 ## Proxy / Network {#-proxy--network}
 
