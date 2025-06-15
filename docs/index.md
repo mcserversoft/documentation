@@ -40,7 +40,7 @@ If you want to support the development of MCSS, you can do so by [buying Firebla
 
 - It does not host your servers on the internet; instead, it runs them on your local computer. That means if your computer is turned off, your servers will not be accessible to anyone.
 
-- It is a tool to help you manage your own Minecraft servers, giving you full control over the server files and configurations.
+<!-- - It is a tool to help you manage your own Minecraft servers, giving you full control over the server files and configurations. -->
 
 - It is not a replacement for Minecraft itself; you still need to have Minecraft installed on your computer to play on the servers you create with MCSS.
 
