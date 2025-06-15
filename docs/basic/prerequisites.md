@@ -26,7 +26,7 @@ We recommend you upgrade to Windows 10 or later for the best experience.
 
 Minecraft servers require Java to run. You will need a recent version of the Java Runtime Environment (JRE) installed on your computer.
 
-We recommend using the most recent Long Term Support (LTS) version of Adoptium Java.
+We recommend using the most recent Long Term Support (LTS) version of Adoptium Temurin.
 
 You can download it from [their website](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=latest).
 
