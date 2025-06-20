@@ -55,8 +55,8 @@ Once your server is started, you can connect to it using the Minecraft client.
 Congratulations! You are now connected to your Minecraft server running on MC Server Soft.
 
 :::info
-To find your server's IP address, checkout our [tutorial](/network/server-ip).
+To find your server's IP address, checkout our [tutorial](/networking/server-ip).
 :::
 :::warning
-At this stage your server is not publicly accessible. If you want to allow other players to join your server, you will need to set up port forwarding on your router. Check out our [port forwarding guide](/network/port-forwarding) for more information.
+At this stage your server is not publicly accessible. If you want to allow other players to join your server, you will need to set up port forwarding on your router. Check out our [port forwarding guide](/networking/port-forward) for more information.
 :::

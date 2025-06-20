@@ -9,7 +9,7 @@ This page contains answers to frequently asked questions and issues encountered 
 
 ## Unable to connect to the server {#faq-unable-to-connect}
 
-See the following [troubleshooting guide](/networking/troubleshooting).
+See the following [troubleshooting guide](/networking/troubleshoot).
 
 ## Error occurred during initialization of VM : Could not reserve enough space {#faq-error-initialization-vm}
 
@@ -45,7 +45,7 @@ You either don't have Java installed or MCSS doesn't know where it is.
 
 Make sure you have installed the correct version by following [this guide](/advanced/java-version).
 
-If you know you have the correct version already installed, follow [this guide](/advanced/java-path-update) to tell MCSS where to look for it.
+If you know you have the correct version already installed, follow [this guide](/advanced/java-path-detection) to tell MCSS where to look for it.
 
 ### The console does something, but the server fails to start {#faq-server-error}
 
@@ -107,9 +107,9 @@ MCSS runs on your computer. As long as it is online, the server is. So yes, if y
 
 ## Is there a way to remote control MCSS ? {#faq-remote-control}
 
-MCSS comes with a web panel to manage your servers remotely. You can find more info about it [on this page](/webpanel/getting-started).
+MCSS comes with a web panel to manage your servers remotely. You can find more info about it [on this page](/web-panel/).
 Please note that the panel is still under development so not all features from the app are included.
-There is also a REST API available for developers, you can learn more about it [on this page](/api/about).
+There is also a REST API available for developers, you can learn more about it [on this page](/api/api-v2).
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#faq-dashboard-stats-stuck}
 
