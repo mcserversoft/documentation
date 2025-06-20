@@ -35,7 +35,8 @@ export default defineConfig({
         text: 'Create a Server',
         items: [
           { text: 'Quick start guide', link: '/server/' },
-          // { text: 'Paper', link: '/server/paper' },
+          { text: 'Server properties', link: '/server/properties' },
+          { text: 'Paper', link: '/server/paper' },
           { text: 'Fabric', link: '/server/fabric' },
           { text: 'Forge', link: '/server/forge' },
         ]
