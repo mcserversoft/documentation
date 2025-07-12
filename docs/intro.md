@@ -26,6 +26,7 @@ Before you download MCSS, make sure your computer meets these requirements liste
 * A release of Java - Refer to our [java versions guide](/advanced/java-version) for more information
 * Stable internet connection, wired is highly preferred
 * Port forward capable modem/router (for online multiplayer)
+* Basic knowledge of how Minecraft Server work and how to manage them
 
 :::caution Windows 7/8 users
 While MCSS will work on Windows 8 and below, those versions are not officially supported. We advise you upgrade to W10 or later for the best experience.
