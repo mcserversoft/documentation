@@ -33,8 +33,8 @@ This popup lets you change the following settings for the selected server:
 - [Autostart](#-mcss-settings-general)
 - [Startup line](#-mcss-settings-advanced)
 - [Java version](#-mcss-settings-advanced)
-- Keep Online Mode (Crash Handling)
-- Update the server
+- [Keep Online Mode (Crash Handling)](#-mcss-settings-crash)
+- [Update the server](#-mcss-settings-update)
 
 :::tip
 Settings on this page are saved only when you click the `Save` button.
