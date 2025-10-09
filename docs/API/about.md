@@ -71,4 +71,4 @@ If you plan on writing code that leverages the API, you may want to use an IDE e
 
 ## API Endpoints {#-api-endpoints}
 
-View all [implemented endpoints](/api/endpoints).
+View all [implemented endpoints](/API/endpoints).

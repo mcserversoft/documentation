@@ -223,7 +223,7 @@ const config = {
               },
               {
                 label: 'Developer API',
-                to: '/api/about',
+                to: '/API/about',
               },
               {
                 label: 'Screenshots',
