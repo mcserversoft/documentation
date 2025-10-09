@@ -13,7 +13,7 @@ There are 2 options on how to add a forge server to mcss.
 This guide will show you how to manually create and an import a forge server.
 
 :::tip Looking for the modpack setup?
-You can find the appropriate guide for forge modpacks [here](/basic/create-server/forge/create-a-server-with-a-modpack)
+You can find the appropriate guide for forge modpacks [here](/basic/create-server/Forge/create-a-server-with-a-modpack)
 :::
 
 ## Download Forge {#-download-forge}

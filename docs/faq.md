@@ -27,7 +27,7 @@ A process on your computer is already using the port your server is trying to us
 
 Start by ensuring you do not already have a server running on this port. If that's the case
 
-Try killing all java processes (refer to [regain-control](#how-do-i-regain-control-of-my-server-if-mcss-crashes)) and start your server again.
+Try killing all java processes (refer to [regain-control](#-faq-crash)) and start your server again.
 
 If you added an IP to the 'server-ip' field in the server.properties file make sure to remove it.
 If you're running multiple servers make sure they're not using the same port.
@@ -105,7 +105,7 @@ MCSS runs on your computer. As long as it is online, the server is. So yes, if y
 
 MCSS comes with a web panel to manage your servers remotely. You can find more info about it [here](/webpanel/getting-started).
 Please note that the panel is still under development so not all features from the app are included.
-There is also a REST API available for developers, you can learn more about it [here](/api/about).
+There is also a REST API available for developers, you can learn more about it [here](/API/about).
 
 ## Dashboard graphs are stuck to 0% CPU and 1MB of RAM {#-faq-dashboard-stats-stuck}
 

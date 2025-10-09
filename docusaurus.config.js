@@ -15,7 +15,11 @@ const config = {
   url: 'https://mcserversoft.github.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   favicon: '/favicon.ico',
   organizationName: 'mcserversoft',
   projectName: 'documentation',
@@ -219,7 +223,7 @@ const config = {
               },
               {
                 label: 'Developer API',
-                to: '/api/about',
+                to: '/API/about',
               },
               {
                 label: 'Screenshots',
