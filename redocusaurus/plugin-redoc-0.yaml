@@ -1,11 +1,10 @@
 openapi: 3.0.0
 info:
   title: MCSS API v13
-  description: "Documentation for the official MC Server Soft API.  \nThis for MCSS v13.7.0 and higher.\n\nOther versions:\n\n- The API used in v13 - v13.4 can be found at [https://apidocs-v1.mcserversoft.com](https://apidocs-v1.mcserversoft.com)  \n    Note that since v13.9.0 this version is no longer accessible/distributed with mcss.\n    \n- The API used in V12 can be found at [https://documenter.getpostman.com/view/7749159/TzJsexSC](https://documenter.getpostman.com/view/7749159/TzJsexSC)\n    \n\n\\## Introduction\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Since version 12, MCSS includes an API that allows you to interact with your servers remotely. This documentation is aimed at developers wanting to create apps that utilize the API.  \n\_ \_ As of right now you can:\_ \_ - Run power actions - Start, Stop, Restart or Kill your servers\_ \_ - Send commands - run minecraft commands in the console\_ \_ - Return server information like the icon, status and description\_ \_ - Scheduler CRUD operations (create, read, update & delete tasks) \_\_ \_ - Backup CRUD operations (create, read, update & delete backups) \_\_ \_ - Panel users CRUD operations (create, read, update & delete users) \_  \n\_ \_ By default, the API is disabled.  \n\_ \_ > It can be enabled from the settings \\`file > options\\`. Tick the box labeled \\`Enable Web API\\`. After exiting the settings, the API will become available.  \n\_ \_ ## Authentication\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ All API calls require an API key.  \nThis is a header called: \\`apiKey\\`\_ \_\n\n\_ \_ GET /api/v2 HTTP/1.1\_ \_ Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT\_ \_ apiKey: YOUR_API_KEY\_ \_ \n\n  \n\_ \_ > If your key is compromised or lost, it's crucial to act swiftly. In case of exposure, regenerate the key immediately. If lost, delete the old one and generate a new key. Always keep your keys confidential and secure.  \n\_ \_ API keys can be created in the 'Web Panel' section of mcss:  \n\_ \_ !\\[Screenshot of the \"Create new API Key\" window, ready to create an API key\\](/img/docs/api/remote-access-manager-create-key.png)\_ \_ !\\[Screenshot of the \"Create new API Key\" window, where an API key has been created\\](/img/docs/api/remote-access-manager-key-created.png)  \n\_ \_ ## Permissions\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Permissions can be applied to different users and API keys. This limits the amount of functionality that becomes available for that user/API key.  \n\_ \_ - viewStats\_ \_ - viewConsole\_ \_ - useConsole\_ \_ - useServerActions\_ \_ - editServer\_ \_ - viewBackups\_ \_ - createBackup\_ \_ - editBackup\_ \_ - deleteBackups\_ \_ - triggerBackup\_ \_ - viewSchedulerTasks\_ \_ - createSchedulerTasks\_ \_ - editSchedulerTask\_ \_ - deleteSchedulerTasks\_ \_ - triggerSchedulerTask  \n\_ \_ These permissions are overwritten when the user or API key has the \\[Admin Permission\\](/api/admin).  \n\_ \_ > Important note: the Admin permission does not grant you instant access to all servers.  \n\_ \_ ## Contributing\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Please take into account that these docs are auto generated. Don't spend too much time creating a PR, as most of the changes will probably get overwritten. Create a suggestion based PR instead, so that we can change the source directly and prevent you wasting a lot of time"
   version: API_2.4.1
+  description: "Documentation for the official MC Server Soft API.  \nThis for MCSS v13.7.0 and higher.\n\nOther versions:\n\n- The API used in v13 - v13.4 can be found at [https://apidocs-v1.mcserversoft.com](https://apidocs-v1.mcserversoft.com)  \n    Note that since v13.9.0 this version is no longer accessible/distributed with mcss.\n    \n- The API used in V12 can be found at [https://documenter.getpostman.com/view/7749159/TzJsexSC](https://documenter.getpostman.com/view/7749159/TzJsexSC)\n    \n\n\\## Introduction\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Since version 12, MCSS includes an API that allows you to interact with your servers remotely. This documentation is aimed at developers wanting to create apps that utilize the API.  \n\_ \_ As of right now you can:\_ \_ - Run power actions - Start, Stop, Restart or Kill your servers\_ \_ - Send commands - run minecraft commands in the console\_ \_ - Return server information like the icon, status and description\_ \_ - Scheduler CRUD operations (create, read, update & delete tasks) \_\_ \_ - Backup CRUD operations (create, read, update & delete backups) \_\_ \_ - Panel users CRUD operations (create, read, update & delete users) \_  \n\_ \_ By default, the API is disabled.  \n\_ \_ > It can be enabled from the settings \\`file > options\\`. Tick the box labeled \\`Enable Web API\\`. After exiting the settings, the API will become available.  \n\_ \_ ## Authentication\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ All API calls require an API key.  \nThis is a header called: \\`apiKey\\`\_ \_\n\n\_ \_ GET /api/v2 HTTP/1.1\_ \_ Host: YOUR_IP_ADDRESS:YOUR_PANEL_PORT\_ \_ apiKey: YOUR_API_KEY\_ \_ \n\n  \n\_ \_ > If your key is compromised or lost, it's crucial to act swiftly. In case of exposure, regenerate the key immediately. If lost, delete the old one and generate a new key. Always keep your keys confidential and secure.  \n\_ \_ API keys can be created in the 'Web Panel' section of mcss:  \n\_ \_ !\\[Screenshot of the \"Create new API Key\" window, ready to create an API key\\](/img/docs/api/remote-access-manager-create-key.png)\_ \_ !\\[Screenshot of the \"Create new API Key\" window, where an API key has been created\\](/img/docs/api/remote-access-manager-key-created.png)  \n\_ \_ ## Permissions\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Permissions can be applied to different users and API keys. This limits the amount of functionality that becomes available for that user/API key.  \n\_ \_ - viewStats\_ \_ - viewConsole\_ \_ - useConsole\_ \_ - useServerActions\_ \_ - editServer\_ \_ - viewBackups\_ \_ - createBackup\_ \_ - editBackup\_ \_ - deleteBackups\_ \_ - triggerBackup\_ \_ - viewSchedulerTasks\_ \_ - createSchedulerTasks\_ \_ - editSchedulerTask\_ \_ - deleteSchedulerTasks\_ \_ - triggerSchedulerTask  \n\_ \_ These permissions are overwritten when the user or API key has the \\[Admin Permission\\](/api/admin).  \n\_ \_ > Important note: the Admin permission does not grant you instant access to all servers.  \n\_ \_ ## Contributing\_ \_ \\* \\* \\* \\* \\*  \n\_ \_ Please take into account that these docs are auto generated. Don't spend too much time creating a PR, as most of the changes will probably get overwritten. Create a suggestion based PR instead, so that we can change the source directly and prevent you wasting a lot of time"
 servers:
   - url: https://localhost:25560
-    description: Your local MCSS API server
 paths:
   /api/v2:
     get:
@@ -52,7 +51,7 @@ paths:
       tags:
         - General
       description: WIP
-  /api/v3/servers:
+  /api/v2/servers:
     get:
       summary: Get list of servers
       parameters:
@@ -201,7 +200,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '3'
+          example: ByServerType
         - name: serverTypeId
           in: query
           schema:
@@ -627,7 +626,7 @@ paths:
           in: query
           schema:
             type: string
-          example: Minimal
+          example: Status
       responses:
         '200':
           description: '200'
@@ -664,7 +663,6 @@ paths:
                     type: integer
                   javaStartupLine:
                     type: string
-                    format: style
               example:
                 serverId: e0ae4902-10ed-481f-aed0-fa1170ec779a
                 status: 0
@@ -716,6 +714,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '401':
           description: '401'
         '403':
@@ -803,6 +802,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '401':
           description: '401'
         '403':
@@ -921,7 +921,7 @@ paths:
           in: query
           schema:
             type: boolean
-          example: 'true'
+          example: 'false'
         - name: takeFromBeginning
           in: query
           schema:
@@ -936,7 +936,6 @@ paths:
                 type: array
                 items:
                   type: string
-                  format: style
               example:
                 - >-
                   [21:24:12] [Server thread/INFO]: [CraftBook] CraftBook 3.10.6
@@ -982,12 +981,14 @@ paths:
           in: query
           schema:
             type: string
-          example: '[19:25:31] [Server thread/INFO]: Closing Thread Pool'
+          example: >-
+            %5B19%3A25%3A31%5D%20%5BServer%20thread%2FINFO%5D%3A%20Closing%20Thread%20Pool
         - name: lastLine
           in: query
           schema:
             type: string
-          example: '[19:25:31] [Server thread/INFO]: Closing Server'
+          example: >-
+            %5B19%3A25%3A31%5D%20%5BServer%20thread%2FINFO%5D%3A%20Closing%20Server
       responses:
         '200':
           description: '200'
@@ -1067,9 +1068,8 @@ paths:
       parameters:
         - name: filter
           in: query
-          required: false
-          deprecated: false
-          schema: {}
+          schema:
+            type: string
           example: None
       responses:
         '200':
@@ -1441,7 +1441,6 @@ paths:
                       type: integer
                     completedAt:
                       type: string
-                      format: style
                     fileBlacklist:
                       type: array
                       items:
@@ -1518,7 +1517,6 @@ paths:
                   type: string
                 destination:
                   type: string
-                  format: style
                 suspend:
                   type: boolean
                 deleteOldBackups:
@@ -1652,7 +1650,6 @@ paths:
                     type: integer
                   completedAt:
                     type: string
-                    format: style
                   fileBlacklist:
                     type: array
                     items: {}
@@ -1844,7 +1841,6 @@ paths:
                       type: string
                     destination:
                       type: string
-                      format: style
                     lastRun:
                       type: string
                       format: date-time
@@ -1933,6 +1929,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '401':
           description: '401'
         '403':
@@ -2311,6 +2308,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '400':
           description: '400'
         '401':
@@ -2683,8 +2681,6 @@ paths:
                   type: boolean
                 hasAccessToAllServers:
                   type: boolean
-                customServerPermissions:
-                  nullable: true
             example:
               username: testMadeWithApi
               password: plaintext
@@ -2949,6 +2945,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '400':
           description: '400'
         '401':
@@ -3013,8 +3010,6 @@ paths:
                   type: string
                 hasAccessToAllServers:
                   type: boolean
-                customServerPermissions:
-                  nullable: true
             example:
               password: aOfnfydBSBR8%ZgIfy%he$pvm
               passwordRepeat: aOfnfydBSBR8%ZgIfy%he$pvm
@@ -3358,8 +3353,6 @@ paths:
                   type: boolean
                 hasAccessToAllServers:
                   type: boolean
-                customServerPermissions:
-                  nullable: true
             example:
               name: test with postman 0001
               isAdmin: false
@@ -3438,60 +3431,9 @@ paths:
           description: '403'
       tags:
         - ApiKeys
-      description: >-
-        Create a new key.  
-
+      description: |-
+        Rotate a specific key.  
         (API Key must have admin rights)
-
-
-        \- name (required) : string  
-
-        \- isAdmin (optional) : boolean  
-
-        \- hasAccessToAllServers (optional): boolean  
-
-        \- customServerPermissions (optional) : object\[\]
-
-
-        ### CustomServerPermissions Object
-
-
-        serverId (required) : string {  
-
-        viewStats (required) : boolean,  
-
-        viewConsole (required) : boolean,  
-
-        useConsole (required) : boolean,  
-
-        useServerActions (required) : boolean,  
-
-        editServer(required) : boolean,  
-
-        viewBackups(required) : boolean,  
-
-        createBackup(required) : boolean,  
-
-        editBackup(required) : boolean,  
-
-        deleteBackups(required) : boolean,  
-
-        triggerBackup(required) : boolean,  
-
-        viewSchedulerTasks:(required) : boolean, createSchedulerTasks(required)
-        : boolean, editSchedulerTask(required) : boolean,
-        deleteSchedulerTasks(required) : boolean, triggerSchedulerTask(required)
-        : boolean  
-
-        }
-
-
-        **example**
-
-
-        _"3054aac3-dbf5-4e10-94d2-f4b83577d9b4": {__**"viewStats":
-        true,**__"viewConsole": true,__**"useConsole":
-        true,**__"useServerActions": true__}_
   /api/v2/keys/357e4fe2-bf15-4d7b-9418-9133e2810e79:
     delete:
       summary: Delete ApiKey
@@ -3575,6 +3517,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '401':
           description: '401'
       tags:
@@ -3595,6 +3538,7 @@ paths:
             application/json:
               schema:
                 type: object
+              example: {}
         '204':
           description: '204'
           headers:
