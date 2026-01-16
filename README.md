@@ -17,4 +17,4 @@ This command will open a browser window that reloads each time you save, so you 
 
 
 
-This documentation was built with [Docusaurus 2](https://docusaurus.io/).
+This documentation was built with [Docusaurus](https://docusaurus.io/).
