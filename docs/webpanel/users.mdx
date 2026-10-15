@@ -1,0 +1,28 @@
+---
+title: "Panel users and server access"
+description: "Create separate accounts and check their assigned servers and administrative rights."
+---
+
+Use a separate account for each person who needs panel access. Give it access only to the servers and actions that person needs.
+
+## Open user management
+
+On MCSS's **Web Panel** page, open **Manage Users & API Keys**. You need at least one created or imported server before this management panel appears.
+
+Create a panel user in that window. An API key is a different credential intended for software integrations; see [API access](/API/about).
+
+![Creating a panel user in MCSS](/img/docs/panel/remote-access-manager-create-user.png)
+
+## Assign server access
+
+Choose the permitted servers rather than granting every account broad access. Review available action permissions and reserve administrative rights for people who manage the MCSS installation or its users.
+
+![Selecting which servers a panel user can access](/img/docs/panel/remote-access-manager-server-access.png)
+
+Administrative permission and server access are separate. Do not assume that an admin flag and access to every server are the same thing; see [Admin permission](/API/admin).
+
+## Verify with the user's account
+
+Sign in through the panel using the account you created. Check that the intended server appears and the permitted actions work. Also check that other servers and management operations are not unexpectedly available.
+
+When someone's responsibilities change, review or remove their access. Keep credentials private and use the [remote panel guidance](/webpanel/getting-started) before exposing the management service outside your network.

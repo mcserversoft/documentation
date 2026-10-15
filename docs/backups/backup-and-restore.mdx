@@ -1,0 +1,41 @@
+---
+title: "Back up and restore a server"
+description: "Keep a consistent copy of the whole installation and prove that it can be restored."
+---
+
+A backup is useful when you can restore the server from it. Keep more than one generation and store an independent copy away from the active server's disk.
+
+## What to include
+
+- All world and dimension data used by the server.
+- Game configuration and player/access data.
+- Plugins or mods, their configuration, and their persistent data.
+- Server/loader binaries, launch scripts, and argument files needed to reproduce the installation.
+- MCSS configuration needed for your setup, kept separately as appropriate.
+- External databases or files used by extensions, backed up using their own consistency procedures.
+
+Do not assume that every distribution stores worlds in the same layout. Preserve the complete server directory when you are unsure.
+
+## Take a consistent manual backup
+
+1. Check MCSS restart policies and scheduled tasks so the server stays stopped during maintenance.
+2. Stop the game normally and wait for the process to exit.
+3. Copy or archive its complete directory to a separate destination.
+4. Record the Minecraft, loader/distribution, and Java versions with the backup.
+5. Open the archive and check that expected files are present.
+
+This is a conservative baseline for a filesystem copy. A backup while the game is writing files needs a procedure that coordinates saving and any external data. Do not assume an arbitrary live folder copy is consistent.
+
+MCSS includes backup functionality, but the name of a backup option alone does not establish what it contains or whether a particular live-backup setup is consistent. Check your backup configuration and perform a restore test.
+
+## Test a restore
+
+Extract into a **new folder**, retain the backup, and use the original software/runtime combination. Keep the restored instance private and on an unused game port. Check automatic tasks before starting it.
+
+Join the restored server and inspect the world, player data, and important extensions. If a plugin uses an external database, isolate the restored instance from the live database before testing.
+
+## Recover the live server
+
+Stop the broken instance first. Preserve its logs and files for diagnosis, then restore the known-good data and matching software as a unit. Verify it before reopening player access.
+
+Paper's [backup and update guidance](https://docs.papermc.io/paper/updating/) covers world and plugin data. For archive names in MCSS, see [Backup filenames](/backups/custom-filename).

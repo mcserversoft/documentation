@@ -1,0 +1,38 @@
+---
+title: "Create a NeoForge server"
+description: "Install NeoForge\u2019s server package and use its generated launcher with MCSS."
+---
+
+Use the **NeoForge** version specified by your mods or modpack. Forge and NeoForge are separate loader targets; do not choose one merely because their names are similar.
+
+## Install the server
+
+1. Choose the required Java using the [version guide](/advanced/java-version) and the pack's instructions.
+2. Download the server installer through [NeoForged](https://neoforged.net/).
+3. Put the installer in a new empty folder. Run it with **Install server**, or use the command-line installation described by NeoForged:
+
+```cmd
+java -jar neoforge-installer.jar --installServer
+```
+
+Replace `neoforge-installer.jar` with the actual filename. The resulting installation includes a launcher and libraries; do not launch the installer as if it were the game server.
+
+## Check the generated launcher
+
+NeoForge's [server instructions](https://docs.neoforged.net/user/docs/server/) describe `run.bat` on Windows and `user_jvm_args.txt` for JVM arguments. Run the release's prescribed launcher in its server directory to finish initial setup, then stop it normally.
+
+Read and accept the Minecraft EULA only if you agree to it. See the [first-start step](/getting-started/first-server#3-complete-the-first-start).
+
+## Bring the folder into MCSS
+
+[Import the complete server directory](/basic/import-server/supported-server-files). In its MCSS execution settings, use the batch-file launch method for the generated `run.bat`.
+
+Check the same launch details as in the [Forge batch-file workflow](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher): the selected Java executable, working directory, preserved argument files, and absence of an interactive `pause`.
+
+Set memory in the file actually consumed by the launcher, rather than assuming a separate MCSS memory setting changes it. Keep the staging copy until the imported server starts and loads the expected world.
+
+## Join and maintain
+
+Use a client with the matching Minecraft, NeoForge, and required mod versions. Follow the pack author's client instructions when using a pack.
+
+For an upgrade, back up and test the **whole installation**. Updating NeoForge can change library paths and launcher arguments, so reusing an old batch file unchanged may select the old loader. See [Updating a server](/running/updating).

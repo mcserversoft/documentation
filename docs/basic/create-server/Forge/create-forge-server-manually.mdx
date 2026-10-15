@@ -1,0 +1,46 @@
+---
+title: "Install and import Forge"
+description: "Keep Forge\u2019s generated libraries and startup arguments when bringing a server into MCSS."
+---
+
+Install the Forge build required by your mods, verify its server launcher, then import the complete folder into MCSS. An alternative is the [MCSS installer workflow](/basic/create-server/Forge/create-forge-server).
+
+## Download the correct installer [#-download-forge]
+
+Get the **Installer** for the selected Minecraft/Forge version from [Forge](https://files.minecraftforge.net/). Use the modpack's specified build when installing a pack. Check its [Java requirement](/advanced/java-version) before launching the installer.
+
+## Install a server [#-create-the-forge-server]
+
+Open the installer with the required Java, select **Install server**, and choose a new empty folder. Let it download all required files. A command-line installation uses this pattern, with your actual installer filename:
+
+```cmd
+java -jar forge-installer.jar --installServer
+```
+
+Use your downloaded release's instructions if its installer differs. Keep the installed files together; do not reduce the installation to the largest JAR.
+
+For older Forge, the output can include a runnable Forge server JAR. Modern releases use `run.bat`, `user_jvm_args.txt`, and version-specific files under `libraries`. The installer JAR is not the final game launcher.
+
+## Import and select the launch method [#-migrate-the-server-to-mcss]
+
+Use **File → Import Server** and select a [recognized file in the base folder](/basic/import-server/supported-server-files). Complete the import, then check the copy inside MCSS before removing your staging folder.
+
+![Importing a Forge server into MCSS](/img/docs/create-forge/migrate_forge.png)
+
+For a directly runnable older Forge JAR, select that JAR in the launch settings. For an installation that provides `run.bat`, select **Use Bat file** under **Advanced** and choose that file.
+
+### Review a generated batch launcher
+
+1. Back up the launcher before editing.
+2. If the script invokes `java`, select the intended runtime explicitly when necessary by replacing that command with the full quoted path to `java.exe`.
+3. Keep its generated `@user_jvm_args.txt` and `@libraries/.../win_args.txt` arguments unchanged. The paths are version specific.
+4. Remove an interactive `pause` so MCSS does not wait for keyboard input after the process exits.
+5. Add `nogui` to the game arguments if supported by that launcher. Keep JVM flags before the game arguments and put memory settings in the file the launcher actually reads.
+
+Do not copy a library path containing an old Forge version from a screenshot or another server. Do not discard the generated launcher in favor of `java -jar` unless that release's instructions explicitly use it.
+
+## First start
+
+Complete the [EULA step](/getting-started/first-server#3-complete-the-first-start). Wait for successful startup, then test with a client using the matching loader and mod set. Read the first meaningful error in `logs/latest.log` if a dependency or mod fails.
+
+Forge distributes installers through its [official downloads](https://files.minecraftforge.net/); its [documentation](https://docs.minecraftforge.net/) and the selected modpack's instructions take precedence for release-specific requirements.

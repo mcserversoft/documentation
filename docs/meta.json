@@ -1,0 +1,22 @@
+{
+  "title": "MCSS documentation",
+  "pages": [
+    "index",
+    "---Set up---",
+    "getting-started",
+    "basic",
+    "advanced",
+    "---Operate---",
+    "running",
+    "backups",
+    "networking",
+    "webpanel",
+    "---Develop---",
+    "API",
+    "apis",
+    "---Get help---",
+    "troubleshooting",
+    "faq",
+    "reference"
+  ]
+}

@@ -1,0 +1,38 @@
+---
+title: "Backup filenames"
+description: "Use MCSS backup-name placeholders while keeping names unique across runs and servers."
+---
+
+MCSS supports a custom format for backup ZIP filenames. The documented default is:
+
+```text
+[backupname]_[unix]
+```
+
+If the format is invalid, the documented behavior is to use the default. Test a custom format with a noncritical backup before relying on it.
+
+## Example [#-example]
+
+A useful pattern identifies the server, backup, and run:
+
+```text
+[servername]_[backupname]_[unix]
+```
+
+Use the format field as intended by the interface; inspect the resulting filename rather than assuming you should add a second `.zip` extension.
+
+![Backup ZIP filename format setting in MCSS](/img/docs/backups/mcss_backup_file_setting.jpg)
+
+## Available placeholders [#-parameters]
+
+| Placeholder | Meaning |
+| --- | --- |
+| `[date]` | Date formatted using Windows regional settings. |
+| `[time]` | Time formatted using Windows regional settings. |
+| `[unix]` | Unix timestamp. |
+| `[backupname]` | The configured backup name. |
+| `[servername]` | The server name. |
+
+A date-only pattern can repeat within the same day. Multiple servers using a shared destination can also produce collisions if the name does not identify the server. A timestamp improves separation, but verify uniqueness for your actual schedule rather than assuming unlimited timestamp precision.
+
+A descriptive filename does not prove that the archive is complete. Keep several generations and follow the [restore-testing workflow](/backups/backup-and-restore).

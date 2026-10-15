@@ -1,0 +1,31 @@
+---
+title: "Allow game traffic through Windows Firewall"
+description: "Allow the intended executable or port without turning off the firewall."
+---
+
+A router forwarding rule does not create a Windows Firewall rule. If the game works locally but other LAN devices cannot join, check the server computer's firewall next.
+
+## Choose the rule scope
+
+Open **Windows Security → Firewall & network protection** and check which network profile is active. Use only the profiles and remote addresses that need access.
+
+You can allow an application or create a specific inbound rule using **Advanced settings**. With Java servers, an application rule needs to identify the Java executable actually running the server. Replacing Java or changing its path can leave a rule pointing at the old executable.
+
+For a port rule, use the game server's actual protocol and port:
+
+| Service | Typical rule |
+| --- | --- |
+| Java Edition game server | TCP, game port such as `25565`. |
+| Geyser / Bedrock game listener | UDP, configured game port such as `19132`. |
+| MCSS panel/API | A separate management rule only if you deliberately need remote administration. |
+
+## Verify the change
+
+1. Keep the game server running.
+2. Test from another device on the same LAN using the server's LAN address.
+3. If it still fails, check third-party endpoint security, guest Wi-Fi isolation, VPN routing, and the server's listening address.
+4. Only after LAN access works, test the [router rule](/networking/port-forwarding) from outside.
+
+Do not turn off Windows Firewall as a permanent workaround. Remove rules for services you no longer expose, and do not open a wide port range to solve a single-port problem.
+
+Microsoft explains [firewall controls](https://support.microsoft.com/en-us/windows/security/windows-security/firewall-and-network-protection-in-the-windows-security-app) and the [difference between an app exception and an open port](https://support.microsoft.com/en-us/windows/security/firewall/risks-of-allowing-apps-through-windows-firewall).

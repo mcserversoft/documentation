@@ -1,0 +1,128 @@
+{
+  "/API/about": [
+    "-api-about",
+    "-api-enable",
+    "-api-keys",
+    "-api-calls",
+    "-standalone-software",
+    "-ide-extensions",
+    "-api-endpoints"
+  ],
+  "/API/admin": [],
+  "/API/endpoints": [],
+  "/advanced/java-path-update": [
+    "-java-path",
+    "-globally",
+    "-per-server"
+  ],
+  "/advanced/java-version": [],
+  "/advanced/tweak-java-path-detection": [
+    "-edit-locations"
+  ],
+  "/advanced/using-playit.gg-with-mcss": [
+    "-introduction",
+    "-step-1",
+    "-step-2",
+    "-step-3",
+    "-using-playit-for-the-panel"
+  ],
+  "/backups/custom-filename": [
+    "-example",
+    "-parameters"
+  ],
+  "/basic/create-server/Fabric/create-fabric-server-manually": [
+    "-download-fabric",
+    "-create-the-fabric-server",
+    "-migrate-the-server-to-mcss"
+  ],
+  "/basic/create-server/Forge/create-a-server-with-a-modpack": [
+    "-step-2",
+    "-step-3"
+  ],
+  "/basic/create-server/Forge/create-forge-server-manually": [
+    "-download-forge",
+    "-create-the-forge-server",
+    "-migrate-the-server-to-mcss"
+  ],
+  "/basic/create-server/Forge/create-forge-server": [
+    "-download-forge",
+    "-create-the-forge-server",
+    "-let-the-installer-do-its-job",
+    "-tweaking-the-server-start-settings"
+  ],
+  "/basic/create-server/sourcing-server-file": [
+    "-getting-a-server-file",
+    "-downloads",
+    "-installer-guides"
+  ],
+  "/basic/import-server/supported-server-files": [
+    "-selecting-file"
+  ],
+  "/basic/server-settings/accessing-server-settings": [
+    "-mcss-handle-settings",
+    "-mcss-minecraft-settings",
+    "-mcss-server-execution-settings",
+    "-mcss-settings-general",
+    "-mcss-settings-advanced",
+    "-mcss-settings-crash",
+    "-mcss-settings-update"
+  ],
+  "/basic/supported-server-types": [
+    "-vanilla-minecraft",
+    "-plugin-support",
+    "-modded-servers",
+    "-proxy--network"
+  ],
+  "/faq": [
+    "-faq-unable-to-connect",
+    "-faq-error-initialization-vm",
+    "-faq-failed-bind-port",
+    "-faq-file-locked",
+    "-faq-trouble-starting-server",
+    "-faq-console-empty",
+    "-faq-server-error",
+    "-faq-console-commands-fail",
+    "-faq-unsupported-servers",
+    "-faq-crash",
+    "-faq-mac-linux-support",
+    "-faq-24-7",
+    "-faq-remote-control",
+    "-faq-dashboard-stats-stuck",
+    "-faq-stats-normal",
+    "-faq-stats-bat",
+    "-faq-dll-crash",
+    "-faq-process-name-format",
+    "-faq-failed-performance-counters",
+    "-faq-ipv6",
+    "-faq-mcss-crashed-help-out",
+    "-faq-utf8"
+  ],
+  "/": [
+    "-introduction",
+    "-pre-requisites",
+    "-pre-requisites-older-versions",
+    "-pre-requisites-v13",
+    "-pre-requisites-v12",
+    "-contribute"
+  ],
+  "/networking/find-ip": [],
+  "/networking/port-forwarding": [
+    "-introduction",
+    "-different-network-devices",
+    "-setting-up-the-port-forwarding-rule",
+    "-step-1",
+    "-step-2",
+    "-step-3",
+    "-step-4"
+  ],
+  "/networking/troubleshooting": [],
+  "/webpanel/getting-started": [
+    "-enable-panel",
+    "-local-access",
+    "-LAN-access",
+    "-anywhere-access"
+  ],
+  "/webpanel/users": [],
+  "/apis/v1": [],
+  "/apis/v2": []
+}

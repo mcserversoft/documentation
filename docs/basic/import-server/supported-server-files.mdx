@@ -1,0 +1,37 @@
+---
+title: "Import an existing server"
+description: "Keep the complete server directory and verify its launcher after importing into MCSS."
+---
+
+Use an import when you already have a working server or world. Start by stopping the original server normally and making an independent copy of its complete directory.
+
+## Select a file from the server's base folder [#-selecting-file]
+
+In MCSS, open **File → Import Server**. Select a representative file in the server's base folder—the folder containing its main configuration and launcher, not a nested world, mod, or library folder.
+
+![MCSS import dialog showing the file selection area](/img/docs/import-server/import_supported_file_dialog.png)
+
+The import workflow recognizes these files:
+
+- A `.jar` or `.exe` file.
+- `server.properties` or `eula.txt`.
+- `commands.yml`, `permissions.yml`, or `server-icon.png`.
+- `banned-ips.json`, `banned-players.json`, `ops.json`, or `whitelist.json`.
+
+Selecting a recognized file identifies the server folder. It does **not** mean that file is the command used to start the game. Check the launch settings separately.
+
+## Keep the complete installation
+
+Preserve the worlds, configuration, plugins/mods and their data, and any generated `libraries` or launcher argument files. Some modded servers need much more than one JAR.
+
+Complete the import dialog, then inspect the resulting server directory in MCSS. Keep your original copy until you have started the imported server, joined it, and verified the expected world and player data.
+
+## Check before starting
+
+1. Confirm the server software and Minecraft version.
+2. Select its [required Java](/advanced/java-version), if it uses Java.
+3. Review the [startup settings](/basic/server-settings/accessing-server-settings). For a loader or modpack, retain its generated batch-file or argument-file launch method.
+4. Check the game port. Two servers on the same address cannot listen on the same TCP port at the same time.
+5. Start only one copy of this server and read the startup log.
+
+First test the imported server on `localhost` before changing router or tunnel settings. If it starts with a new empty world, stop it and check the chosen base directory and `level-name` before continuing.

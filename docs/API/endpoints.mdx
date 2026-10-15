@@ -1,16 +1,24 @@
 ---
-sidebar_position: 2
-title: Endpoints
-slug: endpoints
-description: Available API endpoints
-keywords: [API, endpoints, routes]
+title: "API versions and reference"
+description: "Choose the correct API reference and distinguish exported examples from live instance information."
 ---
 
-:::info This guide is aimed at developers
-The following tips and information is aimed at developers wanting to create apps that utilize the API. If you are a regular user this may not be for you. 
-As such some steps will assume that you already have basic knowledge of how API calls work and that you can read a documentation.
-:::
+## v2: current integration reference
 
-Documentation for the official MC Server Soft API can be found below:
-- [API v12 (legacy)](https://documenter.getpostman.com/view/7749159/TzJsexSC)
-- [API v13](/apis/v2)
+Use the [API v2 reference](/apis/v2) with MCSS 13.10.0. It is generated from the repository's supplied OpenAPI specification, rather than a manually maintained list of endpoint pages.
+
+- [Set up access and authentication](/API/about).
+- [Open the v2 endpoint reference](/apis/v2).
+- [Download the v2 OpenAPI document](/apis/v2.yml).
+- Call `GET /api/v2` on your configured instance to inspect its reported MCSS/API versions.
+
+## Older APIs
+
+- [v1 reference](/apis/v1) and [v1 specification](/apis/v1.yml): retained for historical integrations. The supplied export notes that v1 was no longer distributed from MCSS 13.9.0.
+- [MCSS v12 Postman documentation](https://documenter.getpostman.com/view/7749159/TzJsexSC): historical reference for the older application release.
+
+## Read examples carefully
+
+Some supplied operation paths contain concrete UUIDs captured in examples. Use identifiers belonging to your instance; never assume an example ID identifies one of your servers, tasks, backups, users, or keys.
+
+The exported `info.version`, sample application versions, server addresses, and dates describe the source export. They are not a live description of the MCSS installation you are connecting to. Check the endpoint definition, your live response, and the [official MCSS release notes](https://www.mcserversoft.com/changelogs) when diagnosing a difference.

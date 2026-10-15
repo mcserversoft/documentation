@@ -1,0 +1,36 @@
+---
+title: "Diagnose lag and resource usage"
+description: "Separate game tick performance, network delay, client performance, and MCSS monitoring."
+---
+
+Describe what is slow before changing settings. These symptoms can have different causes:
+
+| Symptom | Start with |
+| --- | --- |
+| All players see delayed mobs, block updates, or commands | Server tick time, loaded chunks/entities, plugins/mods, CPU and disk activity. |
+| One player's connection stutters while others are fine | That player's route, latency, packet loss, Wi-Fi, or tunnel location. |
+| Low FPS on one client | Client graphics, resource packs, render settings, and client mods. |
+| MCSS graph looks frozen but the game responds | Check the actual process and monitoring separately. |
+
+## Collect a useful baseline
+
+Record player count, world activity, Minecraft and loader/distribution versions, Java executable, memory settings, and recent changes. Observe the issue while it is happening.
+
+On Paper, use the [profiling guide](https://docs.papermc.io/paper/profiling/) to collect a spark profile. Use the profiler supported by your chosen loader/distribution for other servers. A profile recorded while the server is idle may miss the problem.
+
+## Change only what the evidence supports
+
+- If the heap is consistently exhausted, check actual usage, leaks, and the workload before increasing it.
+- If CPU time is dominated by a plugin/mod, test a compatible update or a documented setting in a copy.
+- If chunk generation is the trigger, assess exploration and world-generation workload.
+- If the problem is network delay, inspect the connection or tunnel rather than adding heap memory.
+
+Keep the previous values so you can compare results. Avoid pasting long sets of JVM flags intended for a different Java release or server platform.
+
+## MCSS CPU/RAM graphs do not match expectations
+
+First confirm the game is running and compare its actual process in Windows Task Manager. Check the [explicit Java path](/advanced/java-path-update). A batch launcher may invoke a different executable from the MCSS override.
+
+Select an explicit executable if the launch command resolves to an unexpected Java installation. If the configuration is correct but monitoring remains inaccurate, include the launch method and the observed process details in a [support report](/troubleshooting/logs-and-support).
+
+If MCSS itself reports a Windows performance-counter error, see [MCSS and Windows](/troubleshooting/mcss-and-windows) rather than applying registry changes as a general performance tweak.

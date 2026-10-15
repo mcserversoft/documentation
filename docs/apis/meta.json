@@ -1,0 +1,5 @@
+{
+  "title": "API reference",
+  "pages": ["v2", "v1"],
+  "defaultOpen": true
+}

@@ -1083,8 +1083,6 @@ paths:
         - Scheduler
       summary: Run task
       description: Run a specific server task.
-      requestBody:
-        content: {}
       responses:
         "200":
           description: OK
@@ -1398,8 +1396,6 @@ paths:
         - Backups
       summary: Run backup
       description: Run a specific server backup.
-      requestBody:
-        content: {}
       responses:
         "200":
           description: OK
