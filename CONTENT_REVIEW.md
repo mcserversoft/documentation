@@ -72,6 +72,10 @@ The v2 export is **not** asserted to be a newly generated complete 13.10.0 schem
 
 ## Follow-up evidence that would improve product-specific detail
 
+The Windows exploration and screenshot workflow is in
+[MCSS_EXPLORATION.md](MCSS_EXPLORATION.md). Its checklist is pending investigation,
+not additional evidence of product behavior.
+
 - A current official prerequisite list for MCSS 13.10.0, including Windows and
   native runtime requirements, rather than extrapolating old 12.x/13.x notes.
 - Current screenshots and a walkthrough of the existing creation/import and

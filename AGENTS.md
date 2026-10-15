@@ -7,3 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## MCSS documentation exploration
+
+For hands-on MCSS investigation, screenshot capture, and resulting guide updates,
+follow [MCSS_EXPLORATION.md](MCSS_EXPLORATION.md). Read
+[CONTENT_REVIEW.md](CONTENT_REVIEW.md) for existing evidence and unresolved product
+questions before treating inherited instructions as verified behavior.

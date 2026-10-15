@@ -84,3 +84,7 @@ heading anchors. Minecraft/Java and upstream software guidance was reviewed on
 15 October 2026. See `CONTENT_REVIEW.md` for product evidence, retained MCSS
 behavior, source limitations, and remaining opportunities for authoritative detail.
 The public `docs/reference/versions-and-sources.mdx` page lists primary sources.
+
+For the agent exploring MCSS on Windows and capturing replacement screenshots,
+follow [MCSS_EXPLORATION.md](MCSS_EXPLORATION.md). It sets the investigation order,
+evidence requirements, screenshot standards, and documentation validation steps.
