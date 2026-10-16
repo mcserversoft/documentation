@@ -1,0 +1,64 @@
+---
+title: "Open a game port to the internet"
+description: "Forward only the required game traffic and check double NAT, CGNAT, and firewalls."
+---
+
+## What port forwarding does [#-introduction]
+
+IPv4 port forwarding sends traffic arriving at your router's public address and selected port to a computer inside your network. Configure it only after the game works on [localhost and the LAN](/networking/troubleshooting).
+
+The Minecraft game port and MCSS web panel/API port serve different purposes. Players joining the game do **not** need access to the management port.
+
+## Know your network [#-different-network-devices]
+
+A home modem/router may be one device or several. A switch or Wi-Fi access point does not necessarily perform NAT. Forwarding is needed at the device that translates the public IPv4 address into your private network.
+
+Two routing/NAT layers can require a rule at each layer or a supported bridge-mode arrangement. Do not change an ISP router's operating mode without its instructions.
+
+## Configure a rule [#-setting-up-the-port-forwarding-rule]
+
+### 1. Check whether incoming IPv4 is available [#-step-1]
+
+Compare the router's **WAN IPv4** with the external address seen from the same network.
+
+| Router WAN address | What it indicates |
+| --- | --- |
+| `10.0.0.0`–`10.255.255.255` | Private IPv4; an upstream router or ISP may perform NAT. |
+| `172.16.0.0`–`172.31.255.255` | Private IPv4; check the upstream network. |
+| `192.168.0.0`–`192.168.255.255` | Private IPv4; often another local router is upstream. |
+| `100.64.0.0`–`100.127.255.255` | Shared address space commonly used for carrier-grade NAT. |
+
+Private addresses are defined by [RFC 1918](https://www.rfc-editor.org/rfc/rfc1918); shared address space by [RFC 6598](https://www.rfc-editor.org/rfc/rfc6598).
+
+A private WAN address alone is not proof of ISP CGNAT: it may be a second router you control. Ask your ISP about incoming connectivity and a public IPv4 address if the upstream NAT is theirs.
+
+Cable, fiber, mobile, and satellite connections can all have provider-specific addressing policies. Wi-Fi versus Ethernet is not what decides whether port forwarding is possible. If incoming connectivity is unavailable, consider a [game tunnel](/advanced/using-playit.gg-with-mcss).
+
+### 2. Record the server and gateway addresses [#-step-2]
+
+Use [`ipconfig`](/networking/find-ip) to find the server computer's LAN address and default gateway. Reserve the server's LAN address in the router's DHCP settings if possible, so the forwarding target does not change after a restart.
+
+### 3. Open the router's configuration [#-step-3]
+
+Use the router manufacturer's documented administration address and credentials. Look for **Port forwarding**, **NAT**, or **Virtual server** settings. Interfaces vary, so use the guide for the exact router model.
+
+### 4. Forward the actual game port [#-step-4]
+
+For a normal Java Edition server using its default port:
+
+| Rule field | Example value |
+| --- | --- |
+| Protocol | TCP |
+| External/public port | 25565 |
+| Internal/destination port | 25565 |
+| Destination computer | Your server's LAN address, for example `192.168.1.50`. |
+
+Save the rule and allow the corresponding traffic through [Windows Firewall](/networking/windows-firewall).
+
+For Bedrock Dedicated Server or Geyser, use the configured **UDP** port instead; the usual IPv4 default is `19132`. See [Bedrock's properties](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties) and [Geyser's forwarding instructions](https://geysermc.org/wiki/geyser/port-forwarding/). Do not assume a TCP port checker can test UDP.
+
+## Test from outside the LAN
+
+Keep the game server running. Ask a player on another internet connection to join using the [public address](/networking/find-ip). Testing your public address from inside the LAN may fail because the router lacks NAT loopback, even if outside access works.
+
+A TCP test only proves that a listener is reachable; it does not prove that the Minecraft edition, version, or authentication matches. Use the [connection troubleshooting sequence](/networking/troubleshooting) to locate the failing stage.

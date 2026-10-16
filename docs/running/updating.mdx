@@ -1,0 +1,42 @@
+---
+title: "Update a Minecraft server"
+description: "Test the complete server and keep a working rollback copy before changing versions."
+---
+
+Treat these as separate updates: **MCSS**, **Java**, **Minecraft server software**, and **plugins/mods**. Changing one does not automatically update the others.
+
+MCSS 13.10.0 is version agnostic. Compatibility work for a Minecraft upgrade is mainly about the selected server software, Java, world format, and extensions.
+
+## 1. Plan the target version
+
+Write down the current and target Minecraft versions, distribution/loader builds, Java major versions, and plugin or pack releases. Read the target release notes before downloading anything.
+
+A new Minecraft release does not mean your chosen plugins or pack have a compatible release yet. For a pack, follow its author's upgrade path. For Paper, use the [updating guide](https://docs.papermc.io/paper/updating/) and release-specific notes.
+
+## 2. Make a recoverable backup
+
+Stop the server normally and keep a [complete backup](/backups/backup-and-restore): worlds, configuration, extensions, data, and launcher files. Include any external data services used by plugins in your backup plan.
+
+Keep the previous binaries and Java/launch configuration so you can reproduce the old environment. A backup of a world alone is not always enough to restore a modded server.
+
+## 3. Test a separate copy
+
+Use a separate folder and unused game port. Keep it private while testing. Disable automatic starts, restart policies, or scheduled actions that could interfere with the test or maintenance.
+
+Install the target runtime and server software using the project's instructions. For a single-JAR server, update the selected JAR. For Forge, NeoForge, or a pack, update its libraries and generated launch files too.
+
+On startup, check the version, dependency loading, and world conversion messages. Join with the correct client. Verify important worlds, dimensions, inventories, permissions, and the plugins/mods your players rely on.
+
+## 4. Change the live server
+
+Announce a maintenance window, stop normally, and take a final backup. Repeat the tested procedure on the live installation. Watch its log and player connections before considering the upgrade complete.
+
+MCSS's [Update Server control](/basic/server-settings/accessing-server-settings#-mcss-settings-update) changes the chosen JAR; it does not replace a loader or pack's complete update procedure.
+
+## 5. Roll back using the pre-upgrade copy
+
+If the test or live upgrade fails, stop the new server and restore the matching **pre-upgrade data and software together**. Do not try to undo world conversion by simply opening the upgraded world with an older server.
+
+This matters for current releases too: Paper's [26.1 release notes](https://papermc.io/news/26-1/) describe a change in world-data layout. Do not base a backup or migration on an assumed fixed list of old dimension folders.
+
+For an MCSS application update, follow the [official MCSS release instructions](https://www.mcserversoft.com/changelogs) and preserve your installation/configuration separately from the game update.

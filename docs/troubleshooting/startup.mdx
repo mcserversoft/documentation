@@ -1,0 +1,61 @@
+---
+title: "Fix startup errors"
+description: "Use the first meaningful log error to check Java, files, memory, ports, and dependencies."
+---
+
+A server process can start and immediately exit before the game becomes available. Read the first relevant error in the full log; the final exit-code line alone rarely explains the cause.
+
+If the server was working, identify the last change: Java, server JAR, loader, mod/plugin, memory, folder, or configuration. Preserve a copy before changing several things at once.
+
+## Wrong Java / UnsupportedClassVersionError
+
+Check the executable used by MCSS or the launch script, not just `java` on `PATH`. Compare its version with the [Java table](/advanced/java-version).
+
+The class-file version in an error can identify the runtime requirement:
+
+| Class-file major version | Java release |
+| --- | --- |
+| 52 | 8 |
+| 60 | 16 |
+| 61 | 17 |
+| 65 | 21 |
+| 69 | 25 |
+
+A message saying the runtime only recognizes an older number means that executable cannot load the newer class. The numbers follow the [JVM class-file specification](https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-4.html#jvms-4.1).
+
+## Could not reserve enough space / invalid heap size
+
+Possible causes include a 32-bit runtime, an excessive heap request, invalid memory flags, or insufficient available/committed memory.
+
+Verify the actual runtime architecture, then inspect `-Xms` and `-Xmx` in the effective launch command or `user_jvm_args.txt`. Leave headroom for Windows, the Minecraft client, other servers, and Java's non-heap memory. Do not keep increasing the heap when the process cannot reserve it.
+
+## Unable to access jarfile
+
+Check the exact filename, extension, location, working directory, and permissions. The launch command may reference a file that was moved, renamed, or never downloaded correctly.
+
+For Forge/NeoForge, confirm you are using the generated launcher rather than assuming the installer or a library JAR is the runnable server. This error alone does not prove another Java process has locked the file.
+
+## Failed to bind to port
+
+Check whether another process is listening on that address/port, and whether `server-ip` specifies an address that belongs to this computer.
+
+For a Java server on TCP `25565`, PowerShell can identify the listener:
+
+```powershell
+Get-NetTCPConnection -State Listen -LocalPort 25565 |
+  Select-Object LocalAddress, LocalPort, OwningProcess
+```
+
+Look up the owning PID in Task Manager. Stop the correct server normally or assign a different port; do not terminate every Java process. See Microsoft's [`Get-NetTCPConnection` reference](https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection).
+
+## Session lock / file in use
+
+A second server process, another tool, or a filesystem permission issue can prevent access. Confirm that no other instance is using the same world or server directory. Do not delete lock files while a process still owns the world.
+
+## EULA, mods, or missing libraries
+
+- For an EULA message, read and complete [the EULA step](/getting-started/first-server#3-complete-the-first-start) if you agree.
+- For missing dependencies, compare the Minecraft version, loader, mods, and required libraries with the pack's instructions.
+- For an error after a manual folder move, check relative paths and whether the full installation was copied.
+
+If it still fails, follow [Logs and support](/troubleshooting/logs-and-support) and include the complete relevant startup log with private data removed.

@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+@import 'fumadocs-openapi/css/preset.css';
+
+:root {
+  --color-fd-primary: #526b0d;
+  --color-fd-primary-foreground: #ffffff;
+}
+
+.dark {
+  --color-fd-primary: #abd037;
+  --color-fd-primary-foreground: #151a08;
+}
+
+body { font-family: Arial, Helvetica, sans-serif; }
+.prose img { max-width: 100%; height: auto; }

@@ -1,0 +1,64 @@
+---
+title: "Back up and restore a server"
+description: "Keep a consistent copy of the whole installation and prove that it can be restored."
+---
+
+A backup is useful when you can restore the server from it. Keep more than one generation and store an independent copy away from the active server's disk.
+
+## What to include
+
+- All world and dimension data used by the server.
+- Game configuration and player/access data.
+- Plugins or mods, their configuration, and their persistent data.
+- Server/loader binaries, launch scripts, and argument files needed to reproduce the installation.
+- MCSS configuration needed for your setup, kept separately as appropriate.
+- External databases or files used by extensions, backed up using their own consistency procedures.
+
+Do not assume that every distribution stores worlds in the same layout. Preserve the complete server directory when you are unsure.
+
+## Take a consistent manual backup
+
+1. Check MCSS restart policies and scheduled tasks so the server stays stopped during maintenance.
+2. Stop the game normally and wait for the process to exit.
+3. Copy or archive its complete directory to a separate destination.
+4. Record the Minecraft, loader/distribution, and Java versions with the backup.
+5. Open the archive and check that expected files are present.
+
+This is a conservative baseline for a filesystem copy. A backup while the game is writing files needs a procedure that coordinates saving and any external data. Do not assume an arbitrary live folder copy is consistent.
+
+## Create a backup with MCSS 13.10.0
+
+The following procedure was tested with a **stopped Paper 26.3 build 194** server on 16 October 2026.
+
+1. Wait for **Offline**, then open the server's **Backups** tab and choose **Create new Backup**.
+2. Enter a **Name** and an existing **absolute Destination** folder. Select the desired **Compression**; the test used **High compression**.
+3. Review **Blacklist**. The recovery test left it empty so no custom exclusions were requested.
+4. Leave **Delete old backups** unchecked for the first recovery test. The dialog describes a configurable retention count; deletion behavior was not exercised in this test.
+5. For this stopped-server procedure, clear **Suspend server**. Its description says it shuts down the server during the backup and starts it afterward; that automatic stop/start behavior was not tested here.
+6. Select **Backup now**, then choose **Backup**. Wait for **BACKUP DONE**, then inspect the ZIP in the destination.
+
+To run a saved template again, open its three-dot menu and choose **Run Backup**. That menu also provides **Edit** and **Schedule this Backup**. Creating a template does not by itself prove a scheduled backup has run.
+
+An exploratory relative destination (`backups`) was accepted by the form but ended in **BACKUP FAILED**. Retrying with an existing absolute destination succeeded. If a backup fails, retain the failure evidence, check the actual destination and archive, and do not treat a history entry as proof of recoverable data.
+
+### Scope checked in the test archive
+
+With an empty blacklist, the ZIP contained the world's saved scoreboard objective, `server.properties`, `eula.txt`, `paper.jar`, libraries, logs, per-server `mcss_server_config.json`, and text fixtures inside `plugins` and `mods`. The application-wide `resources/mcss_config.json` was outside this server-directory backup. Back it up separately when preserving an MCSS installation.
+
+The fixtures establish that those files were included; they do not verify a particular plugin, mod, or external database. A successful stopped-server backup does not establish consistent live backups or crash-consistency guarantees.
+
+## Test a restore
+
+Extract into a **new folder**, retain the backup, and use the original software/runtime combination. Keep the restored instance private and on an unused game port. Check automatic tasks before starting it.
+
+Join the restored server and inspect the world, player data, and important extensions. If a plugin uses an external database, isolate the restored instance from the live database before testing.
+
+In the 13.10.0 recovery test, the ZIP was extracted into a new folder and imported with **File → Import Server.. → Paper → Select server to import**, selecting `server.properties`. The restored world file matched the original SHA-256, and the started server returned the saved `mcss_recovery` objective to `scoreboard objectives list`. This verified server-side recovery of that marker; client login was not tested.
+
+Review the [import settings](/basic/import-server/supported-server-files) before starting. The tested import created a new MCSS server ID/configuration and did not retain the archived local Java override or backup templates. Do not assume importing the archive restores all MCSS automation.
+
+## Recover the live server
+
+Stop the broken instance first. Preserve its logs and files for diagnosis, then restore the known-good data and matching software as a unit. Verify it before reopening player access.
+
+Paper's [backup and update guidance](https://docs.papermc.io/paper/updating/) covers world and plugin data. For archive names in MCSS, see [Backup filenames](/backups/custom-filename).

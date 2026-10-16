@@ -1,0 +1,36 @@
+---
+title: "Create a Fabric server"
+description: "Use Fabric\u2019s server launcher and match the Minecraft, loader, and mod versions."
+---
+
+## Download the server launcher [#-download-fabric]
+
+Open [Fabric's server download page](https://fabricmc.net/use/server/). Select the Minecraft version and Fabric Loader version required by your mods, then download the **executable server JAR**.
+
+Use **File → New Server** in MCSS with that launcher JAR. Install the [required Java version](/advanced/java-version) and check the launcher's filename in your server settings.
+
+The server launcher is different from the Fabric client installer and from an individual mod. Keep any files and directories it creates alongside it.
+
+## Alternative: install a server folder first [#-create-the-fabric-server]
+
+If you need Fabric's manual installer workflow, follow the [official installation instructions](https://wiki.fabricmc.net/install), choose the server installation, and use a new empty directory.
+
+Retain the complete resulting directory, including the launcher, Minecraft server files, libraries, and loader data. The exact files depend on the chosen installation method and release.
+
+## Import an installed Fabric server [#-migrate-the-server-to-mcss]
+
+Use **File → Import Server** with a file from the server's base directory. Review the imported copy, then select the **Fabric server launcher** in the MCSS launch settings.
+
+If the configured command expects `fabric.jar`, make the selected launcher filename and command agree. Do not rename the Vanilla server dependency and accidentally launch that instead of Fabric.
+
+![Importing an installed Fabric server in MCSS](/img/docs/create-fabric/migrate_fabric.png)
+
+Complete the [first-start EULA step](/getting-started/first-server#3-complete-the-first-start) and confirm that the startup log identifies Fabric Loader.
+
+## Add mods and test
+
+Place server-compatible Fabric mods and their dependencies in this server's `mods` folder while it is stopped. Install Fabric API **if your mods require it**; it is a separate mod, not Fabric Loader itself.
+
+A client-only mod does not belong on a dedicated server. Install the matching client mod set where the selected mods require it. Then restart and check the logs before inviting players.
+
+For the general workflow and common dependency mistakes, see [Plugins and mods](/running/plugins-and-mods) and Fabric's [player guides](https://docs.fabricmc.net/players/).

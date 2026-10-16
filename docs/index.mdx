@@ -1,0 +1,48 @@
+---
+title: "MC Server Soft documentation"
+description: "Set up, run, and troubleshoot Minecraft servers with MCSS."
+---
+
+MC Server Soft (MCSS) manages Minecraft server processes on your Windows computer. You provide the server software, Java where needed, and the machine that runs it.
+
+These guides target **MCSS 13.10.0**. MCSS is **version agnostic**: use the Minecraft version and server software you need, then configure their runtime and startup requirements.
+
+<Cards>
+  <Card title="Run your first server" href="/getting-started/first-server" description="Choose software, install Java, start a server, and join locally." />
+  <Card title="Choose a Java version" href="/advanced/java-version" description="Requirements for 1.20.x, 1.21.x, and 26.x, with older versions separated." />
+  <Card title="Import an existing server" href="/basic/import-server/supported-server-files" description="Bring an existing world, configuration, and launcher into MCSS." />
+  <Card title="Let friends connect" href="/networking/troubleshooting" description="Test local, LAN, and internet access in that order." />
+  <Card title="Update and back up" href="/running/updating" description="Prepare, test, and recover from a server upgrade." />
+  <Card title="Build an API integration" href="/API/about" description="Enable access, create a key, and make your first request." />
+</Cards>
+
+## How the pieces fit together [#-introduction]
+
+| Component | Its job |
+| --- | --- |
+| MCSS | Start and manage your server processes; provide its management interface, web panel, and API. |
+| Minecraft server software | Run the game, load worlds, and implement the selected plugins or mods. |
+| Java | Run Java Edition server software. A Bedrock Dedicated Server uses its own executable instead. |
+| Your network | Determine who can reach the game server and any separately configured management service. |
+
+Updating Minecraft, Java, and MCSS are separate tasks. An MCSS update does not replace a modpack's loader or make an incompatible plugin work with a new Minecraft release.
+
+## Before you start [#-pre-requisites]
+
+Get MCSS from [mcserversoft.com](https://www.mcserversoft.com/). Then choose your [server software](/basic/supported-server-types), install its [required Java version](/advanced/java-version), and keep enough free memory and disk space for the game and backups.
+
+You do **not** need port forwarding to play on the same computer or local network. Set up [internet access](/networking/port-forwarding) only when you need it.
+
+## Existing and older installations [#-pre-requisites-older-versions]
+
+### MCSS 13 installations [#-pre-requisites-v13]
+
+Follow the prerequisites distributed with your MCSS release. For a missing Windows runtime or DLL, see [MCSS and Windows troubleshooting](/troubleshooting/mcss-and-windows); Java is a separate dependency for your game servers.
+
+### MCSS 12 and earlier [#-pre-requisites-v12]
+
+Older MCSS releases can have different dependencies and controls. Check the [official changelogs](https://www.mcserversoft.com/changelogs) before upgrading and preserve a copy of your existing installation and server data.
+
+## Help improve the guides [#-contribute]
+
+Use **Edit on GitHub** on a page to suggest a correction. For a problem you cannot resolve, collect the details in [Logs and support](/troubleshooting/logs-and-support) and contact [MCSS support](https://www.mcserversoft.com/discord).

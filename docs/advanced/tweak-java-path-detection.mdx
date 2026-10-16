@@ -1,0 +1,30 @@
+---
+title: "Java Path Picker search locations"
+description: "Add a custom Java installation directory without changing server launch requirements."
+---
+
+Use an explicit [Java path override](/advanced/java-path-update) when you already know the executable. Add a search location when you want MCSS's **Java Path Picker** to discover an installation in a nonstandard directory.
+
+![Java Path Picker in MCSS](/img/docs/java-path/java-path-picker.png)
+
+## Add a search location [#-edit-locations]
+
+The MCSS configuration exposes `potentialInstalledJavaLocations` in `resources\mcss_config.json`.
+
+1. Close MCSS completely before editing its configuration.
+2. Make a copy of the configuration file.
+3. Open the file and find the existing `potentialInstalledJavaLocations` array.
+4. Append your installation's parent directory, keeping the existing entries and valid JSON syntax.
+5. Save the file, reopen MCSS, and check the picker.
+
+For example, an additional directory entry could be:
+
+```json
+"D:\\Java"
+```
+
+Windows backslashes must be doubled inside JSON strings. Do not paste `...` placeholders into the actual file or replace unrelated settings.
+
+Typical provider locations include `C:\Program Files\Java` and `C:\Program Files\Eclipse Adoptium`, but use the directory that exists on **your** machine. ZIP installations can be anywhere you extracted them.
+
+Discovering Java does not select it for every server. After it appears, choose the correct executable in the [global or per-server settings](/advanced/java-path-update) and verify its major version.

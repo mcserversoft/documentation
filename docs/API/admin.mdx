@@ -1,0 +1,33 @@
+---
+title: "Admin permission"
+description: "Distinguish MCSS administration from per-server access and permissions."
+---
+
+Administrative permission grants powerful MCSS-level functionality. It is distinct from server access: making a user or key an administrator is not the same as assigning every server to it.
+
+Give ordinary server-control integrations only the server access and actions they need. Grant admin permission deliberately for an integration that manages users, keys, or other protected MCSS resources.
+
+## User-management routes
+
+The supplied reference describes these user-management operations as requiring admin rights:
+
+| Method | Route pattern | Purpose |
+| --- | --- | --- |
+| GET | `/api/v2/users` | List users. |
+| GET | `/api/v2/users/:userId` | Read one user. |
+| POST | `/api/v2/users` | Create a user. |
+| PUT | `/api/v2/users/:userId` | Update a user. |
+| DELETE | `/api/v2/users/:userId` | Delete a user. |
+| POST | `/api/v2/users/wipe/sessions` | Wipe active sessions. |
+
+Here `:userId` denotes the actual user identifier. Refer to the [Users reference](/apis/v2#tag/Users) for the supplied request and response definitions.
+
+This table is not an exhaustive authorization matrix for MCSS 13.10.0. The supplied API export also includes key-management and application-setting operations; check their endpoint descriptions and verify permissions on your instance.
+
+The 16 October 2026 Windows investigation found **unresolved differences between configured API-key permissions and observed responses**, including management reads and access to an unassigned server. Some responses changed after restarting MCSS. Restricted panel sessions received 403 for unassigned-server statistics and user administration in the tested cases. Do not treat the reference table or hidden controls as proof that an API-key restriction is enforced; the discrepancy needs maintainer review. No API contract has been rewritten to imply a diagnosis or guarantee.
+
+## Check an integration's access
+
+Test read-only requests with its own key before adding write operations. Confirm the intended servers are visible, then test the permitted operation in a noncritical environment. Review access again if the integration gains new responsibilities.
+
+Avoid using an admin key as a shortcut for diagnosing a bad URL, wrong server ID, or missing per-server assignment. See [API setup](/API/about) for authentication and version checks.

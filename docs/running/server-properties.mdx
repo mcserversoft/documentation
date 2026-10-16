@@ -1,0 +1,33 @@
+---
+title: "Edit server.properties"
+description: "Change game settings deliberately and use the reference for your exact server release."
+---
+
+`server.properties` belongs to the Minecraft server, not to MCSS. Java Edition and Bedrock Dedicated Server have different property sets despite using the same filename.
+
+Stop the server, save a copy of the file, and change only the settings you intend to test. Start the server again and check whether the change took effect. MCSS also exposes some options in its [Minecraft settings pane](/basic/server-settings/accessing-server-settings#-mcss-minecraft-settings).
+
+## Common Java Edition settings
+
+| Property | What to check |
+| --- | --- |
+| `server-port` | The game's listening port. Use distinct ports for servers running on the same address. |
+| `server-ip` | Usually leave empty for a straightforward home server. It is a local bind address, not your router's public address. |
+| `online-mode` | Keep account authentication enabled for a directly accessible server. Proxy setups require their own documented authentication and isolation arrangement. |
+| `white-list` | Restricts joining to the allowlist; manage entries using the server's own commands. |
+| `motd` | Description displayed in the multiplayer server list. |
+| `difficulty` / `gamemode` | Gameplay settings; check the selected release's accepted values. |
+| `view-distance` / `simulation-distance` | World delivery and simulation settings; increasing them can increase server workload. |
+| `level-name` | The configured world name. Changing it may make the server load or create a different world. |
+
+This is a starting point, not a complete list. Some settings change across releases. Use [Paper's property reference](https://docs.papermc.io/paper/reference/server-properties/) for Paper, and the files/release notes supplied with your chosen software for other servers.
+
+## Make one change at a time
+
+Keep a short record of the old value, new value, and reason. If the server fails to start after an edit, restore the previous file and test again. Avoid deleting a world merely because a configuration mistake makes it appear to be missing.
+
+## Bedrock Dedicated Server
+
+Use Microsoft's [Bedrock property reference](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties). Do not paste Java-only settings into a Bedrock file or assume its port/protocol matches Java.
+
+For client connection problems, return to [Connection troubleshooting](/networking/troubleshooting) before making more gameplay changes.

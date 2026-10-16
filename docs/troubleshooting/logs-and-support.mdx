@@ -1,0 +1,37 @@
+---
+title: "Logs and support"
+description: "Collect a reproducible report while removing credentials and private data."
+---
+
+A useful report says what you tried, what you expected, and what happened. Include text logs where possible so the error can be searched and read in context.
+
+## Record the environment
+
+- MCSS version, for example **13.10.0**, and Windows version/architecture.
+- Minecraft version and exact server distribution or loader build.
+- Java version **from the executable the server uses**, plus the launch method.
+- Modpack release, plugins/mods, and recent changes.
+- The exact error and approximate time it occurred.
+- Whether a restored or minimal test installation reproduces the issue.
+
+For a connection problem, include which [local/LAN/internet test stage](/networking/troubleshooting) fails, the game protocol/port, and whether you use NAT, a VPN, or a tunnel. Do not post router credentials or a complete private network inventory.
+
+## Collect the relevant logs
+
+MCSS application logs are in the installation's `logs` folder. Game servers commonly write `logs/latest.log`; a modded server may also create a crash report. Keep the startup context and the error, not just the final line.
+
+If the Windows application itself crashes, check **Event Viewer → Windows Logs → Application** around that time. Capture the matching event's details rather than exporting unrelated system history.
+
+## Remove private information
+
+Make a copy before redacting. Remove API keys, session tokens, passwords, webhook secrets, personal paths, and other private data. Log output and command lines can contain credentials. Never share an entire MCSS configuration or server folder just to provide one error.
+
+If the output was already shared with a real credential in it, revoke/replace that credential; deleting the public message is not sufficient recovery.
+
+## Send the report to the right project
+
+- MCSS UI, importing, process control, panel, or API behavior: [MCSS support](https://www.mcserversoft.com/discord).
+- A loader/mod/plugin error reproducible outside MCSS: the relevant project or pack author, following its reporting instructions.
+- ISP addressing or router administration: your ISP or router vendor.
+
+Include reproducible steps and the smallest relevant set of logs. There is no need to attach a large world unless the maintainer asks for one and you have checked what it contains.

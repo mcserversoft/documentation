@@ -1,0 +1,35 @@
+---
+title: "Install plugins and mods"
+description: "Match the server platform, Minecraft version, loader, and dependencies before adding extensions."
+---
+
+A plugin and a mod can both be a JAR, but they target different software. Pick the extension for the server you actually run.
+
+| Your server | Typical extension type |
+| --- | --- |
+| Vanilla | Data packs supported by that Minecraft version; no built-in Paper or mod-loader support. |
+| Paper / Spigot | Plugins explicitly compatible with the selected platform and Minecraft version. |
+| Fabric | Fabric mods, plus any required dependencies such as Fabric API. |
+| Forge | Mods for the selected Forge/Minecraft combination. |
+| NeoForge | Mods for the selected NeoForge/Minecraft combination. |
+
+## Install a Paper plugin
+
+1. Get the release from its author or a trusted project listing, checking its supported versions and dependencies.
+2. Stop the server and back up the configuration and plugin data you may change.
+3. Put the correct plugin JAR in the server's `plugins` directory. Keep only the intended version of that plugin.
+4. Start the server and inspect the log for dependency or loading errors.
+
+On Paper, `plugins` in the console can help check what loaded. Use a full restart for installation and updates rather than relying on a reload command. See [Paper's plugin guide](https://docs.papermc.io/paper/adding-plugins/) and [command reference](https://docs.papermc.io/paper/reference/commands/).
+
+## Install mods
+
+Use the loader's `mods` directory and follow each mod's instructions. Match the **Minecraft version, loader, mod version, dependencies, and side**. A client-only rendering mod should not be added to a dedicated server; a mod affecting both sides may also need the matching client installation.
+
+For a modpack, use the pack author's release as a unit. Randomly replacing individual mods with their newest builds can break that tested combination. Fabric's [mod installation guidance](https://docs.fabricmc.net/players/installing-mods) explains loader and dependency checks.
+
+## If an extension fails
+
+Read the first relevant loading error and its dependency names. Confirm that the file is not an incomplete download, a different loader's mod, or a duplicate version. Test changes in a copy of the server rather than removing data-producing mods from your only world.
+
+Extension code runs on your server computer. Download it from a source you trust, and keep backups of both world data and extension configuration.

@@ -1,0 +1,56 @@
+---
+title: "Players cannot connect"
+description: "Find out whether the problem is the game process, LAN, or internet route before changing settings."
+---
+
+Test in order. A failure on the same computer will not be fixed by changing a router rule.
+
+## 1. Confirm the game is ready
+
+Read the server startup output and `logs/latest.log` where the server provides it. Resolve [startup errors](/troubleshooting/startup) first. Check that you are testing the game port, not the MCSS web panel/API port.
+
+Use the correct edition and Minecraft version. For a modpack, use its required client release and mod set. A version mismatch or login error is different from a timeout.
+
+## 2. Test from the server computer
+
+For Java Edition, join `localhost:25565`, replacing the port if you changed it.
+
+| Result | What to check next |
+| --- | --- |
+| Connection refused | Is the process running and listening on this port? Did startup finish? |
+| Timeout | Check listening address, local filtering, and whether you selected the correct service. |
+| Version/mod/login message | Read the specific message; the network connection may already be working. |
+| You can join | Continue to the LAN test. |
+
+For Bedrock, use the matching client and the Bedrock server's official setup instructions; its UDP traffic is not tested by the TCP command below.
+
+## 3. Test from a second LAN device
+
+Use the server computer's [LAN address](/networking/find-ip), for example `192.168.1.50:25565`. If localhost works but LAN does not, check [Windows Firewall](/networking/windows-firewall), guest-network isolation, VPNs, and interface binding.
+
+For a simple direct Java server, `server-ip=` is normally left blank. Do not enter your router's public address into that field. See [server properties](/running/server-properties).
+
+On a second Windows computer, this PowerShell command can test the TCP connection:
+
+```powershell
+Test-NetConnection -ComputerName 192.168.1.50 -Port 25565
+```
+
+Replace both values. `TcpTestSucceeded: True` checks transport reachability, not Minecraft compatibility. Microsoft's [`Test-NetConnection` reference](https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection) describes the result fields.
+
+## 4. Test from outside your network
+
+Use a separate internet connection and the public or tunnel address. If LAN works but internet access fails, check:
+
+- [Port forwarding](/networking/port-forwarding), including the protocol and destination address.
+- Double NAT or ISP CGNAT.
+- A public address that changed, or a DNS record pointing elsewhere.
+- A disconnected [tunnel agent](/advanced/using-playit.gg-with-mcss), or a tunnel aimed at the wrong local service.
+
+If friends can join but you cannot join through your public address from home, the router may not support **NAT loopback/hairpinning**. Use the LAN address locally. That symptom alone does not establish that your ISP is blocking loopback traffic.
+
+## 5. If it fails intermittently
+
+Check whether the server process exits, the computer sleeps, the LAN address changes, or the internet/tunnel connection drops. A DHCP reservation can stabilize the LAN address; it does not prevent a public IPv4 address from changing.
+
+Record the time of a failure and compare the MCSS, game, and tunnel logs. For help, include which of the four test stages fails and the exact client message in your [support report](/troubleshooting/logs-and-support).

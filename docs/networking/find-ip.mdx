@@ -1,0 +1,48 @@
+---
+title: "Find the right address"
+description: "Use localhost, a LAN address, or a public address according to where the player connects from."
+---
+
+The address you give a player depends on where they are. These examples use a Java Edition server on port `25565`; replace that with your game port.
+
+| Player location | Address to use | Example |
+| --- | --- | --- |
+| The server computer itself | `localhost` or `127.0.0.1` | `localhost:25565` |
+| Another device on the same LAN | The server computer's LAN IPv4 address | `192.168.1.50:25565` |
+| Outside your network, using IPv4 forwarding | Your public address or DNS name | `your-public-address:25565` |
+| Through a game tunnel | The address assigned by the tunnel service | Use exactly what the tunnel dashboard supplies. |
+
+`localhost` always means **the device making the connection**. It never means another computer just because MCSS is running there.
+
+## Find your LAN address on Windows
+
+Open Command Prompt and run:
+
+```cmd
+ipconfig
+```
+
+Find the connected Ethernet or Wi-Fi adapter. Note its **IPv4 Address** and **Default Gateway**. Virtual machine, VPN, and disconnected adapters can show other addresses; choose the adapter on the network your players use.
+
+Example only:
+
+```text
+IPv4 Address:   192.168.1.50
+Default Gateway: 192.168.1.1
+```
+
+Here `192.168.1.50` is the server computer, while `192.168.1.1` is the router. See Microsoft's [`ipconfig` reference](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig).
+
+## Find your public IPv4 address
+
+Check the router's WAN/Internet status and compare it with an external IP lookup, such as [What Is My IP Address](https://whatismyipaddress.com/). Do this from the server's network, accounting for any VPN that changes its route.
+
+A LAN address such as `192.168.1.50` cannot be used directly by a friend on the internet. If your router's WAN address is private or shared, see [double NAT and CGNAT](/networking/port-forwarding#-step-1).
+
+## IPv6 addresses
+
+An IPv6 address can be normal. Internet access still requires a suitable address, routing, and firewall rules at both ends. A link-local address beginning with `fe80:` is not a public internet address.
+
+Java address fields can use brackets when combining an IPv6 address and port, for example `[your-ipv6-address]:25565`. Use a DNS name where practical and test from the player's network. Do not open every firewall port merely because IPv6 does not use the usual IPv4 port-forwarding setup.
+
+If your address changes over time, a router DHCP reservation can stabilize the LAN destination, and an appropriate dynamic DNS service can keep a public hostname current.

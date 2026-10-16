@@ -1,0 +1,43 @@
+---
+title: "Connect through a playit.gg tunnel"
+description: "Use a game tunnel when you cannot provide direct incoming IPv4 connectivity."
+---
+
+## What the tunnel does [#-introduction]
+
+A playit agent on your computer connects outward to the service and relays incoming game traffic back to your server. Players use the assigned public address. You still host the game on your own computer.
+
+Start with a working local game server. A tunnel does not fix startup errors, the wrong Java version, or an incompatible client.
+
+## 1. Get the agent [#-step-1]
+
+Use the [official playit download](https://playit.gg/download/windows) and follow its account/linking instructions. Choose the agent installation for the computer that will forward traffic to your game server.
+
+Service plans, tunnel limits, and dashboard labels can change. Check [playit's support pages](https://playit.gg/support/) rather than relying on an old screenshot or pricing promise.
+
+## 2. Create the game tunnel [#-step-2]
+
+Choose the tunnel type for your game: **Minecraft Java** for a Java server, or the appropriate **Bedrock/UDP** setup for a Bedrock listener.
+
+Set the local destination to the running game server:
+
+| Agent location | Local destination example |
+| --- | --- |
+| Same computer as the game | `127.0.0.1` and the game port, such as `25565`. |
+| Another computer on the LAN | The server computer's LAN address and game port, with firewall access from the agent. |
+
+The tunnel's public port and local game port do not have to be the same. Use the values shown for each side of the tunnel.
+
+## 3. Join through the assigned address [#-step-3]
+
+Use the join address supplied by the tunnel dashboard. Include a port when it is part of that address; do not append your local port just because it is `25565`. A supplied hostname may already include the routing information the game needs.
+
+Keep both the game server and agent running. Test with a matching game client and check the dashboard/agent status if the connection fails.
+
+If local access works but the tunnel fails, confirm the tunnel type, agent, local address, local port, and whether a VPN changes the route. For provider-specific errors, use [playit support](https://playit.gg/support/).
+
+## Remote administration is separate [#-using-playit-for-the-panel]
+
+A tunnel aimed at a game port does not expose the MCSS web panel. If you deliberately need remote management, follow [the panel guide](/webpanel/getting-started) and use a separately configured service with appropriate access controls and HTTPS.
+
+Do not assume a raw TCP relay supplies HTTPS, validates a certificate, or adds authentication. Avoid making a management endpoint public simply to let friends join the game.

@@ -1,0 +1,90 @@
+---
+title: "Frequently asked questions"
+description: "Quick answers with links to setup and troubleshooting guides."
+---
+
+## Why can nobody connect? [#-faq-unable-to-connect]
+
+Follow [Connection troubleshooting](/networking/troubleshooting): game ready, localhost, LAN, then internet. Use the game port rather than the panel/API port.
+
+## What does “Could not reserve enough space” mean? [#-faq-error-initialization-vm]
+
+Check runtime architecture, available memory, and the actual heap flags. It is not always a 32-bit Java problem. See [Startup errors](/troubleshooting/startup#could-not-reserve-enough-space--invalid-heap-size).
+
+## Why does it say “Failed to bind to port”? [#-faq-failed-bind-port]
+
+Another listener or an invalid bind address can cause this. Identify the relevant process and check `server-ip`; do not kill every Java process. See [the port diagnostic](/troubleshooting/startup#failed-to-bind-to-port).
+
+## A file or world is locked [#-faq-file-locked]
+
+Check for another server instance using the same directory before retrying. Do not delete lock files from a world that is still running. See [Startup errors](/troubleshooting/startup#session-lock--file-in-use).
+
+## My server does not start [#-faq-trouble-starting-server]
+
+### There is little or no console output [#-faq-console-empty]
+
+Verify the [Java executable](/advanced/java-path-update), launcher filename, working directory, and access permissions. Lack of console output is a symptom, not proof that Java is missing.
+
+### The console shows errors [#-faq-server-error]
+
+Use [Startup errors](/troubleshooting/startup) and preserve the full relevant log. Match the exact game, loader, and modpack versions before changing multiple settings.
+
+## Console commands or dashboard actions do not work [#-faq-console-commands-fail]
+
+Check whether the server is accepting console input and whether the launcher keeps the intended process attached. Preserve the startup command and server distribution/build for support.
+
+Older guides suggested JLine-related flags for Bukkit/Bungee-based software. Do not apply those flags to every modern server without checking that release's options. See [Logs and support](/troubleshooting/logs-and-support).
+
+## Can I run NeoForge, Quilt, or a newer Minecraft version? [#-faq-unsupported-servers]
+
+MCSS is version agnostic. Use the server's required runtime and launcher. This does not make mods for different loaders compatible. See [Choose server software](/basic/supported-server-types) and [NeoForge](/basic/create-server/NeoForge/create-neoforge-server).
+
+## MCSS crashed but Minecraft is still running [#-faq-crash]
+
+Stop the game normally if possible before restarting it through MCSS. Forced termination can lose unsaved data. See [Process recovery](/troubleshooting/mcss-and-windows#mcss-closed-but-the-game-is-still-running).
+
+## Is MCSS available for macOS or Linux? [#-faq-mac-linux-support]
+
+MCSS is a Windows application. Java's availability on another operating system does not itself make the MCSS application available there. Get current product information from [mcserversoft.com](https://www.mcserversoft.com/).
+
+## Will my server run 24/7? [#-faq-24-7]
+
+It runs on your computer. The machine must stay powered, awake, and connected, and the game process must keep running. Local hosting does not provide independent uptime when that computer shuts down.
+
+## Can I manage it remotely? [#-faq-remote-control]
+
+Use the [web panel](/webpanel/getting-started) for browser management or the [API](/API/about) for an integration. Remote administration is separate from letting people join Minecraft.
+
+## CPU/RAM graphs look wrong [#-faq-dashboard-stats-stuck]
+
+### Java startup-line servers [#-faq-stats-normal]
+
+Check the selected Java executable and compare the actual process with Task Manager. A frozen graph alone does not establish the cause. See [Monitoring checks](/troubleshooting/performance#mcss-cpuram-graphs-do-not-match-expectations).
+
+### Batch-file servers [#-faq-stats-bat]
+
+Inspect the executable invoked by the script as well as MCSS's overrides. Include the launch method in a report if the graph remains incorrect.
+
+## Opening the console reports a Scintilla/DLL error [#-faq-dll-crash]
+
+Check the MCSS release's native prerequisites and capture the exception. See [Missing runtime troubleshooting](/troubleshooting/mcss-and-windows#missing-scintilla-or-visual-c-runtime).
+
+## An older installation asks about process names [#-faq-process-name-format]
+
+That prompt was documented for MCSS 11.5. Do not apply its registry change as a general 13.10.0 setup step. See [Historical Windows remedies](/troubleshooting/mcss-and-windows#process-name-or-performance-counter-prompts-on-older-installations).
+
+## MCSS reports a performance-counter error [#-faq-failed-performance-counters]
+
+Keep the exact message and ask support about that condition. Administrator counter-repair commands are not a general fix for Minecraft lag. See [MCSS and Windows](/troubleshooting/mcss-and-windows).
+
+## Why do I have a long IPv6 address? [#-faq-ipv6]
+
+IPv6 addresses are normal. Reachability depends on the address, routing, and firewall rules. Use [the address guide](/networking/find-ip#ipv6-addresses) instead of assuming every IPv6 address is public or reachable.
+
+## How do I report an MCSS crash? [#-faq-mcss-crashed-help-out]
+
+Follow [Logs and support](/troubleshooting/logs-and-support), including the version, reproduction steps, and matching error logs with private information removed.
+
+## Why are characters garbled? [#-faq-utf8]
+
+Find which file or console stream is affected and record the runtime. Modern Java's UTF-8 default does not settle every Windows encoding issue. See [Encoding troubleshooting](/troubleshooting/mcss-and-windows#character-encoding-problems).

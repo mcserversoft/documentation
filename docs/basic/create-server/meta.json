@@ -1,0 +1,9 @@
+{
+  "title": "Server installation",
+  "pages": [
+    "sourcing-server-file",
+    "Fabric",
+    "Forge",
+    "NeoForge"
+  ]
+}

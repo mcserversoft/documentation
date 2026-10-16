@@ -1,0 +1,40 @@
+---
+title: "Backup filenames"
+description: "Use MCSS backup-name placeholders while keeping names unique across runs and servers."
+---
+
+In **File → Options** (or the left navigation's **Settings**), scroll to **Backup → ZIP File Format**. MCSS 13.10.0 displayed this default:
+
+```text
+[backupname]_[unix]
+```
+
+If the format is invalid, the documented behavior is to use the default. Test a custom format with a noncritical backup before relying on it.
+
+## Example [#-example]
+
+A useful pattern identifies the server, backup, and run:
+
+```text
+[servername]_[backupname]_[unix]
+```
+
+Use the format field as intended by the interface; inspect the resulting filename rather than assuming you should add a second `.zip` extension.
+
+[![MCSS 13.10.0 Backup settings showing ZIP File Format and Delete Old Backups Threshold](/img/docs/backups/filename-and-retention-13-10-0.png)](/img/docs/backups/filename-and-retention-13-10-0.png)
+
+## Available placeholders [#-parameters]
+
+| Placeholder | Meaning |
+| --- | --- |
+| `[date]` | Date formatted using Windows regional settings. |
+| `[time]` | Time formatted using Windows regional settings. |
+| `[unix]` | Unix timestamp. |
+| `[backupname]` | The configured backup name. |
+| `[servername]` | The server name. |
+
+A date-only pattern can repeat within the same day. Multiple servers using a shared destination can also produce collisions if the name does not identify the server. A timestamp improves separation, but verify uniqueness for your actual schedule rather than assuming unlimited timestamp precision.
+
+A descriptive filename does not prove that the archive is complete. Keep several generations and follow the [restore-testing workflow](/backups/backup-and-restore).
+
+On 16 October 2026, the default format produced `recovery-check_1792106275.zip` from a backup named `recovery-check`. The other placeholders and invalid-format fallback are displayed/described by the interface but were not individually exercised in that test. The global retention field describes a range of 1–100; automatic deletion was not tested.
