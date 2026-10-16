@@ -15,13 +15,19 @@ Keep your server in its own folder. Do not use your Minecraft client's installat
 
 ## 2. Create the MCSS server
 
-In MCSS, open **File → New Server** and select the downloaded server JAR. Complete the creation dialog for your server, then review the [server execution settings](/basic/server-settings/accessing-server-settings).
+On the welcome screen, choose **Create**, or open **File → New Server..**. Choose the server type, such as **Paper**, then use **Select file** to select its JAR.
+
+[![MCSS 13.10.0 server-type chooser, with Paper among the available choices](/img/docs/create-server/select-server-type-13-10-0.png)](/img/docs/create-server/select-server-type-13-10-0.png)
+
+Fill in **Name**, **RAM**, **Port**, and **Folder Name**; the folder name initially follows the name you enter. Read the linked Minecraft EULA and select **Accept the Minecraft EULA** only if you agree. Choose **Create Server**, then review the [server execution settings](/basic/server-settings/accessing-server-settings).
+
+In a Paper creation test on MCSS 13.10.0, MCSS copied the selected JAR into the new server folder as `paper.jar`. Keep your downloaded original separately.
 
 Confirm the launcher filename and [Java executable](/advanced/java-path-update). Set an initial memory allocation that leaves room for Windows and other applications. A small test server is a useful baseline; increase its memory when the workload justifies it.
 
 ## 3. Complete the first start
 
-Start the server and read its console output. On the initial run, Minecraft may create `eula.txt` and exit until you accept its terms.
+Choose **Start** and read the **Console**. MCSS 13.10.0 allows creation with EULA acceptance unchecked; in the tested Paper workflow it writes `eula.txt` with `eula=false`, and Paper exits with an EULA message. If you already accepted during creation, this step may already be complete.
 
 Read the [Minecraft EULA](https://www.minecraft.net/en-us/eula). If you agree, edit the generated file while the server is stopped:
 
@@ -29,7 +35,11 @@ Read the [Minecraft EULA](https://www.minecraft.net/en-us/eula). If you agree, e
 eula=true
 ```
 
-Start again. Wait for the server to report that startup is complete; a process appearing in MCSS is not enough to prove that the game is ready. If startup fails, use [Startup errors](/troubleshooting/startup).
+Start again. For Paper, wait for its `Done (...)! For help, type "help"` console message and check that MCSS reports **Online**. A process appearing in MCSS is not enough to prove that the game is ready. If startup fails, use [Startup errors](/troubleshooting/startup).
+
+[![MCSS 13.10.0 running a restored Paper test server, with Online status, readiness output, and the saved scoreboard objective](/img/docs/getting-started/running-paper-server-13-10-0.png)](/img/docs/getting-started/running-paper-server-13-10-0.png)
+
+To stop normally, choose **Stop** and wait for the save/shutdown output and **Offline** status. **Kill** is a separate forced-termination control. Start the stopped server again with **Start**.
 
 ## 4. Join from the same computer
 
@@ -52,3 +62,5 @@ Once you can join, stop the server normally and create your first [backup](/back
 For a failure at any stage, follow the [local → LAN → internet test sequence](/networking/troubleshooting).
 
 The download and Java steps follow [Mojang's server instructions](https://www.minecraft.net/en-us/download/server) and [Paper's setup guide](https://docs.papermc.io/paper/getting-started/).
+
+Creation, Java selection, EULA failure, startup, and normal shutdown were tested on **MCSS 13.10.0 with Paper 26.3 build 194 and Temurin 25.0.4.1**, on 16 October 2026. Joining with a Minecraft client was not part of that test.

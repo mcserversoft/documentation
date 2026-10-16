@@ -1,0 +1,1459 @@
+{
+  "date": "2026-10-16",
+  "mcss": "13.10.0",
+  "api": "2.4.1",
+  "scope": "Disposable local Windows installation. Observations are sequence-specific; unexpected authorization results remain unresolved.",
+  "transport": "HTTPS on 127.0.0.1:25560. Standard certificate-chain validation failed. Credentialed test requests used an exact public-certificate pin checked before sending HTTP headers; the listener process was separately verified. This is a lab harness, not a recommended browser or production trust workaround.",
+  "redactions": "Credentials, personal paths, instance identifiers and non-loopback addresses replaced. JSON response bodies parsed without changing their fields. Only relevant response headers retained.",
+  "initialApiKeySequence": [
+    {
+      "label": "Standard hostname validation",
+      "error": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+    },
+    {
+      "label": "No credential",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {}
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Invalid credential",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Administrator version",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "isDevBuild": false,
+          "mcssVersion": "13.10.0",
+          "mcssApiVersion": "2.4.1",
+          "uniqueIdentifier": "<test-id-01>",
+          "youAreAwesome": true
+        }
+      }
+    },
+    {
+      "label": "Restricted version",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "isDevBuild": false,
+          "mcssVersion": "13.10.0",
+          "mcssApiVersion": "2.4.1",
+          "uniqueIdentifier": "<test-id-01>",
+          "youAreAwesome": true
+        }
+      }
+    },
+    {
+      "label": "Administrator discovery",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "serverId": "<example-server-id>",
+            "status": 1,
+            "name": "Example Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Example Paper\\",
+            "folderName": "Example Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:11:57.4295369+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          },
+          {
+            "serverId": "<recovery-server-id>",
+            "status": 1,
+            "name": "Recovery Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Recovery Paper\\",
+            "folderName": "Recovery Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:19:51.5697886+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Restricted discovery",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "serverId": "<example-server-id>",
+            "status": 1,
+            "name": "Example Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Example Paper\\",
+            "folderName": "Example Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:11:57.4295369+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          },
+          {
+            "serverId": "<recovery-server-id>",
+            "status": 1,
+            "name": "Recovery Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Recovery Paper\\",
+            "folderName": "Recovery Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:19:51.5697886+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Restricted assigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<example-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": 0,
+            "memoryUsed": 733,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 0,
+            "startDate": 1792106705
+          }
+        }
+      }
+    },
+    {
+      "label": "Restricted unassigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<recovery-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": 0,
+            "memoryUsed": 955,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 0,
+            "startDate": 1792106598
+          }
+        }
+      }
+    },
+    {
+      "label": "Restricted console read",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<example-server-id>/console?AmountOfLines=3",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          "[01:25:05] [MCSS][Info] == === ==",
+          "[01:25:05] [MCSS][Info] You can hide this message in the settings from 'File > Options - Console' or type 'disable_startup_help'.",
+          "[01:25:05] [MCSS][Info] == === =="
+        ]
+      }
+    },
+    {
+      "label": "Restricted console command",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/servers/<example-server-id>/execute/command",
+        "headers": {
+          "apiKey": "<redacted>"
+        },
+        "body": {
+          "command": "scoreboard objectives list"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Restricted power action",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/servers/<example-server-id>/execute/action",
+        "headers": {
+          "apiKey": "<redacted>"
+        },
+        "body": {
+          "action": 1
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Restricted user administration",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": []
+      }
+    },
+    {
+      "label": "Administrator user administration",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": []
+      }
+    },
+    {
+      "label": "Administrator console command",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/servers/<example-server-id>/execute/command",
+        "headers": {
+          "apiKey": "<redacted>"
+        },
+        "body": {
+          "command": "scoreboard objectives list"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Browser origin preflight",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/api/v2/servers/<example-server-id>/stats",
+        "headers": {
+          "Origin": "http://localhost:3000",
+          "Access-Control-Request-Method": "GET",
+          "Access-Control-Request-Headers": "apiKey"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "http://localhost:3000",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400",
+          "vary": "Origin"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Historical v1 root",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "status": 404,
+          "message": "The requested resource does not exist on this server"
+        }
+      }
+    }
+  ],
+  "afterApplicationRestart": [
+    {
+      "label": "Restricted users first",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 403,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Restricted recovery stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<recovery-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": null,
+            "memoryUsed": null,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 20,
+            "startDate": 0
+          }
+        }
+      }
+    },
+    {
+      "label": "Invalid users",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Administrator users",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "userId": "<test-id-02>",
+            "username": "documentation-admin",
+            "enabled": true,
+            "isAdmin": true,
+            "hasAccessToAllServers": true,
+            "customServerPermissions": {},
+            "createdAt": "2026-10-15T23:35:33.4317015Z",
+            "lastModifiedAt": "2026-10-15T23:35:33.4317015Z"
+          },
+          {
+            "userId": "<test-id-03>",
+            "username": "documentation-reader",
+            "enabled": true,
+            "isAdmin": false,
+            "hasAccessToAllServers": false,
+            "customServerPermissions": {
+              "<example-server-id>": {
+                "viewStats": true,
+                "viewConsole": false,
+                "useConsole": false,
+                "useServerActions": false,
+                "editServer": false,
+                "viewBackups": false,
+                "createBackup": false,
+                "editBackup": false,
+                "deleteBackups": false,
+                "triggerBackup": false,
+                "viewSchedulerTasks": false,
+                "createSchedulerTask": false,
+                "editSchedulerTask": false,
+                "deleteSchedulerTasks": false,
+                "triggerSchedulerTask": false
+              }
+            },
+            "createdAt": "2026-10-15T23:35:33.8221638Z",
+            "lastModifiedAt": "2026-10-15T23:35:33.8221638Z"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Restricted keys",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/keys",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "apiKeyId": "<test-id-04>",
+            "name": "Documentation administrator",
+            "isAdmin": true,
+            "hasAccessToAllServers": true,
+            "customServerPermissions": {},
+            "createdAt": "2026-10-15T23:28:09.5133819Z"
+          },
+          {
+            "apiKeyId": "<test-id-05>",
+            "name": "Documentation restricted",
+            "isAdmin": false,
+            "hasAccessToAllServers": false,
+            "customServerPermissions": {
+              "<example-server-id>": {
+                "viewStats": true,
+                "viewConsole": false,
+                "useConsole": false,
+                "useServerActions": false,
+                "editServer": false,
+                "viewBackups": false,
+                "createBackup": false,
+                "editBackup": false,
+                "deleteBackups": false,
+                "triggerBackup": false,
+                "viewSchedulerTasks": false,
+                "createSchedulerTask": false,
+                "editSchedulerTask": false,
+                "deleteSchedulerTasks": false,
+                "triggerSchedulerTask": false
+              }
+            },
+            "createdAt": "2026-10-15T23:29:57.7011809Z"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Administrator keys",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/keys",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "apiKeyId": "<test-id-04>",
+            "name": "Documentation administrator",
+            "isAdmin": true,
+            "hasAccessToAllServers": true,
+            "customServerPermissions": {},
+            "createdAt": "2026-10-15T23:28:09.5133819Z"
+          },
+          {
+            "apiKeyId": "<test-id-05>",
+            "name": "Documentation restricted",
+            "isAdmin": false,
+            "hasAccessToAllServers": false,
+            "customServerPermissions": {
+              "<example-server-id>": {
+                "viewStats": true,
+                "viewConsole": false,
+                "useConsole": false,
+                "useServerActions": false,
+                "editServer": false,
+                "viewBackups": false,
+                "createBackup": false,
+                "editBackup": false,
+                "deleteBackups": false,
+                "triggerBackup": false,
+                "viewSchedulerTasks": false,
+                "createSchedulerTask": false,
+                "editSchedulerTask": false,
+                "deleteSchedulerTasks": false,
+                "triggerSchedulerTask": false
+              }
+            },
+            "createdAt": "2026-10-15T23:29:57.7011809Z"
+          }
+        ]
+      }
+    }
+  ],
+  "panelSessionSequence": [
+    {
+      "label": "Create documentation-admin",
+      "status": 201,
+      "body": {
+        "userId": "<test-id-02>",
+        "username": "documentation-admin",
+        "createdAt": "2026-10-15T23:35:33.4317015Z"
+      }
+    },
+    {
+      "label": "Authenticate documentation-admin",
+      "status": 200,
+      "body": {
+        "success": true,
+        "userId": "<test-id-02>",
+        "sharedAccessSignature": "<redacted>",
+        "username": "documentation-admin",
+        "userJoinDate": 1792107333,
+        "apiKey": "<redacted>",
+        "isAdmin": true
+      }
+    },
+    {
+      "label": "documentation-admin discovery",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "serverId": "<example-server-id>",
+            "status": 0,
+            "name": "Example Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Example Paper\\",
+            "folderName": "Example Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:11:57.4295369+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          },
+          {
+            "serverId": "<recovery-server-id>",
+            "status": 1,
+            "name": "Recovery Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Recovery Paper\\",
+            "folderName": "Recovery Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:19:51.5697886+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS",
+              "VIEW_CONSOLE",
+              "USE_CONSOLE",
+              "USE_SERVER_ACTIONS",
+              "EDIT_SERVER",
+              "VIEW_BACKUPS",
+              "CREATE_BACKUP",
+              "EDIT_BACKUP",
+              "DELETE_BACKUPS",
+              "TRIGGER_BACKUP",
+              "VIEW_SCHEDULER_TASKS",
+              "CREATE_SCHEDULER_TASK",
+              "EDIT_SCHEDULER_TASK",
+              "DELETE_SCHEDULER_TASKS",
+              "TRIGGER_SCHEDULER_TASK"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "documentation-admin assigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<example-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": 0,
+            "memoryUsed": 0,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 0,
+            "startDate": 0
+          }
+        }
+      }
+    },
+    {
+      "label": "documentation-admin unassigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<recovery-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": 0,
+            "memoryUsed": 958,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 0,
+            "startDate": 1792106598
+          }
+        }
+      }
+    },
+    {
+      "label": "documentation-admin users",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "userId": "<test-id-02>",
+            "username": "documentation-admin",
+            "enabled": true,
+            "isAdmin": true,
+            "hasAccessToAllServers": true,
+            "customServerPermissions": {},
+            "createdAt": "2026-10-15T23:35:33.4317015Z",
+            "lastModifiedAt": "2026-10-15T23:35:33.4317015Z"
+          }
+        ]
+      }
+    },
+    {
+      "label": "Create documentation-reader",
+      "status": 201,
+      "body": {
+        "userId": "<test-id-03>",
+        "username": "documentation-reader",
+        "createdAt": "2026-10-15T23:35:33.8221638Z"
+      }
+    },
+    {
+      "label": "Authenticate documentation-reader",
+      "status": 200,
+      "body": {
+        "success": true,
+        "userId": "<test-id-03>",
+        "sharedAccessSignature": "<redacted>",
+        "username": "documentation-reader",
+        "userJoinDate": 1792107333,
+        "apiKey": "<redacted>",
+        "isAdmin": false
+      }
+    },
+    {
+      "label": "documentation-reader discovery",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": [
+          {
+            "serverId": "<example-server-id>",
+            "status": 0,
+            "name": "Example Paper",
+            "description": "",
+            "pathToFolder": "<lab>\\mcss\\servers\\Example Paper\\",
+            "folderName": "Example Paper",
+            "type": "Paper",
+            "creationDate": "2026-10-16T01:11:57.4295369+02:00",
+            "isSetToAutoStart": false,
+            "forceSaveOnStop": true,
+            "keepOnline": 0,
+            "javaAllocatedMemory": 2048,
+            "javaStartupLine": "java -Xms256M -Xmx[RAM]M -jar [SERVERTYPE.NAME].jar",
+            "serverPermissions": [
+              "VIEW_STATS"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "documentation-reader assigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<example-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "latest": {
+            "cpu": 0,
+            "memoryUsed": 0,
+            "memoryLimit": 2048,
+            "playersOnline": 0,
+            "playerLimit": 0,
+            "startDate": 0
+          }
+        }
+      }
+    },
+    {
+      "label": "documentation-reader unassigned stats",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/servers/<recovery-server-id>/stats",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 403,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "documentation-reader users",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 403,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Wrong panel password",
+      "request": {
+        "method": "POST",
+        "path": "/auth",
+        "headers": {},
+        "body": {
+          "username": "documentation-reader",
+          "password": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "status": 401,
+          "message": "User not authorized"
+        }
+      }
+    }
+  ],
+  "cleanupSequence": [
+    {
+      "label": "Delete documentation-admin",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/v2/users/<test-id-02>",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Delete documentation-reader",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/v2/users/<test-id-03>",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Revoke Documentation restricted",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/v2/keys/<test-id-05>",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Verify revoked Documentation restricted",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": {
+          "isDevBuild": false,
+          "mcssVersion": "13.10.0",
+          "mcssApiVersion": "2.4.1",
+          "uniqueIdentifier": "<test-id-01>",
+          "youAreAwesome": true
+        }
+      }
+    },
+    {
+      "label": "Revoke Documentation administrator",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/v2/keys/<test-id-04>",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Verify revoked Documentation administrator",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Verify revoked session documentation-admin",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Verify revoked session documentation-reader",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    }
+  ],
+  "finalKeyRevocation": [
+    {
+      "label": "Final restricted credential",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    },
+    {
+      "label": "Final administrator credential",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2",
+        "headers": {
+          "apiKey": "<redacted>"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "server": "GenHTTP/10.3.0.0",
+          "access-control-allow-origin": "*",
+          "access-control-allow-methods": "*",
+          "access-control-allow-headers": "*, Authorization",
+          "access-control-expose-headers": "*",
+          "access-control-allow-credentials": "true",
+          "access-control-max-age": "86400"
+        },
+        "body": ""
+      }
+    }
+  ]
+}

@@ -21,11 +21,15 @@ For properties that depend on the Minecraft release or server distribution, use 
 
 Open the server's cogwheel or **Server → Edit Server**.
 
-![Where to open server execution settings](/img/docs/server-settings/mcss-server-settings-location.jpg)
+The cogwheel opens **Edit Server**, with **General**, **Advanced**, **Crash Handling**, and **Update Server** sections.
 
 ### General [#-mcss-settings-general]
 
 Use **General** for the server name, description, MCSS icon, memory allocation, port, and autostart options. Save with **Save**.
+
+[![MCSS 13.10.0 General server settings, including RAM, port, save-all, and autostart](/img/docs/server-settings/general-13-10-0.png)](/img/docs/server-settings/general-13-10-0.png)
+
+**Force 'save-all' on server stop** is also available here. Still wait for the server's normal shutdown to complete before copying or replacing its files.
 
 The icon in this dialog is the MCSS interface's icon. It is separate from Minecraft's `server-icon.png`.
 
@@ -35,22 +39,32 @@ Changes to memory or port require a new server start. Keep each concurrently run
 
 Use **Advanced** for the Java path, Java startup line, or batch-file launcher.
 
+[![MCSS 13.10.0 Advanced settings with local Java override, Startup Line, and Use Bat file](/img/docs/server-settings/advanced-13-10-0.png)](/img/docs/server-settings/advanced-13-10-0.png)
+
 - Select the [Java version your server needs](/advanced/java-version).
 - With the **Java Startup Line** method, the MCSS memory substitution uses `-Xmx[RAM]M`.
 - With a **batch-file** launcher, inspect its own Java executable and memory arguments. Do not assume the General memory control changes a script's `-Xmx` or `user_jvm_args.txt`.
 - Remove interactive `pause` statements from a launch script used by MCSS, as documented in the [Forge workflow](/basic/create-server/Forge/create-forge-server-manually).
 
+A representative Java argument-file launch was tested with **Startup Line** set to `java @launch.args`, with `launch.args` in the server directory containing the JVM flags and `-jar paper.jar --nogui`. Paper reached readiness using the global Java override. This was a Paper test, not a Forge/NeoForge or modpack validation; retain the actual loader's generated arguments and libraries.
+
+[![MCSS 13.10.0 Startup Line configured to read a Java argument file](/img/docs/server-settings/argument-file-startup-13-10-0.png)](/img/docs/server-settings/argument-file-startup-13-10-0.png)
+
 Do not add a second automatic restart loop to a script while also relying on MCSS process management. For a generated modpack launcher, follow [Modpacks](/basic/create-server/Forge/create-a-server-with-a-modpack).
 
 ### Crash handling / Keep Online [#-mcss-settings-crash]
 
-The documented modes are:
+The **Crash Handling** descriptions in MCSS 13.10.0 identify these modes:
 
 | Mode | Behavior |
 | --- | --- |
 | Nothing | No automatic restart after a stop or crash. |
-| Elevated | Restart after an unexpected exit, rather than an intentional stop made through MCSS. |
-| Aggressive | Restart even after an intentional stop. |
+| Elevated | Restart after a crash or a stop caused by non-MCSS input. |
+| Aggressive | Restart after a crash or a stop caused by any input; the UI warns of conflicts with scheduler and backup tasks. |
+
+[![MCSS 13.10.0 Crash Handling descriptions for Nothing, Elevated, and Aggressive](/img/docs/server-settings/crash-handling-13-10-0.png)](/img/docs/server-settings/crash-handling-13-10-0.png)
+
+Tested on 16 October 2026 with Paper 26.3 build 194: **Nothing** left a normally stopped server offline; **Elevated** restarted after the lab's verified Java child process was terminated externally, while MCSS **Stop** and a Minecraft `stop` entered through the MCSS console left it offline; **Aggressive** restarted after MCSS **Stop**. These cases do not establish behavior for every crash, server implementation, or automation interaction.
 
 Before an update, restore, or manual maintenance task, check this setting so an automatic restart does not reopen files you are replacing. Do not use an aggressive restart policy while trying to diagnose repeated startup failures.
 

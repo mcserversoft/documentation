@@ -9,7 +9,7 @@ Give ordinary server-control integrations only the server access and actions the
 
 ## User-management routes
 
-These documented user-management operations require admin rights:
+The supplied reference describes these user-management operations as requiring admin rights:
 
 | Method | Route pattern | Purpose |
 | --- | --- | --- |
@@ -23,6 +23,8 @@ These documented user-management operations require admin rights:
 Here `:userId` denotes the actual user identifier. Refer to the [Users reference](/apis/v2#tag/Users) for the supplied request and response definitions.
 
 This table is not an exhaustive authorization matrix for MCSS 13.10.0. The supplied API export also includes key-management and application-setting operations; check their endpoint descriptions and verify permissions on your instance.
+
+The 16 October 2026 Windows investigation found **unresolved differences between configured API-key permissions and observed responses**, including management reads and access to an unassigned server. Some responses changed after restarting MCSS. Restricted panel sessions received 403 for unassigned-server statistics and user administration in the tested cases. Do not treat the reference table or hidden controls as proof that an API-key restriction is enforced; the discrepancy needs maintainer review. No API contract has been rewritten to imply a diagnosis or guarantee.
 
 ## Check an integration's access
 

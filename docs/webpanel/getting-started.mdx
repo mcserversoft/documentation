@@ -11,8 +11,10 @@ Open **File → Options → Remote Access / Developer API**.
 
 1. Enable the [Web API](/API/about#-api-enable) if it is not already enabled.
 2. Enable **Web Panel**.
-3. Close MCSS completely and reopen it for that change to take effect.
+3. Leave **Program Settings** to apply the changes. MCSS 13.10.0 displays **The webserver will apply these changes after leaving this page. No need to restart mcss.** This was exercised in the Windows test.
 4. Create the appropriate [panel user](/webpanel/users).
+
+[![MCSS 13.10.0 Remote Access settings with Web API, Web Panel, SSL, and the management port](/img/docs/panel/remote-settings-13-10-0.png)](/img/docs/panel/remote-settings-13-10-0.png)
 
 ## Test on the host computer [#-local-access]
 
@@ -26,7 +28,7 @@ If SSL/HTTPS is enabled, use `https://` instead. `localhost` refers only to the 
 
 ## Access from the LAN [#-LAN-access]
 
-The API settings include **Allow Remote Access**. Enable it when you need access from another device, and allow the corresponding traffic through the host's firewall.
+No **Allow Remote Access** control appeared in the inspected MCSS 13.10.0 Remote Access settings. In the test, Windows reported the management listener on IPv6 wildcard `::`, rather than loopback only. Do not assume that using `localhost` in your browser restricts the service's binding. Review the host's firewall and the intended administration route before enabling access from another device.
 
 From the other device, use the MCSS computer's [LAN address](/networking/find-ip) and the panel port. Test with a restricted user account and verify which servers it can access.
 
@@ -44,4 +46,6 @@ A warning can mean an untrusted issuer, a name/address mismatch, or an expired c
 
 Encryption and trust are different checks: HTTPS can encrypt a connection while the browser is unable to verify who operates the endpoint. See [MDN's TLS overview](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security).
 
-If the panel works on the host but not remotely, check its remote-access option, binding, firewall, and route in that order. Never diagnose it by opening unrelated ports.
+If the panel works on the host but not remotely, check the configured service, binding, firewall, and route in that order. Never diagnose it by opening unrelated ports.
+
+The 16 October 2026 test enabled the API/panel with SSL and authenticated disposable panel accounts through the panel's `/auth` endpoint. A restricted session received 403 for an unassigned server and user administration. Browser login, LAN access, and browser-origin enforcement were not verified. The generated certificate did not pass the test client's standard trust validation; no browser warning was bypassed. API-key authorization discrepancies are recorded separately in [API setup](/API/about).

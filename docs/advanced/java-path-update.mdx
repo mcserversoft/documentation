@@ -29,7 +29,7 @@ A quoted path is required in a shell command when the path contains spaces. In a
 
 ## Set a global override [#-globally]
 
-Open **File → Options** and find **Global Java Path override**. Use the picker or enter the full path to `java.exe`.
+Open **File → Options** or the left navigation's **Settings**. In **Program Settings**, scroll to **Java → Global Java Path override (environment variable)**. Use **Java Path Picker** or enter the full path to `java.exe`.
 
 Use this when your servers share a Java requirement. A different server can use its own override; review that setting before concluding that the global value is the one in use.
 
@@ -37,9 +37,9 @@ Use this when your servers share a Java requirement. A different server can use 
 
 ## Set a per-server override [#-per-server]
 
-Stop the server, open its settings, and go to **Advanced → Local Java Path override**. Select the required `java.exe`, save, and start the server again.
+Stop the server, open its cogwheel, and go to **Advanced → Local Java path override**. Select the required `java.exe`, choose **Save**, and start the server again. The interface states that this overrides the global path; leave it blank to use the global setting or system default.
 
-![Per-server Java path override in the MCSS interface](/img/docs/java-path/local-path-override.png)
+[![MCSS 13.10.0 Advanced settings showing the local Java path override and Java Path Picker](/img/docs/server-settings/advanced-13-10-0.png)](/img/docs/server-settings/advanced-13-10-0.png)
 
 This lets a Java 21 server and a Java 25 server run on the same computer without changing Windows `PATH` between starts.
 
@@ -54,3 +54,5 @@ Inspect the script instead of assuming an MCSS path setting rewrites it. A scrip
 This is an example for a **single runnable JAR**. Keep Forge/NeoForge argument-file launch commands and modpack-specific arguments intact.
 
 If the picker does not find your installation, use an explicit path or [add a search location](/advanced/tweak-java-path-detection). If startup still reports the wrong Java version, check every launcher involved before reinstalling Java.
+
+On 16 October 2026, a global override with an empty local override launched Paper 26.3 build 194 using Temurin 25.0.4.1 on MCSS 13.10.0. A second test deliberately set the global path to a nonexistent executable while keeping a valid local override; the server still reached readiness using the local runtime. This verifies local precedence for the tested **Startup Line** method. Automatic picker discovery and batch-file behavior require separate tests.

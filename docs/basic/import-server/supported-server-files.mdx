@@ -7,11 +7,11 @@ Use an import when you already have a working server or world. Start by stopping
 
 ## Select a file from the server's base folder [#-selecting-file]
 
-In MCSS, open **File → Import Server**. Select a representative file in the server's base folder—the folder containing its main configuration and launcher, not a nested world, mod, or library folder.
+In MCSS, open **File → Import Server..**, choose the server type, and choose **Select server to import**. Select a representative file in the server's base folder—the folder containing its main configuration and launcher, not a nested world, mod, or library folder. The MCSS 13.10.0 native picker displayed **All files (*.*)**; a picker filter alone does not prove that every file is accepted.
 
 ![MCSS import dialog showing the file selection area](/img/docs/import-server/import_supported_file_dialog.png)
 
-The import workflow recognizes these files:
+The inherited supported-file list includes the following. `server.properties` was exercised in the 13.10.0 recovery test; the other selector filenames have not been individually retested:
 
 - A `.jar` or `.exe` file.
 - `server.properties` or `eula.txt`.
@@ -24,7 +24,11 @@ Selecting a recognized file identifies the server folder. It does **not** mean t
 
 Preserve the worlds, configuration, plugins/mods and their data, and any generated `libraries` or launcher argument files. Some modded servers need much more than one JAR.
 
-Complete the import dialog, then inspect the resulting server directory in MCSS. Keep your original copy until you have started the imported server, joined it, and verified the expected world and player data.
+Review **Name**, **RAM**, **Port**, and **Folder Name**, then choose **Import Server**. In the tested `server.properties` import, the form initially showed RAM 1024 MB and port 25565; review these fields even when the source uses different values.
+
+MCSS copied the complete source directory into its `servers` folder and retained the source copy. The world marker and other test files were preserved. It created a new server ID and MCSS configuration: the source's local Java override and backup templates were not carried over. Recheck launch settings and recreate automation as needed.
+
+Inspect the resulting server directory in MCSS. Keep your original copy until you have started the imported server, joined it, and verified the expected world and player data.
 
 ## Check before starting
 
@@ -35,3 +39,5 @@ Complete the import dialog, then inspect the resulting server directory in MCSS.
 5. Start only one copy of this server and read the startup log.
 
 First test the imported server on `localhost` before changing router or tunnel settings. If it starts with a new empty world, stop it and check the chosen base directory and `level-name` before continuing.
+
+Tested on **MCSS 13.10.0**, 16 October 2026: importing an extracted Paper 26.3 build 194 backup by selecting `server.properties`, starting it on a distinct loopback port, and querying a saved scoreboard objective. Client login, other file selectors, and loader/modpack launchers remain separate tests.

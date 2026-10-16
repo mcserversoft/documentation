@@ -11,7 +11,9 @@ Use the [v2 reference](/apis/v2) for current integrations targeting MCSS 13.10.0
 
 ## Enable access [#-api-enable]
 
-Open **File → Options** and enable **Web API** in the remote-access/API settings. Enable **Allow Remote Access** only if calls must arrive from another computer.
+Open **File → Options** (or **Settings**) and enable **Web API** under **Remote Access / Developer API**. Leave Program Settings to apply the change; MCSS 13.10.0 does not require an application restart for the tested settings change.
+
+No **Allow Remote Access** control appeared in that inspected settings group. The test listener bound to `::`; using a localhost request URL does not establish a loopback-only listener. Review the host firewall and [management access](/webpanel/getting-started) for your intended route.
 
 Check the configured port and whether SSL is enabled. This documentation's examples use port `25560`; your configured value takes precedence. The Minecraft game port, often `25565`, is a different service.
 
@@ -19,7 +21,9 @@ Check the configured port and whether SSL is enabled. This documentation's examp
 
 Open **Web Panel → Manage Users & API Keys** and create a key with the required server access and permissions.
 
-![Creating an API key in MCSS](/img/docs/api/remote-access-manager-create-key.png)
+[![MCSS 13.10.0 API-key form with Custom server access selected and admin rights cleared](/img/docs/panel/restricted-api-key-13-10-0.png)](/img/docs/panel/restricted-api-key-13-10-0.png)
+
+Review **All / Custom**, **Edit Servers**, and **Assign admin rights** before creating a key. The tested new-key form initially selected All and admin rights. Save the revealed key privately; published screenshots should not contain it.
 
 Authenticate using the **`apiKey` request header**. Keep its value private and outside source control. If a key is exposed, revoke/delete it and create a replacement; update the applications that used it.
 
@@ -62,3 +66,11 @@ Use [API versions](/API/endpoints), then open the generated endpoint page for it
 For authentication failures, check that the `apiKey` header is present and the key is still valid. For access failures, check both server assignment and permissions. Inspect the endpoint's documented status codes and the actual response body rather than assuming every failure is a networking problem.
 
 Browser-based API playgrounds call your instance from the browser. Reachability, certificate trust, mixed-content rules, and cross-origin policy can prevent a request that otherwise works from a local script. The documentation site does not proxy requests to your instance.
+
+## Windows test results and limits
+
+On 16 October 2026, the installed application returned `mcssVersion: "13.10.0"` and `mcssApiVersion: "2.4.1"`. Missing and invalid keys returned 401, and valid keys authenticated using the `apiKey` header. A request to the historical `/api/v1` root returned 404 in this installation.
+
+**Authorization remains unresolved for API keys.** A disposable key configured without admin rights and with only View Stats on one server received successful responses for operations outside that intended scope. Some results changed after an application restart. Restricted panel sessions produced the expected 403 responses in the exercised cases. These observations do not establish a complete permission matrix or a cause; review them with the maintainer before relying on API-key isolation. See [Admin permission](/API/admin).
+
+The test also recorded a 204 OPTIONS preflight response reflecting the supplied origin. That is server-response evidence, not proof that a browser completes a cross-origin request. Standard certificate trust validation failed for the generated test certificate. Credentialed script tests used an exact certificate pin for the independently verified lab process; this is not a general certificate-warning workaround or a tested browser trust setup.

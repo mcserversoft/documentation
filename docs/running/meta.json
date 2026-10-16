@@ -2,7 +2,9 @@
   "title": "Day-to-day operation",
   "pages": [
     "server-properties",
+    "scheduling",
     "plugins-and-mods",
-    "updating"
+    "updating",
+    "moving-mcss"
   ]
 }
