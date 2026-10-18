@@ -1,0 +1,83 @@
+---
+title: "Import an existing server"
+description: "How to import an existing Minecraft server, world, or modpack folder into MCSS."
+---
+
+If you already have a working Minecraft server or modpack (from another host, a local folder, or a backup), you do not need to create a server from scratch. You can import the entire server folder directly into MCSS.
+
+This guide walks you through preparing, importing, and verifying your existing server.
+
+---
+
+## 1. Prepare your server folder [#keep-the-complete-installation]
+
+1. **Stop the server:** Always shut down the original server completely before importing. Never import a server while it is running, as this can cause file corruption.
+2. **Keep a backup copy:** Keep a separate backup copy of your server folder in a safe location outside MCSS before importing.
+3. **Verify folder contents:** Make sure the folder contains all essential files: your world folder, `server.properties`, plugins/mods, libraries, and startup files.
+
+---
+
+## 2. Start the Import wizard in MCSS
+
+1. Open MCSS and navigate to **File → Import Server..** (or click **Import** on the welcome screen).
+2. Select the server software type that matches your server (e.g., Paper, Vanilla, Fabric, Forge, NeoForge).
+
+---
+
+## 3. Select a recognized file to identify the folder [#-selecting-file]
+
+In the left panel of the import window, click **Select server to import** (or drag and drop a file from your server folder into the window).
+
+![MCSS import dialog showing the file selection area](/img/docs/import-server/import_supported_file_dialog.png)
+
+Select a representative file located in the server's root directory (not inside a subfolder like `world` or `mods`). MCSS recognizes standard root files to identify the server folder:
+
+* The server executable (`.jar` or `.exe`)
+* `server.properties` or `eula.txt`
+* `commands.yml`, `permissions.yml`, or `server-icon.png`
+* `banned-ips.json`, `banned-players.json`, `ops.json`, or `whitelist.json`
+
+<Callout type="info" title="Selecting a file identifies the folder">
+Selecting a file tells MCSS which directory to import. It does not automatically set that file as the launch command—you will configure how the server starts in the launch settings.
+</Callout>
+
+---
+
+## 4. Configure server details & import
+
+On the right side of the import window, configure the server details:
+
+* **Name:** A friendly display name for the server in MCSS.
+* **Description:** An optional description for your server.
+* **Folder Name:** The folder name MCSS will use inside its internal `servers/` directory.
+* **RAM:** Set your allocated memory (e.g. `2048` MB for standard servers, or `4096`+ MB for modded servers).
+* **Port:** Check the server port (default is `25565`). Ensure no other running server on your machine is using the same port.
+
+Click **Import Server**. MCSS will copy the entire server folder into its managed `servers/` directory while leaving your original source folder intact.
+
+<Callout type="info" title="Fresh MCSS configuration">
+MCSS creates a fresh server profile for the imported directory. Any previous MCSS-specific settings from another installation (such as automated backup schedules or custom Java path overrides) are not transferred and should be reconfigured.
+</Callout>
+
+---
+
+## 5. Review launch settings before starting
+
+Before starting the server for the first time in MCSS, open the server's [execution settings](/basic/server-settings/accessing-server-settings#-mcss-settings-advanced) to verify the launch configuration:
+
+1. **Java Version:** Make sure the server uses the [correct Java version](/advanced/java-version) required for your Minecraft release.
+2. **Launch Method:**
+   * **Single JAR servers (Vanilla, Paper, Fabric, older Forge):** Select your server `.jar` file in the JAR selector.
+   * **Script-based servers (modern Forge, NeoForge, modpacks):** Check **Use Bat file** and select your startup script (e.g., `run.bat`).
+3. **Batch launcher adjustments:**
+   If your server launches via a `.bat` file, apply the [generated-launcher adjustments](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher).
+
+---
+
+## 6. Start and verify
+
+1. Start the server from MCSS and monitor the console during boot.
+2. Verify that your world loads correctly. (If a new world generates instead, stop the server and check the `level-name` setting in `server.properties`).
+3. Ensure that all plugins or mods load without errors.
+4. Connect from your Minecraft client on `localhost` to verify player inventories and world progress.
+5. Keep your original backup copy until you have confirmed that the imported server runs smoothly.

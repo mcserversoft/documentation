@@ -1,0 +1,69 @@
+---
+title: "Back up and restore a server"
+description: "Create server backups in MCSS, schedule automatic backups, and restore your server when needed."
+---
+
+Regular backups protect your worlds, player progress, and configurations against accidental changes, bad plugin/mod updates, or hardware failures. For best protection, keep several recent backups and store an extra copy on a separate drive or cloud storage.
+
+## What to include [#what-to-include]
+
+A complete server backup includes your entire server directory:
+
+- **Worlds and dimensions** (such as `world`, `world_nether`, and `world_the_end`)
+- **Server configuration and player data** (`server.properties`, `whitelist.json`, `ops.json`, `banned-players.json`)
+- **Plugins and mods** (`plugins` or `mods` folders, including their configuration folders)
+- **Server binaries and startup files** (your server `.jar`, `libraries`, and any `.bat` or launch argument files)
+
+<Callout type="info">
+An MCSS server backup archives that server's folder (including its per-server `mcss_server_config.json`). Global MCSS application settings are stored separately in `resources\mcss_config.json` inside your main MCSS folder, and any external MySQL/MariaDB databases used by plugins should be backed up through your database tool.
+</Callout>
+
+## Create a backup in MCSS
+
+MCSS includes a built-in backup system that compresses your server folder into a `.zip` archive.
+
+1. Select your server in MCSS, open the **Backups** tab, and click **Create new Backup**.
+2. Fill in the backup template settings:
+   - **Name:** A recognizable name for this backup template (for example, `Daily-Backup` or `Pre-Update`).
+   - **Destination:** Select the full folder path where MCSS should save the `.zip` files (always browse to a complete folder path such as `D:\MCSS-Backups` rather than a relative folder name).
+   - **Compression:** Choose your preferred ZIP compression level (**High compression** saves disk space, while lower compression finishes faster on very large worlds).
+   - **Blacklist:** Optional list of files or folders to exclude from the archive (leave empty to back up the entire server folder).
+   - **Delete old backups:** Enable this if you want MCSS to automatically remove the oldest backup archives once your configured retention count is reached.
+   - **Suspend server:** When enabled, MCSS automatically stops a running server before taking the backup and starts it again once the backup finishes, ensuring all world data is cleanly saved to disk.
+3. Check **Backup now** if you want to run the backup immediately, then click **Backup** (or **Create**).
+
+### Run or schedule a saved backup
+
+Once you have created a backup template, it appears in the server's **Backups** tab. Click the **three-dot menu (`...`)** on any template to:
+- **Run Backup:** Start the backup immediately and watch the status in the **Backup History** list until it reports **BACKUP DONE**.
+- **Schedule this Backup:** Automatically create a [scheduled task](/running/scheduling) to run this backup on a recurring timer or at a fixed time of day.
+- **Edit:** Update the destination folder, blacklist, or retention settings.
+
+To customize how MCSS names the generated `.zip` files, see [Backup filenames](/backups/custom-filename).
+
+## Take a manual folder backup [#take-a-consistent-manual-backup]
+
+If you ever want to make a quick manual copy outside the backup manager:
+
+1. **Stop** the server in MCSS and wait for its status to show **Offline**.
+2. Copy the server's entire folder (inside your MCSS `servers` directory) to another folder or external drive.
+
+## How to restore a backup [#test-a-restore]
+
+You can restore a backup either by replacing the files in your existing server folder or by importing the extracted backup as a separate server to inspect it first.
+
+### Option A: Restore your existing server in place
+
+1. **Stop** the server in MCSS and wait for it to show **Offline**. If you have scheduled start or restart tasks enabled, temporarily disable them in the [Scheduler](/running/scheduling#verify-and-disable).
+2. If you want to keep a copy of the broken or current state for troubleshooting, move the current contents of the server's folder to a temporary folder first.
+3. Extract the contents of your backup `.zip` file directly into the server's folder.
+4. **Start** the server in MCSS and check the **Console** to verify that your world and plugins/mods load cleanly.
+
+### Option B: Test a backup as a separate server
+
+If you want to inspect an older backup or copy a single build without touching your live server:
+
+1. Extract the backup `.zip` file into a brand-new folder.
+2. In MCSS, click **File → Import Server..**, choose your server type, and select the extracted folder (for example, by picking its `server.properties` file).
+3. If your live server is still running on the same computer, change `server-port` in the imported server's `server.properties` (for example, to `25566`) so the two servers do not use the same port.
+4. Check the imported server's [startup and Java settings](/basic/import-server/supported-server-files), then start it and join locally to inspect the restored world.

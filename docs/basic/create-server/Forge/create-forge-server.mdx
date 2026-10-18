@@ -1,84 +1,58 @@
 ---
-sidebar_position: 1
-title: Creating a Forge server
-description: Steps to create a new Forge server
-keywords: [forge, create, server, create-forge-server, MCSS, mods, modded]
+title: "Forge with the MCSS installer"
+description: "Steps to create a new Forge server using the integrated MCSS installer."
 ---
 
-There are 2 options on how to add a forge server to mcss.
-* Use the integrated Forge installer
-* [Manually create & import Forge server](/basic/create-server/Forge/create-forge-server-manually)
+There are 2 options on how to add a Forge server to MCSS:
+* **Use the integrated Forge installer** (covered in this guide)
+* **[Manually create & import Forge server](/basic/create-server/Forge/create-forge-server-manually)**
 
 This guide will show you how to use the integrated installer.
 
-:::tip About the installer
-The integrated Forge installer works for Forge & Fabric. It was added in v12.1.<br/>
-It's still pretty new, if it fails we recommend using the "[manual way](/basic/create-server/Forge/create-forge-server-manually)".
-:::
+<Callout title="About the installer">
+The integrated Forge installer works for Forge and Fabric. It was added in v12.1. If it fails for your specific version or setup, we recommend using the [manual installation method](/basic/create-server/Forge/create-forge-server-manually).
+</Callout>
 
-:::caution Using a modpack?
-Modpacks often require [specialized setup](/basic/create-server/Forge/create-a-server-with-a-modpack).  
-Note that if the modpack ships with a startup script, furhter modification is required to make it compatible with MCSS.
-:::
+<Callout title="Using a modpack?" type="warn">
+Modpacks often require [specialized setup](/basic/create-server/Forge/create-a-server-with-a-modpack). If the modpack ships with its own startup script or custom server installer, further modification is required to make it compatible with MCSS.
+</Callout>
 
-## Use the integrated Forge installer {#-download-forge}
+## 1. Download the Forge installer [#-download-forge]
 
-## Download Forge Installer {#-download-forge}
-
-Go to [Forge's website](https://files.minecraftforge.net) and choose the version that you want to download. It must be the installer file. This is very important. If not available (e.g. very old versions) then you must use the "[manual way](/basic/create-server/Forge/create-forge-server-manually)"
-
-> If you are looking to download the fabric installer take a look at the [Sourcing a server file](/basic/create-server/sourcing-server-file) page.
+1. Go to [Forge's website](https://files.minecraftforge.net/) and choose the Minecraft version and Forge build that you want to download.
+2. Click on the **Installer** button. It must be the installer file—do not download Mdk, Source, or Changelog. (If an installer is not available, e.g. for very old versions, use the [manual way](/basic/create-server/Forge/create-forge-server-manually)).
+3. Make sure you have the [correct Java version installed](/advanced/java-version) on your computer for your targeted Minecraft version.
 
 ![Download forge](/img/docs/create-forge/download_forge.png)
 
-Wait for the end of the ad and click on "Skip" at the top right of the page. A .jar file will be downloaded, you might need to confirm the download on some browsers.
+## 2. Create the MCSS server [#-create-the-forge-server]
 
-## Create the Forge server {#-create-the-forge-server}
-
-Once the download is complete, you can start creating the new Forge Server.<br/>
-In the 'Server File' section select the downloaded installer file.
+1. In MCSS, click **Create** on the home dashboard (or navigate to **File → New Server..**).
+2. Set the **Server Type** to **Forge**.
+3. In the **Server File** section, click **Select file** and select the downloaded Forge installer `.jar` file. Check that "Forge Installer Detected" appears below the box.
+4. Fill in your server details (Name, RAM, Port), and accept the EULA if prompted.
+5. Click **Create Server**.
 
 ![Install forge](/img/docs/create-forge/forge_installer.png)
 
-## Let the installer do its job {#-let-the-installer-do-its-job}
+## 3. Wait for installation [#-let-the-installer-do-its-job]
 
-During the server creation process, the forge server will be installed in the background. This could take a couple of minutes depending on your system.
+MCSS runs installation in the background. Wait for it to finish and check any error output before starting the game server. Installation needs internet access to download libraries.
 
-![Install forge](/img/docs/create-forge/forge_installer_busy.png)
+![Forge installation progress in MCSS](/img/docs/create-forge/forge_installer_busy.png)
 
-## Tweaking the server start settings {#-tweaking-the-server-start-settings}
+## 4. Review the launcher [#-tweaking-the-server-start-settings]
 
-You now have to specify your server's launcher file.
+Once installation is finished, you need to verify your server's launcher file based on the Forge version you are running:
 
-For Forge 1.16 or earlier, open you server's folder using the folder icon, and rename the `forge-<version>.jar` to `forge.jar`.<br/>
-You can now start your server.
+### Forge 1.16 or earlier
 
-If you're using Forge 1.17 or newer, open the mcss server settings and open the 'Advanced' tab:
+For Forge 1.16 or earlier, open your server's folder using the folder icon in MCSS, and rename `forge-<version>.jar` to `forge.jar` (or ensure your MCSS Server File points to it). You can now start your server.
 
-![Install forge](/img/docs/create-forge/forge_incorrect_server_settings.png)
+### Forge 1.17 or newer
 
-Select the 'Use Bat file' option and select the available file. Next click on the ✏️ pencil icon:
+Modern Forge releases (1.17 and newer) do not use a runnable server JAR directly; they generate a batch file launcher along with library arguments.
 
-![Install forge](/img/docs/create-forge/forge_edit_bat_file.png)
+Before launching, the script needs adjustments (such as removing the interactive `pause` and adding `nogui`). Follow the guide on how to [review a generated batch launcher](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher) to finish preparing your file.
 
-You might see something like this:
-
-```batch
-REM Forge requires a configured set of both JVM and program arguments.
-REM Add custom JVM arguments to the user_jvm_args.txt
-REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
-REM  pass them to this script directly
-java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt %*
-pause
-```
-You must remove the *pause* statement at the bottom and add the *nogui* parameter:
-
-```batch
-REM Forge requires a configured set of both JVM and program arguments.
-REM Add custom JVM arguments to the user_jvm_args.txt
-REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
-REM  pass them to this script directly
-java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt nogui %*
-```
-
-That's it, now you have a fully functioning forge server in mcss.
+Then, complete the [first-start EULA step](/getting-started/first-server#3-complete-the-first-start) if needed, and you now have a fully functioning Forge server in MCSS!

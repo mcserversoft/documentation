@@ -1,0 +1,31 @@
+---
+title: "Edit server.properties"
+description: "Customize your Minecraft server's port, world name, gameplay rules, and multiplayer settings."
+---
+
+The `server.properties` file sits inside your server's root folder and controls core Minecraft settings such as the game port, world name, difficulty, and view distance.
+
+You can edit common settings directly inside MCSS using the [Minecraft settings pane](/basic/server-settings/accessing-server-settings#-mcss-minecraft-settings), or open `server.properties` in any text editor. Always **stop the server** before editing `server.properties` manually so your changes are not overwritten when the server shuts down, then **start** the server to apply them.
+
+## Common Java Edition settings
+
+| Property | What it does |
+| --- | --- |
+| `server-port` | The port players use to join (default is `25565`). If you run multiple servers on the same computer, give each server a different port. |
+| `server-ip` | Leave this **blank** for standard home servers so the server listens on all local network adapters. |
+| `online-mode` | Verifies players' Minecraft accounts with Mojang (`true` by default). Keep this set to `true` unless your server is behind a properly secured proxy like Velocity. |
+| `white-list` | When set to `true`, only players added to the whitelist (`/whitelist add <player>`) or server operators can join. |
+| `motd` | The message of the day shown under your server's name in the Minecraft multiplayer list. |
+| `difficulty` / `gamemode` | Sets the server's default difficulty (`peaceful`, `easy`, `normal`, `hard`) and game mode (`survival`, `creative`, `adventure`, `spectator`). |
+| `view-distance` / `simulation-distance` | Controls how many chunks around each player are sent and ticked. Lowering these values can improve performance if your server lags. |
+| `level-name` | The folder name of the active world (default is `world`). |
+
+<Callout type="info" title="Switching or finding worlds with level-name">
+The `level-name` setting tells Minecraft which world folder to load. If you change `level-name` to a name that does not exist yet, Minecraft will generate a brand-new world in a new folder while leaving your old world folder untouched. If your builds ever seem to have disappeared after a config edit, check that `level-name` still matches your original world folder's name!
+</Callout>
+
+For a full list of every Java Edition property, see [Paper's `server.properties` reference](https://docs.papermc.io/paper/reference/server-properties/) or the [Minecraft Wiki](https://minecraft.wiki/w/Server.properties).
+
+## Bedrock Dedicated Server
+
+Bedrock Dedicated Server also uses a `server.properties` file, but its option names and default ports (`19132` UDP for IPv4) differ from Java Edition. See Microsoft's official [Bedrock `server.properties` reference](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties) for supported Bedrock settings.

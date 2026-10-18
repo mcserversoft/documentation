@@ -1,0 +1,105 @@
+---
+title: "Create a NeoForge server"
+description: "How to download, install, import, and configure a NeoForge server in MCSS."
+---
+
+**NeoForge** is the modern continuation of the Forge mod loader for Minecraft 1.20.2 and newer. Because Forge and NeoForge are distinct loaders, make sure the mods or modpack you intend to run specifically support NeoForge.
+
+<Callout title="Using a modpack?" type="info">
+If you are setting up a pre-made modpack that runs on NeoForge, follow the [Run a modpack server](/basic/create-server/Forge/create-a-server-with-a-modpack) guide instead.
+</Callout>
+
+This guide walks you through installing NeoForge externally and importing it into MCSS.
+
+---
+
+## 1. Download the NeoForge installer
+
+1. Visit the official [NeoForged website](https://neoforged.net/) and choose the NeoForge release that matches the Minecraft version required by your mods.
+2. Download the server installer (`neoforge-<version>-installer.jar`).
+3. Make sure you have the [correct Java version](/advanced/java-version) installed on your system for your targeted Minecraft version.
+
+---
+
+## 2. Install the server files
+
+Always install the server into an empty temporary folder outside of MCSS first:
+
+1. Create a new, temporary empty folder on your computer (for example, on your Desktop named `neoforge-temp`).
+2. Run the downloaded installer:
+   * **GUI method:** Double-click the `.jar` installer file. When the installer window opens, select **Install server**, click `...` to select your empty temporary folder, and click **OK**.
+   * **Command line method:** Open a terminal in the folder where the installer is located and run:
+     ```cmd
+     java -jar neoforge-installer.jar --installServer
+     ```
+     *(Replace `neoforge-installer.jar` with your actual downloaded filename).*
+3. The installer will download all required Minecraft and NeoForge libraries into the folder.
+4. When finished, your folder will contain:
+   * A `libraries/` directory
+   * `run.bat` (and `run.sh` for Linux)
+   * `user_jvm_args.txt`
+   * Version argument files
+5. You can now safely delete the downloaded installer `.jar` file.
+
+<Callout type="warn" title="Do not launch the installer as the server">
+The installer `.jar` file is only used to set up the server files. Do not try to run the installer file itself inside MCSS as the server executable.
+</Callout>
+
+---
+
+## 3. First start & accept the EULA
+
+Before importing into MCSS, run the server once in your temporary folder to generate the necessary files:
+
+1. Double-click `run.bat` to start the server for the first time.
+2. The server will generate an `eula.txt` file and stop automatically.
+3. Open `eula.txt` in a text editor, change `eula=false` to `eula=true` to accept the [Minecraft EULA](/getting-started/first-server#3-complete-the-first-start), and save the file.
+4. Run `run.bat` again and wait until you see the `Done!` message in the console.
+5. Type `stop` in the console to shut down the server cleanly.
+
+---
+
+## 4. Review the generated launcher (run.bat)
+
+NeoForge uses `run.bat` to launch Java with `@user_jvm_args.txt` and specific argument files containing essential classpaths.
+
+Before using it with MCSS, apply the [generated-launcher adjustments](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher).
+
+---
+
+## 5. Import the server into MCSS
+
+Now bring the installed server folder into MCSS:
+
+1. Open MCSS and navigate to **File → Import Server..**.
+2. Select **NeoForge** as the server type.
+3. Drag and drop a recognized file from your temporary server folder into MCSS (or click **Select server to import** and choose a file like `run.bat` or `server.properties` inside the folder).
+4. Configure your server:
+   * **Name:** Choose a display name for your server.
+   * **Folder Name:** The folder name MCSS will use inside its `servers/` directory.
+   * **RAM:** Set your allocated memory (we recommend at least `4096` MB for modded servers).
+5. Click **Import Server**. MCSS will copy the complete directory into its internal `servers/` folder.
+
+For more details on importing, see [Import an existing server](/basic/import-server/supported-server-files).
+
+---
+
+## 6. Configure launch settings & verify
+
+1. In MCSS, open your server's [execution settings](/basic/server-settings/accessing-server-settings#-mcss-settings-advanced).
+2. Under the **Advanced** launch settings, ensure **Use Bat file** is checked and points to `run.bat`.
+3. Start the server from MCSS and check the console:
+   * Confirm that the correct Minecraft and NeoForge versions appear in the startup logs.
+   * Ensure that the server loads without errors and generates the world.
+4. Connect from your Minecraft client using the **matching Minecraft, NeoForge, and mod versions**.
+5. Once everything is running smoothly, you can safely delete the temporary staging folder you created in Step 2.
+
+---
+
+## Updating a NeoForge server
+
+When updating to a newer NeoForge build:
+
+* **Always take a backup first:** Create a [full backup](/backups/backup-and-restore) before upgrading.
+* **Update the full installation:** Updating NeoForge often introduces new library dependencies and changes argument files. Running the new installer into a temporary staging folder and moving the updated `libraries/` and `run.bat` over ensures you don't run an outdated loader with mismatched arguments.
+* For general guidance, see [Updating a server](/running/updating).

@@ -1,0 +1,48 @@
+---
+title: "Java Path Picker search locations"
+description: "Add custom folders so MCSS's Java Path Picker can automatically find your Java installations."
+---
+
+MCSS includes a **Java Path Picker** that makes it easy to switch between installed Java versions in [global settings](/advanced/java-path-update#-globally) or [per-server settings](/advanced/java-path-update#-per-server).
+
+![Java Path Picker in MCSS](/img/docs/java-path/java-path-picker.png)
+
+By default, MCSS scans these standard Windows folders for Java installations:
+
+```text
+C:\Program Files (x86)\Java
+C:\Program Files\Java
+C:\Program Files (x86)\Eclipse Adoptium
+C:\Program Files\Eclipse Adoptium
+C:\Program Files (x86)\Eclipse Foundation
+C:\Program Files\Eclipse Foundation
+```
+
+If you installed Java on another drive or extracted a portable ZIP build into a custom folder, you can add that folder to MCSS so the Java Path Picker detects it automatically.
+
+## Add a search location [#-edit-locations]
+
+Custom search folders are stored in the `potentialInstalledJavaLocations` list inside `resources\mcss_config.json` (located in your main MCSS folder).
+
+1. Close MCSS completely (**File → Exit**).
+2. Open `resources\mcss_config.json` in a text editor such as Notepad.
+3. Find the `potentialInstalledJavaLocations` array.
+4. Add the parent folder where your Java versions are stored (for example, `"D:\\Java"`):
+
+```json
+"potentialInstalledJavaLocations": [
+  "C:\\Program Files (x86)\\Java",
+  "C:\\Program Files\\Java",
+  "C:\\Program Files (x86)\\Eclipse Adoptium",
+  "C:\\Program Files\\Eclipse Adoptium",
+  "C:\\Program Files (x86)\\Eclipse Foundation",
+  "C:\\Program Files\\Eclipse Foundation",
+  "D:\\Java"
+]
+```
+
+<Callout type="info">
+Because this file uses JSON format, make sure to use double backslashes (`\\`) in Windows folder paths and separate entries with a comma.
+</Callout>
+
+5. Save the file and start MCSS. Your custom Java installations will now appear in the **Java Path Picker** so you can select them in your [global](/advanced/java-path-update#-globally) or [per-server](/advanced/java-path-update#-per-server) settings.

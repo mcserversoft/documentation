@@ -1,0 +1,8 @@
+{
+  "title": "Forge & modpacks",
+  "pages": [
+    "create-forge-server",
+    "create-forge-server-manually",
+    "create-a-server-with-a-modpack"
+  ]
+}

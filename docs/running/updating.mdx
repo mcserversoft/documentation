@@ -1,0 +1,52 @@
+---
+title: "Update a Minecraft server"
+description: "Safely update your Minecraft server software, Java version, plugins, or mods."
+---
+
+Because MCSS is version agnostic, you can update your Minecraft server to a newer release at any time. Updating a server usually involves checking a few pieces together:
+
+- **Minecraft server software** (your Vanilla, Paper, Fabric, Forge, or NeoForge files)
+- **Java version** (newer Minecraft releases sometimes require a newer [Java version](/advanced/java-version))
+- **Plugins or mods** (making sure the plugins or mods you use have builds for the target Minecraft version)
+
+## 1. Check compatibility before updating
+
+Before updating your server JAR or mod loader:
+
+1. Check the [Java version matrix](/advanced/java-version) to see if the new Minecraft version requires a newer Java release (for example, Minecraft 1.20.5+ requires Java 21, and 26.1+ requires Java 25).
+2. If you run **plugins** (Paper/Spigot) or **mods** (Fabric/Forge/NeoForge), check that your essential plugins or mods support the new Minecraft version.
+3. If you run a **modpack**, check the modpack author's update instructions and download their updated server pack rather than replacing only the Minecraft JAR.
+
+## 2. Take a full backup
+
+Always create a backup before upgrading so you can easily roll back if a plugin or mod is not ready yet:
+
+1. **Stop** the server in MCSS and wait for it to show **Offline**.
+2. Create a [complete backup](/backups/backup-and-restore#what-to-include) of your server folder (including worlds, `plugins` or `mods`, configuration files, and the current server JAR).
+
+<Callout type="warn" title="Upgrading worlds is one-way">
+Once a Minecraft world is opened in a newer version of Minecraft, it converts to the new world format and cannot be downgraded back to an older version. Always keep a pre-update backup in case you need to return to your previous version.
+</Callout>
+
+## 3. Update the server files
+
+### Vanilla, Paper, Purpur, or Fabric (single-JAR servers)
+
+1. Download the new server `.jar` file from the official project page (see [Paper's updating guide](https://docs.papermc.io/paper/updating/) for Paper-specific tips).
+2. Place the new `.jar` in your server folder (or use MCSS's [Update Server settings](/basic/server-settings/accessing-server-settings#-mcss-settings-update)).
+3. If the filename changed, update the **Server File** selection in your server's **General** or **Advanced** settings in MCSS.
+4. If the new Minecraft version requires a newer Java version, select the new Java runtime in [MCSS Java settings](/advanced/java-path-update).
+
+### Forge, NeoForge, or modpacks
+
+Forge, NeoForge, and modpacks use libraries and generated launch scripts (`run.bat` or `@libraries/.../win_args.txt`) rather than a single server JAR. To update them, run the new Forge/NeoForge server installer or follow your modpack's server update instructions, then confirm the startup settings in MCSS.
+
+## 4. Start and verify
+
+1. **Start** the server in MCSS and watch the **Console** as the server loads and converts world chunks.
+2. Check for any plugin or mod errors in the startup log.
+3. Join the server with a matching Minecraft client to verify your worlds, dimensions, inventories, and plugins or mods.
+
+<Callout type="info" title="Updating MCSS itself">
+To update the MCSS application, check the [official MCSS changelogs and download page](https://www.mcserversoft.com/changelogs) and follow the release notes included with the update.
+</Callout>

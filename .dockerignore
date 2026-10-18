@@ -1,0 +1,8 @@
+.git
+node_modules
+.next
+.source
+out
+docs/apis/v1
+docs/apis/v2
+*.tsbuildinfo

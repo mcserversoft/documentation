@@ -1,0 +1,95 @@
+---
+title: "Get started with the MCSS API"
+description: "Enable the MCSS Web API, generate an API key, and send your first API requests."
+---
+
+## What the API provides [#-api-about]
+
+The **MCSS Developer API** lets external applications, Discord bots, custom dashboards, and automation scripts monitor and control your Minecraft servers over HTTP. Through the API, you can:
+
+- Check server status, player counts, and live CPU/RAM statistics
+- Start, stop, restart, or kill servers
+- Read console logs and send console commands
+- Create and run backups or scheduled tasks
+- Manage webhooks, Web Panel users, and API keys
+
+For MCSS 13.7.0 and newer (including MCSS 13.10.0), use the **[API v2 reference](/apis/v2)**.
+
+> [!NOTE]
+> The API version (`/api/v2`) is separate from your MCSS application version (`v13.10.0`). Always use `/api/v2` in your request URLs on current MCSS releases.
+
+## Enable access [#-api-enable]
+
+1. Open **Settings** in the left sidebar of MCSS (or click **File → Options**) and scroll to the **Web API / Web Panel** section.
+2. Check **Enable Web API**.
+3. Check whether **Enable SSL (recommended)** is enabled (`https://` vs `http://`) and note your **Panel/API Port Number** (default **`25560`**).
+4. Leave the **Settings** page to apply your changes—MCSS starts the API server immediately without needing a restart.
+
+If you plan to call the API from another machine on your local network or over the internet, see the [LAN access](/webpanel/getting-started#-LAN-access) and [remote access](/webpanel/getting-started#-anywhere-access) guides to configure Windows Firewall or port forwarding for port `25560`.
+
+## Create an API key [#-api-keys]
+
+Every API request requires an **API Key** for authentication.
+
+1. Open **Web Panel → Manage Users & API Keys**.
+2. Under **API Keys**, click **Add API Key**.
+
+[![Creating an API key in MCSS 13.10.0 with custom server access](/img/docs/panel/restricted-api-key-13-10-0.png)](/img/docs/panel/restricted-api-key-13-10-0.png)
+
+3. Enter a descriptive **Name** (for example, `Discord Bot` or `Status Widget`) so you know which integration uses this key.
+4. Under **Server Access & Permissions**, choose **All** or select **Custom → Edit Servers** to limit the key to specific servers and actions.
+5. Only check **Assign admin rights** if the integration specifically needs to manage MCSS users, API keys, or global MCSS settings (see [Admin permission](/API/admin)).
+6. Click **Create API Key** and copy the generated token immediately—MCSS only displays the full key once when it is created:
+
+![Copying a newly generated API key in MCSS](/img/docs/api/remote-access-manager-key-created.png)
+
+> [!IMPORTANT]
+> Treat your API key like a password. Store it in an environment variable or secret manager rather than hardcoding it in public scripts or Git repositories. If a key is ever leaked, delete it in **Manage Users & API Keys** and generate a new one.
+
+## Make the first request [#-api-calls]
+
+Authenticate your requests by passing your key in the **`apiKey` HTTP request header**:
+
+```http
+apiKey: YOUR_API_KEY
+```
+
+### Example: PowerShell
+
+Here is a quick read-only test using PowerShell. Replace `https://localhost:25560` with your MCSS address and port, and set `$env:MCSS_API_KEY` to your key:
+
+```powershell
+$baseUri = "https://localhost:25560"
+$headers = @{ apiKey = $env:MCSS_API_KEY }
+
+# 1. Check MCSS and API version info
+Invoke-RestMethod -Method Get -Uri "$baseUri/api/v2" -Headers $headers
+
+# 2. List all servers this API key has permission to view
+Invoke-RestMethod -Method Get -Uri "$baseUri/api/v2/servers" -Headers $headers
+```
+
+> [!TIP]
+> If you have **Enable SSL** turned on and connect to `localhost` or a LAN IP using MCSS's self-signed certificate, HTTP tools may warn about an untrusted certificate authority. In tools like Postman or Insomnia, you can disable SSL certificate verification in your local development workspace while testing against `localhost`.
+
+### HTTP clients [#-standalone-software]
+
+Desktop API clients make it easy to explore endpoints before writing code:
+
+- **[Postman](https://www.postman.com/downloads/)** or **[Insomnia](https://insomnia.rest/download):** Import the [OpenAPI v2 specification (`/apis/v2.yml`)](/apis/v2.yml) to automatically generate a collection of all available MCSS v2 endpoints, then add an `apiKey` header with your token.
+
+### Editor tools and scripts [#-ide-extensions]
+
+If you write integrations in VS Code or another IDE, extensions such as **Thunder Client** or **REST Client** let you send test requests directly from your editor. In your own code (Node.js/TypeScript, Python, C#, Go, etc.), any standard HTTP client (`fetch`, `axios`, `requests`, `HttpClient`) works out of the box—just include the `apiKey` header and `Content-Type: application/json` when sending JSON request bodies.
+
+## Find endpoints and diagnose failures [#-api-endpoints]
+
+Browse the [API versions and reference](/API/endpoints) page or jump straight to the [API v2 reference](/apis/v2) to view every endpoint's URL path, parameters, request body, and example responses.
+
+If a request fails, check the HTTP status code:
+
+| Status code | Common cause | What to check |
+| --- | --- | --- |
+| **`401 Unauthorized`** | Missing or invalid API key | Make sure the header is named `apiKey` and the token matches an active key in MCSS. |
+| **`403 Forbidden`** | Insufficient permissions | Check the key's **Server Access & Permissions** (or [Admin permission](/API/admin)) in **Manage Users & API Keys**. |
+| **`400 Bad Request` / `404 Not Found`** | Invalid URL path, server UUID, or JSON payload | Verify you are using `/api/v2/...` and that the `serverId` matches a server UUID from `GET /api/v2/servers`. |

@@ -1,0 +1,9 @@
+{
+  "title": "Server setup",
+  "pages": [
+    "supported-server-types",
+    "create-server",
+    "import-server",
+    "server-settings"
+  ]
+}

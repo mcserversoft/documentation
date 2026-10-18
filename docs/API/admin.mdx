@@ -1,0 +1,51 @@
+---
+title: "Admin permissions"
+description: "Understand what the Assign admin rights checkbox does for Web Panel users and API keys."
+---
+
+When creating a [Web Panel user](/webpanel/users) or an [API key](/API/about#-api-keys) in MCSS, you will see two separate permission settings:
+
+1. **Server Access & Permissions (`All` or `Custom`):** Controls which Minecraft servers the user or API key can view and what actions they can run on those servers (such as viewing stats, sending console commands, starting/stopping the server, or managing backups and scheduled tasks).
+2. **Assign admin rights:** Grants **MCSS-level management permissions**, allowing the user or API key to manage other Web Panel users, create or delete API keys, manage webhooks, and change global MCSS settings.
+
+> [!IMPORTANT]
+> **Admin rights do not replace Server Access.**
+> Enabling **Assign admin rights** gives an account or API key access to MCSS management features, while **Server Access & Permissions** controls which Minecraft servers it can interact with. If you want an administrator to also manage all servers, select both **All** (under Server Access) and **Assign admin rights**.
+
+## When should you enable Admin rights?
+
+- **Leave it unchecked** for regular moderators, server helpers, status bots, or scripts that only need to check server stats, run console commands, or restart a Minecraft server.
+- **Check it only** for trusted co-owners or management integrations that need to create/edit Web Panel user accounts, manage API keys, configure webhooks, or update global MCSS settings.
+
+## API endpoints that require Admin rights
+
+In the [MCSS API v2](/apis/v2), the following management endpoints require an API key with **Assign admin rights** enabled:
+
+### User management
+
+See [`/apis/v2#tag/Users`](/apis/v2#tag/Users) for full request and response schemas.
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/api/v2/users` | List all Web Panel users |
+| `GET` | `/api/v2/users/:userId` | Get details for a single Web Panel user |
+| `POST` | `/api/v2/users` | Create a new Web Panel user |
+| `PUT` | `/api/v2/users/:userId` | Edit an existing Web Panel user |
+| `DELETE` | `/api/v2/users/:userId` | Delete a Web Panel user |
+| `POST` | `/api/v2/users/wipe/sessions` | Log out all active Web Panel user sessions |
+
+### API Key management
+
+See [`/apis/v2#tag/Api%20Keys`](/apis/v2#tag/Api%20Keys) for full request and response schemas.
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/api/v2/keys` | List all configured API keys |
+| `POST` | `/api/v2/keys` | Create a new API key |
+| `POST` | `/api/v2/keys/:apiKeyId/rotate` | Rotate an existing API key |
+| `DELETE` | `/api/v2/keys/:apiKeyId` | Delete an API key |
+
+### Global MCSS settings & Webhooks
+
+- **MCSS Settings ([`/apis/v2#tag/Mcss`](/apis/v2#tag/Mcss)):** `GET /api/v2/mcss/settings/All` and `PATCH /api/v2/mcss/settings`
+- **Webhooks ([`/apis/v2#tag/Webhooks`](/apis/v2#tag/Webhooks)):** Viewing, creating, editing, and deleting webhooks under `/api/v2/webhooks`

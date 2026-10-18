@@ -201,7 +201,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a:
+  /api/v1/servers/{serverId}:
     get:
       tags:
         - Server
@@ -214,6 +214,13 @@ paths:
         1 = Minimal  
         2 = Status
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: filter
           in: query
           schema:
@@ -273,7 +280,6 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/69361e31-2ac8-43b5-9377-0cb5e40e75ac:
     put:
       tags:
         - Server
@@ -294,6 +300,14 @@ paths:
         \- 0 none (default)  
         \- 1 elevated  
         \- 2 aggressive
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 69361e31-2ac8-43b5-9377-0cb5e40e75ac
       requestBody:
         content:
           application/json:
@@ -330,12 +344,20 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/stats:
+  /api/v1/servers/{serverId}/stats:
     get:
       tags:
         - Server
       summary: Get server stats
       description: Return stats of a specific server.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         "200":
           description: OK
@@ -372,12 +394,20 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/icon:
+  /api/v1/servers/{serverId}/icon:
     get:
       tags:
         - Server
       summary: Get server icon
       description: Return the server-icon.png of a specific server.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3054aac3-dbf5-4e10-94d2-f4b83577d9b4
       responses:
         "200":
           description: OK
@@ -407,7 +437,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/action:
+  /api/v1/servers/{serverId}/execute/action:
     post:
       tags:
         - Server
@@ -421,6 +451,14 @@ paths:
         2 = Start  
         3 = Kill  
         4 = Restart
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       requestBody:
         content:
           application/json:
@@ -457,7 +495,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/command:
+  /api/v1/servers/{serverId}/execute/command:
     post:
       tags:
         - Server
@@ -467,6 +505,14 @@ paths:
 
         **command (required) : string**  
         Server console command that should be executed.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       requestBody:
         content:
           application/json:
@@ -503,7 +549,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/commands:
+  /api/v1/servers/{serverId}/execute/commands:
     post:
       tags:
         - Server
@@ -513,6 +559,14 @@ paths:
 
         **commands (required) : string\[\]**  
         List of server console commands that should be executed.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       requestBody:
         content:
           application/json:
@@ -552,7 +606,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/console:
+  /api/v1/servers/{serverId}/console:
     get:
       tags:
         - Console
@@ -569,6 +623,13 @@ paths:
         **reversed (optional) : boolean**  
         Option to flip the line order.
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3054aac3-dbf5-4e10-94d2-f4b83577d9b4
         - name: AmountOfLines
           in: query
           schema:
@@ -630,7 +691,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/console/outdated:
+  /api/v1/servers/{serverId}/console/outdated:
     get:
       tags:
         - Console
@@ -649,6 +710,13 @@ paths:
 
         Last line you want to check.
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: secondLastLine
           in: query
           schema:
@@ -689,12 +757,20 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler:
+  /api/v1/servers/{serverId}/scheduler:
     get:
       tags:
         - Scheduler
       summary: Get scheduler details
       description: Return basic info about the scheduler of a specific server.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         "200":
           description: OK
@@ -728,7 +804,7 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks:
+  /api/v1/servers/{serverId}/scheduler/tasks:
     get:
       tags:
         - Scheduler
@@ -742,6 +818,13 @@ paths:
         2 = Interval  
         3 = Timeless
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: filter
           in: query
           schema:
@@ -842,6 +925,14 @@ paths:
 
         **StartBackup**  
         \- backupIdentifier: guid
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       requestBody:
         content:
           application/json:
@@ -893,12 +984,27 @@ paths:
               schema:
                 type: string
               example: null
-  ? /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/4a582b48-5f37-4586-88f9-a37af96db08a
-  : get:
+  /api/v1/servers/{serverId}/scheduler/tasks/{taskId}:
+    get:
       tags:
         - Scheduler
       summary: Get task
       description: Return a specific task from a specific server.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 4a582b48-5f37-4586-88f9-a37af96db08a
       responses:
         "200":
           description: OK
@@ -940,8 +1046,7 @@ paths:
               schema:
                 type: string
               example: null
-  ? /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/26d30ef2-4e17-4c66-941b-07858601a100
-  : put:
+    put:
       tags:
         - Scheduler
       summary: Edit task
@@ -990,6 +1095,21 @@ paths:
 
         **StartBackup**  
         \- backupIdentifier: guid
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 26d30ef2-4e17-4c66-941b-07858601a100
       requestBody:
         content:
           application/json:
@@ -1042,12 +1162,26 @@ paths:
               schema:
                 type: string
               example: null
-  ? /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/e9aa8fb2-303c-41ec-b3a0-cd9252a2e19f
-  : delete:
+    delete:
       tags:
         - Scheduler
       summary: Delete task
       description: Delete a specific server task.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e9aa8fb2-303c-41ec-b3a0-cd9252a2e19f
       responses:
         "200":
           description: Deleted
@@ -1077,14 +1211,26 @@ paths:
               schema:
                 type: string
               example: null
-  ? /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/8fcab652-cb96-4c57-b12b-f1d0db694a2b
-  : post:
+    post:
       tags:
         - Scheduler
       summary: Run task
       description: Run a specific server task.
-      requestBody:
-        content: {}
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 8fcab652-cb96-4c57-b12b-f1d0db694a2b
       responses:
         "200":
           description: OK
@@ -1114,12 +1260,20 @@ paths:
               schema:
                 type: string
               example: null
-  /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups:
+  /api/v1/servers/{serverId}/backups:
     get:
       tags:
         - Backups
       summary: Get list of backups
       description: Return all backups from a specific server
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         "200":
           description: OK
@@ -1186,6 +1340,14 @@ paths:
         \- high (default)  
         \- low  
         \- none
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       requestBody:
         content:
           application/json:
@@ -1236,8 +1398,8 @@ paths:
               schema:
                 type: string
               example: null
-  ? /api/v1/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/449911ca-ff50-4052-8cf3-336b067cd482
-  : get:
+  /api/v1/servers/{serverId}/backups/{backupId}:
+    get:
       tags:
         - Backups
       summary: Get backup details
@@ -1257,6 +1419,21 @@ paths:
         \- 2 completed,  
         \- 3 failed,  
         \- 4 canceled
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         "200":
           description: OK
@@ -1318,6 +1495,21 @@ paths:
         \- high (default)  
         \- low  
         \- none
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       requestBody:
         content:
           application/json:
@@ -1364,6 +1556,21 @@ paths:
         - Backups
       summary: Delete backup
       description: Delete a specific server backup.
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         "200":
           description: Deleted
@@ -1398,8 +1605,21 @@ paths:
         - Backups
       summary: Run backup
       description: Run a specific server backup.
-      requestBody:
-        content: {}
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         "200":
           description: OK

@@ -1,0 +1,44 @@
+---
+title: "Install plugins and mods"
+description: "Add plugins, mods, or data packs that match your server software and Minecraft version."
+---
+
+Plugins and mods are both distributed as `.jar` files, but they are built for different server platforms. Before downloading anything, check which type your server supports:
+
+| Your server software | What it uses | Where files go |
+| --- | --- | --- |
+| **Vanilla** | Data packs only (no plugins or mods) | `<world>/datapacks` |
+| **Paper / Spigot / Purpur** | Bukkit, Spigot, and Paper **plugins** | `plugins` folder |
+| **Fabric** | Fabric **mods** (plus required dependencies like Fabric API) | `mods` folder |
+| **Forge** | Forge **mods** matching your Minecraft & Forge version | `mods` folder |
+| **NeoForge** | NeoForge **mods** matching your Minecraft & NeoForge version | `mods` folder |
+
+## Install a Paper or Spigot plugin
+
+1. Download the plugin `.jar` from a trusted source (such as [Hangar](https://hangar.papermc.io/), [Modrinth](https://modrinth.com/plugins), or [SpigotMC](https://www.spigotmc.org/resources/)). Make sure the download supports your exact Minecraft version and lists any required dependency plugins.
+2. **Stop** your server in MCSS.
+3. Copy the `.jar` file into your server's `plugins` folder. If you are updating an existing plugin, remove the older `.jar` version so you do not have duplicates.
+4. **Start** the server and check the **Console** to confirm the plugin loaded cleanly.
+
+You can run the `plugins` command in the server console to see all loaded plugins (green means active, red means it failed to enable). Always use a full server restart when adding or updating plugins rather than `/reload`. For more details, see [Paper's plugin guide](https://docs.papermc.io/paper/adding-plugins/).
+
+## Install Fabric, Forge, or NeoForge mods
+
+1. Download mods that match both your **Minecraft version** and your **mod loader** (Fabric, Forge, or NeoForge are not interchangeable). Check whether the mod requires library mods (such as **Fabric API**).
+2. Check whether the mod is needed on the server:
+   - **Server-side or both-sides mods** (new blocks, items, biomes, gameplay mechanics, or server utilities) go into the server's `mods` folder. Players joining the server usually need the same gameplay mods installed on their client.
+   - **Client-only mods** (minimaps, shaders, custom menus, or client FPS boosters) are only for the player's game client and can crash a dedicated server if placed in the server's `mods` folder.
+3. **Stop** your server, place the mod `.jar` files into the server's `mods` folder, and **Start** the server.
+
+<Callout type="info">
+If you are running a pre-made modpack, update the pack using the pack author's official server pack releases rather than updating individual mods on your own, as modpacks often rely on specific versions to work together. See [Fabric's mod installation guide](https://docs.fabricmc.net/players/installing-mods) for more tips.
+</Callout>
+
+## Troubleshooting plugins and mods
+
+If your server fails to start or a plugin/mod does not load after adding it:
+
+1. Check the **Console** or `logs/latest.log` for the first error message—it will usually tell you if a dependency is missing, if the mod requires a newer loader version, or if it was built for a different Minecraft version.
+2. Make sure you do not have two different versions of the same plugin or mod in your folder.
+3. If you installed a client-only mod on a Forge/Fabric/NeoForge server by mistake, remove it from the server's `mods` folder and start the server again.
+4. Take a [backup](/backups/backup-and-restore) before adding or removing mods that add custom blocks, items, or biomes to an existing world.

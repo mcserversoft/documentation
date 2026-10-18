@@ -1,0 +1,73 @@
+---
+title: "Select Java in MCSS"
+description: "Choose an explicit Java executable globally, per server, or in a batch launcher."
+---
+
+With MCSS, you can set a default Java version for all of your servers or assign a specific Java version to an individual server.
+
+First, install the [required Java version](/advanced/java-version) for your server. Then configure Java based on how your server launches:
+
+| Startup method | Where to configure Java |
+| --- | --- |
+| Java startup line | MCSS's [per-server](#-per-server) or [global Java override](#-globally). |
+| Batch file (`.bat`) | The Java command inside the [batch file itself](#if-the-server-uses-a-batch-file). |
+| Native Bedrock executable | Java is not required for Bedrock servers. |
+
+## Find the executable [#-java-path]
+
+The easiest way to select a Java version in MCSS is with the built-in **Java Path Picker**, which automatically scans common installation folders.
+
+If you prefer to browse for `java.exe` manually, typical installation folders include:
+
+- **Eclipse Adoptium (Temurin):** `C:\Program Files\Eclipse Adoptium\<version>\bin\java.exe`
+- **Oracle / general Java:** `C:\Program Files\Java\<version>\bin\java.exe`
+
+You can also test any `java.exe` path directly in Command Prompt to confirm its version:
+
+```cmd
+"C:\path\to\your-jdk\bin\java.exe" -version
+```
+
+<Callout type="info">
+When running a command in Command Prompt or a batch file, wrap the path in quotes if it contains spaces. When pasting a path into MCSS settings, do not include quotes.
+</Callout>
+
+## Set a global override [#-globally]
+
+If you have one server—or if most of your servers use the same Java version—you can set a global Java path:
+
+1. Open **File → Options** (or click **Settings** in the left navigation).
+2. In **Program Settings**, scroll down to **Java → Global Java Path override (environment variable)**.
+3. Click **Java Path Picker** to choose an installed Java version, or paste the full path to `java.exe`.
+4. Click **Save**.
+
+![Global Java path override in the MCSS interface](/img/docs/java-path/java-path-override.png)
+
+## Set a per-server override [#-per-server]
+
+If you run multiple servers that need different Java versions (for example, a Minecraft 1.20.1 server on Java 17 and a 26.1 server on Java 25), you can set a per-server override:
+
+1. Stop the server.
+2. Click the server's **cogwheel (⚙️)** icon and open the **Advanced** tab.
+3. Under **Local Java path override**, use the **Java Path Picker** or select the required `java.exe`.
+4. Click **Save** and start the server.
+
+[![MCSS Advanced settings showing the local Java path override and Java Path Picker](/img/docs/server-settings/advanced-13-10-0.png)](/img/docs/server-settings/advanced-13-10-0.png)
+
+A local override takes priority over the global Java path. Leave it blank if you want the server to use the global setting or your system default.
+
+## If the server uses a batch file
+
+When a server launches through a `.bat` file, the batch script controls which Java executable runs. If the script starts with `java`, it uses whatever Java version is first on your Windows `PATH`.
+
+To make the script use a specific Java version, replace `java` with the full path to `java.exe` in quotes:
+
+```batch
+"C:\Program Files\Eclipse Adoptium\jre-21.0.5.11-hotspot\bin\java.exe" -Xmx4G -jar server.jar nogui
+```
+
+<Callout type="info">
+If you are running a Forge, NeoForge, or modpack server that uses an argument file (such as `@libraries/.../win_args.txt`), keep the rest of the launch arguments unchanged and only replace `java` at the start of the command.
+</Callout>
+
+If the Java Path Picker does not list your Java installation, you can either browse to `java.exe` directly or [add your custom Java folder to the picker's search locations](/advanced/tweak-java-path-detection#-edit-locations).

@@ -1,0 +1,10 @@
+{
+  "title": "Connections & networking",
+  "pages": [
+    "find-ip",
+    "troubleshooting",
+    "windows-firewall",
+    "port-forwarding",
+    "[Game tunnels with playit.gg](/advanced/using-playit.gg-with-mcss)"
+  ]
+}

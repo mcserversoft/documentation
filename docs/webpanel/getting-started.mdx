@@ -1,0 +1,76 @@
+---
+title: "Use the remote web panel"
+description: "Enable the MCSS Web Panel so you and your staff can manage servers from any web browser."
+---
+
+The MCSS **Web Panel** lets you monitor your servers, read and send console commands, start or stop servers, and manage backups or scheduled tasks right from a web browser—on your PC, phone, or tablet.
+
+> [!NOTE]
+> The Web Panel is strictly for **server administration**. Players joining your Minecraft server do **not** need the Web Panel enabled or its port forwarded.
+
+## Enable the panel [#-enable-panel]
+
+1. Click **Web Panel** in the left sidebar of MCSS. When the panel is disabled, you will see a status screen with links to **View Settings** and **Manage Users & API Keys**:
+
+[![MCSS 13.10.0 Web Panel tab before the panel is enabled](/img/docs/panel/disabled-panel-13-10-0.png)](/img/docs/panel/disabled-panel-13-10-0.png)
+
+2. Click **View Settings** (or go to **Settings** in the left sidebar and scroll down to the Web API & Panel section):
+
+[![MCSS 13.10.0 Program Settings showing Enable Web API, Enable Web Panel, Enable SSL, and Panel/API Port Number](/img/docs/panel/remote-settings-13-10-0.png)](/img/docs/panel/remote-settings-13-10-0.png)
+
+3. Check **Enable Web API** (the Web Panel runs on top of the Web API, so both must be enabled).
+4. Check **Enable Web Panel**.
+5. Optional settings:
+   - **Show Web API/Panel on startup:** Automatically opens the Web Panel in your default browser whenever MCSS starts.
+   - **Enable SSL (recommended):** Encrypts connections to the Web Panel using HTTPS (`https://`).
+   - **Panel/API Port Number:** Defaults to **`25560`**. Leave this as `25560` unless another application on your computer is already using that port.
+6. Leave the **Settings** page to apply your changes—MCSS starts the web server automatically without needing a restart.
+7. Open **Web Panel → Manage Users & API Keys** to [create your panel user account](/webpanel/users#open-user-management) before logging in.
+
+## Access on the host computer [#-local-access]
+
+Once the Web Panel is enabled and you have created a user account, click **Launch Panel in browser** on the **Web Panel** tab, or open your browser and go to:
+
+```text
+https://localhost:25560
+```
+
+*(If you unchecked **Enable SSL**, use `http://localhost:25560` instead. If you changed the port from `25560`, substitute your custom port.)*
+
+## Access from the LAN [#-LAN-access]
+
+To open the Web Panel from another computer, phone, or tablet connected to the same home network (Wi-Fi or Ethernet):
+
+1. Find your server computer's [LAN IPv4 address](/networking/find-ip#find-your-lan-address-on-windows) using `ipconfig` (for example, `192.168.1.50`).
+2. Allow TCP port **`25560`** (or your custom panel port) through [Windows Firewall](/networking/windows-firewall#choose-the-rule-scope) on the server computer.
+3. On your other device, open a browser and visit:
+
+```text
+https://192.168.1.50:25560
+```
+
+> [!TIP]
+> On the **Web Panel** tab in MCSS, you can also click the **Mobile** button to display a QR code that opens the panel's LAN address directly on your phone or tablet.
+
+## Access from outside your network [#-anywhere-access]
+
+If you want to manage your servers when you are away from home, or let remote moderators/admins use the Web Panel over the internet, you have a few ways to connect:
+
+- **Port forwarding (direct connection):** Forward TCP port **`25560`** (or your configured Panel/API port) on your router to your server PC's LAN IPv4 address, following the same steps as [port forwarding a game port](/networking/port-forwarding#-setting-up-the-port-forwarding-rule). Remote admins can then visit `https://your-public-ip:25560`.
+- **Using a tunnel (`playit.gg`):** If your ISP uses CGNAT or you prefer not to open a port on your router, you can create a TCP tunnel for the panel port. See [Using playit.gg for the Web Panel](/advanced/using-playit.gg-with-mcss#-using-playit-for-the-panel).
+- **Private VPN (such as Tailscale or ZeroTier):** Installing a private mesh VPN on your server PC and your personal devices lets you reach the Web Panel remotely without exposing port `25560` to the public internet.
+
+Whenever the Web Panel is reachable outside your home network, keep **Enable SSL** turned on, use strong passwords, and [restrict each user account](/webpanel/users#assign-server-access) to only the servers and actions they need.
+
+## Why does my browser show a "Your connection isn't private" warning?
+
+When **Enable SSL** is checked, MCSS automatically generates a **self-signed SSL certificate** to encrypt traffic between your browser and the Web Panel.
+
+Because this certificate was created locally by your own copy of MCSS rather than issued by a public Certificate Authority for a registered domain name, your browser will show a warning screen the first time you visit the panel:
+
+![Browser security warning for a self-signed SSL certificate](/img/docs/panel/ssl-warning.png)
+
+This is normal when connecting to your own MCSS server by IP address or `localhost`:
+
+1. Confirm that the address in your browser's URL bar is indeed your MCSS server (`localhost`, your LAN IP, or your public IP).
+2. Click **Advanced** (or **Show Details**) and select **Continue to ... (unsafe)** / **Proceed** to open the Web Panel. Your connection remains encrypted with HTTPS.

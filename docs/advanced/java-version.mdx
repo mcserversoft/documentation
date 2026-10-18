@@ -1,0 +1,79 @@
+---
+title: "Choose and install Java"
+description: "Match Java to the exact Minecraft server version, loader, and server distribution."
+---
+
+Minecraft servers require specific versions of Java to run. Choose the Java version required for the **server software you are running**, not for MCSS itself.
+
+---
+
+## 1. Java version matrix
+
+Select your server type below to find the required Java version and download link:
+
+### Vanilla & Fabric [#vanilla-and-fabric-current-version-families]
+
+| Minecraft Version | Required Java | Download Link |
+| --- | --- | --- |
+| **26.1 – 26.3** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **1.20.5 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **1.18 – 1.20.4** | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **1.17 – 1.17.1** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **1.16.5 and below** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
+
+---
+
+### Forge & NeoForge
+
+| Minecraft Version | Required Java | Download Link |
+| --- | --- | --- |
+| **26.1 and newer** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **1.20.5 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **1.18 – 1.20.4** *(NeoForge 1.20.2+)* | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **1.17 – 1.17.1** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **1.16.5 and below** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
+
+<Callout type="warn" title="Forge 1.16.5 and older requires Java 8">
+Forge 1.16.5 and older releases strictly require Java 8 and will crash on Java 11 or newer. Always ensure you use Java 8 when running older Forge servers or modpacks.
+</Callout>
+
+---
+
+### Paper, Spigot & Proxies [#paper-and-other-distributions]
+
+Paper and other optimized server forks often recommend newer Java versions on older Minecraft releases:
+
+| Server Version | Recommended Java | Download Link |
+| --- | --- | --- |
+| **Paper 26.1 and newer** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **Paper 1.20 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **Paper 1.17 – 1.19.4** | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **Paper 1.16.5** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **Paper / Spigot 1.12 – 1.16.4**<br />BungeeCord / Waterfall | **Java 11** | [Download Java 11](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=11) |
+| **Paper 1.7.10 – 1.11** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
+
+---
+
+## 2. Install Java on Windows
+
+1. Download the required version from [Eclipse Temurin](https://adoptium.net/temurin/releases/) using the links in the tables above.
+2. Choose **Windows x64** and download the `.msi` installer (choose the **JRE** release if available; for Java 16, download the **JDK** installer).
+3. Run the installer and finish the setup.
+4. Open a **new** Command Prompt and check your default Java version:
+
+```cmd
+java -version
+where java
+```
+
+---
+
+## 3. Assign Java in MCSS
+
+<Callout title="Running multiple servers with different Java versions" type="info">
+If you run multiple servers that require different Java versions, follow the [Java path guide](/advanced/java-path-update) to configure a separate Java installation for each server.
+</Callout>
+
+* In MCSS, set the Java path in server settings or via the [global](/advanced/java-path-update#-globally) or [per-server Java override](/advanced/java-path-update#-per-server).
+* If your server uses a [batch script (`run.bat`)](/advanced/java-path-update#if-the-server-uses-a-batch-file), make sure the script points to the correct Java executable if your system default is different.
+* After changing Java, restart the server and check the console logs to confirm it starts with the correct runtime.

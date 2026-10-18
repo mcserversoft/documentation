@@ -1,0 +1,39 @@
+---
+title: "Allow game traffic through Windows Firewall"
+description: "Create an inbound rule in Windows Defender Firewall so other devices can connect to your Minecraft server."
+---
+
+When you start a Minecraft server for the first time, Windows usually shows a **Windows Defender Firewall** popup asking whether to allow Java (`javaw.exe` or `java.exe`) to communicate on your network.
+
+If that popup was dismissed, didn't appear, or you installed a new Java version later on, Windows Firewall may block incoming connections from other computers on your LAN or over the internet—even if your router's port forwarding rule is set up properly.
+
+## Choose the rule scope
+
+The cleanest and most reliable way to allow your server through Windows Firewall is to create an **Inbound Port Rule** for your server's port. Unlike an application rule (which can break when you install a newer Java version in a different folder), a port rule stays valid for whatever server runs on that port.
+
+| Server type | Protocol | Default Port |
+| --- | --- | --- |
+| **Minecraft Java Edition** | `TCP` | `25565` |
+| **Bedrock Dedicated Server / Geyser** | `UDP` | `19132` |
+| **Simple Voice Chat / Plasmo Voice (mod/plugin)** | `UDP` | `24454` (or your configured voice port) |
+| **MCSS Web Panel / API** *(optional, only for remote management)* | `TCP` | `25560` |
+
+## Create an inbound port rule in Windows Firewall
+
+1. Press **Win + R**, type `wf.msc`, and press **Enter** to open **Windows Defender Firewall with Advanced Security**.
+2. In the left sidebar, click **Inbound Rules**, then click **New Rule...** in the right-hand **Actions** pane.
+3. Select **Port** and click **Next**.
+4. Choose **TCP** (for a standard Java Edition server) or **UDP** (for Bedrock/Geyser), select **Specific local ports**, and enter your server port (such as `25565`). Click **Next**.
+5. Select **Allow the connection** and click **Next**.
+6. Leave **Private** (and **Public**, if your Windows network profile is set to Public) checked and click **Next**.
+7. Give the rule a clear name—such as `Minecraft Server (TCP 25565)`—and click **Finish**.
+
+> [!TIP]
+> Avoid turning off Windows Firewall completely to troubleshoot connection issues. Opening only the specific port your server uses keeps the rest of your computer protected.
+
+## Verify the change
+
+1. Keep your Minecraft server running in MCSS.
+2. From another computer on your home network, try joining using your server PC's [LAN IPv4 address](/networking/find-ip#find-your-lan-address-on-windows) (for example, `192.168.1.50:25565`).
+3. If LAN connections still fail, check if you have a third-party antivirus suite (such as Norton, McAfee, Bitdefender, or Kaspersky) that manages its own firewall, and allow the port there as well.
+4. Once devices on your home network can join, [test your router's port forwarding rule from outside your network](/networking/port-forwarding#test-from-outside-the-lan).

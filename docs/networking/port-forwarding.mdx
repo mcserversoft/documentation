@@ -1,0 +1,90 @@
+---
+title: "Open a game port to the internet"
+description: "Set up port forwarding on your router so friends outside your home network can join your Minecraft server."
+---
+
+## What port forwarding does [#-introduction]
+
+By default, your home router blocks incoming connections from the internet to protect the devices in your house. When a friend tries to join your Minecraft server using your public IP address, your router doesn't know which computer should receive that traffic and drops the connection.
+
+**Port forwarding** tells your router: *"Whenever someone from the internet connects to my public IP on the Minecraft port (such as `25565`), send that traffic to my server PC."*
+
+![Diagram comparing unsuccessful and successful port forwarding](/img/docs/port-forward/portforward_overview.png)
+
+Before setting up port forwarding, make sure your server starts cleanly and that you can already join it from [your own computer (`localhost`)](/networking/troubleshooting#2-test-from-the-server-computer) and [another device on your home network](/networking/troubleshooting#3-test-from-a-second-lan-device).
+
+> [!NOTE]
+> Players only need access to the **Minecraft game port** (default `25565`). You do **not** need to port forward the MCSS Web Panel or API port unless you specifically want to manage MCSS from outside your home.
+
+## Know your network [#-different-network-devices]
+
+Port forwarding must be configured on your **main router**—the box that manages your home network and connects to your internet service provider (ISP).
+
+- **Single modem/router combo:** Most homes have a single router (or an ISP gateway box) that handles both the internet connection and Wi-Fi. You only need to add the port forwarding rule on this one device.
+- **Mesh Wi-Fi or a second router (Double NAT):** If you plugged your own Wi-Fi router or mesh system into an ISP modem/router that also acts as a router, your network has two layers of routing (often called **Double NAT**). In that setup, either put the ISP box into **Bridge Mode** (or **IP Passthrough**) using your ISP's instructions, or forward the port twice: first from the ISP box to your second router, and then from your second router to your server PC.
+
+## Configure a rule [#-setting-up-the-port-forwarding-rule]
+
+### 1. Check whether your ISP supports port forwarding [#-step-1]
+
+Some internet providers—especially mobile (4G/5G), satellite, fiber, or apartment networks—share a single public IPv4 address across many homes using **CGNAT (Carrier-Grade NAT)**. When your connection is behind CGNAT, incoming connections are blocked at the ISP's network before they ever reach your router.
+
+You can check for CGNAT or Double NAT in a minute:
+
+1. Log in to your router's status page and find its **WAN IP** (or **Internet IPv4**) address.
+2. Compare that WAN IP with the address shown on [What Is My IP Address](https://whatismyipaddress.com/).
+
+- **If both IPv4 addresses match:** You have a dedicated public IPv4 address and can proceed to Step 2.
+- **If they do not match**, look at the first numbers of your router's **WAN IP**:
+
+| Router WAN IP starts with | What it means |
+| --- | --- |
+| `192.168.x.x`, `10.x.x.x`, or `172.16.x.x`–`172.31.x.x` | Your router is sitting behind another router (**Double NAT**) or an ISP network. Check if you have a second modem/router box in your home. |
+| `100.64.x.x`–`100.127.x.x` | Your ISP is using **CGNAT** (shared address space). Standard IPv4 port forwarding will not work unless you ask your ISP for a dedicated public IPv4 address. |
+
+If your ISP uses CGNAT and cannot provide a public IPv4 address, you can skip port forwarding altogether and use a tunnel service such as [playit.gg](/advanced/using-playit.gg-with-mcss) so friends can join.
+
+### 2. Record the server and gateway addresses [#-step-2]
+
+Follow the [Find your LAN address on Windows](/networking/find-ip#find-your-lan-address-on-windows) steps using `ipconfig` to write down two numbers:
+
+- Your server PC's **IPv4 Address** (for example, `192.168.1.50`)
+- Your router's **Default Gateway** (for example, `192.168.1.1`)
+
+If your router has a **DHCP Reservation** (or **Static IP Lease**) setting under its LAN options, reserve your server PC's LAN IP so your router always assigns it the same address after a reboot.
+
+### 3. Open the router's configuration [#-step-3]
+
+1. Open your web browser and enter your **Default Gateway** address in the address bar (for example, `http://192.168.1.1`).
+2. Sign in using your router's admin username and password (often printed on a sticker on the bottom or back of the router if you haven't changed it).
+3. Look for the **Port Forwarding**, **Virtual Server**, **NAT**, or **Firewall** section—usually located under **Advanced** or **Internet** settings. Because every router brand uses a slightly different menu layout, check your router model's user guide if you cannot spot it right away.
+
+### 4. Forward the actual game port [#-step-4]
+
+Create a new port forwarding rule using your server's details. For a standard **Minecraft Java Edition** server on the default port:
+
+| Router field (names vary by brand) | Value to enter |
+| --- | --- |
+| **Service Name / Description** | `Minecraft Server` |
+| **Protocol** | `TCP` (or `TCP/UDP` if you also use voice chat mods or Geyser on the same port) |
+| **External Port / Public Port / Service Port** | `25565` (or your custom `server-port`) |
+| **Internal Port / Local Port / Private Port** | `25565` (match your server's port) |
+| **Internal IP / Local IP / Device** | Your server PC's LAN IPv4 address (for example, `192.168.1.50`) |
+
+Save or apply the rule in your router, then make sure [Windows Firewall](/networking/windows-firewall#choose-the-rule-scope) on your server PC allows incoming connections on that same port.
+
+> [!TIP]
+> **Running Bedrock Edition or Geyser?**
+> Bedrock Dedicated Server and the Geyser plugin use **UDP** instead of TCP, and default to port **`19132`**. When forwarding a Bedrock or Geyser port, set the protocol to **UDP** and the port to `19132` (or the port configured in your Bedrock `server.properties` / Geyser `config.yml`).
+
+## Test from outside the LAN
+
+1. Start your Minecraft server in MCSS and wait until startup finishes (`Done!`).
+2. Find your [public IPv4 address](/networking/find-ip#find-your-public-ipv4-address).
+3. Ask a friend on a different internet connection (or test using a phone on mobile data/hotspot) to connect using `your-public-ip:25565`.
+
+> [!NOTE]
+> **Why can't I join my own public IP from home?**
+> Many home routers do not support a feature called **NAT Loopback** (or *hairpinning*), which means your public IP will fail when you test it from inside your own home network—even when friends outside your home can join without any issues. Always use `localhost` on the server PC and your LAN IP (`192.168.x.x`) on other devices inside your home.
+
+If external players still cannot connect, walk through the [Players cannot connect](/networking/troubleshooting) checklist to pinpoint where the connection stops.

@@ -1,0 +1,42 @@
+---
+title: "Logs and support"
+description: "How to find your MCSS and Minecraft server logs and get help from the MCSS community."
+---
+
+When something goes wrong with your server or MCSS, sharing the full text log (rather than a cropped screenshot of the last line) is the fastest way to get help.
+
+## What to include when asking for help
+
+When posting in the [MCSS Discord](https://www.mcserversoft.com/discord), include these basics so helpers can immediately spot the issue:
+
+- **MCSS version** (shown in the bottom-left corner of MCSS, such as `v13.10.0`)
+- **Minecraft version and server software** (for example, Paper 1.21.4, Fabric 26.1, or Forge 1.20.1)
+- **What you were doing** when the issue happened, and the exact error message
+- **For connection issues:** Which stage of the [connection checklist](/networking/troubleshooting) failed (`localhost` on the server PC, [another device on your LAN](/networking/troubleshooting#3-test-from-a-second-lan-device), or [friends over the internet](/networking/troubleshooting#4-test-from-outside-your-network))
+
+## Collect the relevant logs
+
+Depending on whether the Minecraft server or the MCSS application had the error, grab the matching log file:
+
+- **Minecraft server logs:** Located inside your server's folder at `logs/latest.log` (and `crash-reports/` if the server generated a crash report). Always share the full startup log rather than just the final `Process exited` line.
+- **MCSS application logs:** Located inside your MCSS installation folder's `logs` directory.
+- **Windows Event Viewer (if MCSS itself crashes to desktop):**
+  1. Press **Win + R**, type `eventvwr`, and press **Enter**.
+  2. Open **Windows Logs → Application** in the left sidebar.
+  3. Look for red **Error** entries around the time MCSS crashed and copy the text from the **General** tab (or click **Save All Events As...** in the right sidebar).
+
+![Locating Application logs in Windows Event Viewer](/img/docs/faq/event_viewer.png)
+
+## Remove private information
+
+Before uploading a log file or pasting config files in a public Discord channel, quickly check that you aren't sharing:
+
+- MCSS **API keys**, **Web Panel passwords**, or Discord **webhook URLs**
+- Database passwords (such as MySQL/MariaDB credentials in plugin configs) or RCON passwords
+
+If you ever accidentally post an API key or password in a public channel, delete or change that key in MCSS right away.
+
+## Where to get support
+
+- **MCSS questions, server setup, Web Panel, or API help:** Join the official [MCSS Discord server](https://www.mcserversoft.com/discord).
+- **Modpack, plugin, or mod bugs:** If a specific mod or plugin crashes your server with an internal Java exception, check that modpack or plugin author's issue tracker or Discord as well.

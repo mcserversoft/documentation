@@ -1,0 +1,48 @@
+---
+title: "Backup filenames"
+description: "Customize how MCSS names backup ZIP files using server, backup, and timestamp placeholders."
+---
+
+You can customize the naming pattern MCSS uses when saving backup `.zip` files.
+
+Open **File → Options** (or click **Settings** in the left navigation) and scroll down to **Backup → ZIP File Format**. This is the MCSS default format:
+
+```text
+[backupname]_[unix]
+```
+
+If you enter an invalid format, MCSS automatically falls back to the default format.
+
+## Example [#-example]
+
+If multiple servers save backups into the same folder, including `[servername]` in the pattern makes it easy to tell which server each archive belongs to:
+
+```text
+[servername]_[backupname]_[unix]
+```
+
+For a server named `Survival` and a backup template named `Daily`, this produces a filename like:
+
+```text
+Survival_Daily_1792106275.zip
+```
+
+MCSS adds the `.zip` file extension automatically, so you do not need to type `.zip` at the end of the format string.
+
+[![MCSS Backup settings showing ZIP File Format and Delete Old Backups Threshold](/img/docs/backups/filename-and-retention-13-10-0.png)](/img/docs/backups/filename-and-retention-13-10-0.png)
+
+## Available placeholders [#-parameters]
+
+| Placeholder | Example output | Description |
+| --- | --- | --- |
+| `[date]` | `10-2-2026` or `2-10-2026` | Current date formatted using your Windows Region and Language settings. |
+| `[time]` | `20-15` or `8-15PM` | Current time formatted using your Windows Region and Language settings. |
+| `[unix]` | `1792106275` | Current Unix timestamp in seconds. |
+| `[backupname]` | `Daily` | The name of the backup template. |
+| `[servername]` | `Survival` | The name of the server in MCSS. |
+
+<Callout type="warn" title="Keep backup filenames unique">
+Make sure your format includes `[unix]` or both `[date]` and `[time]`. If a format is too generic (for example, `backup_[date]`), it can only generate one unique filename per day, which can cause later backups on the same day to fail or collide.
+</Callout>
+
+To learn how to create, schedule, or restore backups, see [Back up and restore a server](/backups/backup-and-restore).

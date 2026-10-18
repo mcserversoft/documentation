@@ -1,0 +1,118 @@
+---
+title: "Install and import Forge manually"
+description: "Install Forge externally, import the complete server folder into MCSS, and configure the launcher."
+---
+
+There are 2 options on how to add a Forge server to MCSS:
+* **[Use the integrated Forge installer](/basic/create-server/Forge/create-forge-server)** (quickest method)
+* **Manually create & import Forge server** (covered in this guide)
+
+This guide shows you how to install a Forge server externally and import it into MCSS. This manual method gives you full control and is recommended if the integrated installer fails or if you are using an older Forge release.
+
+<Callout title="Using a modpack?" type="warn">
+Modpacks often require [specialized setup](/basic/create-server/Forge/create-a-server-with-a-modpack). If the modpack ships with its own server pack installer or startup script, follow the modpack guide instead.
+</Callout>
+
+## 1. Download Forge [#-download-forge]
+
+1. Go to [Forge's website](https://files.minecraftforge.net/) and choose the Minecraft version and Forge build required by your mods.
+2. Click on the **Installer** button. It must be the installer file.
+3. Make sure you have the [correct Java version installed](/advanced/java-version) on your computer for your targeted Minecraft version.
+
+![Download forge](/img/docs/create-forge/download_forge.png)
+
+## 2. Install the server [#-create-the-forge-server]
+
+1. Create a new, temporary empty folder on your computer, outside of the MCSS `servers/` folder (for example, on your Desktop).
+2. Open the downloaded installer file (`forge-<minecraft_version>-<forge_version>-installer.jar`).
+   - If double-clicking doesn't run it, open a terminal in the folder where the installer is located and run:
+     ```cmd
+     java -jar forge-installer.jar --installServer
+     ```
+     *(Replace `forge-installer.jar` with your actual filename).*
+3. In the installer window, select **Install server**.
+4. Click the three dots `...` to select the empty staging folder you created, then click **OK**.
+
+![Install forge](/img/docs/create-forge/install_forge.png)
+
+5. Forge will now download all necessary files and libraries into that folder. Once finished, you will see a success message.
+6. The folder will now contain:
+   - A `libraries` directory
+   - A `<version>.json` file
+   - For **Forge 1.16 or earlier**: `forge-<version>.jar` and `minecraft-server.<version>.jar`
+   - For **Forge 1.17 or newer**: `run.bat` (and `run.sh` on Linux/macOS), `user_jvm_args.txt`, and version argument files
+
+You can now safely delete the downloaded installer `.jar` file.
+
+## 3. Import the server into MCSS [#-migrate-the-server-to-mcss]
+
+Now bring the installed files into MCSS:
+
+1. Open MCSS and navigate to **File → Import Server..**.
+2. Select **Forge** as the server type.
+3. In the left pane, drag and drop any recognized file from your temporary server folder (or click **Select server to import** and pick a [recognized file in the folder](/basic/import-server/supported-server-files#-selecting-file), such as `run.bat`, `forge-<version>.jar`, or `server.properties`).
+4. Configure your server:
+   - **Name:** Choose a display name for your server.
+   - **Folder Name:** The folder created under `mcss/servers/`.
+   - **RAM:** Set your allocated memory in MB (we recommend at least `4096` MB for modded servers).
+5. Click **Import Server**.
+
+![Importing a Forge server into MCSS](/img/docs/create-forge/migrate_forge.png)
+
+MCSS will copy all the server files into its internal `servers/` directory, and the server will appear in your server list. Once you have verified the imported server, you can delete the temporary staging folder you used in step 2.
+
+## 4. Configure launch settings [#-tweaking-the-server-start-settings]
+
+After importing, verify your server's launch settings:
+
+* **For Forge 1.16 and prior:** Select `forge-<version>.jar` in the server JAR selector.
+* **For Forge 1.17 and newer:** Check the **Use Bat file** option and select `run.bat`.
+
+![Launch options config](/img/docs/create-forge/set_launch_options.png)
+
+---
+
+### Review a generated batch launcher
+
+Modern Forge releases (1.17+) use `run.bat` to pass required loader arguments and Java flags. Before starting the server in MCSS, the batch file must be adjusted.
+
+In MCSS, open your server's settings, go to the **Advanced** tab, and click the ✏️ pencil icon next to **Use Bat file**:
+
+![Edit batch file](/img/docs/create-forge/forge_edit_bat_file.png)
+
+By default, the script should look similar to this:
+
+```batch
+REM Forge requires a configured set of both JVM and program arguments.
+REM Add custom JVM arguments to the user_jvm_args.txt
+REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
+REM  pass them to this script directly
+java @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt %*
+pause
+```
+
+Review and apply these adjustments:
+
+1. **Remove `pause`:** Remove the `pause` statement at the very bottom. Leaving `pause` will cause MCSS to hang or report the server as unresponsive during restarts and stops because it waits indefinitely for keyboard input.
+2. **Add `nogui`:** Add `nogui` on the launch line immediately before `%*`. This suppresses the default Minecraft GUI window, allowing MCSS to manage the server console cleanly.
+3. **Specify the Java path (if needed):** If `java` does not automatically point to the correct version, replace `java` with the full quoted path to your `java.exe` (for example, `"C:\Program Files\Java\jdk-17.0.2\bin\java.exe"`). Use MCSS's built-in Java Path Picker to locate the executable. Make sure you use the [correct Java version](/advanced/java-version) for your Minecraft release.
+4. **Preserve argument files:** Do **not** remove or modify `@user_jvm_args.txt` or `@libraries/.../win_args.txt`. These files contain essential classpaths and loader parameters generated specifically for your Forge build.
+5. **Configure JVM arguments:** To allocate memory (e.g. `-Xmx4G`) or set custom Java flags, add them to `user_jvm_args.txt` in your server directory rather than modifying the `@...` arguments directly.
+
+Here is an example of the modified, ready-to-run batch file:
+
+```batch
+REM Forge requires a configured set of both JVM and program arguments.
+REM Add custom JVM arguments to the user_jvm_args.txt
+REM Add custom program arguments {such as nogui} to this file in the next line before the %* or
+REM  pass them to this script directly
+"C:\Program Files\Java\jdk-17.0.2\bin\java.exe" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.18.1-39.0.45/win_args.txt nogui %*
+```
+
+Save and close the file editor.
+
+## 5. Accept EULA and first start [#-first-start]
+
+1. Start your server for the first time.
+2. Complete the [first-start EULA step](/getting-started/first-server#3-complete-the-first-start) by accepting it in MCSS (or by editing `eula.txt` in the server folder and setting `eula=true`).
+3. Start the server again. Once the console reports that the server is online and listening, you can connect from your Minecraft client with matching Forge and mod versions.

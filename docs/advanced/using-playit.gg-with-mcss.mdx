@@ -1,0 +1,90 @@
+---
+title: "Using playit.gg with MCSS"
+description: "Set up a playit.gg tunnel to let friends join your server or access the MCSS web panel without port forwarding."
+---
+
+## Introduction [#-introduction]
+
+If you are having trouble with [port forwarding](/networking/port-forwarding) or your internet provider uses [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT), you may not be able to open ports on your router at all.
+
+[playit.gg](https://playit.gg/) lets you bypass port forwarding by running a small tunnel program ("agent") on your computer that forwards traffic from a public playit.gg address directly to your local server.
+
+The core functionality of playit.gg is free, with optional paid features such as custom domains.
+
+<Callout type="info">
+MC Server Soft is not affiliated with playit.gg. Other tunneling options include [ngrok](https://ngrok.com/), [zrok](https://zrok.io/), and [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/). Each platform has its own strengths, so feel free to compare them and choose whichever fits your setup best.
+</Callout>
+
+## Creating an account and configuring a game tunnel
+
+Before setting up the tunnel, make sure your Minecraft server starts and works locally on `localhost`.
+
+### Step 1: Create an account on playit.gg [#-step-1]
+
+1. Visit [playit.gg](https://playit.gg/) and click **Login** in the top-right corner.
+2. Click **Create an Account** (or continue with a guest/linked account) to start the setup wizard.
+
+### Step 2: Set up the playit agent and create a tunnel [#-step-2]
+
+1. When prompted by the website, download and install the [playit.gg program](https://playit.gg/download/windows) on the computer running your Minecraft server.
+2. Launch the playit program. It will display a **Claim URL** (or claim code) in its console window.
+3. Open the Claim URL in your browser to link the agent to your playit.gg account, then wait a moment for the agent to finish connecting.
+
+![Full screen screenshot showing the playit.gg onboarding steps alongside the running playit agent](/img/docs/playitgg/playitonboarding.png)
+
+4. Once connected, click **Create Tunnel**.
+5. Choose the **Tunnel Type** that matches your server:
+   - **Minecraft Java (game)** for a Java Edition server (TCP).
+   - **Minecraft Bedrock (game)** for a Bedrock or Geyser server (UDP).
+   - **TCP** if you are [setting up a tunnel for the MCSS web panel](#-using-playit-for-the-panel).
+
+![Add Tunnel dialog in playit.gg with Global Anycast (free) region and Minecraft Java (game) selected](/img/docs/playitgg/playittunnelconf.png)
+
+6. Click **Add Tunnel**. On the tunnel details page, keep the local address set to `127.0.0.1` (which points to the same computer running the playit agent). If you changed your Minecraft server's port from the default `25565`, update the local port field to match your server's port.
+
+Your tunnel is now active!
+
+### Step 3: Connect using the playit address [#-step-3]
+
+On the tunnel page in your playit.gg dashboard, look for the **Allocation (Shared IP)** or **Auto Assigned Domain**:
+
+![Tunnel details page showing the assigned Shared IP and Port](/img/docs/playitgg/playittunnelinfo.png)
+
+<Callout type="info">
+In the screenshot above, parts of the IP, port, and domain are hidden with colored boxes (`XX` and `XXX`). In your dashboard, you will see your actual assigned address and port numbers.
+</Callout>
+
+Share the assigned address with your friends so they can join in Minecraft:
+- If you use the **Auto Assigned Domain** (such as `example.joinmc.link`), players can usually enter it directly without a port.
+- If you use the **Shared IP and Port**, make sure to include both the IP and port separated by a colon (for example, `XX.ip.gl.ply.gg:47XXX`).
+
+Keep both your Minecraft server and the playit agent running whenever players want to connect.
+
+## Using playit.gg for the web panel [#-using-playit-for-the-panel]
+
+You can also create a separate tunnel if you want to access the **MCSS Web Panel** remotely without port forwarding.
+
+1. First, enable and configure the Web Panel in MCSS by following the [Web Panel getting started guide](/webpanel/getting-started). Note the panel port configured in MCSS (the default is `25560`).
+2. Open your [playit.gg Tunnels dashboard](https://playit.gg/account/tunnels) and click **Add tunnel**.
+
+![Tunnels list in playit.gg showing a Minecraft Java tunnel, an MCSS Web Panel tunnel, and the add tunnel button](/img/docs/playitgg/playittunneladdtunnel.png)
+
+3. For **Tunnel Type**, select **TCP (protocol)** (or custom TCP). Playit will ask you to confirm that you will not host malware through the tunnel; accept the notice and select **TCP** again.
+
+<Callout type="warn">
+Make sure to select **TCP** as the tunnel type for the Web Panel. Game-specific tunnel types will not work for web panel traffic.
+</Callout>
+
+4. Set the **Local Port** to the same port configured for your MCSS Web Panel (by default, `25560`) and keep the local IP as `127.0.0.1`.
+5. Click **Add Tunnel** and copy the assigned `IP:Port` allocation from the tunnel page.
+
+### Connecting to the panel through the tunnel
+
+To open the Web Panel in your browser using the playit tunnel:
+
+- If **SSL (HTTPS)** is enabled in your MCSS panel settings (the default), you **must** include `https://` at the start of the address along with the assigned port—for example:
+  ```text
+  https://XX.ip.gl.ply.gg:47XXX
+  ```
+  Because MCSS uses a local self-signed certificate by default, your browser will show a *"Website not secure"* warning when connecting. Alternatively, if you disable SSL in MCSS's Web Panel settings, connect with `http://XX.ip.gl.ply.gg:47XXX` instead.
+- Always use strong passwords for your panel accounts since a public tunnel makes the login page reachable from the internet.

@@ -1,0 +1,53 @@
+---
+title: "MC Server Soft documentation"
+description: "Set up, run, and troubleshoot Minecraft servers with MCSS."
+---
+
+Welcome to the **MC Server Soft (MCSS)** documentation! MCSS is a dedicated server manager for Windows that makes it easy to create, configure, monitor, and automate your Minecraft servers from a clean desktop interface or web panel.
+
+These guides cover **MCSS 13.10.0**. Because MCSS is **version agnostic**, you can run almost any Minecraft version or server software—from a simple Vanilla survival world for friends to a modded Forge, Fabric, NeoForge, or Paper server.
+
+<Cards>
+  <Card title="Run your first server" href="/getting-started/first-server" description="Choose software, install Java, start a server, and join locally." />
+  <Card title="Choose a Java version" href="/advanced/java-version" description="Requirements for 1.20.x, 1.21.x, and 26.x, with older versions separated." />
+  <Card title="Import an existing server" href="/basic/import-server/supported-server-files" description="Bring an existing world, configuration, and launcher into MCSS." />
+  <Card title="Let friends connect" href="/networking/troubleshooting" description="Test local, LAN, and internet access in that order." />
+  <Card title="Update and back up" href="/running/updating" description="Prepare, test, and recover from a server upgrade." />
+  <Card title="Build an API integration" href="/API/about" description="Enable access, create a key, and make your first request." />
+</Cards>
+
+## How the pieces fit together [#-introduction]
+
+When you host a Minecraft server on your computer, four parts work together:
+
+| Component | What it does |
+| --- | --- |
+| **MCSS** | Starts, stops, and monitors your servers, and provides tools like backups, scheduled tasks, a web panel, and an API. |
+| **Minecraft server software** | Runs the game world itself and loads your chosen plugins or mods (such as Vanilla, Paper, Fabric, or Forge). |
+| **Java** | Runs Java Edition server software. (Bedrock Dedicated Server runs as its own Windows `.exe` program and does not need Java.) |
+| **Your network** | Connects players to your server—whether on the same PC, across your home Wi-Fi/LAN, or over the internet. |
+
+## Before you start [#-pre-requisites]
+
+1. Download MCSS from [mcserversoft.com](https://www.mcserversoft.com/).
+2. Choose your [server software](/basic/supported-server-types) (we recommend **Paper** or **Vanilla** for your first server).
+3. Install the [required Java version](/advanced/java-version) for your chosen Minecraft release.
+4. Make sure your computer has enough free memory (RAM) and disk space for your world and backups.
+
+<Callout title="Playing locally first">
+You do **not** need port forwarding to test your server on the same computer or play with family on your home network. Get your server running locally first, then set up [internet access](/networking/port-forwarding) when you are ready to invite outside friends.
+</Callout>
+
+## Existing and older installations [#-pre-requisites-older-versions]
+
+### MCSS 13 installations [#-pre-requisites-v13]
+
+Follow the prerequisites included with your MCSS download. If Windows reports a missing runtime or DLL when opening the app, see [Missing Scintilla or Visual C++ runtime](/troubleshooting/mcss-and-windows#missing-scintilla-or-visual-c-runtime).
+
+### MCSS 12 and earlier [#-pre-requisites-v12]
+
+Older versions of MCSS use different dependencies and settings formats. Before upgrading from an older release, check the [official changelogs](https://www.mcserversoft.com/changelogs) and keep a backup copy of your existing MCSS folder and servers.
+
+## Help improve the guides [#-contribute]
+
+Spot something that could be clearer? Click **Edit on GitHub** on any page to suggest an improvement. If you run into an issue with your server, check [Logs and support](/troubleshooting/logs-and-support) and join the community on the [MCSS Discord](https://www.mcserversoft.com/discord).

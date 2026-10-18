@@ -1,0 +1,58 @@
+---
+title: "Schedule server tasks"
+description: "Automate restarts, backups, and console commands using MCSS's built-in task scheduler."
+---
+
+MCSS includes a built-in **Scheduler** for each server so you can automate routine tasks like announcements, world saves, backups, and scheduled restarts.
+
+To get started, select your server, open the **Scheduler** tab, and click **Create new Task**.
+
+## 1. Choose a trigger
+
+Enter a **Task Name**, then select when the task should run:
+
+| Trigger | How it works |
+| --- | --- |
+| **Fixed Time** | Runs at a specific local time of day (`hh:mm:ss` in 24-hour format). |
+| **Interval** | Counts down a set number of seconds after the server starts or restarts. Enable **Repeat** if you want the timer to loop continuously while the server is online. |
+| **Timeless** | Saves a manual task that only runs when you trigger it yourself (or via the Web Panel / API). |
+
+Under **Player Requirements**, choose whether the task should:
+- Always run regardless of player count,
+- Only run when the server is empty, or
+- Only run when players are online.
+
+[![MCSS interval task configuration showing the interval timer, Repeat checkbox, and Player Requirements](/img/docs/scheduler/interval-trigger-13-10-0.png)](/img/docs/scheduler/interval-trigger-13-10-0.png)
+
+## 2. Add jobs and delays
+
+Click **Next** to open the **Jobs Overview** screen. A single scheduled task can run multiple actions in sequence:
+
+- Click **Add Job** to add an action to the task.
+- Click **Add Delay** to pause for a set number of seconds between jobs (for example, warning players in chat 60 seconds before a server restart).
+- Use the arrow buttons to reorder jobs, or toggle individual jobs on and off.
+
+Available job types include:
+- **Server Action:** Run a power action (**Start**, **Stop**, **Restart**, or **Kill**).
+- **Run Console Commands:** Send one or more commands to the Minecraft server console. You can add multiple commands by separating them with ` ; ` (for example, `say Server restarting in 1 minute! ; save-all`).
+- **Start Backup:** Run one of your configured [backup templates](/backups/backup-and-restore#create-a-backup-in-mcss).
+- **Run PowerShell Command / Run CMD Command:** Execute a custom script or Windows command on your host machine.
+
+[![MCSS task job editor showing a Run Console Commands job](/img/docs/scheduler/console-command-job-13-10-0.png)](/img/docs/scheduler/console-command-job-13-10-0.png)
+
+## 3. Review and create
+
+Click **Next** to review a summary of your task's trigger, repeat setting, player requirements, and jobs. Click **Create** to save the task.
+
+[![MCSS task review screen showing the configured trigger and jobs](/img/docs/scheduler/review-task-13-10-0.png)](/img/docs/scheduler/review-task-13-10-0.png)
+
+## Manage and test tasks [#verify-and-disable]
+
+Your saved tasks appear under their trigger category in the **Scheduler** tab. From there, you can:
+- Use the **toggle switch** to enable or disable a task at any time.
+- Click the **play button** to run the task immediately and verify that its commands or actions work as expected in the server **Console**.
+- Edit or delete tasks whenever your schedule changes.
+
+<Callout type="info">
+If you are performing manual server maintenance or testing upgrades, remember to temporarily disable any scheduled restart or start tasks so the server stays offline while you work.
+</Callout>

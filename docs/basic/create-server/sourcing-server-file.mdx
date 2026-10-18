@@ -1,0 +1,62 @@
+---
+title: "Download server files"
+description: "Get the right launcher or installer from the project that publishes it."
+---
+
+Before creating a server in MCSS, you need to download the official server software.
+
+<Callout title="Not sure which software you need?">
+If you haven't decided whether to use Vanilla, Paper, Fabric, Forge, or Bedrock, read our guide on **[Choosing server software](/basic/supported-server-types)** first.
+</Callout>
+
+## 1. Understand what you are downloading [#-getting-a-server-file]
+
+Not all server downloads work the same way. Depending on the software you pick, you will receive one of three file types:
+
+| File Type | Examples | What to do with it |
+| --- | --- | --- |
+| **Direct Server JAR** | Vanilla, Paper, Purpur, Fabric | **Ready to run.** Select this `.jar` file directly in MCSS when creating your server. |
+| **Server Installer** | Forge, NeoForge | **Requires installation first.** Run the installer to generate your server files and libraries. *Never select the installer `.jar` as your main server file in MCSS.* |
+| **Zip Archive** | Bedrock Dedicated Server, Modpacks | **Must be extracted.** Unzip the entire archive into your server folder, then select the extracted executable or launch file. |
+
+<Callout title="Common beginner mistake" type="warn">
+If you download a **Forge** or **NeoForge installer**, do not choose it as your permanent server JAR in MCSS. You must install the server files first, then select the launcher that the installer creates.
+</Callout>
+
+## 2. Official downloads [#-downloads]
+
+Always download server files directly from the official project websites. Never use third-party download mirrors or repackaged executables.
+
+| Software | Type | Official Source |
+| --- | --- | --- |
+| **Minecraft Java Edition** | Vanilla | [Minecraft server download](https://www.minecraft.net/en-us/download/server) |
+| **Paper** (Recommended) | Plugins | [Paper downloads](https://papermc.io/downloads/paper) |
+| **Purpur** | Plugins | [Purpur downloads](https://purpurmc.org/downloads) |
+| **Spigot / CraftBukkit** | Plugins | [BuildTools instructions](https://www.spigotmc.org/wiki/buildtools/) |
+| **Fabric** | Mod loader | [Fabric server launcher](https://fabricmc.net/use/server/) |
+| **Forge** | Mod loader | [Forge installers](https://files.minecraftforge.net/) |
+| **NeoForge** | Mod loader | [NeoForge downloads](https://neoforged.net/) |
+| **Quilt** | Mod loader | [Quilt server installation](https://quiltmc.org/en/install/server/) |
+| **Bedrock Dedicated Server** | Bedrock (Native) | [Bedrock server download](https://www.minecraft.net/en-us/download/server/bedrock) |
+| **Velocity** | Java Proxy | [Velocity downloads](https://papermc.io/downloads/velocity) |
+
+## 3. Important tips for beginners
+
+* **Make file extensions visible in Windows:** Windows hides extensions like `.jar` or `.zip` by default. In Windows File Explorer, enable file extensions (click **View → Show → File name extensions**). This prevents mistakes like naming a file `server.jar.jar`.
+* **Match client and server versions:** Your players' Minecraft version must match your server version (e.g., a 1.21 client cannot join a 1.20 server without compatibility plugins like ViaVersion).
+* **Older Vanilla versions:** If you need an older Vanilla release not featured on the main download page, download it through the official Minecraft Launcher by creating an installation profile for that version.
+* **Keep your server in its own folder:** Always give each server its own dedicated folder. Never download or run server files directly on your desktop or inside your Minecraft client installation.
+
+## 4. Next steps & installation guides [#-installer-guides]
+
+Once you have downloaded your server file, follow the setup walkthrough for your chosen server type:
+
+- **Vanilla or Paper:** [Run your first server](/getting-started/first-server)
+- **Fabric:** [Create a Fabric server manually](/basic/create-server/Fabric/create-fabric-server-manually)
+- **Forge:** [Create a Forge server with MCSS](/basic/create-server/Forge/create-forge-server) or [Manual Forge setup](/basic/create-server/Forge/create-forge-server-manually)
+- **NeoForge:** [Create a NeoForge server](/basic/create-server/NeoForge/create-neoforge-server)
+- **Modpack:** [Install a server with a modpack](/basic/create-server/Forge/create-a-server-with-a-modpack)
+
+<Callout>
+**Already have an existing server?** You don't need to create a blank one. Follow our guide to **[back up](/backups/backup-and-restore#take-a-consistent-manual-backup) and [import your existing server](/basic/import-server/supported-server-files#-selecting-file)** instead.
+</Callout>

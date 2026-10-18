@@ -1,0 +1,60 @@
+---
+title: "MCSS and Windows issues"
+description: "Fix MCSS application crashes, orphaned Java processes, missing Visual C++ runtimes, performance counter prompts, and character encoding issues."
+---
+
+This guide covers issues with the **MCSS application itself** or Windows environment settings. If your Minecraft server starts and stops with a Java or mod error in the console, see [Fix startup errors](/troubleshooting/startup) instead.
+
+## MCSS closed but the game is still running
+
+If MCSS closes unexpectedly while a server is running, the underlying `java.exe` server process may keep running in the background (which will also cause a `Failed to bind to port` or `Session lock` error if you try to start the server again).
+
+To shut it down safely without losing world progress:
+
+1. **Try a normal in-game shutdown first:** Join the server in Minecraft with an operator (`op`) account and run `/stop` in chat so the server saves the world and exits cleanly.
+2. Close the process **if normal shutdown** is impossible:
+   - Open **Windows Task Manager** (`Ctrl + Shift + Esc`) and end the server's `java.exe` process, **or**
+   - In MCSS, click **Quick Options → Kill all Java processes** in the top menu bar:
+
+![Quick Options -> Kill all Java processes menu in MCSS](/img/docs/faq/mcss_kill_java.png)
+
+> [!WARNING]
+> **Kill all Java processes** immediately force-closes **every** running Java process on your computer—including any other running Minecraft servers and your own Minecraft Java Edition game client—without saving. Only use it when you cannot stop the server normally.
+
+## Missing Scintilla or Visual C++ runtime
+
+If MCSS crashes when opening a server console or displays an error mentioning `Scintilla.dll` or `vcruntime`, your Windows installation is missing the required **Microsoft Visual C++ Redistributable** runtime.
+
+To fix this:
+
+1. Download and install both the **x86** and **x64** versions of the latest [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) directly from Microsoft:
+   - [`vc_redist.x86.exe`](https://aka.ms/vs/17/release/vc_redist.x86.exe)
+   - [`vc_redist.x64.exe`](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+2. Restart your computer if prompted, then launch MCSS again.
+
+*(Never download individual `.dll` files from third-party DLL websites—always use the official Microsoft installer.)*
+
+## Process-name or performance-counter prompts on older installations
+
+MCSS uses **Windows Performance Counters** to read each server's CPU and RAM usage. Occasionally, if Windows' built-in performance counter database becomes corrupted or uses a non-standard process name format, MCSS may display one of these prompts:
+
+![MCSS prompt asking to rebuild Windows Performance Counters](/img/docs/faq/dialog_performance_counters.png)
+
+- **"Failed to set performance counters... Do you want mcss to rebuild them for you?"**
+  Click **Yes** (or run `lodctr /r` in an Administrator Command Prompt) so Windows rebuilds its performance counter cache, then restart MCSS.
+- **"Since MCSS v11.5.0 the process name requires a different format..."**
+  Click **Yes** to allow MCSS to update the Windows performance counter process-name format registry key (`ProcessNameFormat`), then restart MCSS.
+
+![MCSS prompt asking to update the process name format](/img/docs/faq/dialog_regedit_process_name.png)
+
+## Character encoding problems
+
+If special characters, symbols, or non-English letters appear garbled (such as `???` or `Ã§`) in your server console or config files:
+
+1. **Add UTF-8 to your server's startup flags:** For older Java versions (Java 8 through Java 17), add `-Dfile.encoding=UTF-8` to your server's startup arguments before `-jar` (Java 18+ already uses UTF-8 by default).
+2. **Enable Windows UTF-8 locale support (if console output is still garbled):**
+   1. Open the Windows **Control Panel → Clock and Region → Region**.
+   2. Switch to the **Administrative** tab and click **Change system locale...**.
+   3. Check **Beta: Use Unicode UTF-8 for worldwide language support**, click **OK**, and restart your PC.
+
+![Enabling Unicode UTF-8 support in Windows Region Settings](/img/docs/faq/utf8.png)
