@@ -1,36 +1,60 @@
 ---
 title: "MCSS and Windows issues"
-description: "Handle application crashes, native dependencies, process recovery, and older Windows workarounds."
+description: "Fix MCSS application crashes, orphaned Java processes, missing Visual C++ runtimes, performance counter prompts, and character encoding issues."
 ---
 
-This page concerns the MCSS application or its Windows environment. If Minecraft starts and exits with a Java/mod error, use [Startup errors](/troubleshooting/startup) instead.
+This guide covers issues with the **MCSS application itself** or Windows environment settings. If your Minecraft server starts and stops with a Java or mod error in the console, see [Fix startup errors](/troubleshooting/startup) instead.
 
 ## MCSS closed but the game is still running
 
-Check whether players can still reach the game. If you can join as an operator, use its normal stop command, such as `/stop` for a Java world server, and wait for it to finish saving.
+If MCSS closes unexpectedly while a server is running, the underlying `java.exe` server process may keep running in the background (which will also cause a `Failed to bind to port` or `Session lock` error if you try to start the server again).
 
-Identify the relevant process in Task Manager if normal shutdown is impossible. MCSS's documented **Quick Options → Kill all Java processes** action affects **every Java process**, including unrelated applications and clients. Reserve forced termination for a deliberate last resort; unsaved work can be lost.
+To shut it down safely without losing world progress:
 
-Do not start another copy against the same world while the original process still owns it. Back up after recovery and check the logs before reopening access.
+1. **Try a normal in-game shutdown first:** Join the server in Minecraft with an operator (`op`) account and run `/stop` in chat so the server saves the world and exits cleanly.
+2. Close the process **if normal shutdown** is impossible:
+   - Open **Windows Task Manager** (`Ctrl + Shift + Esc`) and end the server's `java.exe` process, **or**
+   - In MCSS, click **Quick Options → Kill all Java processes** in the top menu bar:
+
+![Quick Options -> Kill all Java processes menu in MCSS](/img/docs/faq/mcss_kill_java.png)
+
+> [!WARNING]
+> **Kill all Java processes** immediately force-closes **every** running Java process on your computer—including any other running Minecraft servers and your own Minecraft Java Edition game client—without saving. Only use it when you cannot stop the server normally.
 
 ## Missing Scintilla or Visual C++ runtime
 
-The older documentation includes a crash involving `Scintilla.dll` when opening a console/player editor. A missing native dependency or incompatible architecture can be relevant; the filename alone does not establish the cause.
+If MCSS crashes when opening a server console or displays an error mentioning `Scintilla.dll` or `vcruntime`, your Windows installation is missing the required **Microsoft Visual C++ Redistributable** runtime.
 
-Use the prerequisites supplied with your MCSS release and Microsoft's [supported Visual C++ Redistributable downloads](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist). The redistributable architecture must match the application/component that needs it, not simply the operating system's architecture. Do not download individual DLLs from third-party DLL sites.
+To fix this:
 
-If installation/repair does not resolve the issue, preserve the exact exception and MCSS logs for support.
+1. Download and install both the **x86** and **x64** versions of the latest [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) directly from Microsoft:
+   - [`vc_redist.x86.exe`](https://aka.ms/vs/17/release/vc_redist.x86.exe)
+   - [`vc_redist.x64.exe`](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+2. Restart your computer if prompted, then launch MCSS again.
+
+*(Never download individual `.dll` files from third-party DLL websites—always use the official Microsoft installer.)*
 
 ## Process-name or performance-counter prompts on older installations
 
-Previous guides covered a process-name registry change introduced in MCSS 11.5 and rebuilding Windows performance counters. Those are historical remedies for specific errors, not prerequisites or optimization steps for every 13.10.0 installation.
+MCSS uses **Windows Performance Counters** to read each server's CPU and RAM usage. Occasionally, if Windows' built-in performance counter database becomes corrupted or uses a non-standard process name format, MCSS may display one of these prompts:
 
-Record the exact dialog and Windows version. Use current MCSS support guidance before changing registry or system counter settings. Do not run an administrator repair command merely because a graph displays zero.
+![MCSS prompt asking to rebuild Windows Performance Counters](/img/docs/faq/dialog_performance_counters.png)
+
+- **"Failed to set performance counters... Do you want mcss to rebuild them for you?"**
+  Click **Yes** (or run `lodctr /r` in an Administrator Command Prompt) so Windows rebuilds its performance counter cache, then restart MCSS.
+- **"Since MCSS v11.5.0 the process name requires a different format..."**
+  Click **Yes** to allow MCSS to update the Windows performance counter process-name format registry key (`ProcessNameFormat`), then restart MCSS.
+
+![MCSS prompt asking to update the process name format](/img/docs/faq/dialog_regedit_process_name.png)
 
 ## Character encoding problems
 
-Identify where text is corrupted: the game log file, MCSS console, script input, or a particular plugin. Check the file's encoding and reproduce with the relevant Java executable.
+If special characters, symbols, or non-English letters appear garbled (such as `???` or `Ã§`) in your server console or config files:
 
-Modern Java changed its default charset to UTF-8 starting with JDK 18; this does not mean every Windows console or application stream uses that charset. See [OpenJDK's explanation of JEP 400](https://inside.java/2021/12/10/quality-heads-up/).
+1. **Add UTF-8 to your server's startup flags:** For older Java versions (Java 8 through Java 17), add `-Dfile.encoding=UTF-8` to your server's startup arguments before `-jar` (Java 18+ already uses UTF-8 by default).
+2. **Enable Windows UTF-8 locale support (if console output is still garbled):**
+   1. Open the Windows **Control Panel → Clock and Region → Region**.
+   2. Switch to the **Administrative** tab and click **Change system locale...**.
+   3. Check **Beta: Use Unicode UTF-8 for worldwide language support**, click **OK**, and restart your PC.
 
-A JVM property belongs before the game launch target if a server's own instructions call for one. Do not change Windows' system-wide locale or apply `-Dfile.encoding=UTF-8` to every server as an untested universal fix. Include a minimal example and the actual Java version in a [support report](/troubleshooting/logs-and-support).
+![Enabling Unicode UTF-8 support in Windows Region Settings](/img/docs/faq/utf8.png)

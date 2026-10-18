@@ -1,27 +1,32 @@
 ---
 title: "Move an MCSS installation"
-description: "Copy a stopped installation, retain its configuration, and review paths before starting the new copy."
+description: "Move MCSS and all of your servers to a new folder, drive, or Windows computer."
 ---
 
-Moving MCSS, upgrading MCSS, and importing a Minecraft server are separate operations. An [MCSS server import](/basic/import-server/supported-server-files) creates a new server configuration; it is not a substitute for preserving the application installation.
+Because MCSS keeps its application settings and default `servers` folder inside its own directory, moving your entire MCSS setup to another folder, drive, or computer is straightforward.
 
-## Prepare and copy
+<Callout type="info">
+If you only want to bring a single standalone Minecraft server into an existing MCSS setup, use [Import an existing server](/basic/import-server/supported-server-files) instead. Follow this guide when moving your whole MCSS installation and all of its settings together.
+</Callout>
 
-1. Record the MCSS, server software, and Java versions. Make a [recoverable backup](/backups/backup-and-restore).
-2. Disable scheduled tasks and automatic starts/restarts that could interfere with the move.
-3. Stop each server normally. Use **File → Exit** to close MCSS completely; closing the window can instead minimize it, depending on Program Settings.
-4. Copy the complete MCSS installation to the new location. Retain the original and the backup until verification is complete.
+## 1. Stop your servers and close MCSS
 
-Keep `resources`, server directories, and application/per-server configuration together. A tested server backup included `mcss_server_config.json` but did not include the application-wide `resources/mcss_config.json`; a server ZIP alone does not preserve the whole installation.
+1. Stop all running servers in MCSS and wait until every server status shows **Offline**.
+2. Click **File → Exit** in the top menu to close MCSS completely (clicking the window's `X` button may minimize MCSS to the system tray depending on your settings).
 
-## Review paths and start one copy
+## 2. Copy the MCSS folder
 
-Check global and local Java overrides, batch/argument files, backup destinations, and any plugin/mod paths outside the installation. Absolute paths can still refer to the old location or to software that is absent on another computer. Review remote-management settings and credentials before starting a copied instance.
+1. Copy your entire MCSS installation folder—including `mcss.exe`, the `resources` folder (which stores `mcss_config.json`), and the `servers` folder—to the new folder, drive, or computer.
+2. Keep your original folder intact as a backup until you have verified that everything runs smoothly in the new location.
 
-Start the copied `mcss.exe`, confirm the expected servers appear, and start just the test instance. Read the console for readiness and verify the expected world data. Keep the original copy stopped so the two copies cannot compete for the same ports or external data.
+## 3. Check paths on the new location or computer
 
-## Scope of the relocation test
+If you moved MCSS to a **different computer** or changed drive letters, check these settings after opening the new `mcss.exe`:
 
-On 16 October 2026, the stopped **MCSS 13.10.0** test installation was copied to a different folder on the **same Windows computer**. Both servers were recognized. Recovery Paper started with `java @launch.args`, reached readiness, and returned its saved scoreboard objective. The world marker file had the same hash before and after copying.
+- **Java installations:** Make sure the [required Java versions](/advanced/java-version) are installed on the new computer. If you configured a [global](/advanced/java-path-update#-globally) or [per-server Java path override](/advanced/java-path-update#-per-server) (or hardcoded a Java path inside a `.bat` file), update it if the path to `java.exe` changed.
+- **Backup destinations:** Open each server's **Backups** tab and edit your backup templates to make sure the **Destination** folder path exists on the new drive or computer.
+- **Networking and firewall (new computer only):** If you moved to a new PC, update your [Windows Firewall rules](/networking/windows-firewall) and your router's [port forwarding rule](/networking/port-forwarding) to point to the new computer's LAN IPv4 address.
 
-The portable Java runtime remained at its existing absolute path outside the MCSS folder. Remote services and experimental schedules were disabled, and temporary credentials had been revoked before copying. This verifies that specific same-computer folder relocation; moving to a new computer, native-runtime prerequisites, certificate migration, external databases, and application upgrades require separate tests.
+## 4. Start and verify
+
+Launch `mcss.exe` from the new folder, confirm all of your servers appear in the list, and start a server to verify that it boots cleanly and loads your worlds. Once everything is working, you can archive or remove the old copy.

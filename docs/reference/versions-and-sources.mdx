@@ -1,32 +1,45 @@
 ---
-title: "Versions and sources"
-description: "Which product version these guides target and where to check changing requirements."
+title: "Official downloads and resources"
+description: "Quick links to official downloads for MCSS, Java runtimes, and Minecraft server software."
 ---
 
-These guides target **MCSS 13.10.0**. MCSS is version agnostic; game software, loaders, plugins/mods, and Java have their own version requirements.
+Always download MCSS, Java, and your Minecraft server software from their official websites to keep your server safe and up to date.
 
-Minecraft's **26.x** release numbers are part of its newer numbering scheme, not Java version numbers. For example, Minecraft 26.1 introduced Java 25. Do not choose Java merely by matching the number in the game's name.
+## MC Server Soft (MCSS)
 
-## Requirements checked on 15 October 2026
+These guides cover **MCSS 13.10.0** and newer.
 
-| Topic | Primary reference |
+| Resource | Official link |
 | --- | --- |
-| MCSS product, downloads, and release history | [mcserversoft.com](https://www.mcserversoft.com/) and [changelogs](https://www.mcserversoft.com/changelogs). |
-| Minecraft Java 26.x | [26.1 release notes](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1) and [26.3 release notes](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-3). |
-| Java 21 transition | [Minecraft 1.20.5 release notes](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-20-5). |
-| Paper runtime requirements | [Paper setup](https://docs.papermc.io/paper/getting-started/). |
-| Fabric server launcher and Java | [Server download](https://fabricmc.net/use/server/) and [Java installation](https://docs.fabricmc.net/players/installing-java/windows). |
-| Forge | [Downloads](https://files.minecraftforge.net/) and [documentation](https://docs.minecraftforge.net/). |
-| NeoForge | [Server installation](https://docs.neoforged.net/user/docs/server/). |
-| Java distributions | [Temurin](https://adoptium.net/temurin/releases/) and [Microsoft OpenJDK](https://learn.microsoft.com/en-us/java/openjdk/download). |
-| Bedrock / Geyser networking | [Bedrock properties](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties) and [Geyser setup](https://geysermc.org/wiki/geyser/setup/). |
+| **MCSS Website & Downloads** | [mcserversoft.com](https://www.mcserversoft.com/) |
+| **MCSS Release Notes & Changelogs** | [mcserversoft.com/changelogs](https://www.mcserversoft.com/changelogs) |
+| **MCSS Community & Support Discord** | [mcserversoft.com/discord](https://www.mcserversoft.com/discord) |
+| **Microsoft Visual C++ Redistributable** *(Windows prerequisite)* | [Microsoft Learn — Latest supported VC++ downloads](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) |
 
-## What to check for a new release
+## Java runtimes (64-bit OpenJDK)
 
-Read the exact server/pack release's Java requirement, loader build, and update instructions. Check whether the plugins/mods you need have compatible builds. Review world-format changes and test a [restorable backup](/backups/backup-and-restore) before upgrading.
+Different Minecraft releases require different versions of Java. If you aren't sure which Java version your server needs, check our [Java version guide](/advanced/java-version).
 
-A screenshot can show an older game version while still illustrating an MCSS control. Use your installation's actual filenames, paths, and ports, not those captured in an old image.
+| Java distribution | Official download page |
+| --- | --- |
+| **Eclipse Temurin (Adoptium)** *(recommended)* | [adoptium.net/temurin/releases](https://adoptium.net/temurin/releases/) |
+| **Microsoft Build of OpenJDK** | [learn.microsoft.com/java/openjdk/download](https://learn.microsoft.com/en-us/java/openjdk/download) |
+| **Oracle Java SE / JDK** | [oracle.com/java/technologies/downloads](https://www.oracle.com/java/technologies/downloads/) |
 
-## API reference scope
+> [!TIP]
+> **Minecraft `26.x` vs. Java version numbers**
+> Starting in 2026, Minecraft moved to year-based version numbers such as **Minecraft 26.1**. Note that the `26` in Minecraft `26.1` refers to the year 2026, not Java 26—Minecraft 26.1 and newer run on **Java 25**.
 
-API pages are generated from the supplied `apis/v1.yml` and `apis/v2.yml` documents. Their sample versions and UUIDs are examples, not live instance data. See [API versions](/API/endpoints) for export limitations and runtime version checks.
+## Minecraft server software
+
+See [Choose server software](/basic/supported-server-types) if you are deciding between Vanilla, plugins (Paper), or mods (Fabric, Forge, NeoForge).
+
+| Server software | Best for | Official download & docs |
+| --- | --- | --- |
+| **Vanilla** | Pure, unmodded Minecraft from Mojang | [minecraft.net/download/server](https://www.minecraft.net/en-us/download/server) |
+| **Paper** | Performance optimization and Bukkit/Spigot/Paper plugins | [papermc.io/downloads/paper](https://papermc.io/downloads/paper) · [Paper Docs](https://docs.papermc.io/paper/) |
+| **Fabric** | Lightweight modded servers and performance mods | [fabricmc.net/use/server](https://fabricmc.net/use/server/) · [Fabric Docs](https://docs.fabricmc.net/) |
+| **NeoForge** | Modern modded servers (Minecraft 1.20.2+) | [neoforged.net](https://neoforged.net/) · [NeoForge Server Docs](https://docs.neoforged.net/user/docs/server/) |
+| **Forge** | Classic & modern Forge modpacks | [files.minecraftforge.net](https://files.minecraftforge.net/) · [Forge Docs](https://docs.minecraftforge.net/) |
+| **Velocity** | Proxy network connecting multiple servers | [papermc.io/downloads/velocity](https://papermc.io/downloads/velocity) |
+| **Geyser** | Allowing Bedrock Edition players to join a Java server | [geysermc.org](https://geysermc.org/) · [Geyser Wiki](https://geysermc.org/wiki/geyser/setup/) |

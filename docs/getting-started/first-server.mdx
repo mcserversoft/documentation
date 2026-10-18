@@ -3,43 +3,48 @@ title: "Run your first server"
 description: "Start a Vanilla or Paper Java Edition server locally before opening it to the internet."
 ---
 
-This walkthrough is for a new **Vanilla or Paper Java Edition** server. For mods, use the [Fabric](/basic/create-server/Fabric/create-fabric-server-manually), [Forge](/basic/create-server/Forge/create-forge-server-manually), [NeoForge](/basic/create-server/NeoForge/create-neoforge-server), or [modpack](/basic/create-server/Forge/create-a-server-with-a-modpack) guide instead.
+This walkthrough guides you through setting up a new **Vanilla or Paper Java Edition** server. If you want to run mods, follow the [Fabric](/basic/create-server/Fabric/create-fabric-server-manually), [Forge](/basic/create-server/Forge/create-forge-server-manually), [NeoForge](/basic/create-server/NeoForge/create-neoforge-server), or [modpack](/basic/create-server/Forge/create-a-server-with-a-modpack) guide instead.
 
 ## 1. Prepare the files
 
-1. Download MCSS from [mcserversoft.com](https://www.mcserversoft.com/) and follow the instructions supplied with **13.10.0**.
-2. Choose a stable Minecraft release and download its [Vanilla or Paper server JAR](/basic/create-server/sourcing-server-file).
-3. Install the [Java version required by that build](/advanced/java-version). For example, the current 26.x family uses Java 25; 1.21.x uses Java 21.
-
-Keep your server in its own folder. Do not use your Minecraft client's installation directory as a server directory.
+1. Download MCSS from [mcserversoft.com](https://www.mcserversoft.com/) and extract it to its own folder on your computer.
+2. Choose a stable Minecraft release and download its [Vanilla or Paper server JAR](/basic/create-server/sourcing-server-file#-downloads).
+3. Install the [Java version required by your Minecraft version](/advanced/java-version) (for example, Minecraft 26.x uses Java 25, and 1.20.5–1.21.x uses Java 21).
 
 ## 2. Create the MCSS server
 
-On the welcome screen, choose **Create**, or open **File → New Server..**. Choose the server type, such as **Paper**, then use **Select file** to select its JAR.
+When you open MCSS for the first time, click **Create** on the welcome screen (or open **File → New Server..** at any time).
+
+[![MCSS 13.10.0 welcome screen with Create and Import options](/img/docs/getting-started/first-launch-13-10-0.png)](/img/docs/getting-started/first-launch-13-10-0.png)
+
+Choose your server type (such as **Paper** or **Vanilla**), then click **Select file** and choose the server `.jar` file you downloaded.
 
 [![MCSS 13.10.0 server-type chooser, with Paper among the available choices](/img/docs/create-server/select-server-type-13-10-0.png)](/img/docs/create-server/select-server-type-13-10-0.png)
 
-Fill in **Name**, **RAM**, **Port**, and **Folder Name**; the folder name initially follows the name you enter. Read the linked Minecraft EULA and select **Accept the Minecraft EULA** only if you agree. Choose **Create Server**, then review the [server execution settings](/basic/server-settings/accessing-server-settings).
+Fill in your server details:
+- **Name:** A display name for your server in MCSS.
+- **RAM:** How much memory to allocate (for example, `2048` MB or `4096` MB; leave plenty of free RAM for Windows and your game client).
+- **Port:** Keep the default `25565` unless you are running another server on the same port.
+- **Folder Name:** Automatically fills based on the server name you enter.
+- **Accept the Minecraft EULA:** Read the linked [Minecraft EULA](https://www.minecraft.net/en-us/eula) and check this box to agree.
 
-In a Paper creation test on MCSS 13.10.0, MCSS copied the selected JAR into the new server folder as `paper.jar`. Keep your downloaded original separately.
-
-Confirm the launcher filename and [Java executable](/advanced/java-path-update). Set an initial memory allocation that leaves room for Windows and other applications. A small test server is a useful baseline; increase its memory when the workload justifies it.
+Click **Create Server**. MCSS copies your selected JAR into a new folder inside its `servers` directory and sets up your launch configuration. If you ever need to adjust your RAM, port, or [Java path](/advanced/java-path-update#-java-path) later, you can find them in [server execution settings](/basic/server-settings/accessing-server-settings#-mcss-server-execution-settings).
 
 ## 3. Complete the first start
 
-Choose **Start** and read the **Console**. MCSS 13.10.0 allows creation with EULA acceptance unchecked; in the tested Paper workflow it writes `eula.txt` with `eula=false`, and Paper exits with an EULA message. If you already accepted during creation, this step may already be complete.
+Click **Start** and watch the **Console** tab as your server generates its configuration files and world.
 
-Read the [Minecraft EULA](https://www.minecraft.net/en-us/eula). If you agree, edit the generated file while the server is stopped:
+If you left **Accept the Minecraft EULA** unchecked during creation, the server will stop on its first run and generate an `eula.txt` file with `eula=false`. To accept the [Minecraft EULA](https://www.minecraft.net/en-us/eula), open `eula.txt` in your server folder while the server is stopped, change it to `eula=true`, and save:
 
 ```properties
 eula=true
 ```
 
-Start again. For Paper, wait for its `Done (...)! For help, type "help"` console message and check that MCSS reports **Online**. A process appearing in MCSS is not enough to prove that the game is ready. If startup fails, use [Startup errors](/troubleshooting/startup).
-
-[![MCSS 13.10.0 running a restored Paper test server, with Online status, readiness output, and the saved scoreboard objective](/img/docs/getting-started/running-paper-server-13-10-0.png)](/img/docs/getting-started/running-paper-server-13-10-0.png)
+Start again. For Paper, wait for its `Done (...)! For help, type "help"` console message and check that MCSS reports **Online**. If startup fails, see [Startup errors](/troubleshooting/startup).
 
 To stop normally, choose **Stop** and wait for the save/shutdown output and **Offline** status. **Kill** is a separate forced-termination control. Start the stopped server again with **Start**.
+
+[![MCSS 13.10.0 running a Paper server with Online status and console output](/img/docs/getting-started/running-paper-server-13-10-0.png)](/img/docs/getting-started/running-paper-server-13-10-0.png)
 
 ## 4. Join from the same computer
 
@@ -49,18 +54,13 @@ Open the matching Minecraft **Java Edition** client. In **Multiplayer → Direct
 localhost:25565
 ```
 
-Use your actual game port if you changed it. `25565` is the normal Java game port; it is separate from the MCSS web panel/API port.
-
-Once you can join, stop the server normally and create your first [backup](/backups/backup-and-restore).
+This assumes you kept the default Minecraft server port (`25565`). If you set a different game port when creating the server, use that port instead.
 
 ## 5. Decide who needs access
 
 - **Only you, on this computer:** keep using `localhost`.
-- **Other devices at home:** use the server computer's [LAN address](/networking/find-ip), with an appropriate firewall rule.
+- **Other devices at home:** use the server computer's [LAN address](/networking/find-ip#find-your-lan-address-on-windows), with an appropriate firewall rule.
 - **Players outside your network:** configure [port forwarding](/networking/port-forwarding) or a [game tunnel](/advanced/using-playit.gg-with-mcss).
+- **Protect your world:** once your server is up and running, you can create regular [backups](/backups/backup-and-restore#create-a-backup-in-mcss).
 
 For a failure at any stage, follow the [local → LAN → internet test sequence](/networking/troubleshooting).
-
-The download and Java steps follow [Mojang's server instructions](https://www.minecraft.net/en-us/download/server) and [Paper's setup guide](https://docs.papermc.io/paper/getting-started/).
-
-Creation, Java selection, EULA failure, startup, and normal shutdown were tested on **MCSS 13.10.0 with Paper 26.3 build 194 and Temurin 25.0.4.1**, on 16 October 2026. Joining with a Minecraft client was not part of that test.

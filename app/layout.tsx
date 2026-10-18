@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://docs.mcserversoft.com'),
   title: { default: 'MC Server Soft Documentation', template: '%s | MC Server Soft' },
   description: 'Guides, troubleshooting, and API reference for MC Server Soft.',
+  manifest: '/manifest.json',
   icons: { icon: '/favicon.ico' },
 };
 

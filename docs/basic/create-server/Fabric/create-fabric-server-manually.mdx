@@ -1,36 +1,83 @@
 ---
 title: "Create a Fabric server"
-description: "Use Fabric\u2019s server launcher and match the Minecraft, loader, and mod versions."
+description: "Download the Fabric server launcher, set up the server in MCSS, and add your mods."
 ---
 
-## Download the server launcher [#-download-fabric]
+Fabric is a lightweight, modern mod loader. Setting up a Fabric server in MCSS is straightforward, and works best when you match your Minecraft version, loader version, and mod dependencies.
 
-Open [Fabric's server download page](https://fabricmc.net/use/server/). Select the Minecraft version and Fabric Loader version required by your mods, then download the **executable server JAR**.
+<Callout title="Before you start">
+* **Already have a server?** Skip the setup below and **[import it into MCSS](#-migrate-the-server-to-mcss)** directly.
+* **Java requirement:** Ensure you have the [correct Java version installed](/advanced/java-version) for your target Minecraft version (for example, Minecraft 26.x requires Java 25, and 1.20.5–1.21.x require Java 21).
+</Callout>
 
-Use **File → New Server** in MCSS with that launcher JAR. Install the [required Java version](/advanced/java-version) and check the launcher's filename in your server settings.
+## 1. Download the server launcher [#-download-fabric]
 
-The server launcher is different from the Fabric client installer and from an individual mod. Keep any files and directories it creates alongside it.
+1. Visit [Fabric's official server download page](https://fabricmc.net/use/server/).
+2. Select the **Minecraft Version** and **Fabric Loader Version** required by your mods.
+3. Click the download button for the **executable server JAR** (often named `fabric-server-launch.jar` or similar).
 
-## Alternative: install a server folder first [#-create-the-fabric-server]
+![Downloading the Fabric executable server JAR](/img/docs/create-fabric/download_fabric.png)
 
-If you need Fabric's manual installer workflow, follow the [official installation instructions](https://wiki.fabricmc.net/install), choose the server installation, and use a new empty directory.
+<Callout title="Important distinction" type="warn">
+Make sure you download the **server launcher JAR**, not the client installer or a standalone mod.
+</Callout>
 
-Retain the complete resulting directory, including the launcher, Minecraft server files, libraries, and loader data. The exact files depend on the chosen installation method and release.
+## 2. Create the server in MCSS [#-create-the-fabric-server]
 
-## Import an installed Fabric server [#-migrate-the-server-to-mcss]
+1. Open MCSS and click **Create** on the welcome dashboard (or go to **File → New Server..**).
+2. Configure your server settings:
+   * **Server Type:** Select **Fabric**.
+   * **Server File:** Click **Select file** and choose the Fabric launcher `.jar` you downloaded.
+   * **Name & Folder:** Give your server a name (e.g. `Fabric Server`).
+   * **RAM:** Set your memory allocation (we recommend at least `4096` MB for modded servers).
+   * **Port:** Keep default `25565` unless you have multiple servers running simultaneously.
+   * **Minecraft EULA:** Check **Accept the Minecraft EULA** if you agree to Mojang's terms.
+3. Click **Create Server**.
 
-Use **File → Import Server** with a file from the server's base directory. Review the imported copy, then select the **Fabric server launcher** in the MCSS launch settings.
+## 3. Initial start & file generation
 
-If the configured command expects `fabric.jar`, make the selected launcher filename and command agree. Do not rename the Vanilla server dependency and accidentally launch that instead of Fabric.
+1. Click **Start** to run the server for the first time.
+2. During this first launch, Fabric connects to Mojang to automatically download the official Vanilla Minecraft server files and required loader libraries into your server folder.
+3. Once the console log shows that Fabric Loader has started and the server is online, type `stop` in the console (or click **Stop** in MCSS) before adding mods.
+
+<Callout title="Do not switch your server file to server.jar!" type="warn">
+During startup, Fabric will generate a Vanilla `server.jar` inside your server folder as an internal dependency. **Never** change your MCSS launch configuration to point to `server.jar`—if you do, Minecraft will launch as a plain Vanilla server without loading Fabric or any of your mods! Always keep MCSS pointing to the Fabric launcher JAR.
+</Callout>
+
+## 4. Install Fabric API and mods
+
+Modded Fabric servers require both mods and their helper dependencies:
+
+### Install Fabric API first
+
+**Fabric Loader** and **Fabric API** are separate:
+* **Fabric Loader** is the core program that boots the server (what you just set up).
+* **Fabric API** is a separate helper mod that almost *every* Fabric mod requires to function.
+
+Download the matching [Fabric API](https://modrinth.com/mod/fabric-api) `.jar` for your Minecraft version and place it inside your server's `mods` folder.
+
+### Add your mods
+
+1. Place your server-compatible mod `.jar` files into the `mods` folder while the server is stopped.
+2. **Server vs. Client mods:** Only place server-side or universal mods on the server. Client-only mods (such as Sodium, Iris Shaders, or minimaps) will crash a dedicated server if placed in the server's `mods` folder.
+3. Start the server and check the console log to confirm all mods loaded cleanly.
+
+For general modding practices and dependency troubleshooting, see [Plugins and mods](/running/plugins-and-mods) and Fabric's [player documentation](https://docs.fabricmc.net/players/).
+
+---
+
+## Alternative: Import an existing Fabric server [#-migrate-the-server-to-mcss]
+
+If you already installed a Fabric server outside of MCSS using the standalone [Fabric installer](https://wiki.fabricmc.net/install) (**Server** tab):
+
+![Installing a Fabric server using the standalone Fabric Installer](/img/docs/create-fabric/install_fabric.png)
+
+1. Open MCSS and select **File → Import Server..**.
+2. Click **Select server to import** and choose a recognized file (such as `server.properties` or the launcher `.jar`) inside your existing Fabric server directory.
+3. Fill in the server details (Name, RAM, Port).
+4. Verify that the configured **Server File** points to the Fabric server launcher JAR, not the Vanilla `server.jar`.
+5. Click **Import Server**.
 
 ![Importing an installed Fabric server in MCSS](/img/docs/create-fabric/migrate_fabric.png)
 
-Complete the [first-start EULA step](/getting-started/first-server#3-complete-the-first-start) and confirm that the startup log identifies Fabric Loader.
-
-## Add mods and test
-
-Place server-compatible Fabric mods and their dependencies in this server's `mods` folder while it is stopped. Install Fabric API **if your mods require it**; it is a separate mod, not Fabric Loader itself.
-
-A client-only mod does not belong on a dedicated server. Install the matching client mod set where the selected mods require it. Then restart and check the logs before inviting players.
-
-For the general workflow and common dependency mistakes, see [Plugins and mods](/running/plugins-and-mods) and Fabric's [player guides](https://docs.fabricmc.net/players/).
+Complete the [first-start EULA step](/getting-started/first-server#3-complete-the-first-start) if not already accepted, and start the server.

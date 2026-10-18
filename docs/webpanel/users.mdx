@@ -1,32 +1,63 @@
 ---
 title: "Panel users and server access"
-description: "Create separate accounts and check their assigned servers and administrative rights."
+description: "Create Web Panel accounts for yourself and your staff, and configure which servers and actions each user can access."
 ---
 
-Use a separate account for each person who needs panel access. Give it access only to the servers and actions that person needs.
+Every person who logs into the MCSS Web Panel should have their own user account. You can give yourself full access to every server while giving moderators or co-owners restricted accounts limited to specific servers and actions.
 
 ## Open user management
 
-On MCSS's **Web Panel** page, open **Manage Users & API Keys**. You need at least one created or imported server before this management panel appears.
+1. Make sure you have created or imported at least one server in MCSS.
+2. Click **Web Panel** in the left sidebar, then click **Manage Users & API Keys** at the top of the page.
+3. The **Remote Access Manager** window opens:
 
-Create a panel user in that window. An API key is a different credential intended for software integrations; see [API access](/API/about).
+[![MCSS 13.10.0 Remote Access Manager showing Web Panel Users and API Keys](/img/docs/panel/remote-access-manager-13-10-0.png)](/img/docs/panel/remote-access-manager-13-10-0.png)
 
-![Creating a panel user in MCSS](/img/docs/panel/remote-access-manager-create-user.png)
+This window manages two types of credentials:
+
+- **Web Panel Users:** Username and password accounts for people signing into the Web Panel in a browser.
+- **API Keys:** Secret tokens for scripts, Discord bots, and third-party tools that talk to the [MCSS API](/API/about#-api-keys).
+
+Click **Add User** under **Web Panel Users** to create a new user account:
+
+![Creating a Web Panel user in MCSS](/img/docs/panel/remote-access-manager-create-user.png)
+
+Enter a **Username** and a strong **Password**, then choose which servers and permissions the user should have.
 
 ## Assign server access
 
-Choose the permitted servers rather than granting every account broad access. Review available action permissions and reserve administrative rights for people who manage the MCSS installation or its users.
+Under **Server Access & Permissions**, you can choose between two modes:
 
-[![MCSS 13.10.0 server permissions with only View Stats on Example Paper enabled](/img/docs/panel/restricted-server-permissions-13-10-0.png)](/img/docs/panel/restricted-server-permissions-13-10-0.png)
+- **All:** Grants this user full access to all current and future servers in MCSS.
+- **Custom:** Lets you pick exactly which servers the user can see and which actions they are allowed to perform on each server.
 
-The current selector provides separate switches for statistics, console viewing/use, server actions/editing, and backup/scheduler operations. Selecting a server's top checkbox enabled all its switches in the test; enabling one individual switch selected that server with just that permission. The screenshot was captured while configuring an API key; panel-session enforcement was tested separately through `/auth`.
+To configure custom permissions, select **Custom** and click **Edit Servers** to open the **Server Selector**:
 
-Administrative permission and server access are separate. Do not assume that an admin flag and access to every server are the same thing; see [Admin permission](/API/admin).
+[![MCSS 13.10.0 Server Selector showing granular per-server permission switches](/img/docs/panel/restricted-server-permissions-13-10-0.png)](/img/docs/panel/restricted-server-permissions-13-10-0.png)
+
+Checking the box next to a server's name enables all permissions for that server, or you can toggle individual switches for fine-grained control:
+
+| Permission group | Switches | What it allows |
+| --- | --- | --- |
+| **Monitoring** | `View Stats` | View online status, player count, CPU usage, and RAM graphs. |
+| **Console** | `View Console`, `Use Console` | Read live console logs (`View Console`) and send commands to the server (`Use Console`). |
+| **Server control** | `Use Server Actions`, `Edit Server` | Start, stop, restart, or kill the server (`Use Server Actions`), and change server settings (`Edit Server`). |
+| **Backups** | `View Backups`, `Create Backup`, `Edit Backup`, `Delete Backups`, `Trigger Backup` | View existing backups, create or edit backup profiles, delete backups, or start a backup manually. |
+| **Scheduler** | `View Scheduler`, `Create Scheduler Task`, `Edit Scheduler Task`, `Delete Scheduler Tasks`, `Trigger Scheduler Task` | View scheduled tasks, create/edit/delete tasks, or run a task on demand. |
+
+### Admin rights vs. Server access
+
+When creating or editing a user, you will also see an **Assign admin rights** checkbox:
+
+- **Server Access (`All` / `Custom`)** controls which Minecraft servers the user can view and control.
+- **Assign admin rights** controls whether the user can manage MCSS itself (such as creating or deleting Web Panel users, managing API keys, and changing global MCSS settings).
+
+Only check **Assign admin rights** for trusted co-owners who need to manage MCSS users or settings. See [Admin permission](/API/admin) for details.
 
 ## Verify with the user's account
 
-Sign in through the panel using the account you created. Check that the intended server appears and the permitted actions work. Also check that other servers and management operations are not unexpectedly available.
+After clicking **Save**, test the new account:
 
-When someone's responsibilities change, review or remove their access. Keep credentials private and use the [remote panel guidance](/webpanel/getting-started) before exposing the management service outside your network.
-
-On 16 October 2026, disposable users were created through the API and authenticated through `/auth`. The restricted session could read assigned-server statistics and received 403 for the other server and `/api/v2/users`; an administrator session succeeded. This does not verify every permission or the browser UI. API keys produced different, unresolved authorization results in the same installation; see [Admin permission](/API/admin).
+1. Open the [Web Panel](/webpanel/getting-started#-local-access) in your browser and sign in with the new username and password.
+2. Confirm that only the servers you assigned appear in the dashboard and that restricted buttons (such as **Use Console** or **Edit Server**) behave as expected.
+3. If someone leaves your staff team later, open **Web Panel → Manage Users & API Keys** to disable or delete their user account, or click **Log out all Active Users** to immediately end all active browser sessions.

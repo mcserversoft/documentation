@@ -1,44 +1,106 @@
 ---
 title: "Run a modpack server"
-description: "Preserve the pack\u2019s installer, dependencies, and launch arguments instead of rebuilding its startup script."
+description: "How to set up, test, import, and configure a Minecraft modpack server in MCSS."
 ---
 
-Use the pack author's **server pack** for the exact release you want. A client export is not necessarily a complete dedicated server, and not every pack publishes server files.
+Modpacks (such as those from CurseForge, Modrinth, or FTB) bundle dozens or hundreds of mods together. Because modpacks rely on specific mod loaders, custom libraries, and pre-configured launch arguments, setting up a modpack server requires a few extra steps compared to a standard Vanilla or single-loader server.
 
-## Prepare the pack
+This guide walks you through downloading the author's server files, testing the pack outside MCSS, and importing it cleanly.
 
-1. Read the pack's installation and Java requirements.
-2. Extract its server archive into a new staging folder outside your active MCSS server directory.
-3. Run only the setup or installation steps the author specifies. Let them download the required loader and libraries.
-4. Start the pack using its supplied method, complete the EULA step if you agree, and stop it normally.
-5. Keep a copy of that working setup before adapting its launcher for MCSS.
+---
 
-This separates a pack installation problem from an MCSS launch configuration problem.
+## 1. Download the server pack
 
-## A pack with a batch launcher [#-step-2]
+Always download the official **Server Pack** provided by the modpack author:
 
-Inspect the file that actually starts Java. Some packs use one batch file for setup and another for normal starts; follow the author's distinction.
+* Look for a button or tab labeled **Server Files**, **Server Pack**, or **Server Download** on the modpack's download page (e.g., on CurseForge or Modrinth).
+* Make sure you download the server pack that matches the exact release version your players will use on their clients.
 
-For a straightforward Forge or NeoForge launcher, use MCSS's batch-file launch method and the [generated-launcher checks](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher). Keep argument files, relative paths, and environment variables that the launcher needs. Remove an interactive `pause` from the file used by MCSS where necessary.
-
-Memory may be configured in `user_jvm_args.txt`, another pack configuration file, or the command itself. Change the setting read by **this** pack; do not add competing `-Xmx` values in multiple places.
-
-<Callout type="warn" title="Keep installation logic intact">
-Do not replace an arbitrary launcher with a one-line `java -jar server.jar` command. That can omit loader arguments, dependency downloads, or pack-specific setup. Keep Java and dependency checks unless the pack author explicitly documents how to use an externally managed runtime.
+<Callout type="warn" title="Do not use a client profile export">
+A standard modpack export (the `.zip` file used by client launchers) is **not** a server pack. Client exports only include configuration files and client-side mods—they do not contain the server launcher, dedicated server libraries, or Forge/NeoForge server files.
 </Callout>
 
-## A pack with PowerShell or another setup tool [#-step-3]
+---
 
-Use the pack's documented setup procedure. Do not disable PowerShell restrictions or Java checks just to make a generic template run.
+## 2. Install and test outside MCSS [#prepare-the-pack]
 
-If the setup produces a Windows batch launcher, use that generated launcher. If it does not, identify the supported normal-start command from the pack's documentation before configuring MCSS. Copying variable names from another pack is not enough to reconstruct it.
+Before adding the server to MCSS, install and test it in a temporary folder first. This ensures all required libraries download properly and helps you separate any modpack-specific issues from MCSS configuration issues.
 
-## Import and verify
+1. **Check requirements:** Check the modpack's documentation or `README` file for the required [Java version](/advanced/java-version) and recommended RAM.
+2. **Create a temporary folder:** Create a new, empty folder on your computer outside your MCSS directory (for example, on your Desktop named `modpack-temp`).
+3. **Extract the files:** Unzip the downloaded server pack archive into this temporary folder.
+4. **Run the pack's installer/setup:**
+   * If the pack includes an installer script (such as `install.bat`, `setup.bat`, or `installer.jar`), run it and wait for it to finish downloading the necessary Forge/NeoForge libraries.
+5. **Start the server once:**
+   * Run the pack's startup script (often named `run.bat` or `start.bat`).
+   * When prompted, open the generated `eula.txt` file, change `eula=false` to `eula=true` to accept the [Minecraft EULA](/getting-started/first-server#3-complete-the-first-start), and save the file.
+   * Start the script again and wait until you see the `Done!` message in the console.
+   * Type `stop` in the console to shut the server down cleanly.
+6. **Save a working copy:** Before tweaking any files, make a backup copy of this folder. If something goes wrong later, you have a clean starting point.
 
-[Import the complete directory](/basic/import-server/supported-server-files), select the appropriate executable or launcher, and confirm that all relative library paths still resolve after import.
+---
 
-Start the imported copy and check the Minecraft version, loader version, mod loading, world, and player data. Test using the **same pack release** on the client. Keep the original staging folder until these checks pass.
+## 3. Review the launch script
 
-## Update the pack as a unit
+Modpacks rely on custom startup scripts to load mods and pass the correct Java arguments. Before importing into MCSS, inspect the file that starts your server.
 
-Use the author's server update instructions and take a [full backup](/backups/backup-and-restore). Test a copy before changing the live server. Do not individually update the loader or every mod to its newest release unless the pack author supports that combination.
+### For a Windows batch launcher (.bat) [#-step-2]
+
+Some Forge and NeoForge packs launch using a `.bat` file (such as `run.bat` or `ServerStart.bat`) that calls Java using `@user_jvm_args.txt` and generated argument files (such as `win_args.txt`).
+
+Before running it through MCSS, apply the [generated-launcher adjustments](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher).
+
+### For PowerShell (.ps1) or external setup tools [#-step-3]
+
+Some packs use PowerShell scripts (like `start.ps1`) or dedicated setup tools to fetch server files:
+
+* Follow the pack author's instructions to run the initial setup script.
+* In most cases, the setup script generates a standard Windows `.bat` file (such as `run.bat`). Once generated, use that `.bat` file for MCSS.
+* If no `.bat` file is produced, check the pack documentation for the exact startup command, or open the PowerShell file in a text editor and look for the line that starts `java`:
+  * Copy the `java` startup line (replacing any script variables with their values from the pack's `variables.txt` or config file) into a new `.bat` file in the server folder.
+
+<Callout type="warn" title="Do not replace the launcher with a generic JAR command">
+Never replace the modpack's launcher with a simple `java -jar server.jar` command. Modern Forge and NeoForge modpacks cannot load without their specific loader arguments, libraries, and runtime environment. Bypassing the launcher will cause the server to crash or load into plain Vanilla without any mods.
+</Callout>
+
+After preparing the server files, try starting the server using the new or edited `.bat` file. Once you confirm it starts cleanly, stop the server and proceed to import it into MCSS.
+
+---
+
+## 4. Import into MCSS
+
+Once your server files are prepared and tested, bring them into MCSS:
+
+1. Open MCSS and go to **File → Import Server..**.
+2. Select **Forge** or **NeoForge** as the server type.
+3. Drag and drop a recognized file from your temporary server folder into MCSS (or click **Select server to import** and choose a file like `server.properties` or `run.bat` inside the folder).
+4. Enter your server settings:
+   * **Name:** A display name for your server.
+   * **Folder Name:** The folder name MCSS will use inside its `servers/` directory.
+   * **RAM:** Set your allocated memory (modpacks typically require at least `4096` MB to `8192` MB or more).
+5. Click **Import Server**. MCSS will copy the complete directory into its internal servers folder.
+
+For more details on importing, see [Import an existing server](/basic/import-server/supported-server-files).
+
+---
+
+## 5. Verify the server
+
+1. Open your server in MCSS and go to its [execution settings](/basic/server-settings/accessing-server-settings#-mcss-settings-advanced).
+2. Under the **Advanced** launch options, ensure **Use Bat file** is checked and points to your prepared launch script (e.g., `run.bat`).
+3. Start the server from MCSS and check the console:
+   * Verify that the correct Minecraft and loader versions are reported.
+   * Watch the log to ensure all mods finish loading without fatal errors.
+4. Join the server from your Minecraft client using the **exact same modpack version**.
+5. Once you have confirmed that the server runs and players can join, you can safely delete the temporary staging folder you created in Step 2.
+
+---
+
+## Updating a modpack server
+
+Modpacks must be updated **as a complete package**:
+
+* **Always take a backup first:** Create a [full backup](/backups/backup-and-restore#what-to-include) before attempting any update.
+* **Follow author instructions:** Always check the modpack author's changelog or update notes.
+* **Do not update mods individually:** Avoid manually updating individual mods or the loader unless explicitly directed by the pack author. Doing so can break mod compatibility, disrupt quest systems, or corrupt your world save.
+* **Test updates first:** If possible, test the update in a separate test copy of your server before applying it to your live world.

@@ -1,61 +1,68 @@
 ---
 title: "Fix startup errors"
-description: "Use the first meaningful log error to check Java, files, memory, ports, and dependencies."
+description: "Step-by-step solutions for the most common Minecraft server startup crashes and errors in MCSS."
 ---
 
-A server process can start and immediately exit before the game becomes available. Read the first relevant error in the full log; the final exit-code line alone rarely explains the cause.
-
-If the server was working, identify the last change: Java, server JAR, loader, mod/plugin, memory, folder, or configuration. Preserve a copy before changing several things at once.
+When a server starts and immediately stops, scroll up in the MCSS console (or open `logs/latest.log` in your server folder) to find the **first error message**. The final line (`Process exited with code 1`) only tells you the server stopped—the real cause is listed a few lines above it.
 
 ## Wrong Java / UnsupportedClassVersionError
 
-Check the executable used by MCSS or the launch script, not just `java` on `PATH`. Compare its version with the [Java table](/advanced/java-version).
+If the console shows an error like `java.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of the Java Runtime (class file version 65.0)`, your server is launching with an **older Java version** than the Minecraft version requires.
 
-The class-file version in an error can identify the runtime requirement:
+Use the class file version number in the error message to see which Java version your server needs:
 
-| Class-file major version | Java release |
-| --- | --- |
-| 52 | 8 |
-| 60 | 16 |
-| 61 | 17 |
-| 65 | 21 |
-| 69 | 25 |
+| Class file version | Required Java version | Typical Minecraft versions |
+| --- | --- | --- |
+| **`69.0`** | **Java 25** | Minecraft `26.1` and newer |
+| **`65.0`** | **Java 21** | Minecraft `1.20.5` – `1.21.x` |
+| **`61.0`** | **Java 17** | Minecraft `1.18` – `1.20.4` |
+| **`60.0`** | **Java 16** | Minecraft `1.17.x` |
+| **`52.0`** | **Java 8** | Minecraft `1.16.5` and older |
 
-A message saying the runtime only recognizes an older number means that executable cannot load the newer class. The numbers follow the [JVM class-file specification](https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-4.html#jvms-4.1).
+**How to fix it:**
+1. Install the [required 64-bit Java version](/advanced/java-version) for your server.
+2. Point your server to that Java installation using MCSS's [Java path settings](/advanced/java-path-update).
 
 ## Could not reserve enough space / invalid heap size
 
-Possible causes include a 32-bit runtime, an excessive heap request, invalid memory flags, or insufficient available/committed memory.
+An error such as `Could not reserve enough space for ... object heap` or `Invalid maximum heap size` happens for one of two reasons:
 
-Verify the actual runtime architecture, then inspect `-Xms` and `-Xmx` in the effective launch command or `user_jvm_args.txt`. Leave headroom for Windows, the Minecraft client, other servers, and Java's non-heap memory. Do not keep increasing the heap when the process cannot reserve it.
+1. **You are accidentally running 32-bit (x86) Java:** 32-bit Java cannot use more than ~1.5 GB of RAM and will crash if you allocate 2 GB (`2048M`) or more. Install **64-bit (x64) Java** and select it in [MCSS's Java path settings](/advanced/java-path-update).
+2. **More RAM is allocated than your PC currently has free:** Lower the RAM allocation in your server's settings (or inside `user_jvm_args.txt` for modern Forge/NeoForge servers) so your PC still has plenty of free memory for Windows.
 
 ## Unable to access jarfile
 
-Check the exact filename, extension, location, working directory, and permissions. The launch command may reference a file that was moved, renamed, or never downloaded correctly.
+`Error: Unable to access jarfile` means Java could not find the server `.jar` file specified in your startup command.
 
-For Forge/NeoForge, confirm you are using the generated launcher rather than assuming the installer or a library JAR is the runnable server. This error alone does not prove another Java process has locked the file.
+**How to fix it:**
+- Open your server folder and check that the `.jar` file exists and that its filename matches the startup line in MCSS's server settings.
+- If you are setting up a **Forge** or **NeoForge** server, make sure you ran the Forge/NeoForge installer with **Install server** so it generates the server files and libraries—do not try to run the installer `.jar` directly as your server file. See the [Forge](/basic/create-server/Forge/create-forge-server) or [NeoForge](/basic/create-server/NeoForge/create-neoforge-server) setup guides.
 
 ## Failed to bind to port
 
-Check whether another process is listening on that address/port, and whether `server-ip` specifies an address that belongs to this computer.
+`**** FAILED TO BIND TO PORT! Perhaps a server is already running on that port?` means one of two things:
 
-For a Java server on TCP `25565`, PowerShell can identify the listener:
-
-```powershell
-Get-NetTCPConnection -State Listen -LocalPort 25565 |
-  Select-Object LocalAddress, LocalPort, OwningProcess
-```
-
-Look up the owning PID in Task Manager. Stop the correct server normally or assign a different port; do not terminate every Java process. See Microsoft's [`Get-NetTCPConnection` reference](https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection).
+1. **Another server (or an orphaned `java.exe` process) is already using that port:**
+   - If you run two servers at the same time on the same PC, give the second server a different `server-port` (for example, `25566`) in `server.properties`.
+   - If MCSS closed earlier while your server was still running, the old Java process may still be running in the background. See [MCSS closed but the game is still running](/troubleshooting/mcss-and-windows#mcss-closed-but-the-game-is-still-running) or run this PowerShell command to check which process ID (`OwningProcess`) is using port `25565`:
+     ```powershell
+     Get-NetTCPConnection -State Listen -LocalPort 25565 |
+       Select-Object LocalAddress, LocalPort, OwningProcess
+     ```
+2. **You put an invalid IP address in `server-ip=`:**
+   - Open `server.properties`, find `server-ip=`, and **leave it completely blank** (`server-ip=`). Never put your router's public IP address in `server-ip`.
 
 ## Session lock / file in use
 
-A second server process, another tool, or a filesystem permission issue can prevent access. Confirm that no other instance is using the same world or server directory. Do not delete lock files while a process still owns the world.
+`Failed to check session lock, aborting` (or `session.lock: The process cannot access the file because it is being used by another process`) means another server instance is already running in that same world folder.
+
+**How to fix it:**
+1. Make sure you don't have a second copy of the server still running in the background (check **Windows Task Manager** for `java.exe`).
+2. Once you are certain no server process is running, start the server again. *(Never delete `session.lock` while a server is actively running, or you risk corrupting your world.)*
 
 ## EULA, mods, or missing libraries
 
-- For an EULA message, read and complete [the EULA step](/getting-started/first-server#3-complete-the-first-start) if you agree.
-- For missing dependencies, compare the Minecraft version, loader, mods, and required libraries with the pack's instructions.
-- For an error after a manual folder move, check relative paths and whether the full installation was copied.
+- **"You need to agree to the EULA in order to run the server":** Open `eula.txt` in your server folder, change `eula=false` to `eula=true`, save the file, and start the server again.
+- **Missing mod dependencies or mismatched mod loader:** Read the crash report or console log—mod loaders like Fabric, Forge, and NeoForge usually list the exact missing dependency mod (such as `Fabric API` or `GeckoLib`) or version mismatch near the top of the error. Make sure every mod in your `mods/` folder is built for your exact Minecraft version and mod loader, and remove client-only mods (like visual HUDs or shader loaders) from the server's `mods/` folder.
 
-If it still fails, follow [Logs and support](/troubleshooting/logs-and-support) and include the complete relevant startup log with private data removed.
+Still having trouble? See [Logs and support](/troubleshooting/logs-and-support) to share your startup log in the [MCSS Discord](https://www.mcserversoft.com/discord).

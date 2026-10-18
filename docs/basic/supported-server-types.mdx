@@ -1,43 +1,73 @@
 ---
 title: "Choose server software"
-description: "Compare Vanilla, Paper, mod loaders, proxies, and Bedrock without confusing their roles."
+description: "Compare Vanilla, Paper, mod loaders, proxies, and Bedrock to pick the right software for your server."
 ---
 
-Start with what your players need. MCSS is version agnostic; the server software determines the game edition, Java requirement, and plugin or mod compatibility.
+Before creating a server in MCSS, decide what kind of Minecraft experience you want to host. Because MCSS is version agnostic, you can run any of the server types below—your choice determines which game edition can join, which [Java version](/advanced/java-version) you need, and whether you can add plugins or mods.
 
 ## Vanilla Java Edition [#-vanilla-minecraft]
 
-Use [Mojang's server](https://www.minecraft.net/en-us/download/server) for the standard Java Edition server experience. It does not load Bukkit/Paper plugins or Forge/Fabric mods.
+Download the Vanilla server JAR from [Mojang's website](https://www.minecraft.net/en-us/download/server) for the standard Java Edition server experience. It does not support Bukkit/Paper plugins or Forge/Fabric mods.
 
-Match the client and server versions unless you deliberately install a separate compatibility solution. For a first setup, use a stable release rather than a snapshot.
+Players must use the same Minecraft version on their computer as the server. If this is your first server, pick a stable release rather than an experimental snapshot.
 
 ## Servers with plugins [#-plugin-support]
 
-| Project | Choose it when… | Official source |
-| --- | --- | --- |
-| Paper | You want a Bukkit-style plugin server with Paper's additional APIs and configuration. | [Paper](https://papermc.io/downloads/paper) |
-| Purpur | You specifically want Purpur's additional gameplay configuration. | [Purpur](https://purpurmc.org/) |
-| Spigot / CraftBukkit | Your deployment specifically requires these projects. | [Spigot BuildTools](https://www.spigotmc.org/wiki/buildtools/) |
+**Plugins** add server-side features—like land claiming, economy systems, or grief prevention—without requiring players to install anything on their own computers.
 
-Check each plugin's supported server and Minecraft versions. A `.jar` extension alone does not mean a download is a compatible plugin. See [Installing plugins and mods](/running/plugins-and-mods).
+<Callout title="Not sure which to pick?">
+Start with **Paper**. It is the modern community standard: fast, stable, and compatible with almost every plugin available.
+</Callout>
+
+| Software | Best for… | Why choose it? | Official source |
+| --- | --- | --- | --- |
+| **Paper** *(Recommended)* | Most servers | Dramatically improves server performance (reduces lag), fixes vanilla exploits, and runs almost all Spigot and Bukkit plugins. | [Paper](https://papermc.io/downloads/paper) |
+| **Purpur** | Customizing gameplay | Built on top of Paper, adding hundreds of optional settings to tweak mob behavior, villager mechanics, and game rules (like riding any mob) without needing extra plugins. | [Purpur](https://purpurmc.org/) |
+| **Spigot / CraftBukkit** | Legacy setups | Older software that Paper is built upon. Only choose these if an older or niche plugin explicitly refuses to run on Paper. | [Spigot BuildTools](https://www.spigotmc.org/wiki/buildtools/) |
+
+When downloading plugins, always check that they support your Minecraft version. See [Installing plugins and mods](/running/plugins-and-mods) for step-by-step instructions.
 
 ## Servers with mods [#-modded-servers]
 
-| Loader | What to match | Official source |
-| --- | --- | --- |
-| Fabric | Minecraft version, Fabric Loader, and the mods' required dependencies. | [Fabric launcher](/basic/create-server/Fabric/create-fabric-server-manually) |
-| Forge | Minecraft version and the pack's required Forge build. | [Forge setup](/basic/create-server/Forge/create-forge-server-manually) |
-| NeoForge | Minecraft version and the pack's required NeoForge build. | [NeoForge setup](/basic/create-server/NeoForge/create-neoforge-server) |
-| Quilt | The loader and Minecraft versions explicitly supported by the selected mods or pack. | [Quilt](https://quiltmc.org/en/install/server/) |
+**Mods** change the game fundamentally—adding new items, dimensions, machinery, and creatures. Because mods alter the core game, **every player who connects must have the exact same mods installed** on their computer as the server.
 
-Use the loader named by the mod or modpack author. Do not substitute Forge for NeoForge, or assume Fabric and Quilt mods are interchangeable. For a published pack, start with its [server pack](/basic/create-server/Forge/create-a-server-with-a-modpack).
+<Callout title="Important" type="warn">
+Mod loaders are mostly **not** interchangeable. If a mod is made for Fabric, it will not work on Forge or NeoForge. Always follow the mod author's instructions.
+</Callout>
+
+| Loader | Best for… | What you need to match | Official source |
+| --- | --- | --- | --- |
+| **Fabric** | Lightweight, performance-friendly mods; very popular for modern versions. | Minecraft version, Fabric Loader version, and any required helper mods (dependencies). | [Fabric guide](/basic/create-server/Fabric/create-fabric-server-manually) |
+| **Forge** | Large, traditional content and overhaul mods (classic modpacks). | Minecraft version and the *exact* Forge build requested by the modpack. | [Forge guide](/basic/create-server/Forge/create-forge-server-manually) |
+| **NeoForge** | Modern continuation of Forge; widely used by newer community modpacks. | Minecraft version and the *exact* NeoForge build requested by the modpack. | [NeoForge guide](/basic/create-server/NeoForge/create-neoforge-server) |
+| **Quilt** | Alternative mod loader built off of Fabric; community-driven. | Loader and Minecraft versions explicitly stated by the mod author. | [Quilt installer](https://quiltmc.org/en/install/server/) |
+
+* **If you are installing a pre-made modpack:** Always download the official **server pack** provided by the pack author rather than trying to build it piece-by-piece. See [How to install a modpack server](/basic/create-server/Forge/create-a-server-with-a-modpack).
+* **Cross-loader rule:** Do not substitute Forge for NeoForge; Fabric and Quilt mods are also not interchangeable unless the mod author states otherwise.
 
 ## Proxies and cross-play [#-proxy--network]
 
-A **proxy** such as [Velocity](https://papermc.io/software/velocity) or [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/) connects players to multiple backend servers. It is not a world server by itself. **Waterfall has reached end of life**; PaperMC directs users toward Velocity. See [PaperMC's proxy comparison](https://docs.papermc.io/velocity/comparisons-to-other-proxies/).
+* **Proxies ([Velocity](https://papermc.io/software/velocity) & [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/)):** A proxy acts like a digital lobby or reception desk—it connects players to multiple backend worlds (like a Survival server and a Minigame server). **A proxy is not a world server by itself;** you must run backend servers alongside it.
 
-[Geyser](https://geysermc.org/wiki/geyser/setup/) translates Bedrock connections for a Java server. It is not a separate mod loader or an ordinary Java network proxy. Its Bedrock listener normally needs **UDP**, separately from the Java server's TCP port.
+<Callout>
+**Waterfall is discontinued.** If you need a proxy, use [Velocity](https://papermc.io/software/velocity) (recommended by PaperMC). Check [PaperMC's proxy comparison](https://docs.papermc.io/velocity/comparisons-to-other-proxies/) for more details.
+</Callout>
 
-## Bedrock Dedicated Server
+* **Geyser (Bedrock Cross-Play):** [Geyser](https://geysermc.org/wiki/geyser/setup/) allows players on consoles, phones, and Windows Bedrock editions to join a Java server. Note that Geyser is a translation tool, not an ordinary Java proxy or mod loader.
 
-Mojang's [Bedrock server](https://www.minecraft.net/en-us/download/server/bedrock) is a separate download with a native executable. It does not use the Java Edition server JAR or the Java version table. Follow its own package instructions, and use a Bedrock client to test it.
+<Callout title="Network warning" type="warn">
+Regular Java servers use TCP ports, but Geyser's Bedrock listener requires UDP ports open as well.
+</Callout>
+
+## Bedrock Dedicated Server [#-bedrock-server]
+
+Choose this if you want to host a world exclusively for **Bedrock Edition** players (mobile, console, and Windows Bedrock):
+
+* **No Java required:** Unlike Java Edition servers, Mojang's official [Bedrock Dedicated Server](https://www.minecraft.net/en-us/download/server/bedrock) runs as a standalone program (a `.exe` on Windows), not a `.jar` file. You do not need Java installed.
+* **Bedrock players only:** Java Edition players cannot connect, and Java plugins or mods (Paper, Forge, Fabric) are not supported. Customization is handled through Bedrock Add-Ons (Behavior and Resource packs).
+* **Network difference (UDP):** Bedrock connections use **UDP port 19132** by default (unlike Java servers, which use TCP port 25565).
+* **Setup:** Download and extract the full `.zip` package from Mojang into your server folder, then point MCSS to the extracted executable.
+
+<Callout title="Want Java and Bedrock players to play together?">
+Do not use Bedrock Dedicated Server for cross-play. Instead, host a Java server (like Paper) and install [Geyser](#-proxy--network) so Bedrock players can join it.
+</Callout>

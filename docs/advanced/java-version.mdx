@@ -3,62 +3,77 @@ title: "Choose and install Java"
 description: "Match Java to the exact Minecraft server version, loader, and server distribution."
 ---
 
-Choose Java for the **server software you are starting**, not for MCSS itself. Different servers on one computer can use different Java installations.
+Minecraft servers require specific versions of Java to run. Choose the Java version required for the **server software you are running**, not for MCSS itself.
 
-## Vanilla and Fabric: current version families
+---
 
-| Minecraft Java Edition | Java baseline |
-| --- | --- |
-| **26.1–26.3** | **Java 25** |
-| **1.20.5–1.21.11** | **Java 21** |
-| **1.18–1.20.4** | **Java 17** |
-| **1.17–1.17.1** | **Java 16** |
-| **1.12–1.16.5** | **Java 8**; check the exact loader or modpack requirements. |
-| Earlier versions, snapshots, or releases not listed here | Follow that release's instructions; do not infer a requirement from its version number. |
+## 1. Java version matrix
 
-These ranges describe Minecraft runtime transitions. A server fork or modpack can require a different supported runtime. In particular, **Paper's recommendations differ for older versions**.
+Select your server type below to find the required Java version and download link:
 
-Minecraft changed to Java 21 in [1.20.5](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-20-5) and Java 25 in [26.1](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-1). Fabric's [current Java installation guide](https://docs.fabricmc.net/players/installing-java/windows) also covers Java 25. Historical transitions are documented in [Fabric’s Minecraft 1.17 transition notes](https://fabricmc.net/2021/05/27/117-for-developers.html) and the [1.18 prereleases](https://www.minecraft.net/en-us/article/minecraft-1-18-pre-release-2).
+### Vanilla & Fabric [#vanilla-and-fabric-current-version-families]
 
-## Paper and other distributions
+| Minecraft Version | Required Java | Download Link |
+| --- | --- | --- |
+| **26.1 – 26.3** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **1.20.5 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **1.18 – 1.20.4** | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **1.17 – 1.17.1** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **1.16.5 and below** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
 
-Paper currently recommends:
+---
 
-| Paper version | Recommended Java |
-| --- | --- |
-| 26.1 and newer published builds | 25 |
-| 1.20–1.21.11 | 21 |
-| 1.17–1.19 | 17 |
-| 1.16.5 | 16 |
-| 1.12–1.16.4 | 11 |
-| 1.7.10–1.11 | 8 |
+### Forge & NeoForge
 
-Check the [Paper requirements](https://docs.papermc.io/paper/getting-started/) for the build you download. For Forge, NeoForge, a proxy, or a modpack, use that project's release instructions. Do not assume that installing the newest Java will make every older pack work.
+| Minecraft Version | Required Java | Download Link |
+| --- | --- | --- |
+| **26.1 and newer** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **1.20.5 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **1.18 – 1.20.4** *(NeoForge 1.20.2+)* | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **1.17 – 1.17.1** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **1.16.5 and below** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
 
-## Install on Windows
+<Callout type="warn" title="Forge 1.16.5 and older requires Java 8">
+Forge 1.16.5 and older releases strictly require Java 8 and will crash on Java 11 or newer. Always ensure you use Java 8 when running older Forge servers or modpacks.
+</Callout>
 
-1. Download the required major version from [Eclipse Temurin](https://adoptium.net/temurin/releases/) or the [Microsoft Build of OpenJDK](https://learn.microsoft.com/en-us/java/openjdk/download).
-2. Choose a build matching the server computer's architecture. For an ordinary 64-bit Intel/AMD Windows machine, choose **Windows x64**. A JDK includes the runtime needed to launch a server; you do not have to find a separate JRE download.
-3. Run the installer or extract the ZIP, following the provider's instructions. Note where it puts `bin\java.exe`.
-4. Open a **new** Command Prompt and check:
+---
+
+### Paper, Spigot & Proxies [#paper-and-other-distributions]
+
+Paper and other optimized server forks often recommend newer Java versions on older Minecraft releases:
+
+| Server Version | Recommended Java | Download Link |
+| --- | --- | --- |
+| **Paper 26.1 and newer** | **Java 25** | [Download Java 25](https://adoptium.net/temurin/releases/?os=windows&arch=x64&version=25) |
+| **Paper 1.20 – 1.21.11** | **Java 21** | [Download Java 21](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=21) |
+| **Paper 1.17 – 1.19.4** | **Java 17** | [Download Java 17](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=17) |
+| **Paper 1.16.5** | **Java 16** | [Download Java 16 (JDK)](https://adoptium.net/temurin/archive/?version=16) |
+| **Paper / Spigot 1.12 – 1.16.4**<br />BungeeCord / Waterfall | **Java 11** | [Download Java 11](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=11) |
+| **Paper 1.7.10 – 1.11** | **Java 8** | [Download Java 8](https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jre&version=8) |
+
+---
+
+## 2. Install Java on Windows
+
+1. Download the required version from [Eclipse Temurin](https://adoptium.net/temurin/releases/) using the links in the tables above.
+2. Choose **Windows x64** and download the `.msi` installer (choose the **JRE** release if available; for Java 16, download the **JDK** installer).
+3. Run the installer and finish the setup.
+4. Open a **new** Command Prompt and check your default Java version:
 
 ```cmd
 java -version
 where java
 ```
 
-`java -version` checks the Java found through `PATH`. It does not prove that an MCSS override or a batch file uses the same executable. Verify the actual executable too, using your installation path:
+---
 
-```cmd
-"C:\path\to\your-jdk\bin\java.exe" -version
-```
+## 3. Assign Java in MCSS
 
-See [Adoptium's Windows installer instructions](https://adoptium.net/installation/windows/) for installation options.
+<Callout title="Running multiple servers with different Java versions" type="info">
+If you run multiple servers that require different Java versions, follow the [Java path guide](/advanced/java-path-update) to configure a separate Java installation for each server.
+</Callout>
 
-## Assign Java to your server
-
-Use MCSS's [global or per-server Java override](/advanced/java-path-update). If a batch file starts the server, inspect the executable in that file as well.
-
-After changing Java, stop and start the affected server, then check its startup output. Keep older Java installations only where you still need them, and keep the selected major version patched.
-
-*Version requirements checked on 15 October 2026. For a newer game or server release, consult its own release notes before upgrading.*
+* In MCSS, set the Java path in server settings or via the [global](/advanced/java-path-update#-globally) or [per-server Java override](/advanced/java-path-update#-per-server).
+* If your server uses a [batch script (`run.bat`)](/advanced/java-path-update#if-the-server-uses-a-batch-file), make sure the script points to the correct Java executable if your system default is different.
+* After changing Java, restart the server and check the console logs to confirm it starts with the correct runtime.

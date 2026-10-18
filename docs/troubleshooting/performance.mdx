@@ -1,36 +1,46 @@
 ---
 title: "Diagnose lag and resource usage"
-description: "Separate game tick performance, network delay, client performance, and MCSS monitoring."
+description: "Tell the difference between server tick lag (TPS), network latency (ping), and client frame rate (FPS), and fix MCSS resource graph issues."
 ---
 
-Describe what is slow before changing settings. These symptoms can have different causes:
+"Lag" can mean three very different things in Minecraft. Before changing server settings or adding more RAM, identify which type of lag you are experiencing:
 
-| Symptom | Start with |
-| --- | --- |
-| All players see delayed mobs, block updates, or commands | Server tick time, loaded chunks/entities, plugins/mods, CPU and disk activity. |
-| One player's connection stutters while others are fine | That player's route, latency, packet loss, Wi-Fi, or tunnel location. |
-| Low FPS on one client | Client graphics, resource packs, render settings, and client mods. |
-| MCSS graph looks frozen but the game responds | Check the actual process and monitoring separately. |
+| What players notice | Type of lag | Where the problem is |
+| --- | --- | --- |
+| **Blocks reappear after breaking, mobs move in slow motion, eating food or opening chests is delayed for everyone** | **Server Tick Lag (Low TPS)** | The server's CPU, RAM, disk, or a heavy plugin/mod cannot keep up with 20 ticks per second. |
+| **One player freezes or rubber-bands while everyone else is playing smoothly** | **Network / Ping Lag** | The internet route, Wi-Fi connection, or tunnel between that player and the server. |
+| **Choppy camera movement or low frame rate on one player's screen** | **Client FPS Lag** | That player's graphics card/CPU, shaders, render distance, or client mods. Changing server settings will not affect client FPS. |
 
-## Collect a useful baseline
+## How to diagnose server tick lag (TPS)
 
-Record player count, world activity, Minecraft and loader/distribution versions, Java executable, memory settings, and recent changes. Observe the issue while it is happening.
+A healthy Minecraft server runs at **20 TPS (ticks per second)**—meaning each tick takes under **50 milliseconds (MSPT)**.
 
-On Paper, use the [profiling guide](https://docs.papermc.io/paper/profiling/) to collect a spark profile. Use the profiler supported by your chosen loader/distribution for other servers. A profile recorded while the server is idle may miss the problem.
+1. **Check TPS and MSPT:** On Paper, Purpur, Fabric (with the [spark](https://spark.lucko.me/) mod), or NeoForge/Forge, run `/tps` or `/spark tps` in the console while the lag is happening.
+2. **Record a spark profile:** Paper (1.21+) and most modern modpacks include the **spark** profiler built in. Run:
+   ```text
+   spark profiler start
+   ```
+   Let it run for 2–3 minutes while players are experiencing lag, then run:
+   ```text
+   spark profiler stop
+   ```
+   Open the generated link to see exactly which world entities, chunks, plugins, or mods are using the most CPU time. See the [Paper profiling guide](https://docs.papermc.io/paper/profiling/) for tips on reading a spark report.
 
-## Change only what the evidence supports
+## Common fixes for server lag
 
-- If the heap is consistently exhausted, check actual usage, leaks, and the workload before increasing it.
-- If CPU time is dominated by a plugin/mod, test a compatible update or a documented setting in a copy.
-- If chunk generation is the trigger, assess exploration and world-generation workload.
-- If the problem is network delay, inspect the connection or tunnel rather than adding heap memory.
-
-Keep the previous values so you can compare results. Avoid pasting long sets of JVM flags intended for a different Java release or server platform.
+- **Fast chunk generation (players flying with Elytra or exploring new terrain):** Generating new chunks is one of the heaviest CPU tasks in Minecraft. Use a pre-generator plugin or mod (such as **Chunky**) to pre-generate your world border while no players are online.
+- **Too many entities or hoppers:** Large mob farms, thousands of dropped items, or massive hopper chains can bog down tick times. Lower `simulation-distance` (for example, from `10` to `6` or `8`) in `server.properties`.
+- **Running out of RAM (or allocating too much RAM):**
+  - If your server's RAM usage constantly hits 100% and stutters, increase the server's memory allocation slightly in MCSS's server settings.
+  - Avoid allocating *all* of your PC's RAM to the server—always leave at least 4–6 GB of RAM free for Windows (and more if you play Minecraft on the same PC).
 
 ## MCSS CPU/RAM graphs do not match expectations
 
-First confirm the game is running and compare its actual process in Windows Task Manager. Check the [explicit Java path](/advanced/java-path-update). A batch launcher may invoke a different executable from the MCSS override.
+If your server is running and players can join, but the CPU or RAM usage graphs in MCSS stay stuck at `0%` / `0 MB` or show the wrong numbers:
 
-Select an explicit executable if the launch command resolves to an unexpected Java installation. If the configuration is correct but monitoring remains inaccurate, include the launch method and the observed process details in a [support report](/troubleshooting/logs-and-support).
-
-If MCSS itself reports a Windows performance-counter error, see [MCSS and Windows](/troubleshooting/mcss-and-windows) rather than applying registry changes as a general performance tweak.
+1. **Servers using a standard Java startup line:**
+   - Open your server's settings in MCSS and check the [Java path override](/advanced/java-path-update#-per-server). Make sure MCSS is pointing directly to the `java.exe` executable running the server.
+2. **Servers launched via a `.bat` (batch) file:**
+   - Older Forge or modpack servers that launch through a custom `.bat` script may spawn a separate child `java.exe` process that MCSS cannot track directly. Where possible, switch the server to MCSS's built-in startup line or argument file (`@user_jvm_args.txt`) instead of a `.bat` wrapper.
+3. **Windows Performance Counter errors:**
+   - If MCSS showed a popup about rebuilding performance counters or process name formats on startup, see [Process-name or performance-counter prompts on older installations](/troubleshooting/mcss-and-windows#process-name-or-performance-counter-prompts-on-older-installations).

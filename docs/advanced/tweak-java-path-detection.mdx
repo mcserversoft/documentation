@@ -1,30 +1,48 @@
 ---
 title: "Java Path Picker search locations"
-description: "Add a custom Java installation directory without changing server launch requirements."
+description: "Add custom folders so MCSS's Java Path Picker can automatically find your Java installations."
 ---
 
-Use an explicit [Java path override](/advanced/java-path-update) when you already know the executable. Add a search location when you want MCSS's **Java Path Picker** to discover an installation in a nonstandard directory.
+MCSS includes a **Java Path Picker** that makes it easy to switch between installed Java versions in [global settings](/advanced/java-path-update#-globally) or [per-server settings](/advanced/java-path-update#-per-server).
 
 ![Java Path Picker in MCSS](/img/docs/java-path/java-path-picker.png)
 
-## Add a search location [#-edit-locations]
+By default, MCSS scans these standard Windows folders for Java installations:
 
-The MCSS configuration exposes `potentialInstalledJavaLocations` in `resources\mcss_config.json`.
-
-1. Close MCSS completely before editing its configuration.
-2. Make a copy of the configuration file.
-3. Open the file and find the existing `potentialInstalledJavaLocations` array.
-4. Append your installation's parent directory, keeping the existing entries and valid JSON syntax.
-5. Save the file, reopen MCSS, and check the picker.
-
-For example, an additional directory entry could be:
-
-```json
-"D:\\Java"
+```text
+C:\Program Files (x86)\Java
+C:\Program Files\Java
+C:\Program Files (x86)\Eclipse Adoptium
+C:\Program Files\Eclipse Adoptium
+C:\Program Files (x86)\Eclipse Foundation
+C:\Program Files\Eclipse Foundation
 ```
 
-Windows backslashes must be doubled inside JSON strings. Do not paste `...` placeholders into the actual file or replace unrelated settings.
+If you installed Java on another drive or extracted a portable ZIP build into a custom folder, you can add that folder to MCSS so the Java Path Picker detects it automatically.
 
-Typical provider locations include `C:\Program Files\Java` and `C:\Program Files\Eclipse Adoptium`, but use the directory that exists on **your** machine. ZIP installations can be anywhere you extracted them.
+## Add a search location [#-edit-locations]
 
-Discovering Java does not select it for every server. After it appears, choose the correct executable in the [global or per-server settings](/advanced/java-path-update) and verify its major version.
+Custom search folders are stored in the `potentialInstalledJavaLocations` list inside `resources\mcss_config.json` (located in your main MCSS folder).
+
+1. Close MCSS completely (**File → Exit**).
+2. Open `resources\mcss_config.json` in a text editor such as Notepad.
+3. Find the `potentialInstalledJavaLocations` array.
+4. Add the parent folder where your Java versions are stored (for example, `"D:\\Java"`):
+
+```json
+"potentialInstalledJavaLocations": [
+  "C:\\Program Files (x86)\\Java",
+  "C:\\Program Files\\Java",
+  "C:\\Program Files (x86)\\Eclipse Adoptium",
+  "C:\\Program Files\\Eclipse Adoptium",
+  "C:\\Program Files (x86)\\Eclipse Foundation",
+  "C:\\Program Files\\Eclipse Foundation",
+  "D:\\Java"
+]
+```
+
+<Callout type="info">
+Because this file uses JSON format, make sure to use double backslashes (`\\`) in Windows folder paths and separate entries with a comma.
+</Callout>
+
+5. Save the file and start MCSS. Your custom Java installations will now appear in the **Java Path Picker** so you can select them in your [global](/advanced/java-path-update#-globally) or [per-server](/advanced/java-path-update#-per-server) settings.

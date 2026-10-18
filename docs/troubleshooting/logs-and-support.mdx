@@ -1,37 +1,42 @@
 ---
 title: "Logs and support"
-description: "Collect a reproducible report while removing credentials and private data."
+description: "How to find your MCSS and Minecraft server logs and get help from the MCSS community."
 ---
 
-A useful report says what you tried, what you expected, and what happened. Include text logs where possible so the error can be searched and read in context.
+When something goes wrong with your server or MCSS, sharing the full text log (rather than a cropped screenshot of the last line) is the fastest way to get help.
 
-## Record the environment
+## What to include when asking for help
 
-- MCSS version, for example **13.10.0**, and Windows version/architecture.
-- Minecraft version and exact server distribution or loader build.
-- Java version **from the executable the server uses**, plus the launch method.
-- Modpack release, plugins/mods, and recent changes.
-- The exact error and approximate time it occurred.
-- Whether a restored or minimal test installation reproduces the issue.
+When posting in the [MCSS Discord](https://www.mcserversoft.com/discord), include these basics so helpers can immediately spot the issue:
 
-For a connection problem, include which [local/LAN/internet test stage](/networking/troubleshooting) fails, the game protocol/port, and whether you use NAT, a VPN, or a tunnel. Do not post router credentials or a complete private network inventory.
+- **MCSS version** (shown in the bottom-left corner of MCSS, such as `v13.10.0`)
+- **Minecraft version and server software** (for example, Paper 1.21.4, Fabric 26.1, or Forge 1.20.1)
+- **What you were doing** when the issue happened, and the exact error message
+- **For connection issues:** Which stage of the [connection checklist](/networking/troubleshooting) failed (`localhost` on the server PC, [another device on your LAN](/networking/troubleshooting#3-test-from-a-second-lan-device), or [friends over the internet](/networking/troubleshooting#4-test-from-outside-your-network))
 
 ## Collect the relevant logs
 
-MCSS application logs are in the installation's `logs` folder. Game servers commonly write `logs/latest.log`; a modded server may also create a crash report. Keep the startup context and the error, not just the final line.
+Depending on whether the Minecraft server or the MCSS application had the error, grab the matching log file:
 
-If the Windows application itself crashes, check **Event Viewer → Windows Logs → Application** around that time. Capture the matching event's details rather than exporting unrelated system history.
+- **Minecraft server logs:** Located inside your server's folder at `logs/latest.log` (and `crash-reports/` if the server generated a crash report). Always share the full startup log rather than just the final `Process exited` line.
+- **MCSS application logs:** Located inside your MCSS installation folder's `logs` directory.
+- **Windows Event Viewer (if MCSS itself crashes to desktop):**
+  1. Press **Win + R**, type `eventvwr`, and press **Enter**.
+  2. Open **Windows Logs → Application** in the left sidebar.
+  3. Look for red **Error** entries around the time MCSS crashed and copy the text from the **General** tab (or click **Save All Events As...** in the right sidebar).
+
+![Locating Application logs in Windows Event Viewer](/img/docs/faq/event_viewer.png)
 
 ## Remove private information
 
-Make a copy before redacting. Remove API keys, session tokens, passwords, webhook secrets, personal paths, and other private data. Log output and command lines can contain credentials. Never share an entire MCSS configuration or server folder just to provide one error.
+Before uploading a log file or pasting config files in a public Discord channel, quickly check that you aren't sharing:
 
-If the output was already shared with a real credential in it, revoke/replace that credential; deleting the public message is not sufficient recovery.
+- MCSS **API keys**, **Web Panel passwords**, or Discord **webhook URLs**
+- Database passwords (such as MySQL/MariaDB credentials in plugin configs) or RCON passwords
 
-## Send the report to the right project
+If you ever accidentally post an API key or password in a public channel, delete or change that key in MCSS right away.
 
-- MCSS UI, importing, process control, panel, or API behavior: [MCSS support](https://www.mcserversoft.com/discord).
-- A loader/mod/plugin error reproducible outside MCSS: the relevant project or pack author, following its reporting instructions.
-- ISP addressing or router administration: your ISP or router vendor.
+## Where to get support
 
-Include reproducible steps and the smallest relevant set of logs. There is no need to attach a large world unless the maintainer asks for one and you have checked what it contains.
+- **MCSS questions, server setup, Web Panel, or API help:** Join the official [MCSS Discord server](https://www.mcserversoft.com/discord).
+- **Modpack, plugin, or mod bugs:** If a specific mod or plugin crashes your server with an internal Java exception, check that modpack or plugin author's issue tracker or Discord as well.

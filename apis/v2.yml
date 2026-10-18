@@ -4,16 +4,11 @@ info:
   version: API_2.4.1
   description: |
     Reference for the MC Server Soft API v2. Use the host, scheme, and port
-    configured in your MCSS instance. Requests authenticate using the `apiKey`
-    header; server access and action permissions apply separately.
+    configured in your MCSS instance, and authenticate requests using the
+    `apiKey` header.
 
-    Start with [API setup](https://docs.mcserversoft.com/API/about) and use
-    `GET /api/v2` to inspect the instance's reported versions. Sample UUIDs,
-    response versions, dates, and paths in this export are examples, not live
-    instance values.
-
-    This supplied export retains its original API version identifier. Consult
-    the official MCSS release notes and your instance when behavior differs.
+    See [Get started with the MCSS API](https://docs.mcserversoft.com/API/about)
+    for setup instructions.
 servers:
   - url: https://localhost:25560
 paths:
@@ -57,8 +52,28 @@ paths:
           in: header
           schema:
             type: string
-          example: sssdfdsfsd
-      responses: {}
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  event:
+                    type: string
+                  serverId:
+                    type: string
+                  timestamp:
+                    type: string
+                    format: date-time
+              example:
+                event: ServerStatusChanged
+                serverId: e0ae4902-10ed-481f-aed0-fa1170ec779a
+                timestamp: '2024-08-19T17:51:52.0500375Z'
+        '401':
+          description: '401'
       tags:
         - General
       description: WIP
@@ -629,10 +644,17 @@ paths:
                 - say Je suis mcss
                 - say Qui
                 - say C'est moi
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a:
+  /api/v2/servers/{serverId}:
     get:
       summary: Get server details
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: filter
           in: query
           schema:
@@ -715,9 +737,16 @@ paths:
         0 = None  
         1 = Minimal  
         2 = Status
-  /api/v2/servers/69361e31-2ac8-43b5-9377-0cb5e40e75ac:
     put:
       summary: Edit Server
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 69361e31-2ac8-43b5-9377-0cb5e40e75ac
       responses:
         '200':
           description: '200'
@@ -760,9 +789,17 @@ paths:
                   type: string
             example:
               KeepOnline: Elevated
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/stats:
+  /api/v2/servers/{serverId}/stats:
     get:
       summary: Get server stats
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -803,9 +840,17 @@ paths:
       tags:
         - Server
       description: Return stats of a specific server.
-  /api/v2/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/icon:
+  /api/v2/servers/{serverId}/icon:
     get:
       summary: Get server icon
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3054aac3-dbf5-4e10-94d2-f4b83577d9b4
       responses:
         '200':
           description: '200'
@@ -823,9 +868,17 @@ paths:
       tags:
         - Server
       description: Return the server-icon.png of a specific server.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/action:
+  /api/v2/servers/{serverId}/execute/action:
     post:
       summary: Execute server action
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -856,9 +909,17 @@ paths:
                   type: integer
             example:
               action: 1
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/command:
+  /api/v2/servers/{serverId}/execute/command:
     post:
       summary: Execute server command
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -885,9 +946,17 @@ paths:
                   type: string
             example:
               command: say My name’s not Kirk..It’s Skywalker. Luke Skywalker.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/execute/commands:
+  /api/v2/servers/{serverId}/execute/commands:
     post:
       summary: Execute server commands
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -919,10 +988,17 @@ paths:
                 - say Je suis mcss
                 - say Qui
                 - say C'est moi
-  /api/v2/servers/3054aac3-dbf5-4e10-94d2-f4b83577d9b4/console:
+  /api/v2/servers/{serverId}/console:
     get:
       summary: Get server console
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3054aac3-dbf5-4e10-94d2-f4b83577d9b4
         - name: AmountOfLines
           in: query
           schema:
@@ -984,10 +1060,17 @@ paths:
 
         **reversed (optional) : boolean**  
         Option to flip the line order.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/console/outdated:
+  /api/v2/servers/{serverId}/console/outdated:
     get:
       summary: Check if console is outdated
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: secondLastLine
           in: query
           schema:
@@ -1033,9 +1116,17 @@ paths:
         **lastLine (required)**  
 
         Last line you want to check.
-  /api/v2/servers/3377e93e-8359-4d43-8d28-177f8b7d96f2/scheduler:
+  /api/v2/servers/{serverId}/scheduler:
     get:
       summary: Get scheduler details
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3377e93e-8359-4d43-8d28-177f8b7d96f2
       responses:
         '200':
           description: '200'
@@ -1073,10 +1164,17 @@ paths:
       tags:
         - Scheduler
       description: Return basic info about the scheduler of a specific server.
-  /api/v2/servers/3377e93e-8359-4d43-8d28-177f8b7d96f2/scheduler/tasks:
+  /api/v2/servers/{serverId}/scheduler/tasks:
     get:
       summary: Get list of tasks
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3377e93e-8359-4d43-8d28-177f8b7d96f2
         - name: filter
           in: query
           schema:
@@ -1153,70 +1251,16 @@ paths:
         1 = FixedTime  
         2 = Interval  
         3 = Timeless
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/4a582b48-5f37-4586-88f9-a37af96db08a:
-    get:
-      summary: Get task
-      parameters:
-        - name: apiKey
-          in: header
-          schema:
-            type: string
-          example: >-
-            bc3DPiMI3KKYFJDoNGYkSlgsNtIx2LcoTkGosKaqWtkteNRZvd6cdoveu6rAYHjz8uGb0RlBeZ-DulusZKaUy9Tp24IvZI0OF7nr-ZAkmBim7yxHcDfW0GxL
-      responses:
-        '200':
-          description: '200'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  taskId:
-                    type: string
-                  name:
-                    type: string
-                  enabled:
-                    type: boolean
-                  playerRequirement:
-                    type: integer
-                  timing:
-                    type: object
-                    properties:
-                      repeat:
-                        type: boolean
-                      interval:
-                        type: integer
-                  job:
-                    type: object
-                    properties:
-                      commands:
-                        type: array
-                        items:
-                          type: string
-              example:
-                taskId: 4a582b48-5f37-4586-88f9-a37af96db08a
-                name: Made with the api2
-                enabled: false
-                playerRequirement: 0
-                timing:
-                  repeat: false
-                  interval: 151
-                job:
-                  commands:
-                    - /say hello from the api2
-                    - /say hello from the api3
-        '401':
-          description: '401'
-        '403':
-          description: '403'
-        '404':
-          description: '404'
-      tags:
-        - Scheduler
-      description: Return a specific task from a specific server.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks:
     post:
       summary: Create task
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '201':
           description: '201'
@@ -1319,9 +1363,98 @@ paths:
                   backupIdentifier: 361288c7-7f6e-42ba-8f8a-69b98737c5ff
                   enabled: true
                   type: BackupJob
-  /api/v2/servers/0d16b818-2b8a-4653-9885-3ccb0d75a6d6/scheduler/tasks/684f8f8d-cd3b-4b14-8899-bbca3f4560df:
+  /api/v2/servers/{serverId}/scheduler/tasks/{taskId}:
+    get:
+      summary: Get task
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 4a582b48-5f37-4586-88f9-a37af96db08a
+        - name: apiKey
+          in: header
+          schema:
+            type: string
+          example: >-
+            bc3DPiMI3KKYFJDoNGYkSlgsNtIx2LcoTkGosKaqWtkteNRZvd6cdoveu6rAYHjz8uGb0RlBeZ-DulusZKaUy9Tp24IvZI0OF7nr-ZAkmBim7yxHcDfW0GxL
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  taskId:
+                    type: string
+                  name:
+                    type: string
+                  enabled:
+                    type: boolean
+                  playerRequirement:
+                    type: integer
+                  timing:
+                    type: object
+                    properties:
+                      repeat:
+                        type: boolean
+                      interval:
+                        type: integer
+                  job:
+                    type: object
+                    properties:
+                      commands:
+                        type: array
+                        items:
+                          type: string
+              example:
+                taskId: 4a582b48-5f37-4586-88f9-a37af96db08a
+                name: Made with the api2
+                enabled: false
+                playerRequirement: 0
+                timing:
+                  repeat: false
+                  interval: 151
+                job:
+                  commands:
+                    - /say hello from the api2
+                    - /say hello from the api3
+        '401':
+          description: '401'
+        '403':
+          description: '403'
+        '404':
+          description: '404'
+      tags:
+        - Scheduler
+      description: Return a specific task from a specific server.
     put:
       summary: Edit task
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 0d16b818-2b8a-4653-9885-3ccb0d75a6d6
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 684f8f8d-cd3b-4b14-8899-bbca3f4560df
       responses:
         '200':
           description: '200'
@@ -1386,9 +1519,23 @@ paths:
             schema:
               type: object
             example: "{\r\n        \"name\": \"Test\",\r\n        \"enabled\": true,\r\n        \"playerRequirement\": 0,\r\n        \"timing\": {\r\n        // \"REPEAT\": FALSE,\r\n        // \"INTERVAL\": 151\r\n        //  \"time\": \"18:05:00\",\r\n        //  \"repeat\": true\r\n           \"repeat\": false,\r\n           \"interval\": 5\r\n        },\r\n        \"jobs\": [\r\n            // {\r\n            //                 \"commands\": [\r\n            //     \"/say hello from the api2\",\r\n            //     \"/say hello from the api3\"\r\n            //     ],\r\n            //     \"enabled\":false\r\n            // },\r\n            {\r\n                \"order\": 0,\r\n                \"action\": 2,\r\n                \"enabled\": true,\r\n                \"type\": \"ServerActionJob\"\r\n            }\r\n        ]\r\n    }"
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/e9aa8fb2-303c-41ec-b3a0-cd9252a2e19f:
     delete:
       summary: Delete task
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e9aa8fb2-303c-41ec-b3a0-cd9252a2e19f
       responses:
         '200':
           description: '200'
@@ -1401,9 +1548,23 @@ paths:
       tags:
         - Scheduler
       description: Delete a specific server task.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/scheduler/tasks/8fcab652-cb96-4c57-b12b-f1d0db694a2b:
     post:
       summary: Run task
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 8fcab652-cb96-4c57-b12b-f1d0db694a2b
       responses:
         '200':
           description: '200'
@@ -1416,10 +1577,17 @@ paths:
       tags:
         - Scheduler
       description: Run a specific server task.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups:
+  /api/v2/servers/{serverId}/backups:
     get:
       summary: Get list of backups
       parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
         - name: filter
           in: query
           schema:
@@ -1487,6 +1655,14 @@ paths:
       description: Return all backups from a specific server
     post:
       summary: Create backup
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '201':
           description: '201'
@@ -1551,9 +1727,17 @@ paths:
               runBackupAfterCreation: true
               fileBlacklist: []
               folderBlacklist: []
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/stats:
+  /api/v2/servers/{serverId}/backups/stats:
     get:
       summary: Get list of backups stats
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -1633,9 +1817,24 @@ paths:
       tags:
         - Backups
       description: Return all backup stats from a specific server
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/449911ca-ff50-4052-8cf3-336b067cd482:
+  /api/v2/servers/{serverId}/backups/{backupId}:
     get:
       summary: Get backup details
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         '200':
           description: '200'
@@ -1704,6 +1903,21 @@ paths:
         \- 4 canceled
     put:
       summary: Edit backup
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         '200':
           description: '200'
@@ -1760,6 +1974,21 @@ paths:
                 - world
     delete:
       summary: Delete backup
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         '200':
           description: '200'
@@ -1774,6 +2003,21 @@ paths:
       description: Delete a specific server backup.
     post:
       summary: Run backup
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
+        - name: backupId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 449911ca-ff50-4052-8cf3-336b067cd482
       responses:
         '200':
           description: '200'
@@ -1786,9 +2030,17 @@ paths:
       tags:
         - Backups
       description: Run a specific server backup.
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/history:
+  /api/v2/servers/{serverId}/backups/history:
     get:
       summary: Get backup history
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -1881,9 +2133,17 @@ paths:
       tags:
         - Backups
       description: Return the last 15 backup history from a specific server
-  /api/v2/servers/e0ae4902-10ed-481f-aed0-fa1170ec779a/backups/history/clear:
+  /api/v2/servers/{serverId}/backups/history/clear:
     post:
       summary: Clear backup history
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: e0ae4902-10ed-481f-aed0-fa1170ec779a
       responses:
         '200':
           description: '200'
@@ -2149,9 +2409,17 @@ paths:
       description: |-
         Return all webhooks.  
         (API Key must have admin rights)
-  /api/v2/webhooks/3a1261b8-bbbc-48a2-9edc-590a5d6de2dc:
+  /api/v2/webhooks/{webhookId}:
     get:
       summary: Get webhook details
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3a1261b8-bbbc-48a2-9edc-590a5d6de2dc
       responses:
         '200':
           description: '200'
@@ -2263,6 +2531,14 @@ paths:
         (API Key must have admin rights)
     put:
       summary: Edit webhook
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3a1261b8-bbbc-48a2-9edc-590a5d6de2dc
       responses:
         '200':
           description: '200'
@@ -2411,6 +2687,14 @@ paths:
               isEnabled: false
     delete:
       summary: Delete webhook
+      parameters:
+        - name: webhookId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 3a1261b8-bbbc-48a2-9edc-590a5d6de2dc
       responses:
         '200':
           description: '200'
@@ -2700,9 +2984,17 @@ paths:
               isAdmin: false
               hasAccessToAllServers: true
               customServerPermissions: null
-  /api/v2/users/5b488091-625e-4403-8cec-94db3b3cc141:
+  /api/v2/users/{userId}:
     get:
       summary: Get user details
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 5b488091-625e-4403-8cec-94db3b3cc141
       responses:
         '200':
           description: '200'
@@ -2897,9 +3189,16 @@ paths:
       description: |-
         Return a specific user.  
         (API Key must have admin rights)
-  /api/v2/users/b04431ae-692e-496e-8228-d1e912843c7e:
     put:
       summary: Edit user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: b04431ae-692e-496e-8228-d1e912843c7e
       responses:
         '200':
           description: '200'
@@ -3028,6 +3327,14 @@ paths:
               customServerPermissions: null
     delete:
       summary: Delete user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: b04431ae-692e-496e-8228-d1e912843c7e
       responses:
         '200':
           description: '200'
@@ -3369,9 +3676,17 @@ paths:
               isAdmin: false
               hasAccessToAllServers: false
               customServerPermissions: null
-  /api/v2/keys/209ef323-51ec-45c8-9526-238720293426/rotate:
+  /api/v2/keys/{apiKeyId}/rotate:
     post:
       summary: Rotate ApiKey
+      parameters:
+        - name: apiKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 209ef323-51ec-45c8-9526-238720293426
       responses:
         '200':
           description: '200'
@@ -3445,9 +3760,17 @@ paths:
       description: |-
         Rotate a specific key.  
         (API Key must have admin rights)
-  /api/v2/keys/357e4fe2-bf15-4d7b-9418-9133e2810e79:
+  /api/v2/keys/{apiKeyId}:
     delete:
       summary: Delete ApiKey
+      parameters:
+        - name: apiKeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: 357e4fe2-bf15-4d7b-9418-9133e2810e79
       responses:
         '200':
           description: '200'

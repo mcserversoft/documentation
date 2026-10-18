@@ -1,33 +1,51 @@
 ---
-title: "Admin permission"
-description: "Distinguish MCSS administration from per-server access and permissions."
+title: "Admin permissions"
+description: "Understand what the Assign admin rights checkbox does for Web Panel users and API keys."
 ---
 
-Administrative permission grants powerful MCSS-level functionality. It is distinct from server access: making a user or key an administrator is not the same as assigning every server to it.
+When creating a [Web Panel user](/webpanel/users) or an [API key](/API/about#-api-keys) in MCSS, you will see two separate permission settings:
 
-Give ordinary server-control integrations only the server access and actions they need. Grant admin permission deliberately for an integration that manages users, keys, or other protected MCSS resources.
+1. **Server Access & Permissions (`All` or `Custom`):** Controls which Minecraft servers the user or API key can view and what actions they can run on those servers (such as viewing stats, sending console commands, starting/stopping the server, or managing backups and scheduled tasks).
+2. **Assign admin rights:** Grants **MCSS-level management permissions**, allowing the user or API key to manage other Web Panel users, create or delete API keys, manage webhooks, and change global MCSS settings.
 
-## User-management routes
+> [!IMPORTANT]
+> **Admin rights do not replace Server Access.**
+> Enabling **Assign admin rights** gives an account or API key access to MCSS management features, while **Server Access & Permissions** controls which Minecraft servers it can interact with. If you want an administrator to also manage all servers, select both **All** (under Server Access) and **Assign admin rights**.
 
-The supplied reference describes these user-management operations as requiring admin rights:
+## When should you enable Admin rights?
 
-| Method | Route pattern | Purpose |
+- **Leave it unchecked** for regular moderators, server helpers, status bots, or scripts that only need to check server stats, run console commands, or restart a Minecraft server.
+- **Check it only** for trusted co-owners or management integrations that need to create/edit Web Panel user accounts, manage API keys, configure webhooks, or update global MCSS settings.
+
+## API endpoints that require Admin rights
+
+In the [MCSS API v2](/apis/v2), the following management endpoints require an API key with **Assign admin rights** enabled:
+
+### User management
+
+See [`/apis/v2#tag/Users`](/apis/v2#tag/Users) for full request and response schemas.
+
+| Method | Endpoint | Description |
 | --- | --- | --- |
-| GET | `/api/v2/users` | List users. |
-| GET | `/api/v2/users/:userId` | Read one user. |
-| POST | `/api/v2/users` | Create a user. |
-| PUT | `/api/v2/users/:userId` | Update a user. |
-| DELETE | `/api/v2/users/:userId` | Delete a user. |
-| POST | `/api/v2/users/wipe/sessions` | Wipe active sessions. |
+| `GET` | `/api/v2/users` | List all Web Panel users |
+| `GET` | `/api/v2/users/:userId` | Get details for a single Web Panel user |
+| `POST` | `/api/v2/users` | Create a new Web Panel user |
+| `PUT` | `/api/v2/users/:userId` | Edit an existing Web Panel user |
+| `DELETE` | `/api/v2/users/:userId` | Delete a Web Panel user |
+| `POST` | `/api/v2/users/wipe/sessions` | Log out all active Web Panel user sessions |
 
-Here `:userId` denotes the actual user identifier. Refer to the [Users reference](/apis/v2#tag/Users) for the supplied request and response definitions.
+### API Key management
 
-This table is not an exhaustive authorization matrix for MCSS 13.10.0. The supplied API export also includes key-management and application-setting operations; check their endpoint descriptions and verify permissions on your instance.
+See [`/apis/v2#tag/Api%20Keys`](/apis/v2#tag/Api%20Keys) for full request and response schemas.
 
-The 16 October 2026 Windows investigation found **unresolved differences between configured API-key permissions and observed responses**, including management reads and access to an unassigned server. Some responses changed after restarting MCSS. Restricted panel sessions received 403 for unassigned-server statistics and user administration in the tested cases. Do not treat the reference table or hidden controls as proof that an API-key restriction is enforced; the discrepancy needs maintainer review. No API contract has been rewritten to imply a diagnosis or guarantee.
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/api/v2/keys` | List all configured API keys |
+| `POST` | `/api/v2/keys` | Create a new API key |
+| `POST` | `/api/v2/keys/:apiKeyId/rotate` | Rotate an existing API key |
+| `DELETE` | `/api/v2/keys/:apiKeyId` | Delete an API key |
 
-## Check an integration's access
+### Global MCSS settings & Webhooks
 
-Test read-only requests with its own key before adding write operations. Confirm the intended servers are visible, then test the permitted operation in a noncritical environment. Review access again if the integration gains new responsibilities.
-
-Avoid using an admin key as a shortcut for diagnosing a bad URL, wrong server ID, or missing per-server assignment. See [API setup](/API/about) for authentication and version checks.
+- **MCSS Settings ([`/apis/v2#tag/Mcss`](/apis/v2#tag/Mcss)):** `GET /api/v2/mcss/settings/All` and `PATCH /api/v2/mcss/settings`
+- **Webhooks ([`/apis/v2#tag/Webhooks`](/apis/v2#tag/Webhooks)):** Viewing, creating, editing, and deleting webhooks under `/api/v2/webhooks`

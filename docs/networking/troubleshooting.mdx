@@ -1,56 +1,78 @@
 ---
 title: "Players cannot connect"
-description: "Find out whether the problem is the game process, LAN, or internet route before changing settings."
+description: "Follow a step-by-step checklist from localhost to the internet to find and fix connection problems."
 ---
 
-Test in order. A failure on the same computer will not be fixed by changing a router rule.
+When players cannot join your server, the fastest way to find the problem is to test in order: **first on the server PC**, **then on your home network (LAN)**, and **finally from the internet**. If a server cannot be reached on the computer running it, changing router settings will not help until the local issue is fixed.
 
 ## 1. Confirm the game is ready
 
-Read the server startup output and `logs/latest.log` where the server provides it. Resolve [startup errors](/troubleshooting/startup) first. Check that you are testing the game port, not the MCSS web panel/API port.
+Before testing connections, check the MCSS console to make sure the server has finished starting up:
 
-Use the correct edition and Minecraft version. For a modpack, use its required client release and mod set. A version mismatch or login error is different from a timeout.
+- **Wait for `Done`:** Large modpacks and first-time world generation can take a minute or two before the server starts listening for players. If the server stops or restarts immediately, see [Fix startup errors](/troubleshooting/startup).
+- **Check the port:** Confirm the `server-port` in your `server.properties` (default `25565` for Java Edition). Make sure players are using the **game port**, not the MCSS Web Panel/API port (`25560`).
+- **Match the Minecraft version and modpack:** Ensure the player is launching the exact same Minecraft version, mod loader, and modpack version as the server.
 
 ## 2. Test from the server computer
 
-For Java Edition, join `localhost:25565`, replacing the port if you changed it.
+Open Minecraft on the same PC running MCSS and connect using **Direct Connection** to:
 
-| Result | What to check next |
+```text
+localhost:25565
+```
+
+*(Replace `25565` if you changed your server port.)*
+
+| What happens | How to fix it |
 | --- | --- |
-| Connection refused | Is the process running and listening on this port? Did startup finish? |
-| Timeout | Check listening address, local filtering, and whether you selected the correct service. |
-| Version/mod/login message | Read the specific message; the network connection may already be working. |
-| You can join | Continue to the LAN test. |
-
-For Bedrock, use the matching client and the Bedrock server's official setup instructions; its UDP traffic is not tested by the TCP command below.
+| **You join the server** | Your server is running properly! Move on to [Step 3: Test from a second LAN device](#3-test-from-a-second-lan-device). |
+| **Connection refused** | The server isn't listening on that port yet. Check the MCSS console to verify the server is online and check `server-port` in `server.properties`. |
+| **Outdated client / Outdated server / Mod mismatch** | Your network connection works! You just need to launch the matching Minecraft version or modpack on your client. |
+| **Failed to verify username / Not authenticated** | If you run a proxy (Velocity/BungeeCord) or switched account sessions, restart your Minecraft Launcher and game client so your login token refreshes. |
 
 ## 3. Test from a second LAN device
 
-Use the server computer's [LAN address](/networking/find-ip), for example `192.168.1.50:25565`. If localhost works but LAN does not, check [Windows Firewall](/networking/windows-firewall), guest-network isolation, VPNs, and interface binding.
+If `localhost` works, test from another computer on the same home network using your server PC's [LAN IPv4 address](/networking/find-ip#find-your-lan-address-on-windows) (for example, `192.168.1.50:25565`).
 
-For a simple direct Java server, `server-ip=` is normally left blank. Do not enter your router's public address into that field. See [server properties](/running/server-properties).
+If `localhost` works on the server PC, but another device at home gets **Connection timed out**, check these common causes:
 
-On a second Windows computer, this PowerShell command can test the TCP connection:
+1. **Windows Firewall on the server PC:** This is the #1 reason LAN connections fail. Follow [Allow game traffic through Windows Firewall](/networking/windows-firewall#choose-the-rule-scope) to allow your server's port or Java executable.
+2. **Leave `server-ip=` blank:** Open `server.properties` and make sure `server-ip=` is completely empty. Putting a wrong IP (or your public IP) there prevents the server from accepting connections properly.
+3. **Wi-Fi Guest Network or VPN:** Make sure neither computer is connected to a "Guest" Wi-Fi network (which isolates devices from each other) or an active VPN that redirects local traffic.
+
+### Test TCP reachability
+
+On a second Windows PC on your home network, you can test whether the port is reachable before even opening Minecraft by running this command in PowerShell (replace the IP and port with yours):
 
 ```powershell
 Test-NetConnection -ComputerName 192.168.1.50 -Port 25565
 ```
 
-Replace both values. `TcpTestSucceeded: True` checks transport reachability, not Minecraft compatibility. Microsoft's [`Test-NetConnection` reference](https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection) describes the result fields.
+- If **`TcpTestSucceeded : True`**, the network path and firewall between the two computers are open.
+- If **`TcpTestSucceeded : False`**, Windows Firewall (or a third-party antivirus firewall) on the server PC is most likely blocking the port.
+
+*(Note: `Test-NetConnection` tests TCP ports used by Java Edition; it does not test UDP ports used by Bedrock Edition or Geyser.)*
 
 ## 4. Test from outside your network
 
-Use a separate internet connection and the public or tunnel address. If LAN works but internet access fails, check:
+Once local or LAN connections work, ask a friend outside your home network to connect using your [public IPv4 address](/networking/find-ip#find-your-public-ipv4-address) (or your [playit.gg tunnel address](/advanced/using-playit.gg-with-mcss)).
 
-- [Port forwarding](/networking/port-forwarding), including the protocol and destination address.
-- Double NAT or ISP CGNAT.
-- A public address that changed, or a DNS record pointing elsewhere.
-- A disconnected [tunnel agent](/advanced/using-playit.gg-with-mcss), or a tunnel aimed at the wrong local service.
+If LAN works at home, but friends over the internet cannot connect, check the following:
 
-If friends can join but you cannot join through your public address from home, the router may not support **NAT loopback/hairpinning**. Use the LAN address locally. That symptom alone does not establish that your ISP is blocking loopback traffic.
+- **Port forwarding rule:** Double-check your [router's port forwarding rule](/networking/port-forwarding#-step-4). Ensure it forwards the right port (`25565`), the right protocol (`TCP` for Java, `UDP` for Bedrock/Geyser), and points to your server PC's current LAN IPv4 address.
+- **Your server PC's LAN IP changed:** Run `ipconfig` on the server PC to verify its IPv4 address still matches the address in your router's port forwarding rule.
+- **CGNAT or Double NAT:** Check Step 1 of the [port forwarding guide](/networking/port-forwarding#-step-1) to verify your router has a real public IPv4 address. If your ISP uses CGNAT, use [playit.gg](/advanced/using-playit.gg-with-mcss) instead.
+- **Using a tunnel (playit.gg):** Make sure the playit.gg agent is running on your server PC and that its local port matches your server's `server-port`. See the [playit.gg troubleshooting steps](/advanced/using-playit.gg-with-mcss#-step-3).
+
+> [!TIP]
+> **Friends can join, but you can't join using your public IP?**
+> That is normal on many home routers! Most routers do not loop connections to your own public IP back inside your home network (**NAT Loopback**). Keep giving your public IP to friends outside your home, and connect using `localhost` (on the server PC) or your LAN IP (`192.168.x.x` on other home devices) yourself.
 
 ## 5. If it fails intermittently
 
-Check whether the server process exits, the computer sleeps, the LAN address changes, or the internet/tunnel connection drops. A DHCP reservation can stabilize the LAN address; it does not prevent a public IPv4 address from changing.
+If players can join at first, but suddenly stop being able to connect later on (or the next day):
 
-Record the time of a failure and compare the MCSS, game, and tunnel logs. For help, include which of the four test stages fails and the exact client message in your [support report](/troubleshooting/logs-and-support).
+- **Your PC went to sleep:** Check **Windows Settings → System → Power & sleep** and set **Sleep** to **Never** while plugged in.
+- **Your LAN IP or Public IP changed:** Reserve your server PC's LAN IP in your router's DHCP settings so your port forward doesn't break after a reboot. If your ISP occasionally changes your public IPv4 address, check your current public IP on [What Is My IP Address](https://whatismyipaddress.com/) or set up a Dynamic DNS (DDNS) hostname.
+
+Still stuck? Check [Logs and support](/troubleshooting/logs-and-support) and let us know which of the steps above (`localhost`, LAN, or internet) failed and what message appeared on the player's screen.

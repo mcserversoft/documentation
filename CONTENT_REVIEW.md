@@ -92,9 +92,10 @@ not resolve the existing contract gaps. API source specifications remain unchang
 - JVM encoding changes are distinguished from Windows console/application
   encoding. DLL/runtime architecture is not inferred from the OS architecture.
 
-The public [Versions and sources](docs/reference/versions-and-sources.mdx) page
-and inline links record the primary references. Version-dependent pages carry a
-review date and direct readers to exact upstream release requirements.
+The public [Official downloads and resources](docs/reference/versions-and-sources.mdx) page
+and inline links record the primary upstream download and documentation references. All dated
+lab-test notes and caveats are kept in this file and the [dated evidence report](contributor-notes/mcss-exploration/2026-10-16-windows-13-10-0.md)
+rather than inside user-facing guides.
 
 ## Assumptions deliberately removed
 
@@ -112,17 +113,17 @@ the application configuration, external databases, or consistent live data.
 
 ## API source work and remaining source limitations
 
-The v2 document's malformed introductory description was replaced with readable
-Markdown. Its already-documented `apiKey` header is now represented by an OpenAPI
-`type: apiKey`, `in: header` security scheme, so clients and the playground can
-supply it. Existing operation paths, status codes, request bodies, response
-schemas, example IDs, and `info.version` remain unchanged.
+The v2 document's introductory description was replaced with readable Markdown,
+and its `apiKey` header is represented by an OpenAPI `type: apiKey`, `in: header`
+security scheme so clients and the playground can supply it. Hardcoded UUIDs in
+`apis/v2.yml` (26 paths) and `apis/v1.yml` (17 paths) were replaced with OpenAPI
+path parameter slugs (`{serverId}`, `{taskId}`, `{backupId}`, `{webhookId}`,
+`{userId}`, `{apiKeyId}`) preserving the original UUIDs as parameter examples,
+and `GET /events` in `apis/v2.yml` was given a sample response and realistic
+header example.
 
 The v2 export is **not** asserted to be a newly generated complete 13.10.0 schema:
 
-- Several paths contain captured UUIDs instead of declared path parameters.
-  Regenerate these from an authoritative API source rather than guessing parameter
-  definitions and constraints from the IDs.
 - `info.version`, captured response versions/dates, and examples predate this
   content review. Readers are directed to `GET /api/v2` for live instance data.
 - The v1 security scheme uses a nonstandard HTTP `apikey` scheme. This historical

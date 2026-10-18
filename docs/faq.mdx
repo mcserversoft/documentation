@@ -1,90 +1,101 @@
 ---
 title: "Frequently asked questions"
-description: "Quick answers with links to setup and troubleshooting guides."
+description: "Quick answers to common questions about setting up, running, and troubleshooting servers in MCSS."
 ---
 
-## Why can nobody connect? [#-faq-unable-to-connect]
+## Why can nobody connect to my server? [#-faq-unable-to-connect]
 
-Follow [Connection troubleshooting](/networking/troubleshooting): game ready, localhost, LAN, then internet. Use the game port rather than the panel/API port.
+The easiest way to find the problem is to test in three steps:
+1. First, join from the server PC itself using `localhost:25565`.
+2. Next, test from another device on your home network using your server PC's [LAN IPv4 address](/networking/find-ip#find-your-lan-address-on-windows) (and make sure [Windows Firewall](/networking/windows-firewall) allows the port).
+3. Finally, set up [port forwarding](/networking/port-forwarding) (or [playit.gg](/advanced/using-playit.gg-with-mcss)) so friends over the internet can join using your public IP.
 
-## What does “Could not reserve enough space” mean? [#-faq-error-initialization-vm]
+Follow the full [Players cannot connect](/networking/troubleshooting) checklist to see which step is failing.
 
-Check runtime architecture, available memory, and the actual heap flags. It is not always a 32-bit Java problem. See [Startup errors](/troubleshooting/startup#could-not-reserve-enough-space--invalid-heap-size).
+## What does "Could not reserve enough space" mean? [#-faq-error-initialization-vm]
 
-## Why does it say “Failed to bind to port”? [#-faq-failed-bind-port]
+This error happens when Java cannot allocate the amount of RAM requested for your server. Most often, it means a **32-bit (x86)** version of Java is installed instead of **64-bit (x64)** Java, or your server is configured to use more RAM than your PC currently has free.
 
-Another listener or an invalid bind address can cause this. Identify the relevant process and check `server-ip`; do not kill every Java process. See [the port diagnostic](/troubleshooting/startup#failed-to-bind-to-port).
+Install a 64-bit Java runtime or lower the server's allocated RAM in your server settings. See [Could not reserve enough space / invalid heap size](/troubleshooting/startup#could-not-reserve-enough-space--invalid-heap-size).
 
-## A file or world is locked [#-faq-file-locked]
+## Why does the console say "Failed to bind to port"? [#-faq-failed-bind-port]
 
-Check for another server instance using the same directory before retrying. Do not delete lock files from a world that is still running. See [Startup errors](/troubleshooting/startup#session-lock--file-in-use).
+`Failed to bind to port` means either:
+- Another server (or a leftover `java.exe` process from an earlier run) is already using that port, **or**
+- You entered an invalid IP address in the `server-ip=` field inside `server.properties` (for almost all home servers, `server-ip=` should be left blank).
+
+See [Failed to bind to port](/troubleshooting/startup#failed-to-bind-to-port) for step-by-step instructions.
+
+## Why does it say a file or world is locked (session.lock)? [#-faq-file-locked]
+
+Minecraft locks your world folder while a server is running so two servers cannot overwrite the same world at the same time. If you see a `session.lock` or file-in-use error, check Windows Task Manager to make sure a previous `java.exe` process isn't still running in the background. See [Session lock / file in use](/troubleshooting/startup#session-lock--file-in-use).
 
 ## My server does not start [#-faq-trouble-starting-server]
 
 ### There is little or no console output [#-faq-console-empty]
 
-Verify the [Java executable](/advanced/java-path-update), launcher filename, working directory, and access permissions. Lack of console output is a symptom, not proof that Java is missing.
+If the server stops immediately with an empty console, MCSS is usually unable to find the configured Java executable or the server `.jar` file. Check your server's [Java path settings](/advanced/java-path-update#-java-path) and verify that the server file still exists in your server folder.
 
 ### The console shows errors [#-faq-server-error]
 
-Use [Startup errors](/troubleshooting/startup) and preserve the full relevant log. Match the exact game, loader, and modpack versions before changing multiple settings.
+Scroll up in the console (or open `logs/latest.log`) to find the first error message—such as an unaccepted `eula.txt`, a mismatched Java version (`UnsupportedClassVersionError`), or an incompatible mod. See [Fix startup errors](/troubleshooting/startup) for solutions to common errors.
 
-## Console commands or dashboard actions do not work [#-faq-console-commands-fail]
+## Console commands or Stop/Restart buttons do not work [#-faq-console-commands-fail]
 
-Check whether the server is accepting console input and whether the launcher keeps the intended process attached. Preserve the startup command and server distribution/build for support.
+If your server runs, but typing commands in the MCSS console or clicking **Stop** has no effect, check how the server is being launched:
+- Some older Bukkit/Spigot/BungeeCord builds require `-Djline.terminal=jline.UnsupportedTerminal` in their startup flags for external consoles to send input properly.
+- If your server launches through a custom `.bat` file that spawns a separate window, switch to MCSS's direct startup line so MCSS stays attached to the server process.
 
-Older guides suggested JLine-related flags for Bukkit/Bungee-based software. Do not apply those flags to every modern server without checking that release's options. See [Logs and support](/troubleshooting/logs-and-support).
+## Can I run NeoForge, Quilt, or a custom server type not listed in the dropdown? [#-faq-unsupported-servers]
 
-## Can I run NeoForge, Quilt, or a newer Minecraft version? [#-faq-unsupported-servers]
+Yes! MCSS is completely version-agnostic and works with any Java-based Minecraft server software (including NeoForge, Quilt, Purpur, Pufferfish, Folia, and custom modpacks). If a specific distribution doesn't have its own label in the server type dropdown, you can select the closest match (such as **Forge** for NeoForge, **Fabric** for Quilt, or **Paper/Spigot** for forks). See [Choose server software](/basic/supported-server-types) and [Create a NeoForge server](/basic/create-server/NeoForge/create-neoforge-server).
 
-MCSS is version agnostic. Use the server's required runtime and launcher. This does not make mods for different loaders compatible. See [Choose server software](/basic/supported-server-types) and [NeoForge](/basic/create-server/NeoForge/create-neoforge-server).
+## MCSS crashed, but my Minecraft server is still running [#-faq-crash]
 
-## MCSS crashed but Minecraft is still running [#-faq-crash]
-
-Stop the game normally if possible before restarting it through MCSS. Forced termination can lose unsaved data. See [Process recovery](/troubleshooting/mcss-and-windows#mcss-closed-but-the-game-is-still-running).
+If MCSS closes unexpectedly, your Minecraft server's `java.exe` process keeps running in the background so players aren't abruptly kicked. Before starting the server again in MCSS, join the server in-game and run `/stop` so it saves and closes cleanly—or close the orphaned process using Task Manager or **Quick Options → Kill all Java processes**. See [MCSS closed but the game is still running](/troubleshooting/mcss-and-windows#mcss-closed-but-the-game-is-still-running).
 
 ## Is MCSS available for macOS or Linux? [#-faq-mac-linux-support]
 
-MCSS is a Windows application. Java's availability on another operating system does not itself make the MCSS application available there. Get current product information from [mcserversoft.com](https://www.mcserversoft.com/).
+No, the MCSS desktop application is built exclusively for **Windows**. However, once MCSS is running on a Windows machine, you can manage your servers from any operating system (including macOS, Linux, iOS, and Android) through your web browser using the built-in [MCSS Web Panel](/webpanel/getting-started).
 
-## Will my server run 24/7? [#-faq-24-7]
+## Will my server stay online 24/7? [#-faq-24-7]
 
-It runs on your computer. The machine must stay powered, awake, and connected, and the game process must keep running. Local hosting does not provide independent uptime when that computer shuts down.
+Because MCSS hosts the server directly on your computer, your server stays online for as long as **your computer is turned on, awake, and connected to the internet** with MCSS running. If you turn off your PC or put it to sleep, the server will go offline until you start it again.
 
-## Can I manage it remotely? [#-faq-remote-control]
+## Can I manage my servers remotely from my phone or another PC? [#-faq-remote-control]
 
-Use the [web panel](/webpanel/getting-started) for browser management or the [API](/API/about) for an integration. Remote administration is separate from letting people join Minecraft.
+Yes! MCSS includes a built-in [Web Panel](/webpanel/getting-started) that works on desktop and mobile browsers, as well as a [Developer API](/API/about) for custom tools and Discord bots.
 
-## CPU/RAM graphs look wrong [#-faq-dashboard-stats-stuck]
+## Why are my CPU and RAM graphs stuck at 0? [#-faq-dashboard-stats-stuck]
 
-### Java startup-line servers [#-faq-stats-normal]
+### Servers using a standard Java startup line [#-faq-stats-normal]
 
-Check the selected Java executable and compare the actual process with Task Manager. A frozen graph alone does not establish the cause. See [Monitoring checks](/troubleshooting/performance#mcss-cpuram-graphs-do-not-match-expectations).
+Make sure your server's [Java path override](/advanced/java-path-update#-per-server) points directly to the `java.exe` binary running the server, and check if Windows Performance Counters need to be rebuilt. See [MCSS CPU/RAM graphs do not match expectations](/troubleshooting/performance#mcss-cpuram-graphs-do-not-match-expectations).
 
-### Batch-file servers [#-faq-stats-bat]
+### Servers using a .bat (batch) file [#-faq-stats-bat]
 
-Inspect the executable invoked by the script as well as MCSS's overrides. Include the launch method in a report if the graph remains incorrect.
+When a server is started through a custom `.bat` script, MCSS may only see the command prompt wrapper instead of the underlying `java.exe` process. Switching the server from a `.bat` file to MCSS's built-in startup line (or `@user_jvm_args.txt` argument file mode) restores accurate CPU and RAM tracking.
 
-## Opening the console reports a Scintilla/DLL error [#-faq-dll-crash]
+## Why does MCSS crash with a Scintilla.dll error when opening the console? [#-faq-dll-crash]
 
-Check the MCSS release's native prerequisites and capture the exception. See [Missing runtime troubleshooting](/troubleshooting/mcss-and-windows#missing-scintilla-or-visual-c-runtime).
+This happens when Windows is missing the required **Microsoft Visual C++ Redistributable** packages (`x86` and `x64`). Download and install both official redistributables from Microsoft using the links in [Missing Scintilla or Visual C++ runtime](/troubleshooting/mcss-and-windows#missing-scintilla-or-visual-c-runtime).
 
-## An older installation asks about process names [#-faq-process-name-format]
+## MCSS asks to update the process name format [#-faq-process-name-format]
 
-That prompt was documented for MCSS 11.5. Do not apply its registry change as a general 13.10.0 setup step. See [Historical Windows remedies](/troubleshooting/mcss-and-windows#process-name-or-performance-counter-prompts-on-older-installations).
+If MCSS prompts you that *"the process name requires a different format"*, click **Yes** so MCSS can configure Windows Performance Counters to track individual Java processes accurately, then restart MCSS. See [Process-name or performance-counter prompts](/troubleshooting/mcss-and-windows#process-name-or-performance-counter-prompts-on-older-installations).
 
-## MCSS reports a performance-counter error [#-faq-failed-performance-counters]
+## MCSS reports "Failed to set performance counters" [#-faq-failed-performance-counters]
 
-Keep the exact message and ask support about that condition. Administrator counter-repair commands are not a general fix for Minecraft lag. See [MCSS and Windows](/troubleshooting/mcss-and-windows).
+This message means Windows' built-in performance counter cache needs to be rebuilt so MCSS can read CPU and RAM usage. Click **Yes** on the prompt (or run `lodctr /r` in an Administrator Command Prompt) and restart MCSS. See [Process-name or performance-counter prompts](/troubleshooting/mcss-and-windows#process-name-or-performance-counter-prompts-on-older-installations).
 
-## Why do I have a long IPv6 address? [#-faq-ipv6]
+## Why do I see a long IPv6 address when looking up my IP? [#-faq-ipv6]
 
-IPv6 addresses are normal. Reachability depends on the address, routing, and firewall rules. Use [the address guide](/networking/find-ip#ipv6-addresses) instead of assuming every IPv6 address is public or reachable.
+Many internet providers assign both an **IPv4** address (like `203.0.113.10`) and a longer **IPv6** address (like `2001:db8::1`). For most home Minecraft servers, using your **IPv4 address** is the simplest option. See [IPv6 addresses](/networking/find-ip#ipv6-addresses) for details on how IPv4 and IPv6 addresses work with Minecraft.
 
-## How do I report an MCSS crash? [#-faq-mcss-crashed-help-out]
+## How do I report an MCSS bug or crash? [#-faq-mcss-crashed-help-out]
 
-Follow [Logs and support](/troubleshooting/logs-and-support), including the version, reproduction steps, and matching error logs with private information removed.
+Grab your MCSS log file (from the `logs` folder inside your MCSS directory) or the crash details from Windows Event Viewer, and share them in the official [MCSS Discord](https://www.mcserversoft.com/discord). See [Logs and support](/troubleshooting/logs-and-support) for how to find your logs.
 
-## Why are characters garbled? [#-faq-utf8]
+## Why are special characters or symbols garbled in the console? [#-faq-utf8]
 
-Find which file or console stream is affected and record the runtime. Modern Java's UTF-8 default does not settle every Windows encoding issue. See [Encoding troubleshooting](/troubleshooting/mcss-and-windows#character-encoding-problems).
+Garbled symbols (`???` or strange accented characters) happen when Java or Windows uses a legacy character encoding instead of **UTF-8**. You can fix this by adding `-Dfile.encoding=UTF-8` to your startup flags (on Java 17 and older) or enabling UTF-8 in your Windows Region settings. See [Character encoding problems](/troubleshooting/mcss-and-windows#character-encoding-problems).

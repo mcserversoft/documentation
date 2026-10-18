@@ -1,48 +1,64 @@
 ---
 title: "Find the right address"
-description: "Use localhost, a LAN address, or a public address according to where the player connects from."
+description: "Learn when to use localhost, your local network (LAN) IP, or your public IP address."
 ---
 
-The address you give a player depends on where they are. These examples use a Java Edition server on port `25565`; replace that with your game port.
+The IP address a player uses to join your server depends on where they are connecting from. The examples below use the default Minecraft Java Edition port (`25565`)—if your server uses a different port, replace `25565` with your server's port.
 
-| Player location | Address to use | Example |
+| Who is connecting? | Address to use | Example |
 | --- | --- | --- |
-| The server computer itself | `localhost` or `127.0.0.1` | `localhost:25565` |
-| Another device on the same LAN | The server computer's LAN IPv4 address | `192.168.1.50:25565` |
-| Outside your network, using IPv4 forwarding | Your public address or DNS name | `your-public-address:25565` |
-| Through a game tunnel | The address assigned by the tunnel service | Use exactly what the tunnel dashboard supplies. |
+| **You**, playing on the same PC running MCSS | `localhost` or `127.0.0.1` | `localhost:25565` |
+| **Someone in your home**, on the same Wi-Fi or wired network (LAN) | The server PC's **LAN IPv4 address** | `192.168.1.50:25565` |
+| **Friends over the internet** (with [port forwarding](/networking/port-forwarding)) | Your router's **public IPv4 address** or domain | `203.0.113.10:25565` |
+| **Anyone** (when using a tunnel like [playit.gg](/advanced/using-playit.gg-with-mcss)) | The **tunnel address** shown in your tunnel dashboard | `example.gl.joinmc.link` |
 
-`localhost` always means **the device making the connection**. It never means another computer just because MCSS is running there.
+> [!TIP]
+> `localhost` always means *"this computer right here."* Use it when your Minecraft game and MCSS are running on the exact same PC. Anyone connecting from another computer or console needs your LAN IP or public IP instead.
 
 ## Find your LAN address on Windows
 
-Open Command Prompt and run:
+Players on your home network need your server computer's local (LAN) IPv4 address. You will also need this address when setting up [port forwarding](/networking/port-forwarding).
+
+1. Press **Win + R**, type `cmd`, and press **Enter** to open Command Prompt.
+2. Run the following command:
 
 ```cmd
 ipconfig
 ```
 
-Find the connected Ethernet or Wi-Fi adapter. Note its **IPv4 Address** and **Default Gateway**. Virtual machine, VPN, and disconnected adapters can show other addresses; choose the adapter on the network your players use.
-
-Example only:
+3. Look for the network adapter your computer uses to connect to your router (usually **Ethernet adapter Ethernet** or **Wireless LAN adapter Wi-Fi**). Ignore virtual adapters from VPNs or virtual machines.
+4. Note the **IPv4 Address** and **Default Gateway** lines:
 
 ```text
-IPv4 Address:   192.168.1.50
-Default Gateway: 192.168.1.1
+IPv4 Address. . . . . . . . . . . : 192.168.1.50
+Subnet Mask . . . . . . . . . . . : 255.255.255.0
+Default Gateway . . . . . . . . . : 192.168.1.1
 ```
 
-Here `192.168.1.50` is the server computer, while `192.168.1.1` is the router. See Microsoft's [`ipconfig` reference](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig).
+- **IPv4 Address (`192.168.1.50` in this example):** This is your server computer's LAN address. Other computers at home can connect using `192.168.1.50:25565`.
+- **Default Gateway (`192.168.1.1` in this example):** This is your router's address, which you use to open your router's settings page.
+
+> [!NOTE]
+> Because home routers assign LAN addresses automatically using DHCP, your computer's LAN IP can occasionally change after a reboot. Most routers let you set a **DHCP reservation** (or **Static Lease**) in their LAN settings so your server PC always keeps the same local IP address.
 
 ## Find your public IPv4 address
 
-Check the router's WAN/Internet status and compare it with an external IP lookup, such as [What Is My IP Address](https://whatismyipaddress.com/). Do this from the server's network, accounting for any VPN that changes its route.
+Friends connecting from outside your home cannot use your `192.168.x.x` or `10.x.x.x` LAN address—those addresses only work inside your local network. Instead, they need your **public IPv4 address**.
 
-A LAN address such as `192.168.1.50` cannot be used directly by a friend on the internet. If your router's WAN address is private or shared, see [double NAT and CGNAT](/networking/port-forwarding#-step-1).
+To find your public IPv4 address:
+
+1. On the server computer (with any VPN turned off), visit an IP lookup page such as [What Is My IP Address](https://whatismyipaddress.com/).
+2. Copy the **IPv4** address displayed on the page.
+
+Before friends can join using your public IPv4 address, you must [set up a port forwarding rule](/networking/port-forwarding) on your router so incoming game traffic knows which computer in your home to reach.
 
 ## IPv6 addresses
 
-An IPv6 address can be normal. Internet access still requires a suitable address, routing, and firewall rules at both ends. A link-local address beginning with `fe80:` is not a public internet address.
+When you look up your IP address, you may also see a long **IPv6 address** made of letters, numbers, and colons (for example, `2001:db8:85a3::8a2e:370:7334`).
 
-Java address fields can use brackets when combining an IPv6 address and port, for example `[your-ipv6-address]:25565`. Use a DNS name where practical and test from the player's network. Do not open every firewall port merely because IPv6 does not use the usual IPv4 port-forwarding setup.
-
-If your address changes over time, a router DHCP reservation can stabilize the LAN destination, and an appropriate dynamic DNS service can keep a public hostname current.
+- **Using IPv4 is usually easiest:** Most Minecraft server setups and home routers use IPv4 for port forwarding. If you have a public IPv4 address, share that with your players.
+- **Formatting IPv6 in Minecraft:** If both you and your players have IPv6 internet connectivity and you want to connect over IPv6, wrap the IPv6 address in square brackets when adding a port in Minecraft Java Edition:
+  ```text
+  [2001:db8:85a3::8a2e:370:7334]:25565
+  ```
+- **Ignore `fe80:` addresses:** Any IPv6 address starting with `fe80:` is a *link-local* address that only works on your immediate local network, not over the internet.

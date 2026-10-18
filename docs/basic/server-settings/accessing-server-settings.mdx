@@ -1,75 +1,75 @@
 ---
 title: "Configure a server in MCSS"
-description: "Separate Minecraft gameplay properties from MCSS launch settings."
+description: "Configure Minecraft gameplay properties and MCSS server execution settings."
 ---
 
 ## Two kinds of settings [#-mcss-handle-settings]
 
-MCSS separates **Minecraft settings** from **server execution settings**. The first affects the game; the second controls how MCSS starts and manages the process.
+MCSS organizes server configuration into two separate areas:
 
-Stop the server before changing its Java version, launcher, memory, or on-disk configuration. Save your changes and review the next startup log.
+* **Minecraft settings:** In-game world and gameplay options (like difficulty, game mode, view distance, and the server MOTD).
+* **Server execution settings:** How MCSS launches, monitors, and manages your server process (like RAM allocation, Java version, startup script, and crash recovery).
+
+Always stop the server before changing its Java version, launcher file, memory allocation, or configuration files, then click **Save** so your changes apply on the next start.
 
 ## Minecraft settings [#-mcss-minecraft-settings]
 
-The dashboard's **Settings** pane exposes Minecraft-related options such as difficulty, game mode, view distance, and MOTD.
+Open the **Settings** tab on your server's dashboard to quickly edit common `server.properties` options such as difficulty, game mode, view distance, and MOTD.
 
 ![Minecraft settings pane in MCSS](/img/docs/server-settings/minecraft-settings.jpg)
 
-For properties that depend on the Minecraft release or server distribution, use [Server properties](/running/server-properties) and that software's own reference. A new Minecraft setting is not necessarily exposed as a dedicated MCSS control.
+If you need to edit a property that isn't shown in the visual form (or a setting specific to Paper, Purpur, or a mod), see [Server properties](/running/server-properties) to edit the configuration file directly.
 
 ## Server execution settings [#-mcss-server-execution-settings]
 
-Open the server's cogwheel or **Server → Edit Server**.
+To open execution settings, click the **cogwheel icon** on your server dashboard or go to **Server → Edit Server**.
 
-The cogwheel opens **Edit Server**, with **General**, **Advanced**, **Crash Handling**, and **Update Server** sections.
+This opens the **Edit Server** window, which is divided into **General**, **Advanced**, **Crash Handling**, and **Update Server** sections.
 
 ### General [#-mcss-settings-general]
 
-Use **General** for the server name, description, MCSS icon, memory allocation, port, and autostart options. Save with **Save**.
+Use **General** to configure your server's display name, description, MCSS icon, RAM allocation, game port, and autostart behavior. Click **Save** when finished.
 
 [![MCSS 13.10.0 General server settings, including RAM, port, save-all, and autostart](/img/docs/server-settings/general-13-10-0.png)](/img/docs/server-settings/general-13-10-0.png)
 
-**Force 'save-all' on server stop** is also available here. Still wait for the server's normal shutdown to complete before copying or replacing its files.
-
-The icon in this dialog is the MCSS interface's icon. It is separate from Minecraft's `server-icon.png`.
-
-Changes to memory or port require a new server start. Keep each concurrently running server's address/port combination distinct.
+* **Force 'save-all' on server stop:** Tells MCSS to send a `save-all` command before stopping the server. Always wait for the server status to reach **Offline** before copying or editing world files.
+* **Server icon:** The icon selected here is used inside the MCSS dashboard and web panel (your in-game server list icon is still controlled by `server-icon.png` in the server folder).
+* **RAM and Port:** Changes to memory or port take effect the next time you start the server. If you run multiple servers at once, give each server its own unique port.
 
 ### Advanced [#-mcss-settings-advanced]
 
-Use **Advanced** for the Java path, Java startup line, or batch-file launcher.
+Use **Advanced** to choose your server's Java path, custom Java startup line, or `.bat` launcher file.
 
 [![MCSS 13.10.0 Advanced settings with local Java override, Startup Line, and Use Bat file](/img/docs/server-settings/advanced-13-10-0.png)](/img/docs/server-settings/advanced-13-10-0.png)
 
-- Select the [Java version your server needs](/advanced/java-version).
-- With the **Java Startup Line** method, the MCSS memory substitution uses `-Xmx[RAM]M`.
-- With a **batch-file** launcher, inspect its own Java executable and memory arguments. Do not assume the General memory control changes a script's `-Xmx` or `user_jvm_args.txt`.
-- Remove interactive `pause` statements from a launch script used by MCSS, as documented in the [Forge workflow](/basic/create-server/Forge/create-forge-server-manually).
+* **Java Path:** Select the [Java version your server needs](/advanced/java-version), or leave it on the global MCSS Java path if all your servers use the same runtime.
+* **Startup Line:** Controls the Java command MCSS runs for single-JAR servers. The `[RAM]` placeholder automatically inserts the memory value from the **General** tab (`-Xmx[RAM]M`).
+* **Use Bat file:** Used by modern Forge, NeoForge, and modpack servers that launch through a script like `run.bat`. When using a batch file, set your RAM inside the script or its `user_jvm_args.txt` file, and remove any interactive `pause` statement as shown in the [Forge batch-launcher guide](/basic/create-server/Forge/create-forge-server-manually#review-a-generated-batch-launcher).
 
-A representative Java argument-file launch was tested with **Startup Line** set to `java @launch.args`, with `launch.args` in the server directory containing the JVM flags and `-jar paper.jar --nogui`. Paper reached readiness using the global Java override. This was a Paper test, not a Forge/NeoForge or modpack validation; retain the actual loader's generated arguments and libraries.
+If you have a long list of custom JVM flags, **Startup Line** can also pass a Java argument file (such as `java @launch.args`), where `launch.args` is a text file in your server folder containing your JVM flags and `-jar` target:
 
 [![MCSS 13.10.0 Startup Line configured to read a Java argument file](/img/docs/server-settings/argument-file-startup-13-10-0.png)](/img/docs/server-settings/argument-file-startup-13-10-0.png)
 
-Do not add a second automatic restart loop to a script while also relying on MCSS process management. For a generated modpack launcher, follow [Modpacks](/basic/create-server/Forge/create-a-server-with-a-modpack).
+When using a custom script or [modpack launcher](/basic/create-server/Forge/create-a-server-with-a-modpack#-step-2), let MCSS handle restarts rather than adding an infinite restart loop inside the `.bat` file.
 
 ### Crash handling / Keep Online [#-mcss-settings-crash]
 
-The **Crash Handling** descriptions in MCSS 13.10.0 identify these modes:
+The **Crash Handling** tab controls whether MCSS automatically restarts your server if it stops unexpectedly:
 
 | Mode | Behavior |
 | --- | --- |
-| Nothing | No automatic restart after a stop or crash. |
-| Elevated | Restart after a crash or a stop caused by non-MCSS input. |
-| Aggressive | Restart after a crash or a stop caused by any input; the UI warns of conflicts with scheduler and backup tasks. |
+| **Nothing** | Never restarts automatically after a stop or crash. |
+| **Elevated** | Automatically restarts the server if it crashes or stops outside of MCSS, while staying offline when you click **Stop** in MCSS. |
+| **Aggressive** | Restarts the server whenever it stops for any reason (note: this can conflict with scheduled tasks and backups). |
 
 [![MCSS 13.10.0 Crash Handling descriptions for Nothing, Elevated, and Aggressive](/img/docs/server-settings/crash-handling-13-10-0.png)](/img/docs/server-settings/crash-handling-13-10-0.png)
 
-Tested on 16 October 2026 with Paper 26.3 build 194: **Nothing** left a normally stopped server offline; **Elevated** restarted after the lab's verified Java child process was terminated externally, while MCSS **Stop** and a Minecraft `stop` entered through the MCSS console left it offline; **Aggressive** restarted after MCSS **Stop**. These cases do not establish behavior for every crash, server implementation, or automation interaction.
-
-Before an update, restore, or manual maintenance task, check this setting so an automatic restart does not reopen files you are replacing. Do not use an aggressive restart policy while trying to diagnose repeated startup failures.
+<Callout title="Tip for server maintenance">
+If you are troubleshooting a server that crashes immediately on startup, or performing manual file maintenance, set Crash Handling to **Nothing** (or **Elevated** when stopped via MCSS) so the server does not try to restart while you are working on it.
+</Callout>
 
 ### Update Server [#-mcss-settings-update]
 
-The **Update Server** section lets you replace the selected server JAR. Stop the server first and make a [recoverable backup](/backups/backup-and-restore).
+The **Update Server** section lets you quickly replace the server `.jar` file for single-JAR servers (such as Vanilla or Paper). Always stop the server and take a [backup](/backups/backup-and-restore#take-a-consistent-manual-backup) before updating.
 
-A loader-based installation may also need updated libraries, arguments, or mods. Replacing one JAR is not a complete Forge, NeoForge, or modpack upgrade. Follow the [update workflow](/running/updating).
+For modded servers (Forge, NeoForge, or modpacks) that also update libraries and launch files, follow the full [server update guide](/running/updating).

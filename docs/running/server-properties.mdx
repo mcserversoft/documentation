@@ -1,33 +1,31 @@
 ---
 title: "Edit server.properties"
-description: "Change game settings deliberately and use the reference for your exact server release."
+description: "Customize your Minecraft server's port, world name, gameplay rules, and multiplayer settings."
 ---
 
-`server.properties` belongs to the Minecraft server, not to MCSS. Java Edition and Bedrock Dedicated Server have different property sets despite using the same filename.
+The `server.properties` file sits inside your server's root folder and controls core Minecraft settings such as the game port, world name, difficulty, and view distance.
 
-Stop the server, save a copy of the file, and change only the settings you intend to test. Start the server again and check whether the change took effect. MCSS also exposes some options in its [Minecraft settings pane](/basic/server-settings/accessing-server-settings#-mcss-minecraft-settings).
+You can edit common settings directly inside MCSS using the [Minecraft settings pane](/basic/server-settings/accessing-server-settings#-mcss-minecraft-settings), or open `server.properties` in any text editor. Always **stop the server** before editing `server.properties` manually so your changes are not overwritten when the server shuts down, then **start** the server to apply them.
 
 ## Common Java Edition settings
 
-| Property | What to check |
+| Property | What it does |
 | --- | --- |
-| `server-port` | The game's listening port. Use distinct ports for servers running on the same address. |
-| `server-ip` | Usually leave empty for a straightforward home server. It is a local bind address, not your router's public address. |
-| `online-mode` | Keep account authentication enabled for a directly accessible server. Proxy setups require their own documented authentication and isolation arrangement. |
-| `white-list` | Restricts joining to the allowlist; manage entries using the server's own commands. |
-| `motd` | Description displayed in the multiplayer server list. |
-| `difficulty` / `gamemode` | Gameplay settings; check the selected release's accepted values. |
-| `view-distance` / `simulation-distance` | World delivery and simulation settings; increasing them can increase server workload. |
-| `level-name` | The configured world name. Changing it may make the server load or create a different world. |
+| `server-port` | The port players use to join (default is `25565`). If you run multiple servers on the same computer, give each server a different port. |
+| `server-ip` | Leave this **blank** for standard home servers so the server listens on all local network adapters. |
+| `online-mode` | Verifies players' Minecraft accounts with Mojang (`true` by default). Keep this set to `true` unless your server is behind a properly secured proxy like Velocity. |
+| `white-list` | When set to `true`, only players added to the whitelist (`/whitelist add <player>`) or server operators can join. |
+| `motd` | The message of the day shown under your server's name in the Minecraft multiplayer list. |
+| `difficulty` / `gamemode` | Sets the server's default difficulty (`peaceful`, `easy`, `normal`, `hard`) and game mode (`survival`, `creative`, `adventure`, `spectator`). |
+| `view-distance` / `simulation-distance` | Controls how many chunks around each player are sent and ticked. Lowering these values can improve performance if your server lags. |
+| `level-name` | The folder name of the active world (default is `world`). |
 
-This is a starting point, not a complete list. Some settings change across releases. Use [Paper's property reference](https://docs.papermc.io/paper/reference/server-properties/) for Paper, and the files/release notes supplied with your chosen software for other servers.
+<Callout type="info" title="Switching or finding worlds with level-name">
+The `level-name` setting tells Minecraft which world folder to load. If you change `level-name` to a name that does not exist yet, Minecraft will generate a brand-new world in a new folder while leaving your old world folder untouched. If your builds ever seem to have disappeared after a config edit, check that `level-name` still matches your original world folder's name!
+</Callout>
 
-## Make one change at a time
-
-Keep a short record of the old value, new value, and reason. If the server fails to start after an edit, restore the previous file and test again. Avoid deleting a world merely because a configuration mistake makes it appear to be missing.
+For a full list of every Java Edition property, see [Paper's `server.properties` reference](https://docs.papermc.io/paper/reference/server-properties/) or the [Minecraft Wiki](https://minecraft.wiki/w/Server.properties).
 
 ## Bedrock Dedicated Server
 
-Use Microsoft's [Bedrock property reference](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties). Do not paste Java-only settings into a Bedrock file or assume its port/protocol matches Java.
-
-For client connection problems, return to [Connection troubleshooting](/networking/troubleshooting) before making more gameplay changes.
+Bedrock Dedicated Server also uses a `server.properties` file, but its option names and default ports (`19132` UDP for IPv4) differ from Java Edition. See Microsoft's official [Bedrock `server.properties` reference](https://learn.microsoft.com/minecraft/creator/documents/bedrockserver/server-properties) for supported Bedrock settings.

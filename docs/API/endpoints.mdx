@@ -1,24 +1,21 @@
 ---
 title: "API versions and reference"
-description: "Choose the correct API reference and distinguish exported examples from live instance information."
+description: "Browse the MCSS API endpoint references and OpenAPI specifications."
 ---
 
-## v2: current integration reference
+Choose the API reference that matches your version of MCSS:
 
-Use the [API v2 reference](/apis/v2) with MCSS 13.10.0. It is generated from the repository's supplied OpenAPI specification, rather than a manually maintained list of endpoint pages.
+## API v2 (Current — MCSS 13.7+)
 
-- [Set up access and authentication](/API/about).
-- [Open the v2 endpoint reference](/apis/v2).
-- [Download the v2 OpenAPI document](/apis/v2.yml).
-- Call `GET /api/v2` on your configured instance to inspect its reported MCSS/API versions.
+Use **API v2** for all current MCSS installations (including MCSS 13.10.0). It provides full support for server control, console streaming, backups, scheduled tasks, webhooks, user management, and API keys.
 
-## Older APIs
+- **[Browse the API v2 Endpoint Reference](/apis/v2)** — Interactive documentation for every v2 endpoint, organized by category.
+- **[Download the OpenAPI v2 Specification (`/apis/v2.yml`)](/apis/v2.yml)** — Import this file directly into [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/), or OpenAPI code generators.
+- **[Get started with the MCSS API](/API/about)** — Step-by-step guide to enabling the API and creating your first API key.
 
-- [v1 reference](/apis/v1) and [v1 specification](/apis/v1.yml): retained for historical integrations. The supplied export notes that v1 was no longer distributed from MCSS 13.9.0.
-- [MCSS v12 Postman documentation](https://documenter.getpostman.com/view/7749159/TzJsexSC): historical reference for the older application release.
+## Older API versions (Legacy)
 
-## Read examples carefully
+If you are maintaining an older MCSS installation and cannot update yet, use the legacy references below:
 
-Some supplied operation paths contain concrete UUIDs captured in examples. Use identifiers belonging to your instance; never assume an example ID identifies one of your servers, tasks, backups, users, or keys.
-
-The exported `info.version`, sample application versions, server addresses, and dates describe the source export. They are not a live description of the MCSS installation you are connecting to. Check the endpoint definition, your live response, and the [official MCSS release notes](https://www.mcserversoft.com/changelogs) when diagnosing a difference.
+- **[API v1 Reference (MCSS 13.0 – 13.8)](/apis/v1)** and **[OpenAPI v1 Specification (`/apis/v1.yml`)](/apis/v1.yml)** — Legacy API used prior to MCSS 13.9.0.
+- **[MCSS v12 Postman Documentation](https://documenter.getpostman.com/view/7749159/TzJsexSC)** — External documentation for MCSS version 12.

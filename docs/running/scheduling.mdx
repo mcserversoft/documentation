@@ -1,44 +1,58 @@
 ---
 title: "Schedule server tasks"
-description: "Create an interval task, choose its jobs, and verify its result in the game console."
+description: "Automate restarts, backups, and console commands using MCSS's built-in task scheduler."
 ---
 
-Open a server's **Scheduler** tab and choose **Create new Task**. Check the server's [Crash Handling policy](/basic/server-settings/accessing-server-settings#-mcss-settings-crash) before automating stops, restarts, or backups.
+MCSS includes a built-in **Scheduler** for each server so you can automate routine tasks like announcements, world saves, backups, and scheduled restarts.
 
-## Choose a trigger
+To get started, select your server, open the **Scheduler** tab, and click **Create new Task**.
 
-Enter a **Task Name**, then choose:
+## 1. Choose a trigger
 
-| Trigger | Description shown in MCSS 13.10.0 |
+Enter a **Task Name**, then select when the task should run:
+
+| Trigger | How it works |
 | --- | --- |
-| **Fixed Time** | Run at a certain local time, entered in 24-hour `hh:mm:ss` format. |
-| **Interval** | Count down a number of seconds after the server starts or restarts. |
-| **Timeless** | A task without scheduling capabilities. |
+| **Fixed Time** | Runs at a specific local time of day (`hh:mm:ss` in 24-hour format). |
+| **Interval** | Counts down a set number of seconds after the server starts or restarts. Enable **Repeat** if you want the timer to loop continuously while the server is online. |
+| **Timeless** | Saves a manual task that only runs when you trigger it yourself (or via the Web Panel / API). |
 
-For an interval, enter the number of seconds and decide whether to enable **Repeat**. The interval description says repeated tasks loop while the server is online. Under **Player Requirements**, choose whether the task always runs, only runs when the server is empty, or only runs when players are online.
+Under **Player Requirements**, choose whether the task should:
+- Always run regardless of player count,
+- Only run when the server is empty, or
+- Only run when players are online.
 
-[![MCSS 13.10.0 interval task set to ten seconds, Repeat cleared, with no player-count restriction](/img/docs/scheduler/interval-trigger-13-10-0.png)](/img/docs/scheduler/interval-trigger-13-10-0.png)
+[![MCSS interval task configuration showing the interval timer, Repeat checkbox, and Player Requirements](/img/docs/scheduler/interval-trigger-13-10-0.png)](/img/docs/scheduler/interval-trigger-13-10-0.png)
 
-The Fixed Time description uses local time. Time-zone changes, daylight-saving transitions, missed executions while MCSS is closed, and player-count conditions were not exercised in this review; test those cases before relying on them.
+## 2. Add jobs and delays
 
-## Add jobs and review
+Click **Next** to open the **Jobs Overview** screen. A single scheduled task can run multiple actions in sequence:
 
-Choose **Next** to open **Jobs Overview**. Use **Add Job** to choose a job, or **Add Delay** to insert a delay between jobs. Job controls include enable/disable, ordering arrows, editing, and removal.
+- Click **Add Job** to add an action to the task.
+- Click **Add Delay** to pause for a set number of seconds between jobs (for example, warning players in chat 60 seconds before a server restart).
+- Use the arrow buttons to reorder jobs, or toggle individual jobs on and off.
 
-The job chooser exposes **Server Action**, **Run Console Commands**, **Start Backup**, **Run PowerShell Command**, and **Run CMD Command**. Only the Minecraft console-command job was executed in this walkthrough. The Server Action dropdown lists Stop, Start, Kill, and Restart; Kill is forced termination.
+Available job types include:
+- **Server Action:** Run a power action (**Start**, **Stop**, **Restart**, or **Kill**).
+- **Run Console Commands:** Send one or more commands to the Minecraft server console. You can add multiple commands by separating them with ` ; ` (for example, `say Server restarting in 1 minute! ; save-all`).
+- **Start Backup:** Run one of your configured [backup templates](/backups/backup-and-restore#create-a-backup-in-mcss).
+- **Run PowerShell Command / Run CMD Command:** Execute a custom script or Windows command on your host machine.
 
-For a harmless check on a running Java Edition test server, choose **Run Console Commands**, enter `scoreboard objectives list`, and choose **Save**. This is a Minecraft command sent to that server's console. The form also describes separating multiple commands with `;`; multiple-command execution was not tested here.
+[![MCSS task job editor showing a Run Console Commands job](/img/docs/scheduler/console-command-job-13-10-0.png)](/img/docs/scheduler/console-command-job-13-10-0.png)
 
-[![MCSS task job containing the Minecraft command scoreboard objectives list](/img/docs/scheduler/console-command-job-13-10-0.png)](/img/docs/scheduler/console-command-job-13-10-0.png)
+## 3. Review and create
 
-Choose **Next**, check the trigger, repeat state, enabled jobs, and player requirements, then choose **Create**.
+Click **Next** to review a summary of your task's trigger, repeat setting, player requirements, and jobs. Click **Create** to save the task.
 
-[![MCSS 13.10.0 final task review showing an interval of ten seconds and Repeat False](/img/docs/scheduler/review-task-13-10-0.png)](/img/docs/scheduler/review-task-13-10-0.png)
+[![MCSS task review screen showing the configured trigger and jobs](/img/docs/scheduler/review-task-13-10-0.png)](/img/docs/scheduler/review-task-13-10-0.png)
 
-## Verify and disable
+## Manage and test tasks [#verify-and-disable]
 
-The task appears under its trigger category on **Scheduler**, with an enable switch and controls to run it now, edit it, or remove it. For the interval example, start the disposable server, wait for readiness, and check its console/log for the command result after the interval. A saved task alone does not prove it executed.
+Your saved tasks appear under their trigger category in the **Scheduler** tab. From there, you can:
+- Use the **toggle switch** to enable or disable a task at any time.
+- Click the **play button** to run the task immediately and verify that its commands or actions work as expected in the server **Console**.
+- Edit or delete tasks whenever your schedule changes.
 
-Disable a task when it is no longer needed. A non-repeating interval task can still matter on a later server start; do not leave experimental jobs enabled on a production server.
-
-Tested on **MCSS 13.10.0, Paper 26.3 build 194, Temurin 25.0.4.1**, 16 October 2026: a ten-second interval with Repeat cleared ran `scoreboard objectives list` ten seconds after the server's `Done` message and returned the restored world's `mcss_recovery` objective. Other trigger types, power actions, backup jobs, and shell jobs require separate validation.
+<Callout type="info">
+If you are performing manual server maintenance or testing upgrades, remember to temporarily disable any scheduled restart or start tasks so the server stays offline while you work.
+</Callout>
