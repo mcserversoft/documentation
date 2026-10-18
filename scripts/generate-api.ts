@@ -23,7 +23,7 @@ for (const version of ['v2', 'v1']) {
         `description: ${legacy ? 'Reference for older MCSS releases.' : 'API reference for MC Server Soft v13.7.0 and later.'}`,
         '---', '',
         ...(legacy ? ['<Callout type="warn" title="Legacy API">', 'This API is retained for older MCSS installations. Use the [v2 reference](/apis/v2) for current integrations.', '</Callout>', ''] : []),
-        '[Set up API access](/API/about) · [Admin permissions](/API/admin) · '+
+        '[Set up API access](/API/about#-api-enable) · [Admin permissions](/API/admin) · '+
           `[Download OpenAPI specification](/apis/${version}.yml)`, '',
       ];
       for (const group of this.generatedEntries[version]) {
@@ -32,7 +32,7 @@ for (const version of ['v2', 'v1']) {
         lines.push(`## ${group.info.title} [#tag/${group.info.title}]`, '', '<Cards>');
         for (const entry of group.entries) {
           if (entry.type !== 'operation') continue;
-          const href = `/apis/${version}/${entry.path.replace(/\.mdx$/, '')}`;
+          const href = `/apis/${version}/${entry.path.replaceAll('\\', '/').replace(/\.mdx$/, '')}`;
           const description = `${entry.item.method.toUpperCase()} ${entry.item.path}`;
           lines.push(`<Card href=${JSON.stringify(href)} title=${JSON.stringify(entry.info.title)} description=${JSON.stringify(description)} />`);
         }

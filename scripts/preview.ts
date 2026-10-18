@@ -15,8 +15,7 @@ const server = Bun.serve({
     if ((await stat(path).catch(() => null))?.isDirectory()) path += '/index.html';
     const file = Bun.file(path);
     if (await file.exists()) {
-      // Next static route handlers have no extension; serve search as JSON.
-      return new Response(file, path.endsWith('/api/search') ? { headers: { 'Content-Type': 'application/json' } } : undefined);
+      return new Response(file);
     }
     return new Response(Bun.file(resolve(root, '404.html')), { status: 404 });
   },

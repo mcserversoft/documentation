@@ -8,7 +8,7 @@ import {
 } from 'fumadocs-ui/components/dialog/search';
 
 export default function DocsSearch(props: SharedProps) {
-  const search = useStaticSearch({ from: '/api/search' });
+  const search = useStaticSearch({ from: '/search-index.json' });
   return (
     <SearchDialog {...search} {...props}>
       <SearchDialogOverlay />

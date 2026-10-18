@@ -22,11 +22,19 @@ session, run `bun run generate:api` again.
 bun run build          # Generates API pages and exports the site to out/
 bun run typecheck
 bun run check:export   # Checks exported links, assets, API coverage, and search
+bun run check:export --external  # Also checks external links and their fragments
 bun run preview        # Serves the production files locally
 ```
 
 Bun manages dependencies and runs project scripts. Next.js uses Node.js at build
 time. Commit `bun.lock`; do not introduce npm, Yarn, or pnpm lockfiles.
+
+The static search index is served at `/search-index.json`, keeping it separate
+from the legacy `/API/` guide URLs on case-insensitive filesystems. **Edit on
+GitHub** links use the current CI or local Git branch; set `DOCS_GITHUB_REF` to
+override it when building outside a Git checkout or previewing another ref.
+The optional external check reports HTTP errors too; a site that blocks automated
+requests (such as with HTTP 403) needs to be verified in a browser.
 
 ## Hosting
 
